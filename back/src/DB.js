@@ -1,7 +1,13 @@
-import { Sequelize } from 'sequelize'
-import { dbName, dbPassword, dbUserName, dbHost } from './config.js'
+import mongoose from "mongoose";
+import {mongodb_uri_key} from './config.js'
 
-export const sequelize = new Sequelize(dbName, dbUserName, dbPassword, {
-  host: dbHost,
-  dialect: 'postgres'
-})
+export const connectDB = async () =>{
+    try {
+
+        await mongoose.connect(mongodb_uri_key);
+        console.log('>>> *** MONGODB *** <<<')
+        
+    } catch (error) {
+        console.log(error)
+    }
+}

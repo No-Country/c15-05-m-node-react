@@ -1,12 +1,10 @@
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from "dotenv";
+dotenv.config();
 
-export const port = process.env.PORT
+export const port = process.env.PORT;
 
-export const urlFrontEnd = process.env.URL_FRONT_END
+export const mongodb_uri_key = process.env.MONGO_URI_KEY;
 
-//* Variables de entorno de la base de datos
-export const dbName = process.env.DB_NAME
-export const dbUserName = process.env.DB_USERNAME
-export const dbPassword = process.env.DB_PASSWORD
-export const dbHost = process.env.DB_HOST
+export const token_secret = process.env.TOKEN_SECRET;
+
+export const urlFrond = process.env.URL_FRONT_END

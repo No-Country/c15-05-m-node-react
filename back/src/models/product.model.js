@@ -1,23 +1,42 @@
-import { DataTypes } from 'sequelize'
-import { sequelize } from '../DB.js'
+import mongoose from "mongoose";
 
-export const Products = sequelize.define('Products', {
-  id: {
-    type: DataTypes.UUID,
-    defaultValue: () => uuidv4(),
-    primaryKey: true,
-  },
-  name: {
-    type: DataTypes.STRING
-  },
-  price: {
-    type: DataTypes.INTEGER
-  },
-  description: {
-    type: DataTypes.STRING
-  },
-  quantity: {
-    type: DataTypes.INTEGER
-  }
-})
-
+const Product = new mongoose.Schema(
+    {
+        name:{
+            type:String,
+            required:true,
+        },
+        price:{
+            type:Number,
+            requered:true
+        },
+        image:{
+            url:String,
+            public_id:String
+        },
+        quantity:{
+            type:Number,
+            requered:true
+        },
+        description:{
+            type:String,
+            required:true,
+        },
+        category:{
+            type:Array,
+            default:[]
+        },
+        currency:{
+            type:String
+        },
+        company: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Company",
+            required: true,
+        }
+    },{
+        timestamps:true,
+        versionKey:false
+    }
+)
+export default mongoose.model("product",Product)

@@ -1,59 +1,25 @@
-import { DataTypes } from 'sequelize'
-import { sequelize } from '../DB.js'
-import { Products } from './product.model.js';
-import { Employes } from './employe.model.js';
-import { Seller } from './seller.model.js';
+import mongoose from "mongoose";
 
-export const Company = sequelize.define('Company',{
-    id: {
-        type: DataTypes.UUID,
-        defaultValue: () => uuidv4(),
-        primaryKey: true,
+const Company = mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
     },
-    name:{
-        type:DataTypes.STRING
-     },
-    email:{
-        type:DataTypes.STRING
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
     },
-    password:{
-        type:DataTypes.STRING
+    sector:{
+        type: String,
+        required: true,
     },
-    category:{
-        type:DataTypes.STRING
-    },
-    coutry:{
-        type:DataTypes.STRING
+    country:{
+        type: String,
+        required: true,
     }
+},{
+    timestamps:true,
+    versionKey:false
 })
-
-//? Relacion entre Company y Products
-Company.hasMany(Products, { 
-    foreignKey: 'companyID',
-    sourceKey:'id'
-});
-Products.belongsTo(Company, {
-    foreignKey: 'companyID',
-    targetId:'id'
-});
-
-
-//? Relacion entre Company y Employes
-Company.hasMany(Employes,{
-    foreignKey: 'companyID',
-    sourceKey:'id'
-})
-Employes.belongsTo(Company,{
-    foreignKey: 'companyID',
-    targetId:'id'
-})
-
-//? Relacion entre Company y Seller
-Company.hasMany(Seller,{
-    foreignKey: 'companyID',
-    sourceKey:'id'
-})
-Seller.belongsTo(Company,{
-    foreignKey: 'companyID',
-    targetId:'id'
-})
+export default mongoose.model("Company", Company)
