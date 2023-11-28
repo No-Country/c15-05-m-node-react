@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 dotenv.config()
 
-export const PORT = process.env.PORT
+export const port = process.env.PORT
 
 export const urlFrontEnd = process.env.URL_FRONT_END
 
