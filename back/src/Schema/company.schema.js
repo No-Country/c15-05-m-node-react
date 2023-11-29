@@ -5,9 +5,9 @@ export const companySchema = z.object({
         required_error:"EL Nombre es requerido"
     }),
     sector:z.string({
-        required_error:"EL Nombre es requerido"
+        required_error:"Sector es requerido"
     }),
     country:z.string({
-        required_error:"EL Nombre es requerido"
+        required_error:"El pais es requerido"
     }),
 })
