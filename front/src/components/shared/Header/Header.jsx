@@ -17,7 +17,7 @@ const Header = ({ showDown = true }) => {
           <div className="header-down-rigth">
             <a href="">registrarse</a>
             <a href="">iniciar sesion</a>
-            <FaUserCircle className="" />
+            <FaUserCircle className="icono-usuario" />
           </div>
         </div>
       )}
@@ -28,6 +28,7 @@ const Header = ({ showDown = true }) => {
 export default Header;
 
 
+//Codigo viejo//
 
 // import {React} from "react";
 // import "./Header.component.css";

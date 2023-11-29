@@ -46,6 +46,7 @@ display: none;
 
 .icono-usuario{
   scale:1.3;
+  transition: 0.5s;
 }
 
 .icono-usuario:hover{
