@@ -5,7 +5,7 @@ const Company = mongoose.Schema({
         type: String,
         required: true,
     },
-    user: {
+    creatorUser: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         required: true,
@@ -16,6 +16,15 @@ const Company = mongoose.Schema({
     },
     country:{
         type: String,
+        required: true,
+    },
+    image:{
+        url: String,
+        public_id: String
+    },
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
         required: true,
     }
 },{
