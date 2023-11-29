@@ -12,16 +12,15 @@
   font-family: Roboto, sans-serif;
 }
 
-.title{
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
+body{
+  background-color: #E8EDEE;
 }
-
 a{
   text-decoration: none;
   color: #666;
+  transition: 0.5s;
 }
 
 a:hover{
-  scale: 1.5em
+  scale: 1.1;
 }
