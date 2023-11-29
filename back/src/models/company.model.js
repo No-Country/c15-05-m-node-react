@@ -5,7 +5,7 @@ const Company = mongoose.Schema({
         type: String,
         required: true,
     },
-    user: {
+    creatorUser: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         required: true,
