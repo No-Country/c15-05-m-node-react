@@ -17,6 +17,15 @@ const Company = mongoose.Schema({
     country:{
         type: String,
         required: true,
+    },
+    image:{
+        url: String,
+        public_id: String
+    },
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
     }
 },{
     timestamps:true,
