@@ -5,11 +5,6 @@ const Company = mongoose.Schema({
         type: String,
         required: true,
     },
-    creatorUser: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: true,
-    },
     sector:{
         type: String,
         required: true,
