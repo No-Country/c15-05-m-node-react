@@ -145,7 +145,7 @@ const product = [
   ];
 
 
-const Cards = () => {
+const CardsContainer = () => {
     return (
     <div>
         {product && product.map((p) => (
@@ -162,4 +162,4 @@ const Cards = () => {
     ) 
 }
 
-export default Cards;
+export default CardsContainer;

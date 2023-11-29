@@ -2,6 +2,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../components/home/Home";
 import Register from "../components/register/Register";
+import CardsContainer from "../components/cardsContainer/CardsContainer";
 
 const router = () => {
   return (
@@ -9,7 +10,7 @@ const router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
-        <Route path='/home' element={<Cards />}/>
+        <Route path='/home' element={<CardsContainer />}/>
       </Routes>
     </>
   );
