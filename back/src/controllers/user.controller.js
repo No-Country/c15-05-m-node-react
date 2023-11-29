@@ -1,15 +1,17 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
-import sendTokenResponse from "../middleware/tokenResponse.js";
+import jwt from "jsonwebtoken";
+import { createAccessToken } from "../libs/jwt.js";
 import Company from "../models/company.model.js";
-
+import { token_secret } from "../config.js";
 
 // ? Registrar usuario
 export const register = async (req,res)=>{
     const {name,email,password} = req.body
     try {
-        const userFound = await User.findOne({email})
-        if (userFound) return res.send().json('El Correo ya esta en uso')
+        const emailLow = email.toLowerCase();
+        const userFound = await User.findOne({email:email})
+        if (userFound) return res.status(400).json({ error: 'El Correo ya está en uso' });
 
         const passwordaHash = await bcrypt.hash(password,10); 
 
@@ -20,6 +22,9 @@ export const register = async (req,res)=>{
         })
         console.log(newUser)
         const userSaved = await newUser.save();
+
+        const token = await createAccessToken({ id: userSaved._id });
+        res.cookie("token", token);
 
         res.status(200).json({
             id: userSaved._id,
@@ -49,8 +54,15 @@ export const registerCompany = async (req, res) => {
             user: id
         })
        await newCompany.save();
-       await User.findByIdAndUpdate(id,{UA:true}, { new: true } );
-       return res.status(201).json(newCompany);
+       const updatedUser = await User.findByIdAndUpdate(id,{UA:true}, { new: true } );
+       return res.status(201).json({
+        dataUser:{
+            name:updatedUser.name,
+            email:updatedUser.email,
+            UA:updatedUser.UA,
+        },
+        newCompany
+    });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: error.message });
@@ -61,29 +73,65 @@ export const registerCompany = async (req, res) => {
 export const login = async (req,res)=>{
     try {
         const { email, password } = req.body;
-        const emailLow = await email.toLowerCase();
+        const emailLow = email.toLowerCase();
 
-        const user = await User.findOne({ email: emailLow });
+        const user = await User.findOne({ email:emailLow });
         if (!user) return res.status(404).json({ message: "Usuarios no encontrado" });
 
         const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch)
-          return res.status(400).json({ message: "Contraseña incorrecta" });
+        if (!isMatch) return res.status(400).json({ message: "Contraseña incorrecta" });
       
-        sendTokenResponse(user, 200, res);
-      
+          const token = await createAccessToken({ id: user._id });
+
+          res.cookie("token", token);
+          res.json({
+            id: user._id,
+            name: user.name,
+            email: user.email,
+            UA: user.UA,
+            EUA:user.EUA,
+            });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: error.message });
       }
 }
 
-// ? Salir de seccion
+// ? Salir
 export const logout = async (req,res)=>{
     try {
-         res.status(200).send('logout')
+        res.cookie("token", "", {
+          expires: new Date(0),
+        });
+        return res.sendStatus(200);
     } catch (error) {
-        console.error(error)
-        res.status(500)
+        console.log(error);
+    }
 }
-}
+
+//? Verifica el token en la cookies
+export const verityToken = async (req, res) => {
+    try {
+      const { token } = req.cookies;
+      if (!token) return res.status(401).json(["No autorizado"]);
+
+      jwt.verify(token, token_secret, async (err, user) => {
+        if (err) return res.status(401).json(["No autorizado"]);
+  
+        const userFound = await User.findById(user.id);
+  
+        if (!userFound) return res.status(401).json(["No autorizado"]);
+  
+        return res.json({
+          id: userFound._id,
+          name: userFound.name,
+          email: userFound.email,
+          UA:userFound.UA,
+          EUA:userFound.EUA
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
