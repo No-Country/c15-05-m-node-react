@@ -18,6 +18,11 @@ const User = new mongoose.Schema(
             type:String,
             required:true,
         },
+        companyID:{
+            type: [mongoose.Schema.Types.ObjectId],
+            ref: "Company",
+            default:null
+        },
         UA:{
            type:Boolean,
            default:false

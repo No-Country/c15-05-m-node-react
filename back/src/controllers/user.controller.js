@@ -5,22 +5,36 @@ import { createAccessToken } from "../libs/jwt.js";
 import Company from "../models/company.model.js";
 import { token_secret } from "../config.js";
 
+
+const  DataUser =()=>{}
+
 // ? Registrar usuario
 export const register = async (req,res)=>{
-    const {name,email,password} = req.body
+    const {name,email,password,companyID} = req.body
     try {
         const emailLow = email.toLowerCase();
-        const userFound = await User.findOne({email:email})
+        const userFound = await User.findOne({email:emailLow})
         if (userFound) return res.status(400).json({ error: 'El Correo ya está en uso' });
 
         const passwordaHash = await bcrypt.hash(password,10); 
 
-        const newUser = new User({
-            name,
-            email,
-            password:passwordaHash
-        })
-        console.log(newUser)
+        var newUser;
+        if(companyID){
+            newUser = new User({
+                name,
+                email,
+                password:passwordaHash,
+                companyID,
+                EUA:true
+            })
+        }else{
+            newUser = new User({
+                name,
+                email,
+                password:passwordaHash,
+            })
+        }
+
         const userSaved = await newUser.save();
 
         const token = await createAccessToken({ id: userSaved._id });
@@ -54,7 +68,8 @@ export const registerCompany = async (req, res) => {
             user: id
         })
        await newCompany.save();
-       const updatedUser = await User.findByIdAndUpdate(id,{UA:true}, { new: true } );
+       console.log(newCompany._id)
+       const updatedUser = await User.findByIdAndUpdate(id,{UA:true,companyID:newCompany._id}, { new: true } );
        return res.status(201).json({
         dataUser:{
             name:updatedUser.name,
@@ -90,6 +105,7 @@ export const login = async (req,res)=>{
             email: user.email,
             UA: user.UA,
             EUA:user.EUA,
+            companyID: user.companyID ? user.companyID : ""
             });
     } catch (error) {
         console.log(error);
@@ -127,7 +143,8 @@ export const verityToken = async (req, res) => {
           name: userFound.name,
           email: userFound.email,
           UA:userFound.UA,
-          EUA:userFound.EUA
+          EUA:userFound.EUA,
+          companyID: userFound.companyID ? userFound.companyID : ""
         });
       });
     } catch (error) {
