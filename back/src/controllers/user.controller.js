@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import { createAccessToken } from "../libs/jwt.js";
 import Company from "../models/company.model.js";
 import { token_secret } from "../config.js";
+import { uploadImage } from "../utils/cloudinary.js";
 
 
 // ? Registrar usuario
