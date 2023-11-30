@@ -11,7 +11,7 @@ export const uploadImage = async (images) => {
 
   // Upload
   const result = cloudinary.uploader.upload(images, {
-    folder: "blog",
+    folder: "iPunto",
     width: 2400,
     crop: "scale",
     sign_url: true, 

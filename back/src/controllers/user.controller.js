@@ -53,28 +53,34 @@ export const register = async (req,res)=>{
 }
 // ? Registro empresa
 export const registerCompany = async (req, res) => {
-    const { name, sector, country } = req.body;
+    const { name, sector, country, image } = req.body;
     const { id } = req.params;
     try {
-        const user = User.findById({id})
-        if(!user) return res.status(404).json({ message: "Usuario no encontrado" });
-        
+        console.log("USER", id);
+        if(!id) return res.status(404).json({ message: "Usuario no encontrado" });
+        const imageClodinary = await uploadImage(image);
         const newCompany = new Company({
             name,
+            creatorUser: id,
             sector,
             country,
-            user: id
+            user: id,
+            image: {
+                url: imageClodinary.url,
+                public_id: imageClodinary.public_id,
+              },
         })
+        console.log("newCompany", newCompany);
        await newCompany.save();
-       console.log(newCompany._id)
-       const updatedUser = await User.findByIdAndUpdate(id,{UA:true,companyID:newCompany._id}, { new: true } );
+       const updatedUser = await User.findByIdAndUpdate(id,{UA:true}, { new: true } );
        return res.status(201).json({
-        dataUser:{
+        data:{
+            newCompany,
             name:updatedUser.name,
             email:updatedUser.email,
             UA:updatedUser.UA,
         },
-        newCompany
+        
     });
     } catch (error) {
         console.log(error);
