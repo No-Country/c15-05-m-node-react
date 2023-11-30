@@ -1,4 +1,5 @@
 import Sale from "../models/sale.model.js"
+
 export const createSale = (req,res)=>{
     try {
         res.send('creada')
@@ -16,6 +17,7 @@ export const getSale = (req,res)=>{
         res.status(500).send('Error interno')
     }
 }
+
 export const getSales = (req,res)=>{
     try {
         res.send('Octenidas')

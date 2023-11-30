@@ -1,5 +1,5 @@
 import cloudinary from "cloudinary";
-const { cloud_name, api_key, api_secret } = process.env;
+import { cloud_name, api_key, api_secret } from '../config.js'
 
 export const uploadImage = async (images) => {
   cloudinary.config({
