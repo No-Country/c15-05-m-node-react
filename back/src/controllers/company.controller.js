@@ -1,6 +1,6 @@
 import User from "../models/user.model.js";
 import Company from "../models/company.model.js";
-import uploadImage from "../utils/cloudinary.js"
+import {uploadImage} from "../utils/cloudinary.js"
 
 
 
@@ -24,13 +24,12 @@ export const registerCompany = async (req, res) => {
        await newCompany.save();
        const updatedUser = await User.findByIdAndUpdate(id,{UA:true,companyID:newCompany._id}, { new: true } );
        return res.status(201).json({
-        data:{
-            newCompany,
+        userData:{
             name:updatedUser.name,
             email:updatedUser.email,
             UA:updatedUser.UA,
         },
-        
+        newCompany,
     });
     } catch (error) {
         console.log(error);

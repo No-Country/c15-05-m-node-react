@@ -1,6 +1,6 @@
 import cloudinary from "cloudinary";
-// import { cloud_name, api_key, api_secret } from '../config.js';
-const { cloud_name, api_key, api_secret } = process.env;
+import { cloud_name, api_key, api_secret } from '../config.js';
+// const { cloud_name, api_key, api_secret } = process.env;
 
 export const uploadImage = async (images) => {
   // console.log("API KYE UTILS", api_key);

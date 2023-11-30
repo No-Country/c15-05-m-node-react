@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import { createAccessToken } from "../libs/jwt.js";
 import Company from "../models/company.model.js";
 import { token_secret } from "../config.js";
-import { uploadImage } from "../utils/cloudinary.js";
+import  {uploadImage}  from "../utils/cloudinary.js";
 
 
 // ? Registrar usuario
@@ -52,40 +52,7 @@ export const register = async (req,res)=>{
         res.status(500)
     }
 }
-// ? Registro empresa
-export const registerCompany = async (req, res) => {
-    const { name, sector, country, image } = req.body;
-    const { id } = req.params;
-    try {
-        if(!id) return res.status(404).json({ message: "Usuario no encontrado" });
-        const imageClodinary = await uploadImage(image);
-        const newCompany = new Company({
-            name,
-            sector,
-            country,
-            user: id,
-            image: {
-                url: imageClodinary.url,
-                public_id: imageClodinary.public_id,
-              },
-        })
-        console.log("newCompany", newCompany);
-       await newCompany.save();
-       const updatedUser = await User.findByIdAndUpdate(id,{UA:true}, { new: true } );
-       return res.status(201).json({
-        data:{
-            newCompany,
-            name:updatedUser.name,
-            email:updatedUser.email,
-            UA:updatedUser.UA,
-        },
-        
-    });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: error.message });
-    }
-}
+
 
 // ? iniciar seccion
 export const login = async (req,res)=>{
