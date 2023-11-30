@@ -56,12 +56,10 @@ export const registerCompany = async (req, res) => {
     const { name, sector, country, image } = req.body;
     const { id } = req.params;
     try {
-        console.log("USER", id);
         if(!id) return res.status(404).json({ message: "Usuario no encontrado" });
         const imageClodinary = await uploadImage(image);
         const newCompany = new Company({
             name,
-            creatorUser: id,
             sector,
             country,
             user: id,

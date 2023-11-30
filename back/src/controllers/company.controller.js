@@ -1,32 +1,36 @@
 import User from "../models/user.model.js";
 import Company from "../models/company.model.js";
+import uploadImage from "../utils/cloudinary.js"
 
 
 
 // ? Registro empresa
 export const registerCompany = async (req, res) => {
-    const { name, sector, country } = req.body;
+    const { name, sector, country, image } = req.body;
     const { id } = req.params;
     try {
-        const user = User.findById({id})
-        if(!user) return res.status(404).json({ message: "Usuario no encontrado" });
-        
+        if(!id) return res.status(404).json({ message: "Usuario no encontrado" });
+        const imageClodinary = await uploadImage(image);
         const newCompany = new Company({
             name,
             sector,
             country,
-            user: id
+            user: id,
+            image: {
+                url: imageClodinary.url,
+                public_id: imageClodinary.public_id,
+              },
         })
        await newCompany.save();
-       console.log(newCompany._id)
        const updatedUser = await User.findByIdAndUpdate(id,{UA:true,companyID:newCompany._id}, { new: true } );
        return res.status(201).json({
-        dataUser:{
+        data:{
+            newCompany,
             name:updatedUser.name,
             email:updatedUser.email,
             UA:updatedUser.UA,
         },
-        newCompany
+        
     });
     } catch (error) {
         console.log(error);
@@ -40,7 +44,7 @@ export const getCompany = async (req,res)=>{
     try {
          const company = await Company.findById(id)
          if(!company)return res.send("No se a encontrado la compañia").status(404)
-         
+
         res.send(company).status(200)
     } catch (error) {
         console.log(error)
