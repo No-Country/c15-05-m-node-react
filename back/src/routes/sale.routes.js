@@ -10,6 +10,6 @@ router.get('/sale',getSales)
 router.get('/sale/:id',getSale)
 
 // ? generar venta 
-router.post('/sale',createSale)
+router.post('/sale/:id',createSale)
 
 export default router

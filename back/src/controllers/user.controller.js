@@ -6,8 +6,6 @@ import Company from "../models/company.model.js";
 import { token_secret } from "../config.js";
 
 
-const  DataUser =()=>{}
-
 // ? Registrar usuario
 export const register = async (req,res)=>{
     const {name,email,password,companyID} = req.body
@@ -150,5 +148,5 @@ export const verityToken = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
-  };
+};
   

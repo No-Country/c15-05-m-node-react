@@ -8,7 +8,7 @@ const router = Router();
 // ? Registrar usuario
 router.post('/register',validateSchema(userRegisterSchema),register);
 
-// ? Registrar company
+// ? Registrar compañia
 router.post('/register/company/:id',validateSchema(companySchema),registerCompany);
 
 // ? iniciar seccion
