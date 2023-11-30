@@ -1,4 +1,5 @@
 import Product from '../models/product.model.js'
+import { deleteImageCloudinary, uploadImage } from '../utils/cloudinary.js';
 
 
 // ? Octoner un producto
@@ -43,14 +44,11 @@ export const createProduct = async (req,res)=>{
         description,
         category,
         currency,
-        company} = req.body
+        company, image} = req.body
 
-        // !================ Solo hasta configurar Cloudinary ===============
-    const image = {
-        "url": "https://isorepublic.com/wp-content/uploads/2023/09/iso-republic-rainbow_birds-768x512.jpg",
-        "public_id": "abcd1234"
-      }
-    try {
+     try {
+        const imageClodinary = await uploadImage(image);
+        // console.log("imageCloudinary", imageClodinary);
         const newProduct = new Product({
             name,
             price,
@@ -59,7 +57,10 @@ export const createProduct = async (req,res)=>{
             description,
             currency,
             company,
-            image
+            image: {
+                url: imageClodinary.url,
+                public_id: imageClodinary.public_id,
+              },
         })
         await newProduct.save()
         res.status(201).json({message:'Producto Creado Exitosamente'})
@@ -70,11 +71,18 @@ export const createProduct = async (req,res)=>{
 }
 
 //? eliminar una producto
-export const deleteProduct = (req,res)=>{
+export const deleteProduct = async (req,res)=>{
     const {id} = req.params
     try {
-        Product.findByIdAndDelete(id)
-        res.status(200).send('Producto Eliminado')
+        let currentProduct = await Product.findById(id);
+        console.log("DELETE currentPost", currentProduct);
+        if (!currentProduct) return res.status(400).json("No existe el producto");
+        let imgCloudinary = currentProduct.image.public_id;
+        if (imgCloudinary) {
+            await deleteImageCloudinary(imgCloudinary);
+          }
+      const productDelete = await Product.findByIdAndDelete(id)
+        res.status(200).send(`${productDelete.name} borrado`)
     } catch (error) {
         console.error(error)
         res.send().status(500)

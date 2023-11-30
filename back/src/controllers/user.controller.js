@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import { createAccessToken } from "../libs/jwt.js";
 import Company from "../models/company.model.js";
 import { token_secret } from "../config.js";
+import { uploadImage } from "../utils/cloudinary.js";
 
 
 const  DataUser =()=>{}
@@ -63,7 +64,6 @@ export const registerCompany = async (req, res) => {
         const imageClodinary = await uploadImage(image);
         const newCompany = new Company({
             name,
-            creatorUser: id,
             sector,
             country,
             user: id,

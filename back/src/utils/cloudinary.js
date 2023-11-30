@@ -1,11 +1,13 @@
 import cloudinary from "cloudinary";
-import { cloud_name, api_key, api_secret } from '../config.js'
+// import { cloud_name, api_key, api_secret } from '../config.js';
+const { cloud_name, api_key, api_secret } = process.env;
 
 export const uploadImage = async (images) => {
+  // console.log("API KYE UTILS", api_key);
   cloudinary.config({
-    cloud_name: cloud_name,
-    api_key: api_key,
-    api_secret: api_secret,
+    cloud_name,
+    api_key,
+    api_secret,
     secure: true,
   });
 
@@ -29,4 +31,18 @@ export const uploadImage = async (images) => {
   const infoImage = await result;
 
   return infoImage;
+};
+
+export const deleteImageCloudinary = async (dataImage) => {
+  cloudinary.config({
+    cloud_name: cloud_name,
+    api_key: api_key,
+    api_secret: api_secret,
+    secure: true,
+  });
+  try {
+    await cloudinary.v2.uploader.destroy(dataImage);
+  } catch (error) {
+    console.log(error);
+  }
 };
