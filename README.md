@@ -101,7 +101,7 @@ VITE_APP_ID_URL_BACKEND
 
 ### ✔ desarrolladores: 
 
-| <img src="https://i.imgur.com/RwYl5Uo.jpg" width=50> | <img src="https://i.imgur.com/uP4AJtt.jpg" width=50> | <img src="https://i.imgur.com/OQQxgaN.jpg" width=50> |
+| <img src="https://i.imgur.com/Zchecq4.jpg" width=50> | <img src="https://i.imgur.com/uP4AJtt.jpg" width=50> | <img src="https://i.imgur.com/OQQxgaN.jpg" width=50> |
 |:-:|:-:|:-:|
 | **Franco Deanquin** | **Glenda Dunne** | **Virginia Montoya** |
 | <a href="https://github.com/Francodeanquin"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/franco-deanquin"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Glenda76"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/glenda-dunne"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/mvirm"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/virginiamontoya/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
@@ -111,7 +111,7 @@ VITE_APP_ID_URL_BACKEND
 
 ## Tester de Calidad (QA) ⚙🖥:
 
-| <img src="https://i.imgur.com/RwYl5Uo.jpg" width=50> | <img src="https://i.imgur.com/RwYl5Uo.jpg" width=50> |
+| <img src="https://i.imgur.com/RwYl5Uo.jpg" width=50> | <img src="https://i.imgur.com/RkgMMen.jpg" width=50> |
 |:-:|:-:|
 | **Arelys Acevedo** | **Pinamba Tortolero** |
 | <a href="https://github.com/acad2018"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="linkedin_arelys"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Pinatorto"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/pinamba-tortolero-9b72b223/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
