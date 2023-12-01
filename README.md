@@ -101,6 +101,16 @@ VITE_APP_ID_URL_BACKEND
 
 ### ✔ desarrolladores (Por terminar): 
 
+| **Franco Deanquin** | **Glenda Dunne** | **Virginia Montoya** | 
 
+<hr>
 
+## Tester de Calidad (QA) ⚙🖥:
+| **Arelys Acevedo** | **Pinamba Tortolero** |
 
+<hr>
+
+## Gerente del proyecto ⚙🖥:
+| **Gloria Nabor** | 
+
+<hr>
