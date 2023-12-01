@@ -15,7 +15,7 @@ const router = () => {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/Dashboard" element={<DashboardGlobal/>}/>
-        
+        {/* esta ruta esta hecha solo para poder trabajar, su contenido luego ira dentro de cada dashboard */}
         <Route path='/catalogo' element={<ViewCatalogo />}/>
       </Routes>
     </>
