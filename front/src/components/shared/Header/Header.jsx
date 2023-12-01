@@ -1,8 +1,9 @@
 import React from "react";
 import "./Header.component.css";
-import { FaCircle, FaUserCircle } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
+import Logo from "../../../assets/logo.png"
 
-const Header = ({ showDown = true }) => {
+const Header = ({ showDown = true }) => {                      //false: elimina "registrarse" e "inciar sesion"(Para rutas registro y login)
   const headerDownClass = showDown ? "header-down" : "header-down-none";
 
   return (
@@ -11,7 +12,7 @@ const Header = ({ showDown = true }) => {
       {showDown && (
         <div className={headerDownClass}>
           <div className="header-down-left">
-            <FaCircle className="ipunto-icon" />
+          <img className="ipunto-icon" src={Logo} alt="logo de  iPunto" />
             <h1>iPunto</h1>
           </div>
           <div className="header-down-rigth">
