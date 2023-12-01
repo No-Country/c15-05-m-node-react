@@ -2,9 +2,8 @@ import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { createAccessToken } from "../libs/jwt.js";
-import Company from "../models/company.model.js";
 import { token_secret } from "../config.js";
-import  {uploadImage}  from "../utils/cloudinary.js";
+
 
 
 // ? Registrar usuario
@@ -52,7 +51,6 @@ export const register = async (req,res)=>{
         res.status(500)
     }
 }
-
 
 // ? iniciar seccion
 export const login = async (req,res)=>{

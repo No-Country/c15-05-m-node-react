@@ -3,7 +3,6 @@ import { cloud_name, api_key, api_secret } from '../config.js';
 // const { cloud_name, api_key, api_secret } = process.env;
 
 export const uploadImage = async (images) => {
-  // console.log("API KYE UTILS", api_key);
   cloudinary.config({
     cloud_name,
     api_key,
@@ -22,7 +21,6 @@ export const uploadImage = async (images) => {
   result
     .then((data) => {
       "success", JSON.stringify(data.secure_url, data.public_id, 2);
-      // console.log("data cloudinary", data.public_id);
       return data;
     })
     .catch((err) => {
