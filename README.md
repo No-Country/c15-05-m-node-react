@@ -28,7 +28,7 @@ El proyecto iPunto abarca el diseño, desarrollo, implementación y prueba de un
 
 6. **Acceso Remoto:** Accede a iPunto desde cualquier lugar a través de una URL segura, brindándote la libertad de gestionar tu negocio desde cualquier ubicación.
 
-
+##
 
 > [!IMPORTANT]
 > Configuraciones Nesesarias
