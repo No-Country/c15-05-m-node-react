@@ -1,4 +1,6 @@
 import Product from '../models/product.model.js'
+import Company from '../models/company.model.js'
+import { deleteImageCloudinary, uploadImage } from '../utils/cloudinary.js';
 
 
 // ? Octoner un producto
@@ -21,7 +23,7 @@ export const getProduct = async (req,res)=>{
     }
 }
 
-// ? Octener todos los productos de un usuario
+// ? Octener todos los productos de una compañia
 export const getProducts = async (req,res)=>{
     const {id}= req.params
     try {
@@ -43,14 +45,14 @@ export const createProduct = async (req,res)=>{
         description,
         category,
         currency,
-        company} = req.body
+        company, image} = req.body
 
-        // !================ Solo hasta configurar Cloudinary ===============
-    const image = {
-        "url": "https://isorepublic.com/wp-content/uploads/2023/09/iso-republic-rainbow_birds-768x512.jpg",
-        "public_id": "abcd1234"
-      }
-    try {
+     try {
+        const FoundCompany = await Company.findById(company)
+        if(!FoundCompany) return res.status(404).json({message:"La compañia no existe"})
+
+        const imageClodinary = await uploadImage(image);
+       
         const newProduct = new Product({
             name,
             price,
@@ -59,7 +61,10 @@ export const createProduct = async (req,res)=>{
             description,
             currency,
             company,
-            image
+            image: {
+                url: imageClodinary.url,
+                public_id: imageClodinary.public_id,
+              },
         })
         await newProduct.save()
         res.status(201).json({message:'Producto Creado Exitosamente'})
@@ -70,11 +75,20 @@ export const createProduct = async (req,res)=>{
 }
 
 //? eliminar una producto
-export const deleteProduct = (req,res)=>{
+export const deleteProduct = async (req,res)=>{
     const {id} = req.params
     try {
-        Product.findByIdAndDelete(id)
-        res.status(200).send('Producto Eliminado')
+        let currentProduct = await Product.findById(id);
+
+        if (!currentProduct) return res.status(400).json("No existe el producto");
+        let imgCloudinary = currentProduct.image.public_id;
+
+        if (imgCloudinary) {
+            await deleteImageCloudinary(imgCloudinary);
+          }
+        const productDelete = await Product.findByIdAndDelete(id)
+
+        res.status(200).send(`${productDelete.name} eliminado exitosamente`)
     } catch (error) {
         console.error(error)
         res.send().status(500)
@@ -85,6 +99,7 @@ export const deleteProduct = (req,res)=>{
 export const updateProduct = (req,res)=>{
     const {id} = req.params.id
     try {
+        
         res.status(200).send('Producto actualizado')
     } catch (error) {
         console.error(error)

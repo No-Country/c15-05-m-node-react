@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const productShema = new mongoose.Schema({
-    products:{
+    product:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Product'
     },
@@ -9,7 +9,7 @@ const productShema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    unitPrice:{
+    totalPriceProduct:{
         type:Number,
         required:true
     }

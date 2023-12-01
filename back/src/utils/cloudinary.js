@@ -1,17 +1,18 @@
 import cloudinary from "cloudinary";
-import { cloud_name, api_key, api_secret } from '../config.js'
+import { cloud_name, api_key, api_secret } from '../config.js';
+// const { cloud_name, api_key, api_secret } = process.env;
 
 export const uploadImage = async (images) => {
   cloudinary.config({
-    cloud_name: cloud_name,
-    api_key: api_key,
-    api_secret: api_secret,
+    cloud_name,
+    api_key,
+    api_secret,
     secure: true,
   });
 
   // Upload
   const result = cloudinary.uploader.upload(images, {
-    folder: "blog",
+    folder: "iPunto",
     width: 2400,
     crop: "scale",
     sign_url: true, 
@@ -20,7 +21,6 @@ export const uploadImage = async (images) => {
   result
     .then((data) => {
       "success", JSON.stringify(data.secure_url, data.public_id, 2);
-      // console.log("data cloudinary", data.public_id);
       return data;
     })
     .catch((err) => {
@@ -29,4 +29,18 @@ export const uploadImage = async (images) => {
   const infoImage = await result;
 
   return infoImage;
+};
+
+export const deleteImageCloudinary = async (dataImage) => {
+  cloudinary.config({
+    cloud_name: cloud_name,
+    api_key: api_key,
+    api_secret: api_secret,
+    secure: true,
+  });
+  try {
+    await cloudinary.v2.uploader.destroy(dataImage);
+  } catch (error) {
+    console.log(error);
+  }
 };
