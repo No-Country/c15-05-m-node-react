@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.component.css";
 import { FaUserCircle } from "react-icons/fa";
 import Logo from "../../../assets/logo.png"
@@ -16,8 +17,8 @@ const Header = ({ showDown = true }) => {                      //false: elimina 
             <h1>iPunto</h1>
           </div>
           <div className="header-down-rigth">
-            <a href="">registrarse</a>
-            <a href="">iniciar sesion</a>
+            <Link to="/Register">Registrarse</Link>
+            <Link to="">iniciar sesion</Link>
             <FaUserCircle className="icono-usuario" />
           </div>
         </div>
