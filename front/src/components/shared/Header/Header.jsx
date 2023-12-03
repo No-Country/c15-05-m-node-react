@@ -1,6 +1,8 @@
 import React from "react";
 import "./Header.component.css";
 import { FaCircle, FaUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
+// import logo from "../../../assets/logo.svg"
 
 const Header = ({ showDown = true }) => {
   const headerDownClass = showDown ? "header-down" : "header-down-none";
@@ -11,10 +13,12 @@ const Header = ({ showDown = true }) => {
       {showDown && (
         <div className={headerDownClass}>
           <div className="header-down-left">
+            {/* <img src={logo} alt="logo" className="ipunto-icon"  /> */}
             <FaCircle className="ipunto-icon" />
             <h1>iPunto</h1>
           </div>
           <div className="header-down-rigth">
+            <Link to="/ua/landing" >UA</Link>
             <a href="">registrarse</a>
             <a href="">iniciar sesion</a>
             <FaUserCircle className="icono-usuario" />
