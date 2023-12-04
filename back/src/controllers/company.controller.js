@@ -22,14 +22,15 @@ export const registerCompany = async (req, res) => {
               },
         })
        await newCompany.save();
-       const updatedUser = await User.findByIdAndUpdate(id,{UA:true,companyID:newCompany._id}, { new: true } );
+       const updatedUser = await User.findByIdAndUpdate(id,{ UA:true, $push:{ companyID:newCompany._id } }, { new: true } );
        return res.status(201).json({
         userData:{
             name:updatedUser.name,
             email:updatedUser.email,
+            companyID: updatedUser.companyID,
             UA:updatedUser.UA,
         },
-        newCompany,
+       companyData: newCompany,
     });
     } catch (error) {
         console.log(error);

@@ -24,10 +24,12 @@ export const getProduct = async (req,res)=>{
 }
 
 // ? Octener todos los productos de un usuario
-export const getProducts = async (req,res)=>{
-    const {id}= req.params
+
+export const getProducts = async (companyId,res)=>{
+    // const {id}= req.params
+    // companyId="656b79ca4384023a33a8e837"
     try {
-        const products = await Product.find({company:id})
+        const products = await Product.find({company:companyId})
         
         res.status(200).send(products)
     } catch (error) {

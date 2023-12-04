@@ -21,7 +21,11 @@ const Company = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         required: true,
-    }
+    },
+    // products: {
+    //     type: Array,
+    //    ref: "Product",
+    // }
 },{
     timestamps:true,
     versionKey:false
