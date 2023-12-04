@@ -50,3 +50,18 @@ export const getCompany = async (req,res)=>{
         return res.status(500).json({message:"Error interno"})      
     }
 }
+
+// ? Actualizar Compañia
+export const updateCompany = async (req,res)=>{
+    const {id} = req.params
+    const {name,sector,country,image,} = req.body
+    try {
+        const updateCompany = Company.findByIdAndUpdate(id,{name,image,sector,country}, {new:true})
+        res.send(updateCompany).status(201)
+    } catch (error) {
+        console.log(error)
+        res.send().status(500)
+        
+    }
+}
+

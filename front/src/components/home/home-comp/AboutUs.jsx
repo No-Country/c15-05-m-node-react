@@ -1,5 +1,5 @@
 import React from 'react';
-import image from "../../../assets/insert-image.png"
+import Logo from "../../../assets/logo.png"
 import "./AboutUs.component.css"
 
 const AboutUs = () => {
@@ -7,14 +7,14 @@ const AboutUs = () => {
     <div className="about">
       <div className='about-left'>
       <h2>¿QUIÉNES SOMOS?</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut commodi nihil, explicabo esse ducimus aperiam ea, dolorum ipsa, tenetur error debitis accusantium distinctio deserunt veniam amet. Odio quis ex blanditiis, voluptas a velit? Dicta ea ipsum blanditiis error voluptates quae!</p>
+      <p>Somos tu solución a la gestión de tu tienda, o emprendimiento. Registra todos tus movimientos y empoderate como todo un empresario. Nosotros te ayudamos a hacerlo!</p>
       </div>
 
       <div className='about-right'>
       <h2>
         iPunto
       </h2>
-      <img src={image} alt="" /> 
+      <img src={Logo} alt="" /> 
 
 
       </div>

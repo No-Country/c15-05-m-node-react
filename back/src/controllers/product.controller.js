@@ -23,7 +23,7 @@ export const getProduct = async (req,res)=>{
     }
 }
 
-// ? Octener todos los productos de un usuario
+// ? Octener todos los productos de una compañia
 export const getProducts = async (req,res)=>{
     const {id}= req.params
     try {

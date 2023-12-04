@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.component.css";
 import { FaCircle, FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 // import logo from "../../../assets/logo.svg"
+import Logo from "../../../assets/logo.png"
 
-const Header = ({ showDown = true }) => {
+
+const Header = ({ showDown = true }) => {                      //false: elimina "registrarse" e "inciar sesion"(Para rutas registro y login)
   const headerDownClass = showDown ? "header-down" : "header-down-none";
 
   return (
@@ -12,8 +15,9 @@ const Header = ({ showDown = true }) => {
       <div className="header-up"></div>
       {showDown && (
         <div className={headerDownClass}>
-          <div className="header-down-left">
+          <div className="header-down-left"
             {/* <img src={logo} alt="logo" className="ipunto-icon"  /> */}
+            <img className="ipunto-icon" src={Logo} alt="logo de  iPunto" />
             <FaCircle className="ipunto-icon" />
             <h1>iPunto</h1>
           </div>
@@ -21,6 +25,7 @@ const Header = ({ showDown = true }) => {
             <Link to="/ua/landing" >UA</Link>
             <a href="">registrarse</a>
             <a href="">iniciar sesion</a>
+
             <FaUserCircle className="icono-usuario" />
           </div>
         </div>

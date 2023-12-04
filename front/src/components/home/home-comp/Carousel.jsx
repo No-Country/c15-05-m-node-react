@@ -1,9 +1,11 @@
 import React from 'react';
 import Slider from 'react-slick';
-import Imagen from "../../../assets/insert-image.png"
 import './Carousel.component.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Carousel1 from "../../../assets/carousel1.png"
+import Carousel2 from "../../../assets/carousel2.png"
+import Carousel3 from "../../../assets/carousel3.png"
 
 export default function SimpleSlider() {
   var settings = {
@@ -16,13 +18,10 @@ export default function SimpleSlider() {
 
   // Array de datos para cada tarjeta
   const cardData = [
-    { id: 1, imageSrc: Imagen, text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati ad dolorem facilis accusamus exercitationem unde tota" },
-    { id: 2, imageSrc: Imagen, text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati ad dolorem facilis accusamus exercitationem unde total" },
-    { id: 3, imageSrc: Imagen, text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati ad dolorem facilis accusamus exercitationem unde total" },
-    { id: 1, imageSrc: Imagen, text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati ad dolorem facilis accusamus exercitationem unde total" },
-    { id: 2, imageSrc: Imagen, text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati ad dolorem facilis accusamus exercitationem unde total" },
-    { id: 3, imageSrc: Imagen, text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati ad dolorem facilis accusamus exercitationem unde total" }
-  ];
+    { id: 1, imageSrc: Carousel1, text: "Puedes registrar tus productos y agregar detalles como el nombre del producto, la descripción, el precio, la cantidad, etc." },
+    { id: 2, imageSrc: Carousel2, text: "Puedes monitorear el movimiento de tus productos, incluyendo la entrada y salida de los mismos. y estar al día cuando los niveles de tu inventario son bajos.." },
+    { id: 3, imageSrc: Carousel3, text: "Integración con otros sistemas, como sistemas de punto de venta, para proporcionar una solución completa de gestión de inventario.." }
+  ]
 
   return (
     <div>

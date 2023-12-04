@@ -1,5 +1,5 @@
 import React from 'react'
-import Imagen from "../../../assets/insert-image.png"
+import Imagen from "../../../assets/registrate.flecha.png"
 import "./Registrate.component.css"
 
 const Registrate = () => {
