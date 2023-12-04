@@ -6,7 +6,7 @@
 }
 
 .header-up {
-  background-color: #b2b0b0;
+  background-color: var(--quinto-color);
   height: 40%;
 }
 .header-down {
@@ -47,6 +47,7 @@ width: 10%;
 .icono-usuario{
   scale:1.3;
   transition: 0.5s;
+  color: var(--quinto-color);
 }
 
 .icono-usuario:hover{
