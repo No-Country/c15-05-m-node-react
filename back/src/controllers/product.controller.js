@@ -28,7 +28,6 @@ export const getProducts = async (req,res)=>{
     const {id}= req.params
     try {
         const products = await Product.find({company:id})
-        
         res.status(200).send(products)
     } catch (error) {
         console.error(error)
