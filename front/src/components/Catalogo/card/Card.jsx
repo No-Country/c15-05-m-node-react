@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
     
     return (
+        <Link to={`/detail/${props._id}`}>
     <div className="w-64 h-auto m-4 bg-white rounded-xl flex flex-col justify-center items-center">
         <img className="w-4/5 h-auto pt-6 pb-2" src={props.image.url} alt={`imagen de ${props.name}`}/> 
         <div className="w-full text-left ml-14">
@@ -18,6 +20,7 @@ const Card = (props) => {
             </div>
         </div>
     </div>
+    </Link>
     )
 };
 
