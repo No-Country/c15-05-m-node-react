@@ -23,7 +23,7 @@ const CardsContainer = () => {
         "name": "Producto Ejemplo 2",
         "price": 39.99,
         "image": {
-          "url": "https://isorepublic.com/wp-content/uploads/2023/09/iso-republic-rainbow_birds-768x512.jpg",
+          "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
           "public_id": "efgh5678"
         },
         "quantity": 20,
@@ -37,7 +37,7 @@ const CardsContainer = () => {
         "name": "Producto Ejemplo 3",
         "price": 39.99,
         "image": {
-          "url": "https://isorepublic.com/wp-content/uploads/2023/09/iso-republic-rainbow_birds-768x512.jpg",
+          "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
           "public_id": "efgh5678"
         },
         "quantity": 20,
@@ -51,7 +51,7 @@ const CardsContainer = () => {
         "name": "Producto Ejemplo 4",
         "price": 39.99,
         "image": {
-          "url": "https://isorepublic.com/wp-content/uploads/2023/09/iso-republic-rainbow_birds-768x512.jpg",
+          "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
           "public_id": "efgh5678"
         },
         "quantity": 20,
@@ -65,7 +65,7 @@ const CardsContainer = () => {
         "name": "Producto Ejemplo 5",
         "price": 39.99,
         "image": {
-          "url": "https://isorepublic.com/wp-content/uploads/2023/09/iso-republic-rainbow_birds-768x512.jpg",
+          "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
           "public_id": "efgh5678"
         },
         "quantity": 20,
@@ -79,7 +79,7 @@ const CardsContainer = () => {
         "name": "Producto Ejemplo 6",
         "price": 39.99,
         "image": {
-          "url": "https://isorepublic.com/wp-content/uploads/2023/09/iso-republic-rainbow_birds-768x512.jpg",
+          "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
           "public_id": "efgh5678"
         },
         "quantity": 20,
@@ -93,7 +93,7 @@ const CardsContainer = () => {
         "name": "Producto Ejemplo 7",
         "price": 39.99,
         "image": {
-          "url": "https://isorepublic.com/wp-content/uploads/2023/09/iso-republic-rainbow_birds-768x512.jpg",
+          "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
           "public_id": "efgh5678"
         },
         "quantity": 20,
@@ -107,7 +107,7 @@ const CardsContainer = () => {
         "name": "Producto Ejemplo 8",
         "price": 39.99,
         "image": {
-          "url": "https://isorepublic.com/wp-content/uploads/2023/09/iso-republic-rainbow_birds-768x512.jpg",
+          "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
           "public_id": "efgh5678"
         },
         "quantity": 20,
@@ -121,7 +121,7 @@ const CardsContainer = () => {
         "name": "Producto Ejemplo 9",
         "price": 39.99,
         "image": {
-          "url": "https://isorepublic.com/wp-content/uploads/2023/09/iso-republic-rainbow_birds-768x512.jpg",
+          "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
           "public_id": "efgh5678"
         },
         "quantity": 20,
@@ -135,7 +135,7 @@ const CardsContainer = () => {
         "name": "Producto Ejemplo 10",
         "price": 39.99,
         "image": {
-          "url": "https://isorepublic.com/wp-content/uploads/2023/09/iso-republic-rainbow_birds-768x512.jpg",
+          "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
           "public_id": "efgh5678"
         },
         "quantity": 20,
