@@ -6,6 +6,7 @@ import userRouter from './routes/user.routes.js'
 import productRouter from './routes/product.routes.js'
 import saleRouter from './routes/sale.routes.js'
 import companyRouter from './routes/company.routes.js'
+import passwordRouter from './routes/recoverPassword.routes.js'
 import { urlFrond } from "./config.js"
 
 const app = express();
@@ -25,6 +26,7 @@ app.use('/api',userRouter)
 app.use('/api',companyRouter)
 app.use('/api/',productRouter)
 app.use('/api/',saleRouter)
+app.use(passwordRouter)
 
 
 export default app;
