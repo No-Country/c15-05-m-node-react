@@ -5,3 +5,5 @@ const DetailsProduct = () => {
         </div>
     )
 }
+
+export default DetailsProduct
