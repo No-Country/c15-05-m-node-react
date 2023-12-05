@@ -93,6 +93,31 @@ export const logout = async (req,res)=>{
     }
 }
 
+// ? Cambiar contraseña
+export const updatePassword = async (req,res)=>{
+    const user = req.user
+    const {password,newPassword,matchPassword} = req.body
+    try {
+        const userFound = await User.findById(user.id)
+        if (!userFound) return res.status(404).json({ message: "Usuarios no encontrado" });
+
+        const isMatch = await bcrypt.compare(password, userFound.password);
+        if (!isMatch) return res.status(400).json({ message: "Contraseña incorrecta" });
+        
+        if(newPassword !== matchPassword)
+        return res.status(400).json({ message: "Las contraseñas no coinciden" });
+
+        const hashedPassword = await bcrypt.hash(newPassword,10); 
+
+        await User.findByIdAndUpdate(user.id, { password: hashedPassword });
+
+         res.status(201).json({message:"contraseña actualizada"})
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: "Error interno del servidor" });
+    }
+}
+
 //? Verifica el token en la cookies
 export const verityToken = async (req, res) => {
     try {

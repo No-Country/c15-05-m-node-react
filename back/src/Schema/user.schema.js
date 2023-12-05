@@ -31,3 +31,22 @@ export const userLoginSchema = z.object({
       })
 
 })
+
+export const changePassworSchema = z.object({
+    password:z.string({
+        required_error:"La contraseña es requerida"
+    }).refine(value => /^(?=.*[A-Z]).{7,}$/.test(value), {
+        message: "La contraseña debe tener al menos un carácter en mayúscula y ser mayor a 6 caracteres"
+    }),
+    newPassword:z.string({
+        required_error:"La contraseña es requerida"
+    }).refine(value => /^(?=.*[A-Z]).{7,}$/.test(value), {
+        message: "La contraseña debe tener al menos un carácter en mayúscula y ser mayor a 6 caracteres"
+    }),
+    matchPassword:z.string({
+        required_error:"La contraseña es requerida"
+    }).refine(value => /^(?=.*[A-Z]).{7,}$/.test(value), {
+        message: "La contraseña debe tener al menos un carácter en mayúscula y ser mayor a 6 caracteres"
+    }),
+
+})

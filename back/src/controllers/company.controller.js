@@ -22,14 +22,14 @@ export const registerCompany = async (req, res) => {
               },
         })
        await newCompany.save();
-       const updatedUser = await User.findByIdAndUpdate(id,{UA:true,companyID:newCompany._id}, { new: true } );
+       const updatedUser = await User.findByIdAndUpdate(id,{UA:true, $push:{ companyID:newCompany._id }}, { new: true } );
        return res.status(201).json({
         userData:{
             name:updatedUser.name,
             email:updatedUser.email,
             UA:updatedUser.UA,
         },
-        newCompany,
+        companyData:newCompany,
     });
     } catch (error) {
         console.log(error);
@@ -54,9 +54,8 @@ export const getCompany = async (req,res)=>{
 // ? Actualizar Compañia
 export const updateCompany = async (req,res)=>{
     const {id} = req.params
-    const {name,sector,country,image,} = req.body
     try {
-        const updateCompany = Company.findByIdAndUpdate(id,{name,image,sector,country}, {new:true})
+        const updateCompany = Company.findByIdAndUpdate(id,req.body, {new:true})
         res.send(updateCompany).status(201)
     } catch (error) {
         console.log(error)

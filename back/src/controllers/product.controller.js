@@ -96,7 +96,7 @@ export const deleteProduct = async (req,res)=>{
 
 // ? Actualizar un producto
 export const updateProduct = (req,res)=>{
-    const {id} = req.params.id
+    const {id} = req.params
     try {
         
         res.status(200).send('Producto actualizado')
