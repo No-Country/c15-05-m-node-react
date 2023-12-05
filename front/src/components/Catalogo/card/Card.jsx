@@ -6,7 +6,6 @@ const Card = (props) => {
         <img src={props.image.url} alt={`imagen de ${props.name}`}/> 
         <h1>{props.name}</h1>
         {props.category.length && props.category.map((c)=> <h3>{c}</h3>)}
-        {/* <h3>{props.category}</h3> */}
         <div>
             <h3>Precio</h3>
             <h3>{props.price}$</h3>
