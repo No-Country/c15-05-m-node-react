@@ -1,27 +1,3 @@
-:root{
-  /* Colores */
-  --primary-color: #00BCD4;
-  --secondary-color:  #E0F7FA;
-  --terciary-color: #B2EBF2;
-  --quartary-color: #80DEE1;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Roboto, sans-serif;
-}
-
-.title{
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-}
-
-a{
-  text-decoration: none;
-  color: #666;
-}
-
-a:hover{
-  scale: 1.5em
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
