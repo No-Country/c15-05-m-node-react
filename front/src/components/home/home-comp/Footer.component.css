@@ -1,0 +1,8 @@
+.footer{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background: linear-gradient(92deg, #00BCD4 0.97%, #B2EBF2 45.46%, rgba(0, 188, 212, 0.21) 92.99%);
+ height: 40vh;
+ width: 100%;
+}

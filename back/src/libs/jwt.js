@@ -1,19 +1,18 @@
-import jwt from "jsonwebtoken";
 import { token_secret } from "../config.js";
+import Jwt from "jsonwebtoken";
 
-const createAccessToken = async(payload) => {
-  return await new Promise((resolve, reject) => {
-   jwt.sign(
+export function createAccessToken(payload) {
+  return new Promise((resolve, reject) => {
+    Jwt.sign(
       payload,
       token_secret,
       {
-        expiresIn: "24h"//60 * 60 * 24,//24 horas
+        expiresIn: 86400,
       },
-      (error, token) => {
-        if (error) reject(error);
-          resolve(token)
+      (err, token) => {
+        if (err) reject(err);
+        resolve(token);
       }
     );
   });
-};
-export default createAccessToken;
+}

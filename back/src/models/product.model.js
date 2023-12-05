@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { string } from "zod";
 
 const Product = new mongoose.Schema(
     {
@@ -23,7 +24,7 @@ const Product = new mongoose.Schema(
             required:true,
         },
         category:{
-            type:Array,
+            type:[String],
             default:[]
         },
         currency:{

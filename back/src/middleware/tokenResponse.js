@@ -1,22 +1,13 @@
-import createAccessToken from "../libs/jwt.js";
+import jwt from "jsonwebtoken";
+import { token_secret } from "../config.js";
 
-const sendTokenResponse = async (user, statusCode, res) => {
-    const token = await createAccessToken({ id: user._id });
-    const options = {
-      maxAge: 60 * 60 * 1000,
-      httpOnly: true,
-      sameSite: "Lax",
-      secure: true,
-    };
-    // if (process.env.NODE_ENV === "production") {
-    //   options.secure = true;
-    // }
-    res.status(statusCode).cookie("token", token, options).json({
-      success: true,
-      id: user.id,
-      UA: user.UA,
-      EUA: user.EUA,
-      name: user.name,
-    });
-  };
-  export default sendTokenResponse;
+export const authRequired = (req, res, next) => {
+  const { token } = req.cookies;
+  if (!token) return res.status(401).json({ message: "Autorización denegada" });
+
+  jwt.verify(token, token_secret, (err, user) => {
+    if (err) return res.status(403).json({ message: "Token invalido" });
+    req.user = user;
+  });
+  next();
+};
