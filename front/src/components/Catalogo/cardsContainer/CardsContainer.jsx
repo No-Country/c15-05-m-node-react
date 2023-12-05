@@ -152,7 +152,7 @@ const nameCompany = 'Pet Shop'
 
 
     return (
-    <div>
+    <div className="flex flex-wrap">
         {!products.length ? 
         <div>
             <h3>Aún no hay productos cargados para tu empresa</h3>
