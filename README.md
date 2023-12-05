@@ -72,6 +72,32 @@ VITE_APP_ID_URL_BACKEND
 
 # Desarrollo ⚙🖥:
 
+## Gerente del proyecto (PM) ⚙🖥:
+| <img src="https://i.imgur.com/7c1XLaf.jpg" width=50> |
+|:-:|
+| **Gloria Nabor** |
+| <a href="https://github.com/Gloria-Nabor"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/gloria-nabor"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+
+ [![](https://img.shields.io/badge/Trello-095ED8?style=for-the-badge&logo=Trello&logoColor=fff)](https://trello.com/b/BbJrA9Gq/no-country-s4-11) [![](https://img.shields.io/badge/Slack-%23ED8B00?style=for-the-badge&logo=Slack&logoColor=fff)](https://slack.com/intl/es-pe/)
+
+
+<hr>
+
+## Tester de Calidad (QA) ⚙🖥:
+
+| <img src="https://i.imgur.com/o4QhzO8.jpg" width=50> | <img src="https://i.imgur.com/RkgMMen.jpg" width=50> |
+|:-:|:-:|
+| **Arelys Acevedo** | **Pinamba Tortolero** |
+| <a href="https://github.com/acad2018"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/arelys-acevedo"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Pinatorto"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/pinamba-tortolero-9b72b223/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+
+<hr>
+
+
+
+
+
+
+
 ## ✔ Backend
 
 ### 🛠️ Desarrollado en:
@@ -109,23 +135,3 @@ VITE_APP_ID_URL_BACKEND
 
 <hr>
 
-## Tester de Calidad (QA) ⚙🖥:
-
-| <img src="https://i.imgur.com/o4QhzO8.jpg" width=50> | <img src="https://i.imgur.com/RkgMMen.jpg" width=50> |
-|:-:|:-:|
-| **Arelys Acevedo** | **Pinamba Tortolero** |
-| <a href="https://github.com/acad2018"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/arelys-acevedo"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Pinatorto"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/pinamba-tortolero-9b72b223/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
-
-<hr>
-
-## Gerente del proyecto (PM) ⚙🖥:
-| <img src="https://i.imgur.com/7c1XLaf.jpg" width=50> |
-|:-:|
-| **Gloria Nabor** |
-| <a href="https://github.com/Gloria-Nabor"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/gloria-nabor"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
-
-
-<hr>
-
-
- [![](https://img.shields.io/badge/Trello-095ED8?style=for-the-badge&logo=Trello&logoColor=fff)](https://trello.com/b/BbJrA9Gq/no-country-s4-11) [![](https://img.shields.io/badge/Slack-%23ED8B00?style=for-the-badge&logo=Slack&logoColor=fff)](https://slack.com/intl/es-pe/)
