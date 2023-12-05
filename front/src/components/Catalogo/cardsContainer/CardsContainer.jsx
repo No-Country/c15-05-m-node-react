@@ -1,8 +1,9 @@
 import React from "react";
 import Card from "../card/Card"
+//import { UseSelector } from "react-redux";
 
 const CardsContainer = () => {
-  const product = [
+  const products = [
       {
         "_id":"5f8a0a5b6e95510f8c6d1a15",
         "name": "Producto Ejemplo 1",
@@ -144,11 +145,11 @@ const CardsContainer = () => {
         "company": "5f8a0a5b6e95510f8c6d1a16"
       }
     ];
-//const product = useSelector(state => state.product)
+//const products = useSelector(state => state.products)
 
     return (
     <div>
-        {product && product.map((p) => (
+        {products && products.map((p) => (
             <Card
             id={p.id}
             image={p.image.url}
