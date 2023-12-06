@@ -26,11 +26,9 @@ const router = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route path="/register-company" element={<Register />} />
         <Route path="/register-user" element={<RegisterUser />} />
         <Route path="/login" element={<Login />} />
-
         <Route path="/ua/landing" element={<LandingUA />}/>{/*"/dashboard/ua/:id" */}
         <Route path="/ua/product/create" element={<CreateProducts />}/>
         <Route path="/ua/product/edit" element={<EditProducts />}/>
@@ -39,7 +37,6 @@ const router = () => {
         <Route path='/ua/product/detail/:detailId' element={<DetailsProduct />}/>
         <Route path="/ua/product/analitics" element={<Analitics />}/>
         <Route path="/Dashboard" element={<DashboardGlobal/>}/>
-
     </Routes>
   </>
   

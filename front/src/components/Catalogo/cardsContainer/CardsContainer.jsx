@@ -13,7 +13,7 @@ const CardsContainer = () => {
           "public_id": "abcd1234"
         },
         "quantity": 30,
-        "description": "Este es el primer producto de ejemplo.",
+        "description": "Este es el primer producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
         "category": ["Ropa", "Accesorios"],
         "currency": "EUR",
         "company": "5f8a0a5b6e95510f8c6d1a15"
@@ -27,7 +27,7 @@ const CardsContainer = () => {
           "public_id": "efgh5678"
         },
         "quantity": 20,
-        "description": "Este es el segundo producto de ejemplo.",
+        "description": "Este es el segundo producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
         "category": ["Electrónicos", "Tecnología"],
         "currency": "USD",
         "company": "5f8a0a5b6e95510f8c6d1a16"
@@ -41,7 +41,7 @@ const CardsContainer = () => {
           "public_id": "efgh5678"
         },
         "quantity": 20,
-        "description": "Este es el segundo producto de ejemplo.",
+        "description": "Este es el tercer producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
         "category": ["Electrónicos", "Tecnología"],
         "currency": "USD",
         "company": "5f8a0a5b6e95510f8c6d1a16"
@@ -55,7 +55,7 @@ const CardsContainer = () => {
           "public_id": "efgh5678"
         },
         "quantity": 20,
-        "description": "Este es el segundo producto de ejemplo.",
+        "description": "Este es el cuarto producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
         "category": ["Electrónicos", "Tecnología"],
         "currency": "USD",
         "company": "5f8a0a5b6e95510f8c6d1a16"
@@ -69,7 +69,7 @@ const CardsContainer = () => {
           "public_id": "efgh5678"
         },
         "quantity": 20,
-        "description": "Este es el segundo producto de ejemplo.",
+        "description": "Este es el quinto producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
         "category": ["Electrónicos", "Tecnología"],
         "currency": "USD",
         "company": "5f8a0a5b6e95510f8c6d1a16"
@@ -83,7 +83,7 @@ const CardsContainer = () => {
           "public_id": "efgh5678"
         },
         "quantity": 20,
-        "description": "Este es el segundo producto de ejemplo.",
+        "description": "Este es el sexto producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
         "category": ["Electrónicos", "Tecnología"],
         "currency": "USD",
         "company": "5f8a0a5b6e95510f8c6d1a16"
@@ -97,7 +97,7 @@ const CardsContainer = () => {
           "public_id": "efgh5678"
         },
         "quantity": 20,
-        "description": "Este es el segundo producto de ejemplo.",
+        "description": "Este es el septimo producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
         "category": ["Electrónicos", "Tecnología"],
         "currency": "USD",
         "company": "5f8a0a5b6e95510f8c6d1a16"
@@ -111,7 +111,7 @@ const CardsContainer = () => {
           "public_id": "efgh5678"
         },
         "quantity": 20,
-        "description": "Este es el segundo producto de ejemplo.",
+        "description": "Este es el octavo producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
         "category": ["Electrónicos", "Tecnología"],
         "currency": "USD",
         "company": "5f8a0a5b6e95510f8c6d1a16"
@@ -125,7 +125,7 @@ const CardsContainer = () => {
           "public_id": "efgh5678"
         },
         "quantity": 20,
-        "description": "Este es el segundo producto de ejemplo.",
+        "description": "Este es el noveno producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
         "category": ["Electrónicos", "Tecnología"],
         "currency": "USD",
         "company": "5f8a0a5b6e95510f8c6d1a16"
@@ -139,7 +139,7 @@ const CardsContainer = () => {
           "public_id": "efgh5678"
         },
         "quantity": 20,
-        "description": "Este es el segundo producto de ejemplo.",
+        "description": "Este es el decimo producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
         "category": ["Electrónicos", "Tecnología"],
         "currency": "USD",
         "company": "5f8a0a5b6e95510f8c6d1a16"
@@ -165,6 +165,7 @@ const nameCompany = 'Pet Shop'
             name={p.name}
             category={p.category}
             price={p.price}
+            currency={p.currency}
             key={p.id}
             />
         ))}
