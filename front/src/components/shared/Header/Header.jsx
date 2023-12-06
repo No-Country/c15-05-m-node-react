@@ -21,9 +21,8 @@ const Header = ({ showDown = true }) => {                      //false: elimina 
           </div>
           <div className="header-down-rigth">
             <Link to="/ua/landing" >UA</Link>
-            <a href="">registrarse</a>
-            <a href="">iniciar sesion</a>
-
+            <Link to="/register-user" >Registrarse</Link>
+            <Link to="/login" >Iniciar Sesión</Link>
             <FaUserCircle className="icono-usuario" />
           </div>
         </div>
