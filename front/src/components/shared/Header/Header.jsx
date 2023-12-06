@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "./Header.component.css";
 import { FaCircle, FaUserCircle } from "react-icons/fa";
 // import logo from "../../../assets/logo.svg"
-import Logo from "../../../assets/logo.png"
+import Logo from "../../../assets/logo.png";
 
-
-const Header = ({ showDown = true }) => {                      //false: elimina "registrarse" e "inciar sesion"(Para rutas registro y login)
+const Header = ({ showDown = true }) => {
+  //false: elimina "registrarse" e "inciar sesion"(Para rutas registro y login)
   const headerDownClass = showDown ? "header-down" : "header-down-none";
 
   return (
@@ -16,13 +16,12 @@ const Header = ({ showDown = true }) => {                      //false: elimina 
         <div className={headerDownClass}>
           <div className="header-down-left">
             <img className="ipunto-icon" src={Logo} alt="logo de  iPunto" />
-            <FaCircle className="ipunto-icon" />
             <h1>iPunto</h1>
           </div>
           <div className="header-down-rigth">
-            <Link to="/ua/landing" >UA</Link>
-            <a href="">registrarse</a>
-            <a href="">iniciar sesion</a>
+            <Link to="/ua/landing">UA</Link>
+            <Link to="/">Registrarse</Link>
+            <Link to="">iniciar sesion</Link>
 
             <FaUserCircle className="icono-usuario" />
           </div>
@@ -33,7 +32,6 @@ const Header = ({ showDown = true }) => {                      //false: elimina 
 };
 
 export default Header;
-
 
 //Codigo viejo//
 

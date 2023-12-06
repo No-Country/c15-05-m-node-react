@@ -1,5 +1,6 @@
 // import React from 'react'
 import { Route, Routes } from "react-router-dom";
+import Landing from "../components/pages/Landing"
 import Home from "../components/home/Home";
 import Register from "../components/register/Register";
 
@@ -22,6 +23,7 @@ const router = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/landing" element={<Landing/>}/>
         <Route path="/register" element={<Register />} />
         <Route path="/ua/landing" element={<LandingUA />}/>{/*"/dashboard/ua/:id" */}
         <Route path="/ua/product/create" element={<CreateProducts />}/>
