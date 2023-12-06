@@ -19,9 +19,10 @@ const Header = ({ showDown = true }) => {
             <h1>iPunto</h1>
           </div>
           <div className="header-down-rigth">
-            <Link to="/ua/landing">UA</Link>
-            <Link to="/">Registrarse</Link>
-            <Link to="">iniciar sesion</Link>
+            
+            <Link to="/ua/landing" >UA</Link>
+            <Link to="/register-user" >Registrarse</Link>
+            <Link to="/login" >Iniciar Sesión</Link>
 
             <FaUserCircle className="icono-usuario" />
           </div>

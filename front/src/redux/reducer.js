@@ -1,4 +1,4 @@
-import { CREATE_PRODUCT, USER_LOGIN, GET_ALL_PRODUCTS } from "./types";
+import { CREATE_PRODUCT, GET_ALL_PRODUCTS, USER_REGISTER } from "./types";
 
 const initialState = {
   //DATOS DE LA COMPAÑIA
@@ -11,7 +11,7 @@ const initialState = {
 
 export const reducerUsers = (state = initialState, action) => {
   switch (action.type) {
-    case USER_LOGIN:
+    case USER_REGISTER:
       return {
         ...state,
         user: action.payload,

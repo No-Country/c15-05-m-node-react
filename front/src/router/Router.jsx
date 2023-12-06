@@ -10,6 +10,7 @@ import Inventory from "../components/pagesUA/Inventory";
 import LandingUA from "../components/pagesUA/LandingUA";
 import Catalogo from "../components/pagesUA/Catalogo";
 import Analitics from "../components/pagesUA/Analiticas";
+
 import DetailsProduct from "../components/pagesUA/DetailsProduct"
 
 import DashboardGlobal from "../components/dashboard/global/DashboardPage"
@@ -25,8 +26,11 @@ const router = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/landing" element={<Landing/>}/>
-        <Route path="/register" element={<Register />} />
+
+        <Route path="/register-company" element={<Register />} />
+        <Route path="/register-user" element={<RegisterUser />} />
+        <Route path="/login" element={<Login />} />
+
         <Route path="/ua/landing" element={<LandingUA />}/>{/*"/dashboard/ua/:id" */}
         <Route path="/ua/product/create" element={<CreateProducts />}/>
         <Route path="/ua/product/edit" element={<EditProducts />}/>
