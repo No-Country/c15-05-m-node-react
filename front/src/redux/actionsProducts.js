@@ -1,11 +1,10 @@
 import axios from "axios";
-import { getApi } from "../config/axiosConfig";
 import { CREATE_PRODUCT, GET_ALL_PRODUCTS } from "./types";
 
 export const createProductAction = (values) => {
     return async (dispatch) => {
         try {
-            let res = await axios.post("http://localhost:3000/api/", values );
+            let res = await axios.post("http://localhost:3000/api/product", values );
             console.log("ACTION CREATE RESPONSE", res);
             dispatch({ type: CREATE_PRODUCT,  payload: res })
         } catch (error) {
@@ -14,23 +13,6 @@ export const createProductAction = (values) => {
     }
 };
 
-export const createProductActionX = (values) => {
-    return async (dispatch) => {
-        try {
-            let res = await getApi({
-                method: "POST",
-                url: "products",
-                post: values,
-            })
-            console.log("ACTION CREATE RESPONSE", res);
-            dispatch({
-                type: CREATE_PRODUCT, payload: res,
-            })
-        } catch (error) {
-            console.log(error);
-        }
-    }
-}
 
 export const getAllProductsAction = (companyId) => {
     return async(dispatch) => {
