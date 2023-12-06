@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>correo enviado</h1>
+
+    <form id="form" action="">
+        <label for="">Correo</label>
+        <input id="email" type="email" required>
+        <button type="submit">Envia</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('form')
+
+            console.log(form)
+            form.addEventListener('submit', (e)=>{
+                e.preventDefault()
+                const email = document.getElementById('email').value
+                sendEmail(email)
+            })
+
+            const sendEmail = async (email)=>{
+                
+                await fetch('/recover/sendEmail',{
+                    method:'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email })
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error al enviar los datos:', error));
+            }
+    </script>
+    <style>
+        
+    </style>
+</body>
+</html>
