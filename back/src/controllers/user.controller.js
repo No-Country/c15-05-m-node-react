@@ -12,7 +12,7 @@ export const register = async (req,res)=>{
     try {
         const emailLow = email.toLowerCase();
         const userFound = await User.findOne({email:emailLow})
-        if (userFound) return res.status(400).json({ error: 'El Correo ya está en uso' });
+        if (userFound) return res.status(400).json({ message: 'El Correo ya está en uso' });
 
         const passwordaHash = await bcrypt.hash(password,10); 
 
