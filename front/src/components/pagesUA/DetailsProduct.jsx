@@ -1,4 +1,5 @@
 import Detail from "../Detail/Detail";
+import ButtonBack from "../Utils/Buttons/ButtonBack";
 // import {useSelector, useDispatch} from "react-redux";
 // import { useEffect } from "react";
 // import { useParams } from "react-router-dom";
@@ -15,8 +16,11 @@ const DetailsProduct = () => {
 
 
     return (
-        <div>
+        <div className="w-auto h-auto bg-white rounded-2xl relative">
             <Detail />
+            <div className="absolute right-20 -mt-28">
+                <ButtonBack />
+            </div>
         </div>
     )
 }

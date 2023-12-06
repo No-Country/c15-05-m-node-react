@@ -20,7 +20,7 @@ const Detail = () => {
     // const productDetail = useSelector(state => state.productDetail);
 
     return (
-        <div className="grid grid-cols-2 gap-4 m-10 bg-white rounded-2xl">
+        <div className="grid grid-cols-2 gap-4 m-10">
             <img className="m-10 rounded-xl" src={productDetail.image.url} alt={`imagen de ${productDetail.name}`}/>
             <div>
                 <div className="grid grid-cols-4">
@@ -32,10 +32,9 @@ const Detail = () => {
                         </div>
                     </div>
 
-                    <p className="border border-gray-200 rounded-xl col-span-3 col-end-5 text-sm p-4 mr-7 mb-7 shadow shadow-gray-500">{productDetail.description}</p>
+                    <p className="border border-gray-200 rounded-xl col-span-3 col-end-5 text-sm p-4 mr-10 mb-6 -mt-4 shadow shadow-gray-500">{productDetail.description}</p>
                 </div>
- 
-                <div className="flex flex-row justify-around text-lg font-semibold">
+                <div className="flex flex-row justify-evenly text-lg font-semibold">
                     <h3>Stock Disponible: {productDetail.quantity}</h3>
                     <h3>Precio: {productDetail.price} {productDetail.currency}</h3>
                 </div>
