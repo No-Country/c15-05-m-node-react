@@ -1,7 +1,7 @@
 // import React from 'react'
 import { Route, Routes } from "react-router-dom";
 import Landing from "../components/pages/landing/Landing.jsx";
-import Register from "../components/register/Register";
+import RegisterCompany from "../components/register/RegisterCompany.jsx";
 
 import CreateProducts from "../components/pagesUA/CreateProducts";
 import EditProducts from "../components/pagesUA/EditProducts";
@@ -21,7 +21,7 @@ const router = () => {
     <>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/register-company" element={<Register />} />
+        <Route path="/register-company" element={<RegisterCompany />} />
         <Route path="/register-user" element={<RegisterUser />} />
         <Route path="/login" element={<Login />} />
         <Route path="/ua/landing" element={<LandingUA />}/>{/*"/dashboard/ua/:id" */}

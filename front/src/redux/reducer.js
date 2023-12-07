@@ -1,4 +1,4 @@
-import { CREATE_PRODUCT, GET_ALL_PRODUCTS, USER_REGISTER, GET_PRODUCT_DETAIL } from "./types";
+import { CREATE_PRODUCT, GET_ALL_PRODUCTS, USER_REGISTER, GET_PRODUCT_DETAIL, COMPANY_REGISTER } from "./types";
 
 const initialState = {
   //DATOS DE LA COMPAÑIA
@@ -9,6 +9,19 @@ const initialState = {
   products: [],
   //DETALLE DE UN PRODUCTO
   productDetail: {}
+};
+
+export const reducerCompany = (state = initialState, action) => {
+  switch (action.type) {
+    case COMPANY_REGISTER:
+      return {
+        ...state,
+        company: action.payload,
+      };
+
+    default:
+      return { ...state };
+  }
 };
 
 export const reducerUsers = (state = initialState, action) => {
