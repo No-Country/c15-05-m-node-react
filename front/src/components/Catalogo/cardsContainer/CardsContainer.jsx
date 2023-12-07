@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../card/Card"
 //import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const CardsContainer = () => {
   const products = [
@@ -145,6 +146,7 @@ const CardsContainer = () => {
         "company": "5f8a0a5b6e95510f8c6d1a16"
       }
     ];
+  // const products = [];
 // const products = useSelector(state => state.products)
 // const company = useSelector(state => state.company);
 //const nameCompany = company.name;
@@ -154,9 +156,11 @@ const nameCompany = 'Pet Shop'
     return (
     <div className="flex flex-wrap">
         {!products.length ? 
-        <div>
-            <h3>Aún no hay productos cargados para tu empresa</h3>
-            <h1>{nameCompany}</h1>
+        <div className="w-100vw bg-white rounded-2xl text-center py-40 px-96 mx-10">
+          <h2 className="text-xl font-semibold">Uhh...</h2>
+            <h3 className="text-sm">Aún no hay productos cargados para tu empresa</h3>
+            <h1 className="text-2xl font-semibold">{nameCompany}</h1>
+            <Link className="text-lg font-semibold text-blue-300 hover:text-blue-700" to="/ua/product/create">¡Carga el primero!</Link>
         </div> 
         : products.map((p) => (
             <Card
