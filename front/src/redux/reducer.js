@@ -1,4 +1,4 @@
-import { CREATE_PRODUCT, USER_LOGIN, GET_ALL_PRODUCTS } from "./types";
+import { CREATE_PRODUCT, GET_ALL_PRODUCTS, USER_REGISTER, GET_PRODUCT_DETAIL } from "./types";
 
 const initialState = {
   //DATOS DE LA COMPAÑIA
@@ -7,11 +7,13 @@ const initialState = {
   user: {},
   //TODOS LOS PRODUCTOS DE UNA COMPAÑIA
   products: [],
+  //DETALLE DE UN PRODUCTO
+  productDetail: {}
 };
 
 export const reducerUsers = (state = initialState, action) => {
   switch (action.type) {
-    case USER_LOGIN:
+    case USER_REGISTER:
       return {
         ...state,
         user: action.payload,
@@ -36,7 +38,12 @@ export const reducerProducts = (state = initialState, action) => {
           ...state, 
           products: action.payload
         }
-
+//OBTENER DETALLE DE PRODUCTO
+        case GET_PRODUCT_DETAIL:
+          return {
+            ...state,
+            productDetail: action.payload
+          }
     default:
       return { ...state };
   }

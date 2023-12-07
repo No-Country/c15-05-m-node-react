@@ -30,6 +30,16 @@ const User = new mongoose.Schema(
         EUA:{
             type:Boolean,
             default:false
+        },
+        token:{
+            token:{
+                type:String,
+                default:null
+            },
+            used:{
+                type:Boolean,
+                default:false
+            }
         }
 
     },
