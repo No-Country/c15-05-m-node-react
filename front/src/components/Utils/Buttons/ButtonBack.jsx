@@ -13,12 +13,13 @@ const ButtonBack = () => {
 
   return (
     <Button variant="text"  startIcon={<ArrowBackIcon />} onClick={handleGoBack}            
-    sx={{
-        '&:hover': {
-            backgroundColor: 'transparent',
-            border: '1px solid',
-        },
-    }}>
+        sx={{
+            transition: 'transform 0.2s ease-in-out', // Transición suave
+            '&:hover': {
+                transform: 'scale(1.1)', // Aumentar la escala al pasar el mouse
+            },
+        }}
+    >
       Volver
     </Button>
   );

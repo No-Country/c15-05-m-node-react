@@ -154,7 +154,7 @@ const nameCompany = 'Pet Shop'
 
 
     return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap mx-10">
         {!products.length ? 
         <div className="w-100vw bg-white rounded-2xl text-center py-40 px-96 mx-10">
           <h2 className="text-xl font-semibold">Uhh...</h2>
