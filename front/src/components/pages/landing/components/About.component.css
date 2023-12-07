@@ -1,0 +1,25 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+  text-align: center;
+  height: 80vh;
+  width: 100%;
+  padding: 0 20%;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%,  rgba(0,0,0,0.3) 10%, rgba(0,0,0,0.9) 30%);
+
+}
+
+.about-h2 {
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 4em;
+    }
+.about-span{
+    color: var(--quinto-color)
+}
+
+.about-p {
+  color: white;
+  font-size: 2em;
+}

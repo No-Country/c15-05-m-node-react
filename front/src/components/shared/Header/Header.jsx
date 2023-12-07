@@ -20,7 +20,7 @@ const Header = ({ showDown = true }) => {
           </div>
           <div className="header-down-rigth">
             <Link to="/ua/landing">UA</Link>
-            <Link to="/">Registrarse</Link>
+            <Link to="/register">Registrarse</Link>
             <Link to="">iniciar sesion</Link>
 
             <FaUserCircle className="icono-usuario" />
