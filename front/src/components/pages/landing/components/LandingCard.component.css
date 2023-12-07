@@ -39,7 +39,7 @@
     0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-img {
+.landingcard-card img {
   top: -50%;
   max-width: 50%;
   max-height: 50%;
