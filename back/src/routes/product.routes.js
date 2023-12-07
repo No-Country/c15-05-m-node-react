@@ -13,10 +13,10 @@ import { productSchema } from "../Schema/product.shema.js";
 
 const routes = Router()
 
-// ? Octener todos los productos de un usuario
+//? Octener todos los productos de un usuario
 routes.get('/products/:id',authRequired,getProducts)
 
-// * Octoner un producto
+//? Octoner un producto
 routes.get('/product/:id/:companyId',authRequired,getProduct)
 
 //? Crear Producto

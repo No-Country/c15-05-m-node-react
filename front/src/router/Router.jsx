@@ -1,7 +1,6 @@
 // import React from 'react'
 import { Route, Routes } from "react-router-dom";
-import Landing from "../components/pages/Landing"
-import Home from "../components/home/Home";
+import Landing from "../components/pages/landing/Landing.jsx";
 import Register from "../components/register/Register";
 
 import CreateProducts from "../components/pagesUA/CreateProducts";
@@ -13,19 +12,15 @@ import Analitics from "../components/pagesUA/Analiticas";
 
 import DetailsProduct from "../components/pagesUA/DetailsProduct"
 
-import DashboardGlobal from "../components/dashboard/global/DashboardPage"
+import DashboardGlobal from "../components/dashboard/global/DashboardPage";
 import Login from "../components/register/Login";
 import RegisterUser from "../components/register/RegisterUser";
-
-
-
-
 
 const router = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/register-company" element={<Register />} />
         <Route path="/register-user" element={<RegisterUser />} />
         <Route path="/login" element={<Login />} />

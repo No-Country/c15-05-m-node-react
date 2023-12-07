@@ -14,9 +14,9 @@ const ButtonBack = () => {
   return (
     <Button variant="text"  startIcon={<ArrowBackIcon />} onClick={handleGoBack}            
         sx={{
-            transition: 'transform 0.2s ease-in-out', // Transición suave
+            transition: 'transform 0.2s ease-in-out', 
             '&:hover': {
-                transform: 'scale(1.1)', // Aumentar la escala al pasar el mouse
+                transform: 'scale(1.1)', 
             },
         }}
     >

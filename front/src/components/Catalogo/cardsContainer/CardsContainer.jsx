@@ -158,9 +158,9 @@ const nameCompany = 'Pet Shop'
         {!products.length ? 
         <div className="w-100vw bg-white rounded-2xl text-center py-40 px-96 mx-10">
           <h2 className="text-xl font-semibold">Uhh...</h2>
-            <h3 className="text-sm">Aún no hay productos cargados para tu empresa</h3>
-            <h1 className="text-2xl font-semibold">{nameCompany}</h1>
-            <Link className="text-lg font-semibold text-blue-300 hover:text-blue-700" to="/ua/product/create">¡Carga el primero!</Link>
+          <h3 className="text-sm">Aún no hay productos cargados para tu empresa</h3>
+          <h1 className="text-2xl font-semibold">{nameCompany}</h1>
+          <Link className="text-lg font-semibold text-blue-300 hover:text-blue-700" to="/ua/product/create">¡Carga el primero!</Link>
         </div> 
         : products.map((p) => (
             <Card
