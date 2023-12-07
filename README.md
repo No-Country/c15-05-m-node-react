@@ -1,4 +1,4 @@
-# <img width="50px" align="center" src="https://i.imgur.com/T21NHN5.png"> iPunto - Web de Gestión de Inventario y Ventas <img width="50px" align="center" src="https://i.imgur.com/T21NHN5.png">
+# <img width="50px" align="center" src="/logo.svg"> iPunto - Web de Gestión de Inventario y Ventas <img width="50px" align="center" src="logo.svg">
 <hr>
 
 
