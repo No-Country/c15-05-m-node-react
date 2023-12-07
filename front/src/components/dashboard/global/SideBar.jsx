@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
@@ -33,17 +33,57 @@ const handleLogout = () => {
           menuItemStyles={{
             button: {
               [`&.active`]: {
-                backgroundColor: "#B2EBF2",
+                // backgroundColor: "#B2EBF2",
                 color: "#B2EBF2",
               },
             },
           }}
         >
-          <MenuItem icon={<AdminPanelSettingsRoundedIcon/>} component={<Link to="/perfil" />}> Mi Perfil</MenuItem>
-          <MenuItem icon={<AppsRoundedIcon/>} component={<Link to="/catalogo???" />}> Catálogo</MenuItem>
-          <MenuItem icon={<ListRoundedIcon/>} component={<Link to="/ua/product/inventory"  />}> Inventario</MenuItem>
-          <MenuItem icon={<AutoFixHighRoundedIcon/>} component={<Link to="/ua/product/edit" />}> Editar Producto</MenuItem>
-          <MenuItem icon={<PostAddRoundedIcon/>} component={<Link to="/ua/product/create" />}> Crear Producto</MenuItem>
+          <MenuItem icon={<AdminPanelSettingsRoundedIcon/>} component={<Link to="/perfil" />}   rootStyles={{ color: "grey" }}> <Typography
+              sx={{
+                color: "grey",
+                fontSize: "1em",
+                ["&:hover"]: { color: "#00BCD4" },
+              }}
+            >
+              Mi Perfil
+            </Typography> </MenuItem>
+          <MenuItem icon={<AppsRoundedIcon/>} component={<Link to="/ua/product/catalogo" />} ><Typography
+              sx={{
+                color: "grey",
+                fontSize: "1em",
+                ["&:hover"]: { color: "#00BCD4" },
+              }}
+            >
+               Catálogo
+            </Typography></MenuItem>
+          <MenuItem icon={<ListRoundedIcon/>} component={<Link to="/ua/product/inventory"  />}><Typography
+              sx={{
+                color: "grey",
+                fontSize: "1em",
+                ["&:hover"]: { color: "#00BCD4" },
+              }}
+            >
+               Inventario
+            </Typography></MenuItem>
+          <MenuItem icon={<AutoFixHighRoundedIcon/>} component={<Link to="/ua/product/edit" />}><Typography
+              sx={{
+                color: "grey",
+                fontSize: "1em",
+                ["&:hover"]: { color: "#00BCD4" },
+              }}
+            >
+               Editar Producto
+            </Typography></MenuItem>
+          <MenuItem icon={<PostAddRoundedIcon/>} component={<Link to="/ua/product/create" />}><Typography
+              sx={{
+                color: "grey",
+                fontSize: "1em",
+                ["&:hover"]: { color: "#00BCD4" },
+              }}
+            >
+               Crear Producto
+            </Typography></MenuItem>
           <MenuItem icon={<img src={logo} alt="logo" className="logo-sidebar" />} component={<Link to="/" />} rootStyles={{ justifyContent: "center", marginTop: "6em" }}><h3>iPunto</h3></MenuItem>
 
         </Menu>
