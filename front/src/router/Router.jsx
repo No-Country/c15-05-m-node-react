@@ -1,5 +1,5 @@
 // import React from 'react'
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import Landing from "../components/pages/landing/Landing.jsx";
 import RegisterCompany from "../components/register/RegisterCompany.jsx";
 
@@ -19,6 +19,7 @@ import RegisterUser from "../components/register/RegisterUser";
 const router = () => {
   return (
     <>
+    <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/register-company" element={<RegisterCompany />} />
@@ -33,6 +34,7 @@ const router = () => {
         <Route path="/ua/product/analitics" element={<Analitics />}/>
         <Route path="/Dashboard" element={<DashboardGlobal/>}/>
     </Routes>
+    </Router>
   </>
   
     
