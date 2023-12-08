@@ -1,4 +1,3 @@
-import DashboardPage from "../dashboard/global/DashboardPage";
 import { Button } from "@mui/material";
 import { useState } from "react";
 import AddPhotoAlternateOutlinedIcon from "@mui/icons-material/AddPhotoAlternateOutlined";
@@ -7,7 +6,7 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 // import { useNavigate } from "react-router-dom";
 import ImageUploading from "react-images-uploading";
 
-const CreateProducts = () => {
+const CreateProductsComponent = () => {
 //   const dispatch = useDispatch();
 //   const navigate = useNavigate();
 
@@ -42,7 +41,7 @@ const CreateProducts = () => {
   };
 
   return (
-    <DashboardPage>
+
       <form onSubmit={handleSubmit} id="form">
       
         <h2>CREA TU PRODUCTO</h2>
@@ -136,8 +135,7 @@ const CreateProducts = () => {
           CREAR
         </Button>
       </form>
-      </DashboardPage>
   );
 };
 
-export default CreateProducts;
+export default CreateProductsComponent;

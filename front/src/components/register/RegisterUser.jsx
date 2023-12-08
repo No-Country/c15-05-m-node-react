@@ -1,4 +1,4 @@
-import logo from "../../assets/Imagenes/imgEmpresa.jpg";
+import imageLanding from "../../assets/LandingNew/Landing.jpeg";
 import { useState } from "react";
 import Header from "../shared/Header/Header";
 import { userRegisterAction } from "../../redux/actionsUser";
@@ -13,7 +13,7 @@ const RegisterUser = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm({
     resolver: zodResolver(registerSchema),
   });
@@ -43,24 +43,29 @@ const RegisterUser = () => {
       name: "",
       email: "",
       password: "",
-    })
-    navigate("/register-company")
+    });
+    navigate("/register-company");
   };
   return (
-    <>
+ <div  className="w-full h-screen">
       <Header />
-      <div className="w-full h-screen pt-11 bg-slate-200 ">
-        <h1 className="text-4xl text-center font-semibold">
-          {" "}
-          Registro de Usuario
-        </h1>
-        <div className="flex place-content-around mt-28">
-          <div className=" h-[300px] border border-black flex place-content-center  rounded-xl overflow-hidden">
-            <img src={logo} alt="Logo Empresa" className="border rounded-lg " />
-          </div>
-          <div className="w-[500px]">
+      <div className="flex flex-col md:flex-row">
+        <div className="w-full md:w-1/2 -z-10">
+       
+            <img
+              src={imageLanding}
+              alt="registro Empresa"
+              className="w-full mx-auto"
+            />
+      
+        </div>
+        <div className="w-full md:w-1/2 p-20 overflow-y-auto fixed top-16 right-0 bottom-0 ">
+          <h1 className="mb-10 text-4xl text-center font-semibold">
+            Registro de Usuario
+          </h1>
+          <div className="md:w-[30em]">
             <form
-              className="flex flex-col place-content-around gap-6 "
+              className="flex flex-col place-content-around gap-6 mx-[1em]"
               onChange={handleInputChange}
               onSubmit={handleSubmit(onSubmit)}
             >
@@ -68,19 +73,21 @@ const RegisterUser = () => {
                 <input
                   type="text"
                   placeholder="Nombre Completo"
-                  className={`border border-gray-500 p-2 rounded-lg  `}
+                  className="border border-gray-500 p-2 rounded-lg w-full"
                   id="name"
                   name="name"
                   value={input.name}
                   onChange={handleInputChange}
                   autoComplete="on"
-                  {...register("name")} 
+                  {...register("name")}
                 />
-                {errors.name && <p className="text-red-600" >{errors.name.message}</p>}
+                {errors.name && (
+                  <p className="text-red-600">{errors.name.message}</p>
+                )}
               </div>
               <div className="flex flex-col">
                 <input
-                  type="text"
+                  type="email"
                   placeholder="Email"
                   className={`border border-gray-500 p-2 rounded-lg  `}
                   id="email"
@@ -88,9 +95,11 @@ const RegisterUser = () => {
                   value={input.email}
                   onChange={handleInputChange}
                   autoComplete="on"
-                  {...register("email")} 
+                  {...register("email")}
                 />
-                {errors.email && <p className="text-red-600" >{errors.email.message}</p>}
+                {errors.email && (
+                  <p className="text-red-600">{errors.email.message}</p>
+                )}
               </div>
               <div className="flex flex-col">
                 <input
@@ -102,14 +111,16 @@ const RegisterUser = () => {
                   value={input.password}
                   onChange={handleInputChange}
                   autoComplete="off"
-                  {...register("password")} 
+                  {...register("password")}
                 />
-                {errors.password && <p className="text-red-600" >{errors.password.message}</p>}
+                {errors.password && (
+                  <p className="text-red-600">{errors.password.message}</p>
+                )}
               </div>
-              <div className="w-full flex place-content-center mt-10 ">
+              <div className="w-full flex place-content-center text-center mt-10 ">
                 <button
                   type="submit"
-                  className="w-[150px] h-[40px] bg-[#4DD0E1] hover:bg-[#B2EBF2] text-white hover:text-[#00bcd4] hover:border border-[#4DD0E1] font-bold text-sm p-4 rounded-md animate-pulse"
+                  className="w-[150px] h-[40px] bg-[#4DD0E1] hover:bg-[#B2EBF2] text-white hover:text-[#00bcd4] border-[#4DD0E1] font-bold text-sm rounded-md animate-pulse"
                 >
                   ENVIAR
                 </button>
@@ -118,7 +129,7 @@ const RegisterUser = () => {
           </div>
         </div>
       </div>
-    </>
+      </div>
   );
 };
 
