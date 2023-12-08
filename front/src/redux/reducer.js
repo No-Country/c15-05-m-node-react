@@ -1,4 +1,4 @@
-import { CREATE_PRODUCT, GET_ALL_PRODUCTS, USER_REGISTER, GET_PRODUCT_DETAIL, COMPANY_REGISTER, SORT_BY_PRICE, SORT_BY_NAME } from "./types";
+import { CREATE_PRODUCT, GET_ALL_PRODUCTS, USER_REGISTER, GET_PRODUCT_DETAIL, COMPANY_REGISTER, SORT_BY_PRICE, SORT_BY_NAME, SORT_BY_STOCK } from "./types";
 
 const initialState = {
   //DATOS DE LA COMPAÑIA
@@ -86,7 +86,20 @@ export const reducerProducts = (state = initialState, action) => {
           return {
               ...state, 
               products: [...sortNameArray]
-          } 
+          }
+//ORDEN POR STOCK
+        case SORT_BY_STOCK:
+          let sortStockArray = action.payload === 'Asc' ?
+            state.products.sort((a, b) => {
+            return a.quantity - b.quantity
+          }) :
+            state.products.sort((a, b) => {
+            return b.quantity - a.quantity
+          });
+         return  {
+          ...state,
+          products: [...sortStockArray] 
+  };          
     default:
       return { ...state };
   }

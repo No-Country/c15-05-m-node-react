@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CREATE_PRODUCT, GET_ALL_PRODUCTS, GET_PRODUCT_DETAIL, SORT_BY_PRICE, SORT_BY_NAME } from "./types";
+import { CREATE_PRODUCT, GET_ALL_PRODUCTS, GET_PRODUCT_DETAIL, SORT_BY_PRICE, SORT_BY_NAME, SORT_BY_STOCK } from "./types";
 
 export const createProductAction = (values) => {
     return async (dispatch) => {
@@ -54,6 +54,13 @@ export const getProductDetailAction = (productId, companyId) => {
  export const sortByNameAction = (value) => {
     return {
         type: SORT_BY_NAME,
+        payload: value 
+    }
+ }
+
+ export const sortByStockAction = (value) => {
+    return {
+        type: SORT_BY_STOCK,
         payload: value 
     }
  }
