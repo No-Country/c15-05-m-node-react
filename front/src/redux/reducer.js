@@ -1,4 +1,15 @@
-import { CREATE_PRODUCT, GET_ALL_PRODUCTS, USER_REGISTER, GET_PRODUCT_DETAIL, COMPANY_REGISTER, SORT_BY_PRICE, SORT_BY_NAME, SORT_BY_STOCK } from "./types";
+import {
+  CREATE_PRODUCT,
+  GET_ALL_PRODUCTS,
+  USER_REGISTER,
+  GET_PRODUCT_DETAIL,
+  COMPANY_REGISTER,
+  USER_LOGIN,
+  SORT_BY_NAME,
+  SORT_BY_PRICE,
+  SORT_BY_STOCK
+} from "./types";
+
 
 const initialState = {
   //DATOS DE LA COMPAÑIA
@@ -8,7 +19,7 @@ const initialState = {
   //TODOS LOS PRODUCTOS DE UNA COMPAÑIA
   products: [],
   //DETALLE DE UN PRODUCTO
-  productDetail: {}
+  productDetail: {},
 };
 
 export const reducerCompany = (state = initialState, action) => {
@@ -27,6 +38,12 @@ export const reducerCompany = (state = initialState, action) => {
 export const reducerUsers = (state = initialState, action) => {
   switch (action.type) {
     case USER_REGISTER:
+      return {
+        ...state,
+        user: action.payload,
+      };
+
+    case USER_LOGIN:
       return {
         ...state,
         user: action.payload,
@@ -100,6 +117,7 @@ export const reducerProducts = (state = initialState, action) => {
           ...state,
           products: [...sortStockArray] 
   };          
+
     default:
       return { ...state };
   }
