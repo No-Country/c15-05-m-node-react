@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { registerSchema } from "../../Schemas/registerSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom";
 
 const RegisterUser = () => {
   const {
@@ -17,6 +18,7 @@ const RegisterUser = () => {
     resolver: zodResolver(registerSchema),
   });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -34,10 +36,15 @@ const RegisterUser = () => {
     email: input.email,
     password: input.password,
   };
-  console.log(newUser);
   const onSubmit = () => {
     dispatch(userRegisterAction(newUser));
-    reset()
+    reset();
+    setInput({
+      name: "",
+      email: "",
+      password: "",
+    })
+    navigate("/register-company")
   };
   return (
     <>
@@ -87,7 +94,7 @@ const RegisterUser = () => {
               </div>
               <div className="flex flex-col">
                 <input
-                  type="text"
+                  type="password"
                   placeholder="Password"
                   className={`border border-gray-500 p-2 rounded-lg  `}
                   id="password"
