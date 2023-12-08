@@ -46,9 +46,10 @@ const RegisterUser = () => {
     })
     navigate("/register-company")
   };
+  
   return (
     <>
-      <Header />
+      <Header showDown={false} />
       <div className="w-full h-screen pt-11 bg-slate-200 ">
         <h1 className="text-4xl text-center font-semibold">
           {" "}
