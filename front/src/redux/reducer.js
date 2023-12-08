@@ -1,4 +1,4 @@
-import { CREATE_PRODUCT, GET_ALL_PRODUCTS, USER_REGISTER, GET_PRODUCT_DETAIL, COMPANY_REGISTER } from "./types";
+import { CREATE_PRODUCT, GET_ALL_PRODUCTS, USER_REGISTER, GET_PRODUCT_DETAIL, COMPANY_REGISTER, SORT_BY_PRICE, SORT_BY_NAME } from "./types";
 
 const initialState = {
   //DATOS DE LA COMPAÑIA
@@ -57,6 +57,36 @@ export const reducerProducts = (state = initialState, action) => {
             ...state,
             productDetail: action.payload
           }
+//ORDEN POR PRECIO
+        case SORT_BY_PRICE:
+          let sortArray = action.payload === 'Asc' ?
+          state.products.sort((a, b) => {
+             return a.price - b.price
+          }) :
+          state.products.sort((a, b) => {
+              return b.price - a.price
+          });
+          return  {
+              ...state,
+              products: [...sortArray] //asigno la referencia de sortArray y no modifico el estado original
+          };
+//ORDEN POR NOMBRE
+        case SORT_BY_NAME:
+          let sortNameArray = action.payload === 'Asc' ?
+          state.products.sort((a, b) => {
+              if(a.name > b.name) {return 1}
+              if(b.name > a.name) {return -1}
+              return 0
+          }) :
+          state.products.sort((a, b) => {
+              if(b.name > a.name) {return 1}
+              if(a.name > b.name) {return -1}
+              return 0
+          })
+          return {
+              ...state, 
+              products: [...sortNameArray]
+          } 
     default:
       return { ...state };
   }
