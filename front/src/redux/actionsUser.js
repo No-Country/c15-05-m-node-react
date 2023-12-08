@@ -4,11 +4,13 @@ import {
   sweetAlertsSuccessfully,
   sweetAlertsError,
 } from "../components/Utils/alerts/sweetAlerts";
+import url from "../config/config";
+
 
 export const userRegisterAction = (values) => {
   return async (dispatch) => {
     try {
-      let res = await axios.post("http://localhost:3000/api/register", values);
+      let res = await axios.post(`${url}/register`, values);
       dispatch({ type: USER_REGISTER, payload: res });
       sweetAlertsSuccessfully(
         `Registro de ${values.name} exitoso!`,

@@ -5,7 +5,7 @@ const router = Router()
 
 router.get('/recover/password/:token/:id',getPagesRecoverPasswor)
 
-router.get('/recover/password/',getPageSendEmail)
+router.get('/recover/password',getPageSendEmail)
 
 router.post('/recover/password',recoverPassword)
 
