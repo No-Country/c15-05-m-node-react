@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
 
+
 const ButtonBack = () => {
     const navigate = useNavigate();
 
@@ -11,7 +12,14 @@ const ButtonBack = () => {
     };
 
   return (
-    <Button variant="contained" startIcon={<ArrowBackIcon />} onClick={handleGoBack}>
+    <Button variant="text"  startIcon={<ArrowBackIcon />} onClick={handleGoBack}            
+        sx={{
+            transition: 'transform 0.2s ease-in-out', 
+            '&:hover': {
+                transform: 'scale(1.1)', 
+            },
+        }}
+    >
       Volver
     </Button>
   );

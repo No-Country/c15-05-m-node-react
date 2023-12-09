@@ -46,6 +46,7 @@ const RegisterUser = () => {
     });
     navigate("/register-company");
   };
+  
   return (
  <div  className="w-full h-screen">
       <Header />

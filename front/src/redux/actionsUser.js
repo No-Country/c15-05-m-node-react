@@ -10,7 +10,7 @@ import url from "../config/config";
 export const userRegisterAction = (values) => {
   return async (dispatch) => {
     try {
-      let res = await axios.post(`${url}/register`, values);
+      let res = await axios.post(`${url}/register-user`, values);
       dispatch({ type: USER_REGISTER, payload: res });
       sweetAlertsSuccessfully(
         `Registro de ${values.name} exitoso!`,
