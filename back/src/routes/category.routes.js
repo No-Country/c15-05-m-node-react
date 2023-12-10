@@ -8,8 +8,8 @@ const router = Router()
 
 router.post('/category/:companyID',authRequired,validateSchema(categorySchema),createCategory)
 
-router.get('/category',authRequired,getCategories)
+router.get('/category/:companyID',authRequired,getCategories)
 
-router.delete('/category/:companyID/:id',authRequired,deleteCategory)
+router.delete('/category/:id',authRequired,deleteCategory)
 
 export default router

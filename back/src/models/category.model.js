@@ -9,7 +9,7 @@ const Category = new mongoose.Schema({
         type:String,
         required:true,
     },
-    company: {
+    companyID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Company",
         required: true,

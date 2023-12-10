@@ -1,19 +1,29 @@
 import Category from "../models/category.model.js";
 
 // ? Crear categoria
-export const createCategory = (req,res)=>{
+export const createCategory = async (req,res)=>{
+    const {companyID} = req.params
+    const {title,description} = req.body
     try {
-        res.send("creada").status(200)
+         const newCategory = await Category.create({
+            title,
+            description,
+            companyID
+        })
+        await newCategory.save()
+        res.status(200).json({title,description})
     } catch (error) {
-        console.loge(error)
+        console.log(error)
         res.status(500).send("error interno")
     }
 }
 
-// ? Octener categoria
-export const getCategories = (req,res)=>{
+// ? Octener categorias
+export const getCategories = async (req,res)=>{
+    const {companyID} = req.params
     try {
-        res.send("Octenida").status(200)
+        const categories = await Category.find({companyID})
+        res.status(200).json(categories)
     } catch (error) {
         console.loge(error)
         res.status(500).send("error interno")
@@ -21,9 +31,11 @@ export const getCategories = (req,res)=>{
 }
 
 // ? Eliminar categoria
-export const deleteCategory = (req,res)=>{
+export const deleteCategory = async (req,res)=>{
+    const {id} = req.params
     try {
-        res.send("Eliminada").status(200)
+        await Category.findByIdAndDelete(id)
+        res.status(200).json({message:"Categoria eliminada"})
     } catch (error) {
         console.loge(error)
         res.status(500).send("error interno")

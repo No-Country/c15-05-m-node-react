@@ -6,8 +6,5 @@ export const categorySchema = z.object({
     }),
     description:z.string({
         required_error:"La description es nesesaria"
-    }),
-    company:z.string({
-        required_error:"El ID de compañia es requerido"
-    }),
+    })
 })
