@@ -1,5 +1,10 @@
 import {Router} from "express"
-import {recoverPassword,getPagesRecoverPasswor,getPageSendEmail,manegesSendEmail} from '../controllers/recoverPassword.controller.js'
+import {recoverPassword,
+    getPagesRecoverPasswor,
+    getPageSendEmail,
+    manegesSendEmail
+} from '../controllers/recoverPassword.controller.js'
+
 
 const router = Router()
 
