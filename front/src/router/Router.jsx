@@ -17,15 +17,17 @@ import RegisterCompany from "../components/register/RegisterCompany.jsx";
 import ControlEmpleados from "../components/pagesUA/ControlEmpleados.jsx";
 import ProfileUA from "../components/pagesUA/ProfileUA.jsx";
 import DashboardEUA from "../components/pagesEUA/DashboardEUA.jsx";
+import EuaProvider from "../components/EUA/context/EUAContext.jsx";
 
 const router = () => {
   // const [user] = useLocalStorage("user");
   return (
     <>
+    <EuaProvider>
       <Routes>
-        //! OJO 👁‍🗨Esta aqui solo para el desarrollo 
-        <Route path="/Ipunto/EUA" element={<EUA/>}/>
-        //! OJO 👁‍🗨Esta aqui solo para el desarrollo 
+      {/*  OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
+      <Route path="/EUA" element={<EUA/>}/>
+      {/* OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
 
         <Route path="/" element={<Landing />} />
         <Route path="/register-company" element={<RegisterCompany />} />
@@ -74,6 +76,7 @@ const router = () => {
         <Route exact path="/ua/product/detail/:detailId" element={<DetailsProduct />}/>
         <Route exact path="/ua/product/analitics" element={<Analitics />} />
       </Routes>
+      </EuaProvider>
     </>
 
   );
