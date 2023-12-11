@@ -3,7 +3,7 @@ import logo from '../../assets/Imagenes/imgEmpresa.jpg'
 import { useDispatch, useSelector } from "react-redux";
 // import {  userLoginAction } from "../../redux/actionLogin";
 import { useEffect, useState } from "react";
-import {  userLoginAction } from "../../redux/actionsUser";//Recomiendo usar esta action, está en la carpeta correcta y la respuesta es la que necesitamos para manejear la data
+import {  userLoginAction } from "../../redux/actionsUser"; //Recomiendo usar esta action, está en la carpeta correcta y la respuesta es la que necesitamos para manejear la data
 import { useNavigate } from "react-router-dom"
 
 const Login = () => {

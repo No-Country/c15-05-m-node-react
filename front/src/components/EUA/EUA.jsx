@@ -4,10 +4,13 @@ import Header from '../shared/Header/Header';
 import EUAHeader from './components/EUAheader';
 import CardList from './components/datalist';
 import EUATable from './components/EUATable';
+import { useDispatch, useSelector } from "react-redux";
 import { getCurrentHour,getCurrentDate } from './utils/utils';
 function EUA() {
     const [currentHour, setCurrentHour] = useState(getCurrentHour())
     const [currentDate,setCurrentDate]= useState(getCurrentDate())
+    const { user } = useSelector((state) => state.user);
+    console.log(user)
 
     // ? Hora
     useEffect(()=>{

@@ -9,9 +9,10 @@ const Company = mongoose.Schema({
         type: String,
         required: true,
     },
-    country:{
-        type: String,
-        required: true,
+    modelCurrency:{
+            country: String,
+            simbolo: String,
+            abreviacion: String
     },
     image:{
         url: String,
