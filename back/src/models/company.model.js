@@ -11,8 +11,8 @@ const Company = mongoose.Schema({
     },
     modelCurrency:{
             country: String,
-            simbolo: String,
-            abreviacion: String
+            symbol: String,
+            abbreviation: String
     },
     image:{
         url: String,

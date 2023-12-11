@@ -1,5 +1,6 @@
 import axios from "axios";
-import { USER_LOGOUT, USER_REGISTER,USER_LOGIN } from "./types";
+import { USER_LOGOUT, USER_REGISTER, USER_LOGIN } from "./types";
+
 import {
   sweetAlertsSuccessfully,
   sweetAlertsError,

@@ -11,10 +11,10 @@ export const userLoginAction = (values) => {
   return async (dispatch) => {
     try {
       let res = await axios.post(`${url}/api/login`, values);
-      dispatch({ type: USER_LOGIN, payload: res });
+      dispatch({ type: USER_LOGIN, payload: res.data });
       sweetAlertsSuccessfully(
       `Login exitoso`,
-      `Bienvenido ${values.name}`,
+      `Bienvenido ${res.data.name}`,
         "Ok"
       );
     } catch (error) {
