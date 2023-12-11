@@ -10,7 +10,7 @@ import url from "../config/config";
 export const userLoginAction = (values) => {
   return async (dispatch) => {
     try {
-      let res = await axios.post(`${url}/login`, values);
+      let res = await axios.post(`${url}/api/login`, values);
       dispatch({ type: USER_LOGIN, payload: res });
       sweetAlertsSuccessfully(
       `Login exitoso`,
