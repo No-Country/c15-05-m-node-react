@@ -1,140 +1,166 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import PanelCrearProducto from "./PanelCrearProducto";
+import PanelOptions from "./PanelOptions";
 import { useState } from "react";
-import AddPhotoAlternateOutlinedIcon from "@mui/icons-material/AddPhotoAlternateOutlined";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-// import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
-import ImageUploading from "react-images-uploading";
 
 const CreateProductsComponent = () => {
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
+  const [input, setInput] = useState("");
+  const [inputNumber, setInputNumber] = useState(Number);
+  const [selectValue, setSelectValue] = useState("");
 
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [image, setImage] = useState([]);
-
-  const handleChangeInput = (event) => {
-      event.preventDefault();
-    let value = event.target.value;
-    let name = event.target.name;
-    if(name === "name") setName(value);
-    if(name === "description") setDescription(value);
-  };
-  //IMAGE
-  const maxNumber = 69;
+  const [nombre, setNombre] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [imageProduct, setImageProduct] = useState("");
+  const [categoria, setCategoria] = useState([]);
+  const [precio, setPrecio] = useState(Number);
+  const [moneda, setMoneda] = useState("");
+  const array = [];
+  // console.log("INPUT CREATE", inputCreate.name);
+  //Imagen
   const onChangeImage = (imageList) => {
     const imageUrl = imageList.shift();
-    setImage(imageUrl.data_url);
+    setImageProduct(imageUrl.data_url);
   };
-  // New Product
-  const newProduct = {
-    name,
-    description,
-    image,
+  //Categoría
+  const handleInputChange = (event) => {
+    setSelectValue(event.target.name);
+    setInput(event.target.value);
   };
-  console.log("newProduct", newProduct);
-  
+  //Nombre
+  const handleInputNameChange = (event) => {
+    setSelectValue(event.target.name);
+    setNombre(event.target.value);
+  };
+  //Descripción
+  const handleInputDescriptionChange = (event) => {
+    setSelectValue(event.target.name);
+    setDescripcion(event.target.value);
+  };
+  //Precio
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: moneda,
+  });
+  const handleInputNumberChange = (event) => {
+    setSelectValue(event.target.name);
+    setInputNumber(event.target.value);
+    const value = parseFloat(inputNumber).toFixed(10).replace(",", ".");
+    if (!isNaN(value)) {
+      event.target.value = formatter.format(value);
+    }
+    setPrecio(value);
+  };
+  //Moneda
+  console.log("MONEDA", moneda);
+  const handleInputCurrencyChange = (event) => {
+    setSelectValue(event.target.name);
+    setMoneda(event.target.value);
+  };
+  const handleClickPanelOptions = (event) => {
+    event.preventDefault();
+    switch (selectValue) {
+      case "name":
+        setNombre(nombre);
+        break;
+      case "description":
+        setDescripcion(descripcion);
+        break;
+      case "category":
+        array.push(input);
+        setCategoria([...categoria, array[0]]);
+        setInput("");
+        break;
+      case "price":
+        setPrecio(inputNumber);
+        setInputNumber(Number);
+        setPrecio();
+        break;
+      case "currency":
+        setMoneda(moneda);
+        break;
+      default:
+        "";
+        break;
+    }
+  };
+  // console.log("PRECIO", precio);
+  const product = {
+    image: imageProduct,
+    name: nombre,
+    description: descripcion,
+    category: categoria,
+    price: inputNumber,
+    currency: moneda,
+    // price: parseFloat(precio).toFixed(2).replace(",", "."),
+  };
+  console.log("PRODUCTO FINAL", product);
   const handleSubmit = async (event) => {
     event.preventDefault();
     alert("PRODUCTO CREADO");
   };
-
   return (
-
-      <form onSubmit={handleSubmit} id="form">
-      
-        <h2>CREA TU PRODUCTO</h2>
-
-        <input
-            id="nameProduct"
-          onChange={handleChangeInput}
-          type="text"
-          name="name"
-          value={name}
-          autoComplete="true"
-          autoFocus={true}
-          placeholder="Nombre Producto"
+    <form onSubmit={handleSubmit} className="form-createComponent" action="">
+      <Box
+        sx={{
+          display: "flex",
+          gap: "1em",
+          flexDirection: "row",
+          flexWrap: "warp",
+        }}
+      >
+        <PanelCrearProducto
+          input={input}
+          nombre={nombre}
+          image={imageProduct}
+          descripcion={descripcion}
+          imageProduct={imageProduct}
+          setImageProduct={setImageProduct}
+          // handleInputCreateChange={handleInputCreateChange}
+          handleInputChange={handleInputChange}
+          handleInputNameChange={handleInputNameChange}
+          handleInputDescriptionChange={handleInputDescriptionChange}
+          onChangeImage={onChangeImage}
+          handleClickPanelOptions={handleClickPanelOptions}
         />
-        {/* ************ Descripción ************************* */}
-        <div >
-        <textarea
-         id="description"
-          onChange={handleChangeInput}
-          type="text"
-          name="description"
-          value={description}
-          autoFocus={true}
-          autoComplete="true"
-          placeholder="Descripción del Producto"
-          />
-        </div>
-        {/* ***************** Imagen **************** */}
-        <div>
+        <PanelOptions
+          nombre={product.name}
+          moneda={moneda}
+          image={product.image}
+          input={input}
+          categoria={categoria}
+          description={product.description}
+          imageProduct={imageProduct}
+          precio={precio}
+          category={product.category}
+          inputNumber={inputNumber}
+          selectValue={selectValue}
+          handleClickPanelOptions={handleClickPanelOptions}
+          handleInputChange={handleInputChange}
+          handleInputNumberChange={handleInputNumberChange}
+          handleInputCurrencyChange={handleInputCurrencyChange}
+        />
+      </Box>
 
-          <ImageUploading
-            id="image"
-            name="image"
-            value={image}
-            onChange={onChangeImage}
-            maxNumber={maxNumber}
-            dataURLKey="data_url"
-          >
-            {({
-               onImageUpload,
-               onImageRemove,
-              isDragging,
-              dragProps,
-            }) => (
-          
-              <div >
-                <div key={"url"} >
-                  <img src={image} alt="imageUpload" width="100" />
-                </div>
-                &nbsp;
-                <div className="buttonsContainer">
-                  <button
-                    type="button"
-                    className="buttonUploadImage"
-                    style={isDragging ? { color: "red" } : undefined}
-                    onClick={onImageUpload}
-                    {...dragProps}
-                  >
-                    Upload
-                    <AddPhotoAlternateOutlinedIcon />
-                  </button>
-                  <button
-                    type="button"
-                    className="buttonUploadImage"
-                    style={isDragging ? { color: "red" } : undefined}
-                    onClick={onImageRemove}
-                    {...dragProps}
-                  >
-                    Remove
-                    <DeleteOutlineOutlinedIcon />
-                  </button>
-                </div>
-              </div>
-            )}
-          </ImageUploading>
-        </div>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          elevation={0}
-          sx={{
-            height: "3em",
-            backgroundColor: "#00bcd4",
-            borderRadius: "15px",
-            justifyContent: "center",
-            ["&:hover"]: { backgroundColor: "#B2EBF2", color: "#00BCD4", },
-            boxShadow:" 0px 4.46881px 4.46881px 0px rgba(0, 0, 0, 0.25)"
-          }}
-        >
-          CREAR
-        </Button>
-      </form>
+      <Button
+        type="submit"
+        fullWidth
+        variant="contained"
+        elevation={0}
+        sx={{
+          width: "40em",
+          height: "3em",
+          left: 0,
+          backgroundColor: "#00bcd4",
+          borderRadius: "5px",
+          justifyContent: "center",
+          mt: "1.5em",
+          ["&:hover"]: { backgroundColor: "#B2EBF2", color: "#00BCD4" },
+          boxShadow: " 0px 4.46881px 4.46881px 0px rgba(0, 0, 0, 0.25)",
+        }}
+      >
+        CREAR PRODUCTO
+      </Button>
+    </form>
   );
 };
 

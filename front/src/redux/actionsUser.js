@@ -1,5 +1,5 @@
 import axios from "axios";
-import { USER_LOGIN, USER_REGISTER } from "./types";
+import { USER_LOGOUT, USER_REGISTER } from "./types";
 import {
   sweetAlertsSuccessfully,
   sweetAlertsError,
@@ -10,7 +10,7 @@ import url from "../config/config";
 export const userRegisterAction = (values) => {
   return async (dispatch) => {
     try {
-      let res = await axios.post(`${url}/register-user`, values);
+      let res = await axios.post(`${url}/api/register`, values);
       dispatch({ type: USER_REGISTER, payload: res });
       sweetAlertsSuccessfully(
         `Registro de ${values.name} exitoso!`,
@@ -24,16 +24,32 @@ export const userRegisterAction = (values) => {
   };
 };
 
-export const userLoginAction = (values) => {
+// export const userLoginAction = (values) => {
+//   return async (dispatch) => {
+//     try {
+//       let res = await axios.post(`${url}/login`, values);
+//       dispatch({ type: USER_LOGIN, payload: res.data });
+//       sweetAlertsSuccessfully(
+//         `Bienvenido(a) ${res.data.name}!`,
+//         "Nos alegra su regreso",
+//         "Ok"
+//         )
+        
+//     } catch (error) {
+//       console.log(error);
+//       sweetAlertsError(error, "Intentar de nuevo", "OK");
+//     }
+//   };
+// };
+export const userLogoutAction = () => {
   return async (dispatch) => {
     try {
-      let res = await axios.post(`${url}/login`, values);
-      dispatch({ type: USER_LOGIN, payload: res.data });
+      let res = await axios.post(`${url}/logout`);
+      dispatch({ type: USER_LOGOUT, payload: res });
       console.log("RESPUESTA AXIOS", res);
       sweetAlertsSuccessfully(
-        `Bienvenido(a) ${res.data.name}!`,
-        "Nos alegra su regreso",
-        "Ok"
+        `Hasta pronto!`,
+        "Recuerde volver",
       );
     } catch (error) {
       console.log(error);

@@ -23,6 +23,7 @@ const Header = ({ showDown = true }) => {
             <Link to="/ua/landing" >UA</Link>
             <Link to="/register-user" >Registrarse</Link>
             <Link to="/login" >Iniciar Sesión</Link>
+            <Link to="/ua/landing" >Landing UA</Link>
 
             <FaUserCircle className="icono-usuario" />
           </div>

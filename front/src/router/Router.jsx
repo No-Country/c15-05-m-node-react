@@ -7,16 +7,18 @@ import Inventory from "../components/pagesUA/Inventory";
 import LandingUA from "../components/pagesUA/LandingUA";
 import Catalogo from "../components/pagesUA/Catalogo";
 import Analitics from "../components/pagesUA/Analiticas";
-import DetailsProduct from "../components/pagesUA/DetailsProduct"
-import DashboardGlobal from "../components/dashboard/global/DashboardPage";
+import DetailsProduct from "../components/pagesUA/DetailsProduct";
 import Login from "../components/register/Login";
 import RegisterUser from "../components/register/RegisterUser";
-import ProtectedRoute from "../components/Utils/ProtectedRoute.jsx";
-import { useLocalStorage } from "react-use";
-import RegisterCompany from "../components/register/RegisterCompany.jsx"
+// import ProtectedRoute from "../components/Utils/ProtectedRoute.jsx";
+// import { useLocalStorage } from "react-use";
+import RegisterCompany from "../components/register/RegisterCompany.jsx";
+import ControlEmpleados from "../components/pagesUA/ControlEmpleados.jsx";
+import ProfileUA from "../components/pagesUA/ProfileUA.jsx";
+import DashboardEUA from "../components/pagesEUA/DashboardEUA.jsx";
 
 const router = () => {
-  const [user] = useLocalStorage("user");
+  // const [user] = useLocalStorage("user");
   return (
     <>
       <Routes>
@@ -24,9 +26,9 @@ const router = () => {
         <Route path="/register-company" element={<RegisterCompany />} />
         <Route path="/register-user" element={<RegisterUser />} />
         <Route path="/login" element={<Login />} />
-        <Route element={<ProtectedRoute canActivate={user} />}>
+        {/* 
+          <Route element={<ProtectedRoute canActivate={user} />}>
           <Route path="/ua/landing" element={<LandingUA />} />
-          {/*"/dashboard/ua/:id" */}
         </Route>
         <Route element={<ProtectedRoute canActivate={user} />}>
           <Route path="/ua/product/create" element={<CreateProducts />} />
@@ -51,7 +53,17 @@ const router = () => {
         </Route>
         <Route element={<ProtectedRoute canActivate={user} />}>
           <Route path="/Dashboard" element={<DashboardGlobal />} />
-        </Route>
+        </Route> */}
+        <Route exact path="/ua/product/catalogo" element={<Catalogo />} />
+        <Route exact path="/ua/product/create" element={<CreateProducts />} />
+        <Route exact path="/ua/product/edit" element={<EditProducts />} />
+        <Route exact path="/ua/product/inventory" element={<Inventory />} />
+        <Route exact path="/ua/landing" element={<LandingUA />} />
+        <Route exact path="/ua/control-eua" element={<ControlEmpleados />} />
+        <Route exact path="/ua/profile" element={<ProfileUA />} />
+        <Route exact path="/eua/dashboard" element={<DashboardEUA />} />
+        <Route exact path="/ua/product/detail/:detailId" element={<DetailsProduct />}/>
+        <Route exact path="/ua/product/analitics" element={<Analitics />} />
       </Routes>
     </>
   );
