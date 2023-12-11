@@ -39,7 +39,7 @@ const CreateProductsComponent = () => {
   //Precio
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: moneda,
+    currency: "USD",
   });
   const handleInputNumberChange = (event) => {
     setSelectValue(event.target.name);
