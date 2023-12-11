@@ -16,7 +16,7 @@ const ViewCatalogo = () =>{
 
     useEffect(() => {
         dispatch(getAllProductsAction(companyId))
-    }, [dispatch]);
+    }, [dispatch, companyId]);
 
     
     return(

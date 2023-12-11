@@ -28,6 +28,10 @@ const router = () => {
         <Route path="/login" element={<Login />} />
         {/* 
           <Route element={<ProtectedRoute canActivate={user} />}>
+
+
+        <Route element={<ProtectedRoute canActivate={user} />}>
+
           <Route path="/ua/landing" element={<LandingUA />} />
         </Route>
         <Route element={<ProtectedRoute canActivate={user} />}>
@@ -66,6 +70,7 @@ const router = () => {
         <Route exact path="/ua/product/analitics" element={<Analitics />} />
       </Routes>
     </>
+
   );
 };
 
