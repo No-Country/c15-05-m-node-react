@@ -7,9 +7,9 @@ import RouterApp from "./router/Router.jsx"
 function App() {
 
   return (
-    <>
+    <div className='w-full'>
     <RouterApp/>
-    </>
+    </div>
   )
 }
 
