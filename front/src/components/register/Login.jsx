@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import logo from '../../assets/Imagenes/imgEmpresa.jpg'
-import { useDispatch } from "react-redux";
-import {  userLoginAction } from "../../redux/actionLogin"
+import { useDispatch, useSelector } from "react-redux";
+// import {  userLoginAction } from "../../redux/actionLogin";
+import { useEffect, useState } from "react";
+import {  userLoginAction } from "../../redux/actionsUser";//Recomiendo usar esta action, está en la carpeta correcta y la respuesta es la que necesitamos para manejear la data
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.user);
+  const [ userLogin, setUserLogin ] = useState();
   const dispatch = useDispatch();
   const [loginData, setLoginData] = useState({
     email: "",
@@ -26,6 +32,14 @@ const Login = () => {
       password: "",
     });
   };
+
+  useEffect(() => {
+    setUserLogin(user)
+    if (userLogin) {
+      navigate(userLogin.UA === true ? "/ua/landing" : null || userLogin.EUA === true ? "/eua/dashboard" : null);
+    }
+    console.log("USER", user);
+  }, [user, userLogin, navigate]);
 
   return (
     <div className="w-full h-screen pt-11 bg-slate-200 ">

@@ -5,9 +5,11 @@ import {
   GET_PRODUCT_DETAIL,
   COMPANY_REGISTER,
   USER_LOGIN,
+  USER_LOGOUT
   SORT_BY_NAME,
   SORT_BY_PRICE,
   SORT_BY_STOCK
+
 } from "./types";
 
 
@@ -35,7 +37,7 @@ export const reducerCompany = (state = initialState, action) => {
   }
 };
 
-export const reducerUsers = (state = initialState, action) => {
+export const reducerUsers = (state = {}, action) => {
   switch (action.type) {
     case USER_REGISTER:
       return {
@@ -47,6 +49,11 @@ export const reducerUsers = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
+      };
+      case USER_LOGOUT:
+      return {
+        ...state,
+        user: {},
       };
 
     default:

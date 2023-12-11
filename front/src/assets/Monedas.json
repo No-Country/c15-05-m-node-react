@@ -1,0 +1,78 @@
+{
+    "dolar_canadiense": {
+      "simbolo": "CAD$",
+      "abreviacion": "CAD"
+    },
+    "dolar_estadounidense": {
+      "simbolo": "USD$",
+      "abreviacion": "USD"
+    },
+    "peso_argentino": {
+      "simbolo": "ARS$",
+      "abreviacion": "ARS"
+    },
+    "peso_chileno": {
+      "simbolo": "CLP$",
+      "abreviacion": "CLP"
+    },
+    "peso_colombiano": {
+      "simbolo": "COP$",
+      "abreviacion": "COP"
+    },
+    "sol_peruano": {
+      "simbolo": "S/.",
+      "abreviacion": "PEN"
+    },
+    "real_brasileno": {
+      "simbolo": "R$",
+      "abreviacion": "BRL"
+    },
+    "bolivar": {
+      "simbolo": "VES",
+      "abreviacion": "VES"
+    },
+    "quetzal": {
+      "simbolo": "Q",
+      "abreviacion": "GTQ"
+    },
+    "cordoba": {
+      "simbolo": "C$",
+      "abreviacion": "NIO"
+    },
+    "lempira": {
+      "simbolo": "L",
+      "abreviacion": "HNL"
+    },
+    "colon_costarricense": {
+      "simbolo": "₡",
+      "abreviacion": "CRC"
+    },
+    "balboa": {
+      "simbolo": "B/.",
+      "abreviacion": "PAB"
+    },
+    "dolar_beliceño": {
+      "simbolo": "BZ$",
+      "abreviacion": "BZD"
+    },
+    "dolar_bahameño": {
+      "simbolo": "BSD$",
+      "abreviacion": "BSD"
+    },
+    "dolar_barbadense": {
+      "simbolo": "BBD$",
+      "abreviacion": "BBD"
+    },
+    "dolar_jamaicano": {
+      "simbolo": "JMD$",
+      "abreviacion": "JMD"
+    },
+    "dolar_eastern_caribbean": {
+      "simbolo": "XCD$",
+      "abreviacion": "XCD"
+    },
+    "gourde": {
+      "simbolo": "HTG",
+      "abreviacion": "HTG"
+    }
+  }
