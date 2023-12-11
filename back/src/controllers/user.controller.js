@@ -90,6 +90,7 @@ export const logout = async (req,res)=>{
         return res.status(200);
     } catch (error) {
         console.log(error);
+        return res.status(500)
     }
 }
 
