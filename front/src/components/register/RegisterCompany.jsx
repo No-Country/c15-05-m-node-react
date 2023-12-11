@@ -50,10 +50,11 @@ const RegisterCompany = () => {
   
   useEffect(() => {
     let values = Object.values(input);
-    let notComplete = values.filter( value => value === "")
+    let notComplete =  values.filter( value => value === "")
+    console.log(notComplete);
     let error = Object.keys(errors);
     if(!notComplete.length && !error.length) setFormComplete(true)
-  }, [input, errors])
+  }, [input, errors, formComplete])
 
 //handler del submit ==> si fomrComplete es true despacha la action PostActivity, setea Success en true, setea input y errors al estado inicial
 const userId = useSelector(state => state.user._id);
@@ -63,7 +64,6 @@ const submitHandler = (e) => {
   e.preventDefault();
   if(formComplete) {
         dispatch(companyRegisterAction(input, userId));
-        setSuccess(true); // al setearse en true cambia el rederizado
         setInput({
           name: '',
           sector: '',
@@ -81,14 +81,11 @@ const submitHandler = (e) => {
           // image:{}
         });  
         setTimeout(function(){
-            navigate('/Dashboard') //una vez enviado el form me redirige a Dashboard??  
+            navigate('/login') 
         }, 2000)
 
-    } else {
-        alert('missing or incorrect data');
-    }
-}
-
+    } 
+  }
 
   return (
     <div className='w-full h-screen pt-11 bg-slate-200 '>
@@ -99,8 +96,6 @@ const submitHandler = (e) => {
       <div className='flex place-content-around mt-28'>
         <div className='w-[500px]'>
           <form className= 'flex flex-col place-content-around gap-6 ' onSubmit={submitHandler}>
-            {success && sweetAlertsSuccessfully(title, text)}
-            {!success && <div>
               <div className="flex flex-col">
                 <input type="text" placeholder='Nombre de la empresa'
                 className={`border border-black p-2 m-2 rounded-lg `}
@@ -134,7 +129,6 @@ const submitHandler = (e) => {
                 id='password'
                 />
               </div> */}
-            </div>}
           </form>
         </div>         <div>
           <div className='w-[450px] h-[250px] flex place-content-center  border border-black rounded-xl overflow-hidden'>

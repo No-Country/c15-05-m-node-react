@@ -1,0 +1,172 @@
+.EUA__header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+.EUA__sales__views{
+    font-size: 64.5%;
+}
+.EUA__header__company{
+    display: flex;
+    align-items: center;
+    user-select: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    gap: 15px;
+}
+.EUA__header__company img {
+    width: 40px;
+    border-radius: 50%;
+    user-select: none;
+}
+.EUA__link{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.2rem;
+}
+.EUA__link:last-child svg{ 
+    font-size: 2rem;
+}
+/* !========================= Fin header ====================== */
+.EUA__info__and__total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 20px ;
+    font-size: 1rem;
+}
+.EUA__info{
+    display: flex;
+    gap: 70px;
+    width: 50%;
+    background-color: rgb(206, 206, 206);
+    padding: 5px 7px;
+    border-radius: 5px;
+    box-shadow: inset 5px 5px 5px #b8b8b8, inset -5px -5px 5px #c0c0c0;
+
+}
+.EUA__fecha , .EUA__sale__info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+.EUA__total {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    background-color: #c5c5c5;
+    padding: 15px;
+    width: 30%;
+    border-radius: 5px;
+    box-shadow: 0 0 7px #4b4b4b2a;
+    box-shadow: inset 5px 5px 5px #b8b8b8, inset -5px -5px 5px #c0c0c0;
+
+}
+
+.EUA__info__list{
+display: flex;
+justify-content: space-between;
+gap: 5px;
+background-color: white;
+padding: 5px 7px;
+border-radius: 5px;
+box-shadow: 0 0 7px #4b4b4b2a;
+
+}
+.EUA__total__list{
+   
+    display: flex;
+    justify-content: space-between;
+}
+/* !========================= Fin Total e Info ====================== */
+
+.EUA__sales {
+    padding: 10px 20px;
+    display: flex;
+}
+.EUA__table__Product{
+    width: 550px;
+    height: 350px;
+    background: url("https://i.imgur.com/7ZjO0I9.png") center/cover no-repeat;
+    overflow-y: auto;
+    border: solid 1px rgba(0, 0, 0, 0.397);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(78, 78, 78, 0.315);
+}
+.EUA__table__Product::-webkit-scrollbar{
+   width: 5px;
+}
+
+.EUA__table__Product::-webkit-scrollbar-thumb {
+    background: #8a8a8a;
+    border-radius: 3px;
+}
+
+.EUA__table{
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    font-size: .9rem;
+    backdrop-filter: blur(20px);
+}
+.EUA__table__body tr td,th{
+    border: 1px solid  rgba(0, 0, 0, 0.397);
+    padding: 0 5px;
+    user-select: none;
+    height: 18px !important;
+    text-transform: capitalize;
+}
+.EUA__table__body tr td:last-child{
+    border:none;
+}
+
+.EUA__table__body--tr button{
+    margin: 3px 0;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: #ff0000e1;
+    box-shadow: inset 5px 5px 5px #af0000, inset -5px -5px 5px #ff3636;
+}
+.header__tr--th {
+    text-align: center;
+}
+.table__body__td--btn {
+    padding: 0 !important;
+}
+.EUA__table__body--tr td:first-child{
+    text-align: start;
+}
+.EUA__table__body--tr td{
+    text-align: center;
+    overflow-x: auto;
+    width: 10px;
+    text-wrap: nowrap;
+}
+.EUA__table__body--tr td::-webkit-scrollbar{
+    height: 0;
+    transition: all .3 ease;
+}
+.EUA__table__body--tr td:hover::-webkit-scrollbar{
+    height: 5px;
+}
+.EUA__table__body--tr td::-webkit-scrollbar-thumb {
+    background: #8a8a8a;
+    border-radius: 3px;
+}
+.header__tr--th{
+    border-top: 0;
+}
+.header__tr--th:first-child{
+    border-left: 0;
+}
+.EUA__table__body--tr td:first-child{
+    border-left: 0;
+}
+
+.table__body__td--btn {
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+}

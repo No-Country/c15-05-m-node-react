@@ -7,6 +7,7 @@ import Inventory from "../components/pagesUA/Inventory";
 import LandingUA from "../components/pagesUA/LandingUA";
 import Catalogo from "../components/pagesUA/Catalogo";
 import Analitics from "../components/pagesUA/Analiticas";
+import EUA from "../components/EUA/EUA.jsx";
 import DetailsProduct from "../components/pagesUA/DetailsProduct";
 import Login from "../components/register/Login";
 import RegisterUser from "../components/register/RegisterUser";
@@ -22,12 +23,20 @@ const router = () => {
   return (
     <>
       <Routes>
+        //! OJO 👁‍🗨Esta aqui solo para el desarrollo 
+        <Route path="/Ipunto/EUA" element={<EUA/>}/>
+        //! OJO 👁‍🗨Esta aqui solo para el desarrollo 
+
         <Route path="/" element={<Landing />} />
         <Route path="/register-company" element={<RegisterCompany />} />
         <Route path="/register-user" element={<RegisterUser />} />
         <Route path="/login" element={<Login />} />
         {/* 
           <Route element={<ProtectedRoute canActivate={user} />}>
+
+
+        <Route element={<ProtectedRoute canActivate={user} />}>
+
           <Route path="/ua/landing" element={<LandingUA />} />
         </Route>
         <Route element={<ProtectedRoute canActivate={user} />}>
@@ -66,6 +75,7 @@ const router = () => {
         <Route exact path="/ua/product/analitics" element={<Analitics />} />
       </Routes>
     </>
+
   );
 };
 
