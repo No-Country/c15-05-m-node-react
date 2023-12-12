@@ -10,7 +10,7 @@ const LandingUA = () => {
       <div className="landingUA-imageContainer">
         <img src={gestionInventario} className="landingUA-img" />
       </div>
-      <Header />
+      <Header showDown={false} />
       <Box
         sx={{
           display: "grid",
