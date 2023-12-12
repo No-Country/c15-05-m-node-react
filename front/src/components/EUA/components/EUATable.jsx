@@ -13,6 +13,20 @@ function EUATable({headerTableData,productsTable}) {
                         </thead>
                         <tbody className='EUA__table__body'>
                               <TableTr/>
+                              <TableTr/>
+                              <TableTr/>
+                              <TableTr/>
+                              <TableTr/>               
+                              <TableTr/>
+                              <TableTr/>
+                              <TableTr/>
+                              <TableTr/>
+                              <TableTr/>
+                              <TableTr/>
+                              <TableTr/>
+                              <TableTr/>
+                              <TableTr/>
+                              <TableTr/>
                         </tbody>
                     </table>
     );

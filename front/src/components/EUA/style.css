@@ -76,8 +76,7 @@ border-radius: 5px;
 box-shadow: 0 0 7px #4b4b4b2a;
 
 }
-.EUA__total__list{
-   
+.EUA__total__list{ 
     display: flex;
     justify-content: space-between;
 }
@@ -172,15 +171,100 @@ box-shadow: 0 0 7px #4b4b4b2a;
     color: rgb(255, 255, 255);
 }
 
-
 .EUA__list__products__container{
     width: 100%;
     height:500px ;
-    background-color: red;
+    /* background-color: red; */
+    font-size: 1rem;
 }
 .EUA__products__search{
     display: flex;
-    width: 100%;
-    height: 60px;
+    align-items: center;
     background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 4.46881px 4.46881px 0px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+}
+.product__search--box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.product__search--box h4 {
+    font-size: 1.4rem;
+}
+.product__search--input{
+    display: flex;
+ background-color: white;
+ padding: 2px 4px;
+ border: solid 1px slategray;
+ border-radius: 5px;
+}
+.product__search--input input{
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #616161;
+}
+.product__search--input button {
+    display: flex;
+    place-items: center;
+    
+}
+.product__search--input button svg {
+    font-size: 1.4rem;
+    color: #8a8a8a;
+    transition: all .3s ease;
+}
+.product__search--input button svg:hover{
+    color: #616161;
+}
+.product__search--box select {
+    outline: none;
+    border: solid 1px slategray;
+    border-radius: 5px;
+    color: #8a8a8a;
+    width: 20%;
+}
+.EUA__list__products--box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    /* background-color: white; */
+    /* box-shadow: 0px 4.46881px 4.46881px 0px rgba(0, 0, 0, 0.25); */
+    border-radius: 5px;
+}
+.EUA__list__products{
+    width: 100% ;
+    height: 80% ; 
+    overflow-y: auto ;
+}
+.EUA__list__products__ifinity{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.EUA__list__products::-webkit-scrollbar{
+    width: 10px; 
+}
+.EUA__list__products::-webkit-scrollbar-thumb {
+    background: #8a8a8a;
+    border-radius: 3px;
+ }
+
+.EUA__list--button{
+    width: 100% ;
+    height: 20% ;
+    margin-top: 10px;
+    background-color: rgb(0, 255, 34);
+}
+.EUA__product__card{
+    width: 260px;
+    height: 190px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
 }

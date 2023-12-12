@@ -294,5 +294,5 @@ export const productsData=[
       "company": "65770eb94668468640ed2017",
       "createdAt": "2023-12-11T18:44:45.677Z",
       "updatedAt": "2023-12-11T18:44:45.677Z"
-    }
+    },
   ]

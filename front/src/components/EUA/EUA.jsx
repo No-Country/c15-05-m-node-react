@@ -1,4 +1,5 @@
 import './style.css'
+import { HiOutlineSearch } from "react-icons/hi";
 import { useState,useEffect} from 'react'
 import Header from '../shared/Header/Header';
 import EUAHeader from './components/EUAheader';
@@ -8,6 +9,7 @@ import { headerTableData } from './components/data';
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentHour,getCurrentDate } from './utils/utils';
 import { useEUA } from './hooks/useEUA'
+import EUAInfiniteScroll from './components/EUAInfiniteScroll';
 function EUA() {
     const [currentHour, setCurrentHour] = useState(getCurrentHour())
     const [currentDate,setCurrentDate]= useState(getCurrentDate())
@@ -38,7 +40,7 @@ function EUA() {
     return (
         <div className='EUA__view__container'>
             <Header/>
-            <div className='EUA__sales__views'>
+            <section className='EUA__sales__views'>
 
                 <EUAHeader name={"ShadowSell"} img={"https://i.imgur.com/T21NHN5.png"}/>
             
@@ -66,12 +68,46 @@ function EUA() {
                     </div>
                     <div className='EUA__list__products__container'>
                         <div className='EUA__products__search'>
-                            1
+                            <div  className='product__search--box'>
+                                <h4>Buscar</h4>
+
+                                <form className='product__search--input'>
+                                    <button>
+                                        <HiOutlineSearch/>
+                                    </button>
+                                    <input type="text"  />
+                                </form>
+
+                                <select name="" id="">
+                                    <option value="">seleccionar..</option>
+                                    <option value="">seleccionar..</option>
+                                    <option value="">seleccionar..</option>
+                                    <option value="">seleccionar..</option>
+                                    <option value="">seleccionar..</option>
+                                    <option value="">seleccionar..</option>
+                                </select>
+                                <select name="" id="">
+                                    <option value="">seleccionar..</option>
+                                    <option value="">seleccionar..</option>
+                                    <option value="">seleccionar..</option>
+                                    <option value="">seleccionar..</option>
+                                    <option value="">seleccionar..</option>
+                                    <option value="">seleccionar..</option>
+                                    <option value="">seleccionar..</option>
+                                </select>
+                            </div>
                         </div>
+                        <div className='EUA__list__products--box'>
+                            <EUAInfiniteScroll/>
+                            <section className='EUA__list--button'>
+
+                            </section>
+                        </div>
+
                     </div>
                 </section>
 
-            </div>
+            </section>
         </div>
     );
 }
