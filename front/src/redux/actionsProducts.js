@@ -1,14 +1,24 @@
 import axios from "axios";
 import { CREATE_PRODUCT, GET_ALL_PRODUCTS, GET_PRODUCT_DETAIL, SORT_BY_PRICE, SORT_BY_NAME, SORT_BY_STOCK } from "./types";
-
+import {
+    sweetAlertsSuccessfully,
+    sweetAlertsError,
+  } from "../components/Utils/alerts/sweetAlerts";
+  import url from "../config/config";
 export const createProductAction = (values) => {
     return async (dispatch) => {
         try {
-            let res = await axios.post("http://localhost:3000/api/product", values );
+            let res = await axios.post(`${url}/api/product`, values );
             console.log("ACTION CREATE RESPONSE", res);
             dispatch({ type: CREATE_PRODUCT,  payload: res })
+            sweetAlertsSuccessfully(
+                `Producto ${values.name} Creado!`,
+                "Felicidades",
+                "Ok"
+              );
         } catch (error) {
             console.log(error);
+            sweetAlertsError(error.response.data.message, "Intentar de nuevo", "OK");
         }
     }
 };

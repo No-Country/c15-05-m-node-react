@@ -1,78 +1,97 @@
-{
-    "dolar_canadiense": {
+[
+  {
+      "country": "Canadá",
       "simbolo": "CAD$",
       "abreviacion": "CAD"
-    },
-    "dolar_estadounidense": {
+  },
+  {
+      "country": "Estados Unidos",
       "simbolo": "USD$",
       "abreviacion": "USD"
-    },
-    "peso_argentino": {
+  },
+  {
+      "country": "Argentina",
       "simbolo": "ARS$",
       "abreviacion": "ARS"
-    },
-    "peso_chileno": {
+  },
+  {
+      "country": "Chile",
       "simbolo": "CLP$",
       "abreviacion": "CLP"
-    },
-    "peso_colombiano": {
+  },
+  {
+      "country": "Colombia",
       "simbolo": "COP$",
       "abreviacion": "COP"
-    },
-    "sol_peruano": {
+  },
+  {
+      "country": "Perú",
       "simbolo": "S/.",
       "abreviacion": "PEN"
-    },
-    "real_brasileno": {
+  },
+  {
+      "country": "Brasil",
       "simbolo": "R$",
       "abreviacion": "BRL"
-    },
-    "bolivar": {
+  },
+  {
+      "country": "Venezuela",
       "simbolo": "VES",
       "abreviacion": "VES"
-    },
-    "quetzal": {
+  },
+  {
+      "country": "Guatemala",
       "simbolo": "Q",
       "abreviacion": "GTQ"
-    },
-    "cordoba": {
+  },
+  {
+      "country": "Nicaragua",
       "simbolo": "C$",
       "abreviacion": "NIO"
-    },
-    "lempira": {
+  },
+  {
+      "country": "Honduras",
       "simbolo": "L",
       "abreviacion": "HNL"
-    },
-    "colon_costarricense": {
+  },
+  {
+      "country": "Costa Rica",
       "simbolo": "₡",
       "abreviacion": "CRC"
-    },
-    "balboa": {
+  },
+  {
+      "country": "Panamá",
       "simbolo": "B/.",
       "abreviacion": "PAB"
-    },
-    "dolar_beliceño": {
+  },
+  {
+      "country": "Belice",
       "simbolo": "BZ$",
       "abreviacion": "BZD"
-    },
-    "dolar_bahameño": {
+  },
+  {
+      "country": "Bahamas",
       "simbolo": "BSD$",
       "abreviacion": "BSD"
-    },
-    "dolar_barbadense": {
+  },
+  {
+      "country": "Barbados",
       "simbolo": "BBD$",
       "abreviacion": "BBD"
-    },
-    "dolar_jamaicano": {
+  },
+  {
+      "country": "Jamaica",
       "simbolo": "JMD$",
       "abreviacion": "JMD"
-    },
-    "dolar_eastern_caribbean": {
+  },
+  {
+      "country": "Granada",
       "simbolo": "XCD$",
       "abreviacion": "XCD"
-    },
-    "gourde": {
+  },
+  {
+      "country": "Haití",
       "simbolo": "HTG",
       "abreviacion": "HTG"
-    }
   }
+]
