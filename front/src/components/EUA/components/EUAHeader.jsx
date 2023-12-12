@@ -5,7 +5,7 @@ import { IoIosArrowBack } from "react-icons/io";
 function EUAHeader({name,img}) {
     return (
         <header className='EUA__header'>
-                    <Link className='EUA__link' to="#">
+                    <Link className='EUA__link' to="/">
                     <IoIosArrowBack />
                         IPunto
                     </Link>

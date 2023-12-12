@@ -4,10 +4,15 @@ import Header from '../shared/Header/Header';
 import EUAHeader from './components/EUAheader';
 import CardList from './components/datalist';
 import EUATable from './components/EUATable';
+import { headerTableData } from './components/data';
+import { useDispatch, useSelector } from "react-redux";
 import { getCurrentHour,getCurrentDate } from './utils/utils';
+import { useEUA } from './hooks/useEUA'
 function EUA() {
     const [currentHour, setCurrentHour] = useState(getCurrentHour())
     const [currentDate,setCurrentDate]= useState(getCurrentDate())
+    const { products } = useEUA()
+    const { user } = useSelector((state) => state.user);
 
     // ? Hora
     useEffect(()=>{
@@ -57,7 +62,12 @@ function EUA() {
 
                 <section className='EUA__sales'>
                     <div className='EUA__table__Product'>
-                        <EUATable products={["caracas","caracas2","caracas3","caracas4","caracas5","caracas6",]}/>
+                        <EUATable headerTableData={headerTableData} productsTable={"nada"} />
+                    </div>
+                    <div className='EUA__list__products__container'>
+                        <div className='EUA__products__search'>
+                            1
+                        </div>
                     </div>
                 </section>
 
