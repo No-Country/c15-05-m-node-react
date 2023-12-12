@@ -11,6 +11,7 @@ import companyRouter from './routes/company.routes.js'
 import categoriesRoutes from './routes/category.routes.js'
 import passwordRouter from './routes/recoverPassword.routes.js'
 import { urlFrond } from "./config.js"
+import bodyParser from "body-parser";
 
 const __filename = fileURLToPath(import.meta.url);
 export const __dirname = dirname(__filename);
@@ -23,6 +24,8 @@ app.use(
       credentials: true,
     })
   );
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));  
 
 app.use(morgan('dev'));
 app.use(express.json())

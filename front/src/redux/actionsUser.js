@@ -30,14 +30,13 @@ export const userLoginAction = (values) => {
       let res = await axios.post(`${url}/api/login`, values);
       dispatch({ type: USER_LOGIN, payload: res.data });
       sweetAlertsSuccessfully(
-        `Bienvenido(a) ${res.data.name}!`,
-        "Nos alegra su regreso",
+      `Login exitoso`,
+      `Bienvenido ${res.data.name}`,
         "Ok"
-        )
-        
+      );
     } catch (error) {
       console.log(error);
-      sweetAlertsError(error, "Intentar de nuevo", "OK");
+      sweetAlertsError(error.response.data.message, "Intentar de nuevo", "OK");
     }
   };
 };

@@ -118,17 +118,12 @@ const PanelCrearProducto = ({
   );
 };
 PanelCrearProducto.propTypes = {
-  handleInputChange: PropTypes.func.isRequired,
-  handleInputDescriptionChange: PropTypes.func.isRequired,
-  handleInputNameChange: PropTypes.func.isRequired,
-  // handleInputCreateChange: PropTypes.func.isRequired,
-  // handleSelectChange: PropTypes.func.isRequired,
-  onChangeImage: PropTypes.func.isRequired,
-  // inputCreate: PropTypes.object.isRequired,
-  // selectValue: PropTypes.string.isRequired,
-  input: PropTypes.string.isRequired,
   nombre: PropTypes.string.isRequired,
   descripcion: PropTypes.string.isRequired,
   imageProduct: PropTypes.string.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+  handleInputNameChange: PropTypes.func.isRequired,
+  handleInputDescriptionChange: PropTypes.func.isRequired,
+  onChangeImage: PropTypes.func.isRequired,
 };
 export default PanelCrearProducto;

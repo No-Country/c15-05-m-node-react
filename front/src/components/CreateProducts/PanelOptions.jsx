@@ -2,21 +2,23 @@ import { Box, Button } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import PropTypes from "prop-types";
 import monedas from "../../assets/Monedas.json";
+import CurrencyInput from "react-currency-input-field";
 
 const PanelOptions = ({
   nombre,
   description,
   imageProduct,
+  price,
   moneda,
+  currency,
   precio,
   category,
   handleClickPanelOptions,
   handleInputChange,
-  handleInputNumberChange,
+  handleInputPriceChange,
   handleInputCurrencyChange,
   input,
 }) => {
-  console.log("PRICE", typeof precio);
   return (
     <Box
       sx={{
@@ -39,7 +41,7 @@ const PanelOptions = ({
             alignItems: "center",
           }}
         >
-          <h3 className="option">Categoría:</h3>
+          <p className="option">Categoría:</p>
           <input
             id="input-options-category"
             type="text"
@@ -75,16 +77,18 @@ const PanelOptions = ({
             alignItems: "center",
           }}
         >
-          <h3 className="option">Precio:</h3>
-          <input
-            id="input-number"
-            type="text"
-            className="input-select"
-            onChange={handleInputNumberChange}
+          <p className="option">Precio:</p>
+          <CurrencyInput
+            prefix=""
+            decimalsLimit={2}
+            decimalScale={2}
+            allowNegativeValue={false}
+            placeholder="Introduce el precio"
+            onValueChange={(value) => handleInputPriceChange(value)}
             value={precio}
             name="price"
-            step="0.1"
           />
+
           <Button
             type="submit"
             variant="contained"
@@ -111,25 +115,20 @@ const PanelOptions = ({
             alignItems: "center",
           }}
         >
-          <h3 className="option">Moneda:</h3>
+          <p className="option">Moneda:</p>
           <select
             id="input-options-currency"
             className="input-select-currency"
             onChange={handleInputCurrencyChange}
             value={moneda}
             name="currency"
-            defaultValue="Moneda"
           >
-            {Object.keys(monedas).map((key) => (
-              <option key={key} value={monedas[key].abreviacion}>
-                {key}
+            {monedas.map((option) => (
+              <option key={option.abreviacion} value={option.simbolo}>
+                {option.country}
+                {":"} {option.abreviacion}
               </option>
             ))}
-            {/* {Object.keys(monedas).map((key) => (
-              <option key={key} value={key}>
-                {monedas[key].simbolo} ({monedas[key].abreviacion})
-              </option>
-            ))} */}
           </select>
         </Box>
       </div>
@@ -152,19 +151,19 @@ const PanelOptions = ({
           <img src={imageProduct} width="120"></img>
         </Box>
         <h2 className="previewH2">
-          Nombre: <h3 className="previewH3">{nombre}</h3>
+          Nombre: <p className="previewH3">{nombre}</p>
         </h2>
         <h2 className="previewH2">
-          Descripción: <h3 className="previewH3">{description}</h3>
+          Descripción: <p className="previewH3">{description}</p>
         </h2>
         <h2 className="previewH2">
-          Moneda: <h3 className="previewH3">{moneda}</h3>
+          Moneda: <p className="previewH3">{currency}</p>
         </h2>
         <h2 className="previewH2">
-          Categoría: <h3 className="previewH3">{category.join(" ,")}</h3>
+          Categoría: <p className="previewH3">{category.join(", ")}</p>
         </h2>
         <h2 className="previewH2">
-          Precio: <h3 className="previewH3">{precio}</h3>
+          Precio: <p className="previewH3">{currency}{" "}{price}</p>
         </h2>
       </Box>
     </Box>
@@ -173,15 +172,16 @@ const PanelOptions = ({
 PanelOptions.propTypes = {
   nombre: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  moneda: PropTypes.string.isRequired,
-  categoria: PropTypes.array.isRequired,
   imageProduct: PropTypes.string.isRequired,
-  category: PropTypes.array.isRequired,
+  price: PropTypes.number.isRequired,
+  moneda: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
   precio: PropTypes.number.isRequired,
+  category: PropTypes.array.isRequired,
+  input: PropTypes.string.isRequired, //categoria
   handleClickPanelOptions: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
-  input: PropTypes.string.isRequired, //categoria
-  handleInputNumberChange: PropTypes.func.isRequired,
+  handleInputPriceChange: PropTypes.func.isRequired,
   handleInputCurrencyChange: PropTypes.func.isRequired,
 };
 export default PanelOptions;

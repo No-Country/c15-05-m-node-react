@@ -2,20 +2,24 @@ import { Box, Button } from "@mui/material";
 import PanelCrearProducto from "./PanelCrearProducto";
 import PanelOptions from "./PanelOptions";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createProductAction } from "../../redux/actionsProducts"
+// import { useNavigate } from "react-router-dom";
 
 const CreateProductsComponent = () => {
+  const dispatch = useDispatch();
+
   const [input, setInput] = useState("");
-  const [inputNumber, setInputNumber] = useState(Number);
   const [selectValue, setSelectValue] = useState("");
 
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [imageProduct, setImageProduct] = useState("");
   const [categoria, setCategoria] = useState([]);
-  const [precio, setPrecio] = useState(Number);
+  const [precio, setPrecio] = useState(0);
   const [moneda, setMoneda] = useState("");
   const array = [];
-  // console.log("INPUT CREATE", inputCreate.name);
+
   //Imagen
   const onChangeImage = (imageList) => {
     const imageUrl = imageList.shift();
@@ -37,21 +41,12 @@ const CreateProductsComponent = () => {
     setDescripcion(event.target.value);
   };
   //Precio
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
-  const handleInputNumberChange = (event) => {
-    setSelectValue(event.target.name);
-    setInputNumber(event.target.value);
-    const value = parseFloat(inputNumber).toFixed(10).replace(",", ".");
-    if (!isNaN(value)) {
-      event.target.value = formatter.format(value);
-    }
+  const handleInputPriceChange = (value) => {
+ 
     setPrecio(value);
   };
+
   //Moneda
-  console.log("MONEDA", moneda);
   const handleInputCurrencyChange = (event) => {
     setSelectValue(event.target.name);
     setMoneda(event.target.value);
@@ -71,9 +66,7 @@ const CreateProductsComponent = () => {
         setInput("");
         break;
       case "price":
-        setPrecio(inputNumber);
-        setInputNumber(Number);
-        setPrecio();
+        setPrecio(0);
         break;
       case "currency":
         setMoneda(moneda);
@@ -83,20 +76,20 @@ const CreateProductsComponent = () => {
         break;
     }
   };
-  // console.log("PRECIO", precio);
+
   const product = {
-    image: imageProduct,
     name: nombre,
     description: descripcion,
+    image: imageProduct,
     category: categoria,
-    price: inputNumber,
+    price: precio,
     currency: moneda,
-    // price: parseFloat(precio).toFixed(2).replace(",", "."),
   };
-  console.log("PRODUCTO FINAL", product);
-  const handleSubmit = async (event) => {
+  console.log("PRODUCT", product);
+  const handleSubmit = (event) => {
     event.preventDefault();
-    alert("PRODUCTO CREADO");
+dispatch(createProductAction(product))
+    // alert("PRODUCTO CREADO");
   };
   return (
     <form onSubmit={handleSubmit} className="form-createComponent" action="">
@@ -109,34 +102,27 @@ const CreateProductsComponent = () => {
         }}
       >
         <PanelCrearProducto
-          input={input}
           nombre={nombre}
-          image={imageProduct}
           descripcion={descripcion}
           imageProduct={imageProduct}
-          setImageProduct={setImageProduct}
-          // handleInputCreateChange={handleInputCreateChange}
           handleInputChange={handleInputChange}
           handleInputNameChange={handleInputNameChange}
           handleInputDescriptionChange={handleInputDescriptionChange}
           onChangeImage={onChangeImage}
-          handleClickPanelOptions={handleClickPanelOptions}
         />
         <PanelOptions
           nombre={product.name}
-          moneda={moneda}
-          image={product.image}
-          input={input}
-          categoria={categoria}
           description={product.description}
           imageProduct={imageProduct}
+          price={product.price}
+          moneda={moneda}
+          currency={product.currency}
           precio={precio}
           category={product.category}
-          inputNumber={inputNumber}
-          selectValue={selectValue}
+          input={input}
           handleClickPanelOptions={handleClickPanelOptions}
           handleInputChange={handleInputChange}
-          handleInputNumberChange={handleInputNumberChange}
+          handleInputPriceChange={handleInputPriceChange}
           handleInputCurrencyChange={handleInputCurrencyChange}
         />
       </Box>
