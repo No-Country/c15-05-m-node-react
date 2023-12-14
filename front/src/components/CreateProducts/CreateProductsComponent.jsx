@@ -2,11 +2,12 @@ import { Box, Button } from "@mui/material";
 import PanelCrearProducto from "./PanelCrearProducto";
 import PanelOptions from "./PanelOptions";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createProductAction } from "../../redux/actionsProducts"
-// import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { createProductAction } from "../../redux/actionsProducts";
+import CurrencyInput from "react-currency-input-field";
 
 const CreateProductsComponent = () => {
+  const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const [input, setInput] = useState("");
@@ -17,7 +18,10 @@ const CreateProductsComponent = () => {
   const [imageProduct, setImageProduct] = useState("");
   const [categoria, setCategoria] = useState([]);
   const [precio, setPrecio] = useState(0);
+  const [price, setPrice] = useState(0);
   const [moneda, setMoneda] = useState("");
+  const [cantidad, setCantidad] = useState(0);
+  const [quantity, setQuantity] = useState(0);
   const array = [];
 
   //Imagen
@@ -41,35 +45,45 @@ const CreateProductsComponent = () => {
     setDescripcion(event.target.value);
   };
   //Precio
-  const handleInputPriceChange = (value) => {
- 
-    setPrecio(value);
+  const handleInputPriceChange = (value, name) => {
+    name = "price";
+    const parsedValue = parseFloat(value);
+    if (!isNaN(parsedValue)) {
+      setSelectValue(name);
+      setPrecio(parsedValue);
+    }
   };
-
   //Moneda
   const handleInputCurrencyChange = (event) => {
     setSelectValue(event.target.name);
     setMoneda(event.target.value);
   };
+  //Cantidad
+  const handleInputQuantityChange = (event) => {
+    setSelectValue(event.target.name);
+    const parsedValue = parseFloat(event.target.value);
+    if (!isNaN(parsedValue)) {
+      setCantidad(parsedValue);
+    }
+  };
   const handleClickPanelOptions = (event) => {
     event.preventDefault();
     switch (selectValue) {
-      case "name":
-        setNombre(nombre);
-        break;
-      case "description":
-        setDescripcion(descripcion);
-        break;
       case "category":
         array.push(input);
         setCategoria([...categoria, array[0]]);
         setInput("");
         break;
       case "price":
+        setPrice(precio);
         setPrecio(0);
         break;
       case "currency":
         setMoneda(moneda);
+        break;
+      case "quantity":
+        setQuantity(cantidad);
+        setCantidad(0);
         break;
       default:
         "";
@@ -82,13 +96,22 @@ const CreateProductsComponent = () => {
     description: descripcion,
     image: imageProduct,
     category: categoria,
-    price: precio,
+    price: price,
     currency: moneda,
+    quantity: quantity,
+    company: user.companyID[0],
   };
-  console.log("PRODUCT", product);
+  // console.log("PRODUCT", product);
+  // console.log("PRODUCT TYPEOF", productTypeOff);
   const handleSubmit = (event) => {
     event.preventDefault();
-dispatch(createProductAction(product))
+    dispatch(createProductAction(product));
+    setNombre("");
+    setDescripcion("");
+    setImageProduct("");
+    setCategoria([]);
+    setPrice(0);
+    setQuantity(0);
     // alert("PRODUCTO CREADO");
   };
   return (
@@ -124,7 +147,24 @@ dispatch(createProductAction(product))
           handleInputChange={handleInputChange}
           handleInputPriceChange={handleInputPriceChange}
           handleInputCurrencyChange={handleInputCurrencyChange}
-        />
+          cantidad={cantidad}
+          quantity={product.quantity}
+          handleInputQuantityChange={handleInputQuantityChange}
+        >
+          <CurrencyInput
+            name="price"
+            prefix={product.currency}
+            decimalsLimit={2}
+            decimalScale={2}
+            allowNegativeValue={false}
+            decimalSeparator=","
+            value={precio}
+            defaultValue={0}
+            inputMode="numeric"
+            pattern="[0-9]*"
+            onValueChange={handleInputPriceChange}
+          ></CurrencyInput>
+        </PanelOptions>
       </Box>
 
       <Button

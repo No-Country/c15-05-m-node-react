@@ -23,7 +23,7 @@ const initialState = {
   //DETALLE DE UN PRODUCTO
   productDetail: {},
 };
-
+console.log("INITIAL STATE REDUCER", initialState);
 export const reducerCompany = (state = initialState, action) => {
   switch (action.type) {
     case COMPANY_REGISTER:
@@ -83,6 +83,7 @@ export const reducerProducts = (state = initialState, action) => {
           }
 //ORDEN POR PRECIO
         case SORT_BY_PRICE:
+          // eslint-disable-next-line no-case-declarations
           let sortArray = action.payload === 'Asc' ?
           state.products.sort((a, b) => {
              return a.price - b.price
@@ -96,6 +97,7 @@ export const reducerProducts = (state = initialState, action) => {
           };
 //ORDEN POR NOMBRE
         case SORT_BY_NAME:
+          // eslint-disable-next-line no-case-declarations
           let sortNameArray = action.payload === 'Asc' ?
           state.products.sort((a, b) => {
               if(a.name > b.name) {return 1}
@@ -113,6 +115,7 @@ export const reducerProducts = (state = initialState, action) => {
           }
 //ORDEN POR STOCK
         case SORT_BY_STOCK:
+          // eslint-disable-next-line no-case-declarations
           let sortStockArray = action.payload === 'Asc' ?
             state.products.sort((a, b) => {
             return a.quantity - b.quantity

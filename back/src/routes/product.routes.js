@@ -14,19 +14,19 @@ import { productSchema } from "../Schema/product.shema.js";
 const routes = Router()
 
 //? Octener todos los productos de un usuario
-routes.get('/products/:id',authRequired,getProducts)
+routes.get('/products/:id',getProducts)//authRequired,
 
 //? Octoner un producto
-routes.get('/product/:id/:companyId',authRequired,getProduct)
+routes.get('/product/:id/:companyId',getProduct)//authRequired,
 
 //? Crear Producto
-routes.post('/product',authRequired,validateSchema(productSchema),createProduct)
+routes.post('/product',validateSchema(productSchema),createProduct)//authRequired,
 
 // ? Actualizar un producto
-routes.put('/product/:id',authRequired,validateSchema(productSchema),updateProduct)
+routes.put('/product/:id',validateSchema(productSchema),updateProduct)//authRequired,
 
 
 //? eliminar una producto
-routes.delete('/product/:id',authRequired,deleteProduct)
+routes.delete('/product/:id',deleteProduct)//authRequired,
 
 export default routes

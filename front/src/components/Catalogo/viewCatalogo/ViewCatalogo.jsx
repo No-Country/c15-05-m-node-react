@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import ButtonBack from "../../Utils/Buttons/ButtonBack";
 import HeaderCatalogo from "../header/HeaderCatalogo";
 import CardsContainer from "../cardsContainer/CardsContainer";
@@ -9,11 +9,12 @@ import { useEffect } from "react";
 import { getAllProductsAction } from "../../../redux/actionsProducts";
 
 const ViewCatalogo = () =>{
-   // const company = useSelector(state => state.company);
+   const { user } = useSelector(state => state.user);
+   const { products} = useSelector(state => state.products);
     //const companyId = company._id;
-    const companyId = "65667634dec160501d76e68a";
+    const companyId = user.companyID;
     const dispatch = useDispatch();
-
+console.log("PRDOUCTS GET ALL en view CATALOGO", products);
     useEffect(() => {
         dispatch(getAllProductsAction(companyId))
     }, [dispatch, companyId]);

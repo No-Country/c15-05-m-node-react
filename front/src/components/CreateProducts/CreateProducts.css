@@ -1,4 +1,4 @@
-.form-createComponent{
+.form-createComponent {
   width: 95%;
   display: flex;
   flex-direction: row;
@@ -75,7 +75,7 @@
   font-family: "Barlow Condensed", sans-serif;
   display: flex;
   flex-direction: column;
-   border-radius: 5px;
+  border-radius: 5px;
   overflow: auto;
   max-width: 25em;
   margin-top: 1em;
@@ -83,37 +83,55 @@
   /* border: 1px solid rgb(47, 0, 255); */
 }
 .title-panelOptions {
-    font-family: "Barlow Condensed", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-size: 1.2em;
   font-weight: 700;
 }
-.select-panelOption, .input-select{
-    width: 14em;
-    border: 1px solid grey;
-    border-radius: 5px;
-    height: 2.5em;
-    padding-left: .5em ;
-}
-.input-select-currency{
+.select-panelOption,
+.input-select {
   width: 14em;
   border: 1px solid grey;
   border-radius: 5px;
   height: 2.5em;
-  padding-left: .5em;
+  padding-left: 0.5em;
 }
-.title-options{
+.input-select-currency {
+  width: 8em;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 2.5em;
+  padding-left: 0.5em;
+  font-size: .9em;
+}
+.title-options {
   font-weight: 500;
 }
-.option{
+.option {
   width: 3em;
-  margin-right: 1.5em;
+  margin-right: .8em;
 }
-.previewH2{
+.previewH2 {
   display: inline-block;
   font-weight: 800;
 }
-.previewH3{
+.previewH3 {
   display: inline-block;
-  color: #9C27B0;
+  color: #9c27b0;
   font-weight: 800;
+}
+.input-precio-panelOptions {
+  width: 5em;
+  margin-left: 0;
+  height: 2em;
+  padding: .2em;
+}
+.option-precio-label{
+  width: 3em;
+  margin-left: .5em;
+}
+.option-moneda-label{
+  margin-right: .3em;
+}
+.option-select-currency{
+  height: 2.5em;
 }
