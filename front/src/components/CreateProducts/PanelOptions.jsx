@@ -18,7 +18,11 @@ const PanelOptions = ({
   handleInputPriceChange,
   handleInputCurrencyChange,
   input,
+  quantity,
+  handleInputQuantityChange,
+  cantidad,
 }) => {
+
   return (
     <Box
       sx={{
@@ -31,12 +35,14 @@ const PanelOptions = ({
       <h2 className="title-panelOptions">Panel Opciones</h2>
       <div id="formOptions" className="panelOptionsForm-container">
         <h2 className="title-options">Ingresar opciones de producto:</h2>
-        <Box sx={{ display: "flex", flexDirection: "row", mt: 0.5 }}></Box>
+
+        {/* CATEGORIA */}
         <Box
           sx={{
             display: "flex",
             flexDirection: "row",
             mt: 0.5,
+            width: "100%",
             justifyContent: "space-between",
             alignItems: "center",
           }}
@@ -68,6 +74,7 @@ const PanelOptions = ({
             <SaveIcon />
           </Button>
         </Box>
+        {/* PRECIO Y MONEDA */}
         <Box
           sx={{
             display: "flex",
@@ -75,18 +82,45 @@ const PanelOptions = ({
             mt: 0.5,
             justifyContent: "space-between",
             alignItems: "center",
+            width: "100%",
           }}
         >
-          <p className="option">Precio:</p>
+          {/*MONEDA*/}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              mt: 0.5,
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <p className="option-moneda-label">Moneda:</p>
+            <select
+              id="input-options-currency"
+              className="input-select-currency"
+              onChange={handleInputCurrencyChange}
+              value={moneda}
+              name="currency"
+            >
+              {monedas.map((option) => (
+                <option
+                  className="option-select-currency"
+                  key={option.abreviacion}
+                  value={option.simbolo}
+                >
+                  {option.country}
+                  {":"} {option.abreviacion}
+                </option>
+              ))}
+            </select>
+          </Box>
+          {/*PRECIO*/}
+          <p className="option-precio-label">Precio:</p>
           <CurrencyInput
-            prefix=""
-            decimalsLimit={2}
-            decimalScale={2}
-            allowNegativeValue={false}
-            placeholder="Introduce el precio"
-            onValueChange={(value) => handleInputPriceChange(value)}
             value={precio}
-            name="price"
+            onValueChange={handleInputPriceChange}
+            className="input-precio-panelOptions"
           />
 
           <Button
@@ -106,32 +140,45 @@ const PanelOptions = ({
             <SaveIcon />
           </Button>
         </Box>
+      </div>
+        {/* CANTIDAD*/}
         <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          mt: 0.5,
+          width: "100%",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <p className="option">Cantidad:</p>
+         <input
+          className="input-quantity"
+          type="number"
+          name="quantity"
+          value={cantidad}
+          onChange={handleInputQuantityChange}
+          placeholder="Cantidad de Productos"
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          elevation={0}
+          onClick={handleClickPanelOptions}
           sx={{
-            display: "flex",
-            flexDirection: "row",
-            mt: 0.5,
-            justifyContent: "space-between",
-            alignItems: "center",
+            marginLeft: ".5em",
+            height: "2.8em",
+            backgroundColor: "#00bcd4",
+            borderRadius: "5px",
+            justifyContent: "center",
+            ["&:hover"]: { backgroundColor: "#B2EBF2", color: "#00BCD4" },
           }}
         >
-          <p className="option">Moneda:</p>
-          <select
-            id="input-options-currency"
-            className="input-select-currency"
-            onChange={handleInputCurrencyChange}
-            value={moneda}
-            name="currency"
-          >
-            {monedas.map((option) => (
-              <option key={option.abreviacion} value={option.simbolo}>
-                {option.country}
-                {":"} {option.abreviacion}
-              </option>
-            ))}
-          </select>
-        </Box>
-      </div>
+          <SaveIcon />
+        </Button>
+      </Box>
+      {/*VISTA PREVIA*/}
       <Box
         sx={{
           display: "flex",
@@ -147,6 +194,7 @@ const PanelOptions = ({
           fontWeight: "500",
         }}
       >
+        
         <Box sx={{ height: "6em", alignSelf: "center" }}>
           <img src={imageProduct} width="120"></img>
         </Box>
@@ -157,13 +205,16 @@ const PanelOptions = ({
           Descripción: <p className="previewH3">{description}</p>
         </h2>
         <h2 className="previewH2">
-          Moneda: <p className="previewH3">{currency}</p>
+          Cantidad: <p className="previewH3">{quantity}</p>
         </h2>
         <h2 className="previewH2">
           Categoría: <p className="previewH3">{category.join(", ")}</p>
         </h2>
         <h2 className="previewH2">
-          Precio: <p className="previewH3">{currency}{" "}{price}</p>
+          Precio:{" "}
+          <p className="previewH3">
+            {currency} {price}
+          </p>
         </h2>
       </Box>
     </Box>
@@ -177,11 +228,16 @@ PanelOptions.propTypes = {
   moneda: PropTypes.string.isRequired,
   currency: PropTypes.string.isRequired,
   precio: PropTypes.number.isRequired,
+  cantidad: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired,
   category: PropTypes.array.isRequired,
   input: PropTypes.string.isRequired, //categoria
   handleClickPanelOptions: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   handleInputPriceChange: PropTypes.func.isRequired,
+  // onValueChange: PropTypes.func.isRequired,
   handleInputCurrencyChange: PropTypes.func.isRequired,
+  // nameInputPrice:PropTypes.string.isRequired,
+  handleInputQuantityChange: PropTypes.func.isRequired,
 };
 export default PanelOptions;
