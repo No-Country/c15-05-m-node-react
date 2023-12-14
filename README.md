@@ -1,4 +1,4 @@
-# <img width="50px" align="center" src="./front/public/logo.svg"> iPunto - Web de Gestión de Inventario y Ventas <img width="50px" align="center" src="./front/public/logo.svg">
+# <img width="50px" align="center" src="./front/public/logo.svg"><a href="https://ipunto.netlify.app/"> iPunto </a>- Web de Gestión de Inventario y Ventas <img width="50px" align="center" src="./front/public/logo.svg">
 <hr>
 
 
