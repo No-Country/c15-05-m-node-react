@@ -2,7 +2,10 @@ import { useState} from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import EUACard from "./EUACard";
 import { productsData } from "./data";
+import { useEUA } from '../hooks/useEUA'
+import { RiH2 } from 'react-icons/ri';
 function EUAInfiniteScroll() {
+    const {productsFilter }= useEUA()
     const [visibleItems, setVisibleItems] = useState(6);
 
     const fetchMoreData = () => {
@@ -15,16 +18,25 @@ function EUAInfiniteScroll() {
                     dataLength={visibleItems}
                     next={fetchMoreData}
                     hasMore={visibleItems < productsData.length}
-                    loader={<h4>Cargando...</h4>}
+                    loader={<h5>Producto no encontrado</h5>}
+                    scrollableTarget="EUA__list__products"
                     >
 
-            {productsData.slice(0,visibleItems).map((item)=>(
+            {productsFilter.length !== 0 ? productsFilter.slice(0,visibleItems).map((item)=>(
                 <EUACard 
                 key={item._id} 
                 name={item.name}
                 price={item.price}
-                category={item.category}/>
-            ))}
+                category={item.category}
+                image={item.image}
+                currency={item.currency}
+                quantity={item.quantity}
+
+                />
+            ))
+            :<h2>Sin productos</h2>
+        }
+
             </InfiniteScroll>
             
         </section>

@@ -88,16 +88,30 @@ box-shadow: 0 0 7px #4b4b4b2a;
     gap: 20px;
 }
 .EUA__table__Product{
+    position: relative;
     width: 550px;
-    height: 350px;
+    height: 480px;
     background: url("https://i.imgur.com/7ZjO0I9.png") center/cover no-repeat;
     overflow-y: auto;
     border: solid 1px rgba(0, 0, 0, 0.397);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(78, 78, 78, 0.315);
 }
+.EUA__table__Product::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(20px);
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+
 .EUA__table__Product::-webkit-scrollbar{
    width: 5px;
+   background-color: #b8b8b8;
 }
 
 .EUA__table__Product::-webkit-scrollbar-thumb {
@@ -106,11 +120,12 @@ box-shadow: 0 0 7px #4b4b4b2a;
 }
 
 .EUA__table{
+    position: relative;
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
     font-size: .9rem;
-    backdrop-filter: blur(20px);
+    z-index: 2;
 }
 .EUA__table__body tr td,th{
     border: 1px solid  rgba(0, 0, 0, 0.397);
@@ -138,6 +153,10 @@ box-shadow: 0 0 7px #4b4b4b2a;
 }
 .EUA__table__body--tr td:first-child{
     text-align: start;
+}
+
+.EUA__table__body--tr:hover{
+    background-color: #9e9e9e5b;
 }
 .EUA__table__body--tr td{
     text-align: center;
@@ -233,14 +252,12 @@ box-shadow: 0 0 7px #4b4b4b2a;
     width: 100%;
     height: 100%;
     margin-top: 10px;
-    /* background-color: white; */
-    /* box-shadow: 0px 4.46881px 4.46881px 0px rgba(0, 0, 0, 0.25); */
     border-radius: 5px;
 }
 .EUA__list__products{
     width: 100% ;
     height: 80% ; 
-    overflow-y: auto ;
+    overflow-y: auto;
 }
 .EUA__list__products__ifinity{
     display: flex;
@@ -255,7 +272,6 @@ box-shadow: 0 0 7px #4b4b4b2a;
     background: #8a8a8a;
     border-radius: 3px;
  }
-
 .EUA__list--button{
     width: 100% ;
     height: 20% ;
@@ -264,7 +280,19 @@ box-shadow: 0 0 7px #4b4b4b2a;
 }
 .EUA__product__card{
     width: 260px;
-    height: 190px;
+    height: 200px;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
+    padding:10px;
+    
+}
+.EUA__product__card img{
+    width: 100%;
+    height: 110px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.text--red{
+    color:rgba(255, 0, 0, 0.747);
+    font-weight: 500;
 }
