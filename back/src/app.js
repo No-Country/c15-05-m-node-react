@@ -31,10 +31,16 @@ app.use(cookieParser());
 app.use(express.static(join(__dirname,"page")));
 app.use('/api',userRouter)
 app.use('/api',companyRouter)
-app.use('/api/',productRouter)
-app.use('/api/',saleRouter)
-app.use('/api/',categoriesRoutes)
+app.use('/api',productRouter)
+app.use('/api',saleRouter)
+app.use('/api',categoriesRoutes)
 app.use(passwordRouter)
+
+app.use(express.static(join(__dirname,"../../front/dist/")));
+
+app.get('/*', (req,res)=>{
+  res.sendFile(join(__dirname, '../../front/dist/', 'index.html'))
+});
 
 
 export default app;
