@@ -20,7 +20,7 @@ const app = express();
 
 app.use(
     cors({
-      origin:urlFrond || "http://localhost:5173",
+      origin:urlFrond || "http://localhost:5174",
       credentials: true,
     })
   );
@@ -34,9 +34,9 @@ app.use(cookieParser());
 app.use(express.static(join(__dirname,"page")));
 app.use('/api',userRouter)
 app.use('/api',companyRouter)
-app.use('/api/',productRouter)
-app.use('/api/',saleRouter)
-app.use('/api/',categoriesRoutes)
+app.use('/api',productRouter)
+app.use('/api',saleRouter)
+app.use('/api',categoriesRoutes)
 app.use(passwordRouter)
 
 
