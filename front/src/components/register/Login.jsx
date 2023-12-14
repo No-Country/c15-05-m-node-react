@@ -5,6 +5,7 @@ import {  userLoginAction } from "../../redux/actionLogin";
 import { useEffect, useState } from "react";
 // import {  userLoginAction } from "../../redux/actionsUser";//Recomiendo usar esta action, está en la carpeta correcta y la respuesta es la que necesitamos para manejear la data
 import { useNavigate } from "react-router-dom"
+import Header from '../shared/Header/Header';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -42,7 +43,10 @@ console.log("USER STATE LOGIN", user);
   }, [user, userLogin, navigate]);
 
   return (
+    <>
+    <Header showDown={false}/>
     <div className="w-full h-screen pt-11 bg-slate-200 ">
+       
       <div className="flex place-content-around mt-28">
         <div className="">
           <div className="h-[300px] border border-black flex place-content-center rounded-xl overflow-hidden">
@@ -90,7 +94,8 @@ console.log("USER STATE LOGIN", user);
         </div>
       </div>
     </div>
-  );
+  
+    </>);
 };
 
 export default Login;

@@ -49,7 +49,7 @@ const RegisterUser = () => {
   
   return (
  <div  className="w-full h-screen">
-      <Header />
+      <Header showDown={false}/>
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 -z-10">
        
