@@ -1,5 +1,6 @@
 import axios from "axios";
 import { USER_LOGOUT, USER_REGISTER, USER_LOGIN } from "./types";
+
 import {
   sweetAlertsSuccessfully,
   sweetAlertsError,
@@ -11,10 +12,11 @@ export const userRegisterAction = (values) => {
   return async (dispatch) => {
     try {
       let res = await axios.post(`${url}/api/register`, values);
-      dispatch({ type: USER_REGISTER, payload: res });
+      dispatch({ type: USER_REGISTER, payload: res.data });
+      console.log(res)
       sweetAlertsSuccessfully(
         `Registro de ${values.name} exitoso!`,
-        "Ahora registremos a su empresa",
+        "Ahora registremos su empresa",
         "Ok"
       );
     } catch (error) {

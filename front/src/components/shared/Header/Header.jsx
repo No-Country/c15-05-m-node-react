@@ -14,16 +14,19 @@ const Header = ({ showDown = true }) => {
       <div className="header-up"></div>
       {showDown && (
         <div className={headerDownClass}>
+          <Link to="/" >
           <div className="header-down-left">
             <img className="ipunto-icon" src={Logo} alt="logo de  iPunto" />
             <h1>iPunto</h1>
           </div>
+          </Link>
+          
           <div className="header-down-rigth">
             
             <Link to="/ua/landing" >UA</Link>
             <Link to="/register-user" >Registrarse</Link>
             <Link to="/login" >Iniciar Sesión</Link>
-            <Link to="/ua/landing" >Landing UA</Link>
+            <Link to="/EUA" >EUA</Link>
 
             <FaUserCircle className="icono-usuario" />
           </div>
