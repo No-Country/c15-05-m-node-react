@@ -3,7 +3,8 @@ import Card from "../card/Card"
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import arrayFormatted from "../../Utils/catalogo/arrayFormatted"
+import sortArray from "../../Utils/catalogo/sortArray"
 
 const CardsContainer = ({ searchQuery }) => {
 
@@ -15,23 +16,23 @@ const CardsContainer = ({ searchQuery }) => {
     p.name.toLowerCase().includes(searchQuery.toLowerCase())
   ) : [];
 //console.log("FILTERED" + filteredProducts);
-
-  const productsFormatted = filteredProducts.length ? filteredProducts.map((product, index) => {
-    const name = product.name.toLowerCase();
-    const nameFormatted= name.charAt(0).toUpperCase() + name.slice(1);
-    return {
-      ...product,
-      name: nameFormatted,
-      key: index
-    }
-  }) : [];
+const productsFormatted = arrayFormatted(filteredProducts, name)
+  // const productsFormatted = filteredProducts.length ? filteredProducts.map((product, index) => {
+  //   const name = product.name;
+  //   const nameFormatted= name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  //   return {
+  //     ...product,
+  //     name: nameFormatted,
+  //     key: index
+  //   }
+  // }) : [];
   //console.log("FORMATED" + productsFormatted);
-
-  const sortProducts = productsFormatted.length ? productsFormatted.sort((a, b) => {
-    if(a.name > b.name) {return 1}
-    if(b.name > a.name) {return -1}
-    return 0 
-  }) : [];
+  const sortProducts = sortArray(productsFormatted, name);
+  // const sortProducts = productsFormatted.length ? productsFormatted.sort((a, b) => {
+  //   if(a.name > b.name) {return 1}
+  //   if(b.name > a.name) {return -1}
+  //   return 0 
+  // }) : [];
   //console.log("SORTPRODUCTS" + sortProducts);
 
   const { company } = useSelector(state => state.company);
