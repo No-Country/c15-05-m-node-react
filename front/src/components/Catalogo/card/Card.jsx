@@ -12,7 +12,7 @@ const Card = (props) => {
         </div>
         <div className="w-44 h-auto m-4 mt-0 ">
             <div className="flex flex-row justify-evenly text-sm">
-                {props.category.length && props.category.map((c)=> <h3>{c}</h3>)}
+                {props.category.length && props.category.map((c, index)=> <h3 key={index}>{c}</h3>)}
             </div>
             <div className="flex flex-row justify-between">
                 <h3>Precio</h3>

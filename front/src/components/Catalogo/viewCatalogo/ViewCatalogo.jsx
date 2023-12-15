@@ -7,18 +7,22 @@ import Paginado from "../paginado/Paginado";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getAllProductsAction } from "../../../redux/actionsProducts";
+import { getCompanyAction } from "../../../redux/actionsCompany";
 
 
 const ViewCatalogo = () =>{
-   const { user } = useSelector(state => state.user);
-   const { products} = useSelector(state => state.products);
-    //const companyId = company._id;
-    const companyId = user.companyID;
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  //const { user } = useSelector(state => state.user);
+  const user = useSelector(state => state.user.user)
+   console.log("USER ", user);
+  //  const { products} = useSelector(state => state.products);
+  const companyId = user.companyID;
+  
   const [searchQuery, setSearchQuery] = useState("");
-console.log("PRDOUCTS GET ALL en view CATALOGO", products);
+//console.log("PRDOUCTS GET ALL en view CATALOGO", products);
     useEffect(() => {
-        dispatch(getAllProductsAction(companyId))
+        dispatch(getAllProductsAction(companyId));
+        dispatch(getCompanyAction(companyId))
     }, [dispatch, companyId]);
 
 
