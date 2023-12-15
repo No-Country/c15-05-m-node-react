@@ -1,4 +1,4 @@
-# <img width="50px" align="center" src="./front/public/logo.svg"> iPunto - Web de Gestión de Inventario y Ventas <img width="50px" align="center" src="./front/public/logo.svg">
+# <img width="50px" align="center" src="./front/public/logo.svg"><a href="https://ipunto.netlify.app/"> iPunto </a>- Web de Gestión de Inventario y Ventas <img width="50px" align="center" src="./front/public/logo.svg">
 <hr>
 
 
@@ -127,8 +127,8 @@ VITE_APP_ID_URL_BACKEND
 
 ### ✔ desarrolladores: 
 
-| <img src="https://i.imgur.com/6O8iEtg.jpg" width=50> | <img src="https://i.imgur.com/Zchecq4.jpg" width=50> | <img src="https://i.imgur.com/uP4AJtt.jpg" width=50> | <img src="https://i.imgur.com/OQQxgaN.jpg" width=50> |
-|:-:|:-:|:-:|:-:|
-|**Carla Aular** | **Franco Deanquin** | **Glenda Dunne** | **Virginia Montoya** |
-| <a href="https://github.com/CarlaJoha"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/carlajoha/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Francodeanquin"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/franco-deanquin"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Glenda76"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/glenda-dunne"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/mvirm"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/virginiamontoya/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+| <img src="https://i.imgur.com/6O8iEtg.jpg" width=50> | <img src="https://i.imgur.com/Zchecq4.jpg" width=50> | <img src="https://i.imgur.com/OQQxgaN.jpg" width=50> |
+|:-:|:-:|:-:|
+|**Carla Aular** | **Franco Deanquin** | **Virginia Montoya** |
+| <a href="https://github.com/CarlaJoha"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/carlajoha/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Francodeanquin"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/franco-deanquin"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/mvirm"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/virginiamontoya/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 <hr>

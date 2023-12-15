@@ -26,6 +26,7 @@ const app = express();
 //   );
 
 app.use(
+<<<<<<< HEAD
   cors({
     // origin:urlFrond || "http://localhost:5173",
     origin: '*',
@@ -35,6 +36,13 @@ app.use(
     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE']
   })
 );
+=======
+    cors({
+      origin:urlFrond || "http://localhost:5174",
+      credentials: true,
+    })
+  );
+>>>>>>> df37fc23d582b455b0a526908f57252cad7dd8bb
   app.use(bodyParser.json({ limit: '50mb' }));
   app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));  
 
@@ -45,9 +53,9 @@ app.use(cookieParser());
 app.use(express.static(join(__dirname,"page")));
 app.use('/api',userRouter)
 app.use('/api',companyRouter)
-app.use('/api/',productRouter)
-app.use('/api/',saleRouter)
-app.use('/api/',categoriesRoutes)
+app.use('/api',productRouter)
+app.use('/api',saleRouter)
+app.use('/api',categoriesRoutes)
 app.use(passwordRouter)
 
 
