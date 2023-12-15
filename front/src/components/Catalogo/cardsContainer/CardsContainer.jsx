@@ -51,7 +51,7 @@ setCompañia(company)
     <div className="flex flex-wrap mx-10">
       {!sortProducts.length ? (
         searchQuery !== "" && searchQuery !== products.name ? (
-          <div className="w-100vw bg-white rounded-2xl text-center py-40 px-96 mx-10">
+          <div className="w-100vw bg-white rounded-2xl text-center py-40 px-96 mx-10 font-roboto text-gray-500">
             <h2 className="text-xl font-semibold">Uhh...</h2>
             <h3 className="text-sm">
               No hay productos con ese nombre
@@ -59,13 +59,13 @@ setCompañia(company)
           </div>
         ) : (
           <div className="w-100vw bg-white rounded-2xl text-center py-40 px-96 mx-10">
-            <h2 className="text-xl font-semibold">Uhh...</h2>
-            <h3 className="text-sm">
+            <h2 className="text-xl font-semibold font-roboto text-gray-500">Uhh...</h2>
+            <h3 className="text-sm font-roboto text-gray-500">
               Aún no hay productos cargados para tu empresa
             </h3>
-            <h1 className="text-2xl font-semibold">{nameCompany}</h1>
+            <h1 className="text-2xl font-semibold font-barlow-condensed text-gray-600">{nameCompany}</h1>
             <Link
-              className="text-lg font-semibold text-blue-300 hover:text-blue-700"
+              className="text-lg font-semibold font-roboto text-[#4DD0E1] hover:text-[#00bcd4]"
               to="/ua/product/create"
             >
               ¡Carga el primero!

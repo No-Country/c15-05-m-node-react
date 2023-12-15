@@ -8,7 +8,8 @@ import {
   USER_LOGOUT,
   SORT_BY_PRICE,
   SORT_BY_STOCK,
-  GET_COMPANY
+  GET_COMPANY,
+  FILTER_BY_CATEGORY,
 
 } from "./types";
 
@@ -120,7 +121,94 @@ const initialState = {
       "company": "5f8a0a5b6e95510f8c6d1a16"
     },
   ],
-
+  //BACKUP PRODUCTS **para filtros**
+  //allProducts: [],
+  allProducts : [
+    {
+      "_id":"5f8a0a5b6e95510f8c6d1a15",
+      "name": "zorro",
+      "price": 19.99,
+      "image": {
+        "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
+        "public_id": "abcd1234"
+      },
+      "quantity": 30,
+      "description": "Este es el primer producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
+      "category": ["Animales", "Bosque"],
+      "currency": "EUR",
+      "company": "5f8a0a5b6e95510f8c6d1a15"
+    },
+    {
+      "_id":"5f8a0a5b6e95510f8c6d1a616",
+      "name": "ardilla",
+      "price": 39.99,
+      "image": {
+        "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
+        "public_id": "efgh5678"
+      },
+      "quantity": 20,
+      "description": "Este es el segundo producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
+      "category": ["Animales", "Bosque"],
+      "currency": "USD",
+      "company": "5f8a0a5b6e95510f8c6d1a16"
+    },
+    {
+      "_id":"5f8a0a5b6e95510f8c6d1a17",
+      "name": "cocodrilo",
+      "price": 55.75,
+      "image": {
+        "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
+        "public_id": "efgh5678"
+      },
+      "quantity": 20,
+      "description": "Este es el tercer producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
+      "category": ["Animales", "Jungla"],
+      "currency": "USD",
+      "company": "5f8a0a5b6e95510f8c6d1a16"
+    },
+    {
+      "_id":"5f8a0a5b6e95510f8c6d1a18",
+      "name": "oveja",
+      "price": 17.98,
+      "image": {
+        "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
+        "public_id": "efgh5678"
+      },
+      "quantity": 10,
+      "description": "Este es el cuarto producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
+      "category": ["Animales", "Granja"],
+      "currency": "USD",
+      "company": "5f8a0a5b6e95510f8c6d1a16"
+    },
+    {
+      "_id":"5f8a0a5b6e95510f8c6d1a19",
+      "name": "heno",
+      "price": 9.99,
+      "image": {
+        "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
+        "public_id": "efgh5678"
+      },
+      "quantity": 100,
+      "description": "Este es el quinto producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
+      "category": ["Alimento", "Granja"],
+      "currency": "USD",
+      "company": "5f8a0a5b6e95510f8c6d1a16"
+    },
+    {
+      "_id":"5f8a0a5b6e95510f8c6d1a20",
+      "name": "Alimento para peces",
+      "price": 19.99,
+      "image": {
+        "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
+        "public_id": "efgh5678"
+      },
+      "quantity": 27,
+      "description": "Este es el sexto producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
+      "category": ["Alimento", "Acuario"],
+      "currency": "USD",
+      "company": "5f8a0a5b6e95510f8c6d1a16"
+    },
+  ],
   //DETALLE DE UN PRODUCTO
   productDetail: {},
     // productDetail: {
@@ -188,12 +276,14 @@ export const reducerProducts = (state = initialState, action) => {
       return {
         ...state,
         products: [...state.products, action.payload],
+        allProducts: [...state.allProducts, action.payload]
       };
 //OBTENER TODOS LOS PRODUCTOS DE UNA COMPAÑIA
       case GET_ALL_PRODUCTS:
         return {
           ...state, 
-          products: action.payload
+          products: action.payload,
+          allProducts: action.payload
         }
 //OBTENER DETALLE DE PRODUCTO
         case GET_PRODUCT_DETAIL:
@@ -218,18 +308,6 @@ export const reducerProducts = (state = initialState, action) => {
               ...initialState,
               products: [...sortArray] //asigno la referencia de sortArray y no modifico el estado original
           };
-          // let sortArray = action.payload === 'Asc' ?
-          // state.products.sort((a, b) => {
-          //    return a.price - b.price
-          // }) :
-          // state.products.products.sort((a, b) => {
-          //     return b.price - a.price
-          // });
-          // return  {
-          //     ...state,
-          //     products: [...sortArray] //asigno la referencia de sortArray y no modifico el estado original
-          // };
-
 //ORDEN POR STOCK
         case SORT_BY_STOCK:
           //IDEM CASE ANTERIOR CON TYPEOF
@@ -244,18 +322,19 @@ export const reducerProducts = (state = initialState, action) => {
          return  {
           ...initialState,
           products: [...sortStockArray] 
-  }; 
-  //         let sortStockArray = action.payload === 'Asc' ?
-  //           state.products.sort((a, b) => {
-  //           return a.quantity - b.quantity
-  //         }) :
-  //           state.products.sort((a, b) => {
-  //           return b.quantity - a.quantity
-  //         });
-  //        return  {
-  //         ...state,
-  //         products: [...sortStockArray] 
-  // };          
+        };   
+//FILTRAR POR CATEGORIA:
+        case FILTER_BY_CATEGORY: 
+        console.log('entro al reducer, con value: ', action.payload);
+        const allProducts = initialState.allProducts;
+        console.log('PRODUCTOS: ', allProducts);
+        const filtered =  action.payload === 'all' ? allProducts : allProducts.filter(product => product.category.includes(action.payload))
+        console.log('ARRAY FILTRADO:', filtered);
+        return {
+          ...state, 
+          products: filtered
+        }
+
 
     default:
       return { ...state };
