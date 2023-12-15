@@ -1,5 +1,5 @@
 import React from "react";
-//import {useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import logoFlecha from "../../assets/Imagenes/logoFlecha.png"
 
 const Detail = () => {
@@ -18,13 +18,17 @@ const Detail = () => {
         "company": "5f8a0a5b6e95510f8c6d1a16"
       }
     // const productDetail = useSelector(state => state.productDetail);
+    const company = useSelector(state => state.company.company);
+    const logo = company.image ? company.image : logoFlecha
+
+    
 
     return (
         <div className="grid grid-cols-2 gap-4 m-10">
             <img className="m-10 rounded-xl" src={productDetail.image.url} alt={`imagen de ${productDetail.name}`}/>
             <div>
                 <div className="grid grid-cols-4">
-                    <img className="w-32 mt-6 " src = {logoFlecha} alt="imagen flecha"/>
+                    <img className="w-32 h-auto rounded-full mt-6 " src = {logo} alt="imagen flecha"/>
                     <div className="col-span-3 my-7">
                         <h1 className="text-2xl font-semibold">Detalles de {productDetail.name}</h1>
                         <div className="flex flex-row justify-content text-lg">
