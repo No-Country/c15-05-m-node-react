@@ -79,9 +79,9 @@ export const sortByStockAction = (value) => {
 };
 
 export const filterByCategoryAction = (value) => {
-  console.log('recibe el dispatch');
-  console.log('value recibido: ', value);
-  console.log('envio action al reducer');
+  //console.log('recibe el dispatch');
+ // console.log('value recibido: ', value);
+ // console.log('envio action al reducer');
   return {
     type: FILTER_BY_CATEGORY,
     payload: value

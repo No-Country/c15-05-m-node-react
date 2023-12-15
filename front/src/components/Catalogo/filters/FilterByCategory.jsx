@@ -16,8 +16,8 @@ const FilterByCategory = () => {
 
     const filterHandler = (e) => {
         dispatch(filterByCategoryAction(e.target.value));
-        console.log("despacha la action");
-        console.log("value enviado: ", e.target.value);
+        //console.log("despacha la action");
+        //console.log("value enviado: ", e.target.value);
     }
 
 

@@ -12,9 +12,9 @@ import { getCompanyAction } from "../../../redux/actionsCompany";
 
 const ViewCatalogo = () =>{
   const dispatch = useDispatch();
-  //const { user } = useSelector(state => state.user);
-  const user = useSelector(state => state.user.user)
-   console.log("USER ", user);
+  const { user } = useSelector(state => state.user);
+  //const user = useSelector(state => state.user.user)
+   //console.log("USER ", user);
   //  const { products} = useSelector(state => state.products);
   const companyId = user.companyID;
   

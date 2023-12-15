@@ -8,8 +8,8 @@ import { useState, useEffect } from "react";
 
 const CardsContainer = ({ searchQuery }) => {
 
-  //const { products} = useSelector(state => state.products);
-  const products = useSelector(state => state.company.products)
+  const { products} = useSelector(state => state.products);
+  //const products = useSelector(state => state.company.products)
   //console.log("PRODUCTS" + products);
 
   const filteredProducts = products.length ? products.filter((p) =>
