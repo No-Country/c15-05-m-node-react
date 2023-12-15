@@ -80,26 +80,38 @@ const submitHandler = (e) => {
   }
 
   return (
-    <div>
+    <div className='w-full h-screen pt-0 bg-slate-200'>
       <Header/>
-      <ButtonBack/>
-      <h1>Registro de Empresa</h1>
-      <form onSubmit={submitHandler}>
-        <input type="text" id="name" name="name" placeholder="Nombre de la Empresa" value={input.name} onChange={inputHandler}/>
-        <input type="text" id="sector" name="sector" placeholder="Sector-Industria" value={input.sector} onChange={inputHandler}/>
-        <input type="text" id="country" name="country" placeholder="País de origen" value={input.country} onChange={inputHandler}/>
+      <div className="ml-20 mt-10">
+        <ButtonBack/>
+      </div>
+      <h1 className='text-4xl text-center font-semibold'>Registro de Empresa</h1>
+      <form onSubmit={submitHandler} className="grid grid-cols-2 gap-24 mx-40 mt-10">
+        <div className="mt-10">
+          <div className="flex flex-col mt-4">
+            <input type="text" id="name" name="name" placeholder="Nombre de la Empresa" value={input.name} onChange={inputHandler} className="border-2 border-gray-400 p-2 rounded-lg"/>
+            {errors.name ? <p className= "text-xs text-pink-700">{errors.name}</p> : null}
+          </div>
+          <div className="flex flex-col mt-4">
+            <input type="text" id="sector" name="sector" placeholder="Sector-Industria" value={input.sector} onChange={inputHandler} className="border-2 border-gray-400 p-2 rounded-lg"/>
+            {errors.sector ? <p className= "text-xs text-pink-700">{errors.sector}</p> : null}
+          </div>
+          <div className="flex flex-col mt-4">
+            <input type="text" id="country" name="country" placeholder="País de origen" value={input.country} onChange={inputHandler} className="border-2 border-gray-400 p-2 rounded-lg"/>
+            {errors.country ? <p className= "text-xs text-pink-700">{errors.country}</p> : null}
+          </div>
+        </div>
 {/* ***************************CARGA DE LA IMAGEN************************ */}
         <div>
-          <p htmlFor="logoCompany" className="font-medium text-xl">Logo Empresa</p>
-          <div className="border-2 border-gray-500  rounded-md bg-white p-4 h-auto">
+          <p htmlFor="logoCompany" className="font-medium text-xl text-gray-600">Logo Empresa</p>
+          <div className="border-2 border-gray-400  rounded-xl bg-white mt-2 p-4 h-auto">
             <ImageUploading id="logo" name="logoCompany" value={input.image} onChange={onChangeImage} maxNumber={maxNumber} dataURLKey="data_url">
               {({ onImageUpload, onImageRemove, isDragging, dragProps }) => (
                 <div>
                   <div key={'url'}>
                     <img src={!input.image ? imageDefault : input.image} alt="imageUpload" width='100' />
                   </div>
-                  &nbsp;
-                  <div>
+                  <div className="w-auto mt-6 flex justify-end">
                     <button type="button" className="flex w-4/5" style={isDragging ? {color: "red"} : undefined}>
                       <AddPhotoAlternateOutlinedIcon className="m-1 text-sx"/>
                       Agregar Imagen
@@ -115,7 +127,7 @@ const submitHandler = (e) => {
           </div>
           {errors.image ? <p className= "text-xs text-pink-700">{errors.image}</p> : null}
         </div>
-        <div className=" flex justify-center mt-6">
+        <div className=" flex justify-center mt-6 col-span-2">
           <button type="submit" className="w-[150px] h-[40px] bg-[#4DD0E1] hover:bg-[#B2EBF2] text-white hover:text-[#00bcd4] border-[#4DD0E1] font-bold text-sm rounded-md animate-pulse"> ENVIAR </button>
         </div>
       </form>
