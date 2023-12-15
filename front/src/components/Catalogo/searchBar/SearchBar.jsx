@@ -10,6 +10,7 @@ const SearchBar = ({ setSearchQuery }) => {
             type="text"
             placeholder="Buscar productos..."
             onChange={handleInputChange}
+            className="text-md font-roboto"
         />
     );
 };

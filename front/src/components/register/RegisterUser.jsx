@@ -61,12 +61,12 @@ const RegisterUser = () => {
       
         </div>
         <div className="w-full md:w-1/2 p-20 overflow-y-auto fixed top-16 right-0 bottom-0 ">
-          <h1 className="mb-10 text-4xl text-center font-semibold">
+          <h1 className="mb-10 text-4xl text-center font-semibold font-barlow-condensed">
             Registro de Usuario
           </h1>
           <div className="md:w-[30em]">
             <form
-              className="flex flex-col place-content-around gap-6 mx-[1em]"
+              className="flex flex-col place-content-around gap-6 mx-[1em] font-roboto"
               onChange={handleInputChange}
               onSubmit={handleSubmit(onSubmit)}
             >

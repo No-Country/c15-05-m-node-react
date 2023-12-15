@@ -30,15 +30,15 @@ const Detail = () => {
                 <div className="grid grid-cols-4">
                     <img className="w-32 h-auto rounded-full mt-6 " src = {logo} alt="imagen flecha"/>
                     <div className="col-span-3 my-7">
-                        <h1 className="text-2xl font-semibold">Detalles de {productDetail.name}</h1>
-                        <div className="flex flex-row justify-content text-lg">
+                        <h1 className="text-3xl text-gray-500 font-barlow-condensed font-semibold">Detalles de {productDetail.name}</h1>
+                        <div className="flex flex-row justify-content text-lg font-roboto">
                             {productDetail.category.length && productDetail.category.map((c)=> <h3>{c}</h3>)}
                         </div>
                     </div>
 
-                    <p className="border border-gray-200 rounded-xl col-span-3 col-end-5 text-sm p-4 mr-10 mb-6 -mt-4 shadow shadow-gray-500">{productDetail.description}</p>
+                    <p className="font-roboto border border-gray-200 rounded-xl col-span-3 col-end-5 text-sm p-4 mr-10 mb-6 -mt-4 shadow shadow-gray-500">{productDetail.description}</p>
                 </div>
-                <div className="flex flex-row justify-evenly text-lg font-semibold">
+                <div className="flex flex-row justify-evenly ml-24 text-lg font-semibold text-[#00bcd4]">
                     <h3>Stock Disponible: {productDetail.quantity}</h3>
                     <h3>Precio: {productDetail.price} {productDetail.currency}</h3>
                 </div>

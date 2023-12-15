@@ -85,9 +85,9 @@ const submitHandler = (e) => {
       <div className="ml-20 mt-10">
         <ButtonBack/>
       </div>
-      <h1 className='text-4xl text-center font-semibold'>Registro de Empresa</h1>
+      <h1 className='text-4xl text-center font-semibold font-barlow-condensed'>Registro de Empresa</h1>
       <form onSubmit={submitHandler} className="grid grid-cols-2 gap-24 mx-40 mt-10">
-        <div className="mt-10">
+        <div className="mt-10 font-roboto">
           <div className="flex flex-col mt-4">
             <input type="text" id="name" name="name" placeholder="Nombre de la Empresa" value={input.name} onChange={inputHandler} className="border-2 border-gray-400 p-2 rounded-lg"/>
             {errors.name ? <p className= "text-xs text-pink-700">{errors.name}</p> : null}
@@ -103,7 +103,7 @@ const submitHandler = (e) => {
         </div>
 {/* ***************************CARGA DE LA IMAGEN************************ */}
         <div>
-          <p htmlFor="logoCompany" className="font-medium text-xl text-gray-600">Logo Empresa</p>
+          <p htmlFor="logoCompany" className="font-medium text-2xl text-gray-600 font-barlow-condensed">Logo Empresa</p>
           <div className="border-2 border-gray-400  rounded-xl bg-white mt-2 p-4 h-auto">
             <ImageUploading id="logo" name="logoCompany" value={input.image} onChange={onChangeImage} maxNumber={maxNumber} dataURLKey="data_url">
               {({ onImageUpload, onImageRemove, isDragging, dragProps }) => (
@@ -113,11 +113,11 @@ const submitHandler = (e) => {
                   </div>
                   <div className="w-auto mt-6 flex justify-end">
                     <button type="button" className="flex w-4/5" style={isDragging ? {color: "red"} : undefined}>
-                      <AddPhotoAlternateOutlinedIcon className="m-1 text-sx"/>
+                      <AddPhotoAlternateOutlinedIcon className="m-1 text-sx font-roboto"/>
                       Agregar Imagen
                     </button>
                     <button type="button" className="flex w-4/5" style={isDragging ? {color: "red"} : undefined}>
-                      <DeleteOutlineOutlinedIcon className="m-1 text-sx"/>
+                      <DeleteOutlineOutlinedIcon className="m-1 text-sx font-roboto"/>
                       Borrar
                     </button>
                   </div>
