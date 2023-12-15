@@ -7,8 +7,9 @@ export const headerTableData =
     "title5":"Acción",
 }
 
-//! Datos de Prueba
+export const TableData = []
 
+//! Datos de Prueba
 export const productsData=[
     {
       "image": {
@@ -296,7 +297,6 @@ export const productsData=[
       "updatedAt": "2023-12-11T18:44:45.677Z"
     },
   ]
-
 //! Categorias
 export const categoryData = [
     {

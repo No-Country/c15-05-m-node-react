@@ -1,29 +1,40 @@
 import { HiOutlineSearch } from "react-icons/hi";
 import { useEUA } from '../hooks/useEUA'
 function EUASearch() {
-    const { products,setProductsFilter,categories} = useEUA()
+    const { products,setProductsFilter,categories,productsFilter} = useEUA()
 
     const filterProducts = (filters) => {
         return products.filter(product => {
-            const nameFilter = filters.name ? product.name.toLowerCase().includes(filters.name) : true;
+            const nameFilter = filters.name ? product.name.toLowerCase().includes(filters.name) : true
             const categoryFilter = filters.category ? (
                 product.category[0].toLowerCase().includes(filters.category) ||
                 product.category[1].toLowerCase().includes(filters.category)
-            ) : true;
+            ) : true
     
-            return nameFilter && categoryFilter;
+            return nameFilter && categoryFilter
         });
+    }
+    const filterStock = () => {
+        return productsFilter.filter(product =>{
+            return product.quantity < 1
+        })
     }
     
     const handleChangeSearch = (event) => {
-        const search = event.target.value.toLowerCase();
-        setProductsFilter(filterProducts({ name: search }));
+        const search = event.target.value.toLowerCase()
+        setProductsFilter(filterProducts({ name: search }))
     }
     
     const handleChangeCategory = (event) => {
-        const category = event.target.value.toLowerCase();
-        setProductsFilter(filterProducts({ category }));
+        const category = event.target.value.toLowerCase()
+        setProductsFilter(filterProducts({ category }))
     }
+    const handleChangeStock = (event) => {
+        const stock = event.target.value === "true"
+        const filteredProducts = stock ? filterStock() : products
+        setProductsFilter(filteredProducts)
+      };
+      
     
 
     return (
@@ -34,7 +45,7 @@ function EUASearch() {
                 <button>
                     <HiOutlineSearch/>
                 </button>
-                <input type="text" onChange={handleChangeSearch} placeholder='Nombre ...' />
+                <input type="text" name="Search" onChange={handleChangeSearch} placeholder='Nombre ...' />
             </form>
 
         <select onChange={handleChangeCategory} name="Category" >
@@ -46,14 +57,10 @@ function EUASearch() {
             }
         </select>
 
-        <select name="" id="">
-            <option value="">seleccionar..</option>
-            <option value="">seleccionar..</option>
-            <option value="">seleccionar..</option>
-            <option value="">seleccionar..</option>
-            <option value="">seleccionar..</option>
-            <option value="">seleccionar..</option>
-            <option value="">seleccionar..</option>
+        <select name="BuscarStock" onChange={handleChangeStock}>
+            <option value={false} >Seleccionar...</option>
+            <option value={true} >Stock 0</option>
+            
         </select>
     </div>
     );

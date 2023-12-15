@@ -1,5 +1,7 @@
 import TableTr from "./tableTr";
-function EUATable({headerTableData,productsTable}) {
+import { useEUA } from "../hooks/useEUA";
+function EUATable({headerTableData}) {
+    const {productsTable} = useEUA() 
     return (
         <table className='EUA__table'>
                         <thead className='EUA__table__header'>
@@ -12,21 +14,20 @@ function EUATable({headerTableData,productsTable}) {
                             </tr>
                         </thead>
                         <tbody className='EUA__table__body'>
-                              <TableTr/>
-                              <TableTr/>
-                              <TableTr/>
-                              <TableTr/>
-                              <TableTr/>               
-                              <TableTr/>
-                              <TableTr/>
-                              <TableTr/>
-                              <TableTr/>
-                              <TableTr/>
-                              <TableTr/>
-                              <TableTr/>
-                              <TableTr/>
-                              <TableTr/>
-                              <TableTr/>
+                        {productsTable.length > 0 && 
+                            productsTable.map(item => (
+                                <TableTr 
+                                key={item.id}
+                                name={item.name}
+                                quantity={item.quantity}
+                                price={item.price}
+                                total={item.price * item.quantity}
+                                id={item.id} 
+                                />
+                            ))
+                            }
+                              
+                             
                         </tbody>
                     </table>
     );
