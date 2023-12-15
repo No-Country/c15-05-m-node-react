@@ -1,11 +1,11 @@
 // import React, { useState } from "react";
 import logo from '../../assets/Imagenes/imgEmpresa.jpg'
 import { useDispatch, useSelector } from "react-redux";
+import {  userLoginAction } from "../../redux/actionLogin";
 import { useEffect, useState } from "react";
-// import {  userLoginAction } from "../../redux/actionLogin";
-import {  userLoginAction } from "../../redux/actionsUser"; //Recomiendo usar esta action, está en la carpeta correcta y la respuesta es la que necesitamos para manejear la data
-
+// import {  userLoginAction } from "../../redux/actionsUser";//Recomiendo usar esta action, está en la carpeta correcta y la respuesta es la que necesitamos para manejear la data
 import { useNavigate } from "react-router-dom"
+import Header from '../shared/Header/Header';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-
+console.log("USER STATE LOGIN", user);
   const handleInputChange = (event) => {
     setLoginData({
       ...loginData,
@@ -43,7 +43,10 @@ const Login = () => {
   }, [user, userLogin, navigate]);
 
   return (
+    <>
+    <Header showDown={false}/>
     <div className="w-full h-screen pt-11 bg-slate-200 ">
+       
       <div className="flex place-content-around mt-28">
         <div className="">
           <div className="h-[300px] border border-black flex place-content-center rounded-xl overflow-hidden">
@@ -91,7 +94,8 @@ const Login = () => {
         </div>
       </div>
     </div>
-  );
+  
+    </>);
 };
 
 export default Login;

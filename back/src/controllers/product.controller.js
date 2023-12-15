@@ -65,6 +65,7 @@ export const createProduct = async (req,res)=>{
                 public_id: imageClodinary.public_id,
               },
         })
+        console.log("NEW PRODUCT", newProduct);
         await newProduct.save()
         res.status(201).json({message:'Producto Creado Exitosamente'})
     } catch (error) {

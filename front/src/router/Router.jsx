@@ -25,9 +25,14 @@ const router = () => {
     <>
     <EuaProvider>
       <Routes>
+       {/* ! OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
+        <Route path="/Ipunto/EUA" element={<EUA/>}/>
+        {/* ! OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
+
       {/*  OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
       <Route path="/EUA" element={<EUA/>}/>
       {/* OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
+
 
         <Route path="/" element={<Landing />} />
         <Route path="/register-company" element={<RegisterCompany />} />
