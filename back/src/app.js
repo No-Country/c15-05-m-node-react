@@ -39,5 +39,11 @@ app.use('/api',saleRouter)
 app.use('/api',categoriesRoutes)
 app.use(passwordRouter)
 
+app.use(express.static(join(__dirname,"../../front/dist/")));
+
+app.get('/*', (req,res)=>{
+  res.sendFile(join(__dirname, '../../front/dist/', 'index.html'))
+});
+
 
 export default app;

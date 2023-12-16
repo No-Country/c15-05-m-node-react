@@ -4,5 +4,5 @@ const { VITE_URL_DEV } = import.meta.env //para trabajar
 let url = VITE_URL_DEV
 // let url = VITE_URL_PROD
 
-
+export const APIKEY_CURRENCY = import.meta.env.VITE_API_KEY_CURRENCY
 export default url;

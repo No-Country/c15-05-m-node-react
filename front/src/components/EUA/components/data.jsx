@@ -7,8 +7,9 @@ export const headerTableData =
     "title5":"Acción",
 }
 
-// Datos de Prueba
+export const TableData = []
 
+//! Datos de Prueba
 export const productsData=[
     {
       "image": {
@@ -21,7 +22,7 @@ export const productsData=[
       "quantity": 30,
       "description": "Este es el primer producto de ejemplo.",
       "category": [
-        "Ropa",
+        "Tecnologia",
         "Accesorios"
       ],
       "currency": "VES",
@@ -31,17 +32,17 @@ export const productsData=[
     },
     {
       "image": {
-        "url": "http://res.cloudinary.com/dvm25590w/image/upload/v1702301505/vzpghdvccotppl17qf7k.jpg",
+        "url": "https://res.cloudinary.com/dvm25590w/image/upload/v1702511556/phkve7nppys3dhd4tbbz.jpg",
         "public_id": "vzpghdvccotppl17qf7k"
       },
       "_id": "65770f424668468640ed2021",
       "name": "Producto Ejemplo 2",
       "price": 19.99,
-      "quantity": 30,
+      "quantity": 0,
       "description": "Este es el primer producto de ejemplo.",
       "category": [
         "Ropa",
-        "Accesorios"
+        "some category 2"
       ],
       "currency": "VES",
       "company": "65770eb94668468640ed2017",
@@ -294,5 +295,62 @@ export const productsData=[
       "company": "65770eb94668468640ed2017",
       "createdAt": "2023-12-11T18:44:45.677Z",
       "updatedAt": "2023-12-11T18:44:45.677Z"
+    },
+  ]
+//! Categorias
+export const categoryData = [
+    {
+      "_id": "657a23c491b772db321195c9",
+      "title": "some category 1",
+      "description": "some description",
+      "companyID": "65770eb94668468640ed2017"
+    },
+    {
+      "_id": "657a24469ff94b3b7fabe4b4",
+      "title": "some category 1",
+      "description": "some description",
+      "companyID": "65770eb94668468640ed2017"
+    },
+    {
+      "_id": "657a244b9ff94b3b7fabe4b7",
+      "title": "some category 2",
+      "description": "some description",
+      "companyID": "65770eb94668468640ed2017"
+    },
+    {
+      "_id": "657a24509ff94b3b7fabe4ba",
+      "title": "some category 3",
+      "description": "some description",
+      "companyID": "65770eb94668468640ed2017"
+    },
+    {
+      "_id": "657a24529ff94b3b7fabe4bd",
+      "title": "some category 4",
+      "description": "some description",
+      "companyID": "65770eb94668468640ed2017"
+    },
+    {
+      "_id": "657a24549ff94b3b7fabe4c0",
+      "title": "Tecnologia",
+      "description": "some description",
+      "companyID": "65770eb94668468640ed2017"
+    },
+    {
+      "_id": "657a24569ff94b3b7fabe4c3",
+      "title": "some category 6",
+      "description": "some description",
+      "companyID": "65770eb94668468640ed2017"
+    },
+    {
+      "_id": "657a24599ff94b3b7fabe4c6",
+      "title": "some category 7",
+      "description": "some description",
+      "companyID": "65770eb94668468640ed2017"
+    },
+    {
+      "_id": "657a245b9ff94b3b7fabe4c9",
+      "title": "some category 8",
+      "description": "some description",
+      "companyID": "65770eb94668468640ed2017"
     }
   ]
