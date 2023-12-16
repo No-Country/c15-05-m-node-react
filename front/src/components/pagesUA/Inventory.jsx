@@ -1,7 +1,11 @@
 import DashboardPage from "../dashboard/global/DashboardPage";
+import ViewInventario from "../Inventario/ViewInventario";
 
 const Inventory = () => {
-    return ( <DashboardPage><h1>INVENTARIO</h1></DashboardPage> );
+    return (
+    <DashboardPage>
+        <ViewInventario/>
+    </DashboardPage> );
 }
  
 export default Inventory;
