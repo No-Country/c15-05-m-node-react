@@ -4,8 +4,8 @@ import {
   GET_ALL_PRODUCTS,
   GET_PRODUCT_DETAIL,
   SORT_BY_PRICE,
-  SORT_BY_NAME,
   SORT_BY_STOCK,
+  FILTER_BY_CATEGORY,
 } from "./types";
 import url from "../config/config";
 import {
@@ -75,16 +75,19 @@ export const sortByPriceAction = (value) => {
   };
 };
 
-export const sortByNameAction = (value) => {
-  return {
-    type: SORT_BY_NAME,
-    payload: value,
-  };
-};
-
 export const sortByStockAction = (value) => {
   return {
     type: SORT_BY_STOCK,
     payload: value,
   };
 };
+
+export const filterByCategoryAction = (value) => {
+  //console.log('recibe el dispatch');
+ // console.log('value recibido: ', value);
+ // console.log('envio action al reducer');
+  return {
+    type: FILTER_BY_CATEGORY,
+    payload: value
+  }
+}

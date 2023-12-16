@@ -5,8 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'barlow-condensed': ['"Barlow Condensed"', 'sans-serif'],
+        'roboto': ['Roboto', 'sans-serif'],
+    },
   },
   plugins: [],
 }
-
+}

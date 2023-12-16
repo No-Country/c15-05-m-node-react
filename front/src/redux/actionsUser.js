@@ -13,14 +13,16 @@ export const userRegisterAction = (values) => {
     try {
       let res = await axios.post(`${url}/api/register`, values);
       dispatch({ type: USER_REGISTER, payload: res.data });
+
       sweetAlertsSuccessfully(
         `Registro de ${values.name} exitoso!`,
         "Ahora registremos su empresa",
         "Ok"
       );
     } catch (error) {
-      console.log(error);
-      sweetAlertsError(error.response.data.message, "Intentar de nuevo", "OK");
+      console.log(error.response);
+      console.log(error.message);
+      sweetAlertsError(error.message, "Intentar de nuevo", "OK");
     }
   };
 };
@@ -58,3 +60,4 @@ export const userLogoutAction = () => {
     }
   };
 };
+

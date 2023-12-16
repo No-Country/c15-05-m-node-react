@@ -13,7 +13,7 @@ const SortByStock = () => {
     }
 
     return (
-        <div>
+        <div className="text-md font-roboto text-gray-400">
             <select name="sortStock" onChange={handlerSortByStock} value={orderValue}>
                 <option value='' readOnly hidden>Stock</option>
                 <option value="Asc"> - a +</option>

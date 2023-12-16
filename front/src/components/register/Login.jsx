@@ -55,9 +55,9 @@ console.log("USER STATE LOGIN", user);
         </div>
 
         <div className="w-[500px]">
-          <h1 className="text-4xl text-center p-5">Acceso de Usuario</h1>
+          <h1 className="text-4xl text-center p-5 font-barlow-condensed">Acceso de Usuario</h1>
           <form
-            className="flex flex-col place-content-around gap-6 "
+            className="flex flex-col place-content-around gap-6 font-roboto"
             onSubmit={handleLogin}
           >
             <div className="flex flex-col">
