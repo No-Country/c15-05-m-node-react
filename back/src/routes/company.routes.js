@@ -9,7 +9,7 @@ const router = Router()
 router.post('/register/company/:id',authRequired,validateSchema(companySchema),registerCompany);
 
 // ? Octener datos de una empresa
-router.get('/company/:id',authRequired,getCompany)
+router.get('/company/:id',getCompany)//authRequired,
 
 // ? Actualizar los datos de la compañia
 router.put('/company/:id',authRequired,updateCompany)

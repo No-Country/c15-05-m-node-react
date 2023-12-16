@@ -8,8 +8,8 @@ import {
   USER_LOGOUT,
   SORT_BY_NAME,
   SORT_BY_PRICE,
-  SORT_BY_STOCK
-
+  SORT_BY_STOCK,
+  GET_INFO_COMPANY
 } from "./types";
 
 
@@ -27,6 +27,12 @@ const initialState = {
 export const reducerCompany = (state = initialState, action) => {
   switch (action.type) {
     case COMPANY_REGISTER:
+      return {
+        ...state,
+        company: action.payload,
+      };
+
+      case GET_INFO_COMPANY:
       return {
         ...state,
         company: action.payload,

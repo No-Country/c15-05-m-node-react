@@ -14,3 +14,4 @@ export const SORT_BY_STOCK = "SORT_BY_STOCK";
 
 //Company
 export const COMPANY_REGISTER= "COMPANY_REGISTER";
+export const GET_INFO_COMPANY= "GET_INFO_COMPANY";
