@@ -2,11 +2,12 @@ import { Router } from "express";
 import { 
     createProduct,
     deleteProduct,
-    updateProduct,
+    // updateProduct,
     getProduct,
-    getProducts 
+    getProducts, 
+    editProduct
 } from "../controllers/product.controller.js";
-import {authRequired} from '../middleware/tokenResponse.js'
+// import {authRequired} from '../middleware/tokenResponse.js'
 import {validateSchema} from '../middleware/data.validator.js'
 import { productSchema } from "../Schema/product.shema.js";
 
@@ -23,7 +24,7 @@ routes.get('/product/:id/:companyId',getProduct)//authRequired,
 routes.post('/product',validateSchema(productSchema),createProduct)//authRequired,
 
 // ? Actualizar un producto
-routes.put('/product/:id',validateSchema(productSchema),updateProduct)//authRequired,
+routes.put('/product/:id',validateSchema(productSchema),editProduct)//authRequired,
 
 
 //? eliminar una producto

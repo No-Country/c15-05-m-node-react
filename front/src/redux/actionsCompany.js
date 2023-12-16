@@ -1,6 +1,6 @@
 import url from "../config/config";
 import axios from "axios";
-import { COMPANY_REGISTER } from "./types";
+import { COMPANY_REGISTER, GET_COMPANY } from "./types.js";
 import { sweetAlertsSuccessfully, sweetAlertsError } from "../components/Utils/alerts/sweetAlerts";
 
 export const companyRegisterAction = (input, userId) => {
@@ -13,6 +13,18 @@ export const companyRegisterAction = (input, userId) => {
                 "Ahora ingrese y comience su gestión",
                 "Ok"
               )
+        } catch (error) {
+            sweetAlertsError(error.response.data.message, "Intentar de nuevo", "OK");
+        }
+    }
+}
+export const getCompanyAction = (companyID) => {
+    return async (dispatch) => {
+        try {
+            // console.log("COMPANY ID ACTIONS", companyID)
+            const company = await axios.get(`${url}/api/company/${companyID}` );
+            dispatch({ type: GET_COMPANY,  payload: company.data})
+            // console.log("COMPANY INFO ACTIONS", company.data)
         } catch (error) {
             sweetAlertsError(error.response.data.message, "Intentar de nuevo", "OK");
         }

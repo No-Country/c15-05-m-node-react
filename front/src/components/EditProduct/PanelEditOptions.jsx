@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import monedas from "../../assets/Monedas.json";
 import CurrencyInput from "react-currency-input-field";
 
-const PanelOptions = ({
+const PanelEditOptions = ({
   nombre,
-  description,
+  descripcion,
   imageProduct,
   price,
   moneda,
@@ -21,8 +21,10 @@ const PanelOptions = ({
   quantity,
   handleInputQuantityChange,
   cantidad,
+  // productEdit,
+  idEdit,
 }) => {
-
+// console.log("PRODUCT EDIT PANELOPTIONS", productEdit);
   return (
     <Box
       sx={{
@@ -37,7 +39,7 @@ const PanelOptions = ({
       <Box sx={{ width: "100%"}}>
       <h2 className="title-panelOptions">Panel Opciones</h2>
       <div id="formOptions" className="panelOptionsForm-container">
-        <h2 className="title-options">Ingresar opciones de producto:</h2>
+        <h2 className="title-options">Ingresar opciones de producto:  {idEdit}</h2>
 
         {/* CATEGORIA */}
         <Box
@@ -121,6 +123,7 @@ const PanelOptions = ({
           {/*PRECIO*/}
           <p className="option-precio-label">Precio:</p>
           <CurrencyInput
+          id="input-precio"
             value={precio}
             onValueChange={handleInputPriceChange}
             className="input-precio-panelOptions"
@@ -132,7 +135,7 @@ const PanelOptions = ({
             elevation={0}
             onClick={handleClickPanelOptions}
             sx={{
-              marginLeft: ".9em",
+              marginLeft: ".5em",
               height: "2.8em",
               backgroundColor: "#00bcd4",
               borderRadius: "5px",
@@ -149,7 +152,7 @@ const PanelOptions = ({
         sx={{
           display: "flex",
           flexDirection: "row",
-          mt: ".5em",
+          mt: 0.5,
           width: "100%",
           justifyContent: "space-between",
           alignItems: "center",
@@ -170,7 +173,7 @@ const PanelOptions = ({
           elevation={0}
           onClick={handleClickPanelOptions}
           sx={{
-            marginLeft: ".6em",
+            marginLeft: ".5em",
             height: "2.8em",
             backgroundColor: "#00bcd4",
             borderRadius: "5px",
@@ -199,13 +202,13 @@ const PanelOptions = ({
       >
         
         <Box sx={{ height: "6em", alignSelf: "center" }}>
-          <img src={imageProduct} width="120"></img>
+          <img src={!imageProduct ? null : imageProduct} width="120"></img>
         </Box>
         <h2 className="previewH2">
           Nombre: <p className="previewH3">{nombre}</p>
         </h2>
         <h2 className="previewH2">
-          Descripción: <p className="previewH3">{description}</p>
+          Descripción: <p className="previewH3">{descripcion}</p>
         </h2>
         <h2 className="previewH2">
           Cantidad: <p className="previewH3">{quantity}</p>
@@ -216,7 +219,7 @@ const PanelOptions = ({
         <h2 className="previewH2">
           Precio:{" "}
           <p className="previewH3">
-            {currency} {price}
+            {currency} {!price ? null : price}
           </p>
         </h2>
       </Box>
@@ -224,9 +227,9 @@ const PanelOptions = ({
     </Box>
   );
 };
-PanelOptions.propTypes = {
+PanelEditOptions.propTypes = {
   nombre: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  descripcion: PropTypes.string.isRequired,
   imageProduct: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   moneda: PropTypes.string.isRequired,
@@ -235,13 +238,13 @@ PanelOptions.propTypes = {
   cantidad: PropTypes.number.isRequired,
   quantity: PropTypes.number.isRequired,
   category: PropTypes.array.isRequired,
-  input: PropTypes.string.isRequired, //categoria
+  input: PropTypes.string.isRequired, 
   handleClickPanelOptions: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   handleInputPriceChange: PropTypes.func.isRequired,
-  // onValueChange: PropTypes.func.isRequired,
   handleInputCurrencyChange: PropTypes.func.isRequired,
-  // nameInputPrice:PropTypes.string.isRequired,
   handleInputQuantityChange: PropTypes.func.isRequired,
+  // productEdit: PropTypes.object.isRequired,
+  idEdit: PropTypes.string.isRequired,
 };
-export default PanelOptions;
+export default PanelEditOptions;

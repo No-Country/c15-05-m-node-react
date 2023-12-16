@@ -8,10 +8,10 @@ import {
   USER_LOGOUT,
   SORT_BY_NAME,
   SORT_BY_PRICE,
-  SORT_BY_STOCK
-
-} from "./types";
-
+  SORT_BY_STOCK,
+  GET_COMPANY,
+  EDIT_PRODUCT,
+} from "./types.js";
 
 const initialState = {
   //DATOS DE LA COMPAÑIA
@@ -23,7 +23,6 @@ const initialState = {
   //DETALLE DE UN PRODUCTO
   productDetail: {},
 };
-console.log("INITIAL STATE REDUCER", initialState);
 export const reducerCompany = (state = initialState, action) => {
   switch (action.type) {
     case COMPANY_REGISTER:
@@ -31,7 +30,11 @@ export const reducerCompany = (state = initialState, action) => {
         ...state,
         company: action.payload,
       };
-
+    case GET_COMPANY:
+      return {
+        ...state,
+        company: action.payload,
+      };
     default:
       return { ...state };
   }
@@ -50,7 +53,7 @@ export const reducerUsers = (state = {}, action) => {
         ...state,
         user: action.payload,
       };
-      case USER_LOGOUT:
+    case USER_LOGOUT:
       return {
         ...state,
         user: {},
@@ -63,70 +66,91 @@ export const reducerUsers = (state = {}, action) => {
 
 export const reducerProducts = (state = initialState, action) => {
   switch (action.type) {
-//CREACION DE PRODUCTO
+    //CREACION DE PRODUCTO
     case CREATE_PRODUCT:
       return {
         ...state,
         products: [...state.products, action.payload],
       };
-//OBTENER TODOS LOS PRODUCTOS DE UNA COMPAÑIA
-      case GET_ALL_PRODUCTS:
-        return {
-          ...state, 
-          products: action.payload
-        }
-//OBTENER DETALLE DE PRODUCTO
-        case GET_PRODUCT_DETAIL:
-          return {
-            ...state,
-            productDetail: action.payload
-          }
-//ORDEN POR PRECIO
-        case SORT_BY_PRICE:
-          // eslint-disable-next-line no-case-declarations
-          let sortArray = action.payload === 'Asc' ?
-          state.products.sort((a, b) => {
-             return a.price - b.price
-          }) :
-          state.products.sort((a, b) => {
-              return b.price - a.price
-          });
-          return  {
-              ...state,
-              products: [...sortArray] //asigno la referencia de sortArray y no modifico el estado original
-          };
-//ORDEN POR NOMBRE
-        case SORT_BY_NAME:
-          // eslint-disable-next-line no-case-declarations
-          let sortNameArray = action.payload === 'Asc' ?
-          state.products.sort((a, b) => {
-              if(a.name > b.name) {return 1}
-              if(b.name > a.name) {return -1}
-              return 0
-          }) :
-          state.products.sort((a, b) => {
-              if(b.name > a.name) {return 1}
-              if(a.name > b.name) {return -1}
-              return 0
-          })
-          return {
-              ...state, 
-              products: [...sortNameArray]
-          }
-//ORDEN POR STOCK
-        case SORT_BY_STOCK:
-          // eslint-disable-next-line no-case-declarations
-          let sortStockArray = action.payload === 'Asc' ?
-            state.products.sort((a, b) => {
-            return a.quantity - b.quantity
-          }) :
-            state.products.sort((a, b) => {
-            return b.quantity - a.quantity
-          });
-         return  {
+    //OBTENER TODOS LOS PRODUCTOS DE UNA COMPAÑIA
+    case GET_ALL_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload,
+      };
+    //OBTENER DETALLE DE PRODUCTO
+    case GET_PRODUCT_DETAIL:
+      return {
+        ...state,
+        productDetail: action.payload,
+      };
+    //ORDEN POR PRECIO
+    case SORT_BY_PRICE:
+      // eslint-disable-next-line no-case-declarations
+      let sortArray =
+        action.payload === "Asc"
+          ? state.products.sort((a, b) => {
+              return a.price - b.price;
+            })
+          : state.products.sort((a, b) => {
+              return b.price - a.price;
+            });
+      return {
+        ...state,
+        products: [...sortArray], //asigno la referencia de sortArray y no modifico el estado original
+      };
+    //ORDEN POR NOMBRE
+    case SORT_BY_NAME:
+      // eslint-disable-next-line no-case-declarations
+      let sortNameArray =
+        action.payload === "Asc"
+          ? state.products.sort((a, b) => {
+              if (a.name > b.name) {
+                return 1;
+              }
+              if (b.name > a.name) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.products.sort((a, b) => {
+              if (b.name > a.name) {
+                return 1;
+              }
+              if (a.name > b.name) {
+                return -1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        products: [...sortNameArray],
+      };
+    //ORDEN POR STOCK
+    case SORT_BY_STOCK:
+      // eslint-disable-next-line no-case-declarations
+      let sortStockArray =
+        action.payload === "Asc"
+          ? state.products.sort((a, b) => {
+              return a.quantity - b.quantity;
+            })
+          : state.products.sort((a, b) => {
+              return b.quantity - a.quantity;
+            });
+      return {
+        ...state,
+        products: [...sortStockArray],
+      };
+    //EDITAR PRODUCTO
+    case EDIT_PRODUCT:
+      return {
+        ...state,
+        products: [
           ...state,
-          products: [...sortStockArray] 
-  };          
+          action.payload.slice(0, action.payload),
+          action.payload.slice(action.payload + 1),
+        ],
+      };
 
     default:
       return { ...state };

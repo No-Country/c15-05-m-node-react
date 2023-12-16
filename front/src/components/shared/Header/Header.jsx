@@ -16,8 +16,8 @@ const Header = ({ showDown = true }) => {
         <div className={headerDownClass}>
           <Link to="/" >
           <div className="header-down-left">
-            <img className="ipunto-icon" src={Logo} alt="logo de  iPunto" />
-            <h1>iPunto</h1>
+            <img className="ipunto-icon" src={Logo} alt="logo de iPunto" />
+            <p className="iPunto">iPunto</p>
           </div>
           </Link>
           

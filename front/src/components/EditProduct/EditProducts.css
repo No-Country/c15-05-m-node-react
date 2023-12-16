@@ -1,0 +1,9 @@
+.input-select-edit{
+    border: 2px solid #9b27b09c;
+    border-radius: 5px;
+    height: 2em;
+}
+.input-select-edit-label{
+    color: #9c27b0;
+    font-weight: 800; 
+}

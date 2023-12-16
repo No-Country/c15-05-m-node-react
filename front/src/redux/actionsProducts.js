@@ -6,7 +6,8 @@ import {
   SORT_BY_PRICE,
   SORT_BY_NAME,
   SORT_BY_STOCK,
-} from "./types";
+  EDIT_PRODUCT,
+} from "./types.js";
 import url from "../config/config";
 import {
   sweetAlertsSuccessfully,
@@ -84,3 +85,19 @@ export const sortByStockAction = (value) => {
     payload: value,
   };
 };
+export const editProductAction = (id, values) => {
+  return async (dispatch) => {
+    try {    
+      let res = await axios.put(`${url}/api/product/${id}`, values);
+      dispatch({ type: EDIT_PRODUCT, payload: res.data });
+      sweetAlertsSuccessfully("Producto Actualizado", res.data.message, "Ok");
+    } catch (error) {
+      console.log(error);
+      sweetAlertsError(
+        "Uh... intenta de nuevo",
+        "No pudimos editar el producto",
+        "Ok"
+      );
+    }
+  };
+}

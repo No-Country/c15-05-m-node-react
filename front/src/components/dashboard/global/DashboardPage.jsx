@@ -5,13 +5,13 @@ import PropTypes from "prop-types";
 
 const DashboardPage = ({children}) => {
   return (
-    <>
+    <Box>
       <Header/>
       <Box sx={{ display: "flex" }}>
-      <SidebarMenu/>{/* Agregar acá un condicional si se crearan varias Sidebar segú rol? */}
+      <SidebarMenu/>
       {children}
       </Box>
-    </>
+    </Box>
   );
 };
 // DashboardPage.displayName = "DashboardPage";

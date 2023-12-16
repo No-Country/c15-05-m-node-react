@@ -18,6 +18,7 @@ import ControlEmpleados from "../components/pagesUA/ControlEmpleados.jsx";
 import ProfileUA from "../components/pagesUA/ProfileUA.jsx";
 import DashboardEUA from "../components/pagesEUA/DashboardEUA.jsx";
 import EuaProvider from "../components/EUA/context/EUAContext.jsx";
+import NotFound from "../components/NotFound/NotFound";
 
 const router = () => {
   // const [user] = useLocalStorage("user");
@@ -80,6 +81,7 @@ const router = () => {
         <Route exact path="/eua/dashboard" element={<DashboardEUA />} />
         <Route exact path="/ua/product/detail/:detailId" element={<DetailsProduct />}/>
         <Route exact path="/ua/product/analitics" element={<Analitics />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       </EuaProvider>
     </>

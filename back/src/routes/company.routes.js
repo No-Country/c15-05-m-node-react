@@ -6,12 +6,12 @@ import {authRequired} from '../middleware/tokenResponse.js'
 const router = Router()
 
 // ? Registrar company
-router.post('/register/company/:id',authRequired,validateSchema(companySchema),registerCompany);
+router.post('/register/company/:id',validateSchema(companySchema),registerCompany);//authRequired,
 
 // ? Octener datos de una empresa
-router.get('/company/:id',authRequired,getCompany)
+router.get('/company/:id',getCompany)//authRequired,
 
 // ? Actualizar los datos de la compañia
-router.put('/company/:id',authRequired,updateCompany)
+router.put('/company/:id',updateCompany)//authRequired,
 
 export default router
