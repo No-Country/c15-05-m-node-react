@@ -13,8 +13,7 @@ export const userRegisterAction = (values) => {
     try {
       let res = await axios.post(`${url}/api/register`, values);
       dispatch({ type: USER_REGISTER, payload: res.data });
-      console.log(res);
-      console.log(res.data);
+
       sweetAlertsSuccessfully(
         `Registro de ${values.name} exitoso!`,
         "Ahora registremos su empresa",
