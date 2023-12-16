@@ -6,6 +6,7 @@ import CardsContainer from "../Catalogo/cardsContainer/CardsContainer";
 import {useSelector, useDispatch} from "react-redux";
 import { getAllProductsAction } from "../../redux/actionsProducts";
 import { getCompanyAction } from "../../redux/actionsCompany";
+import Spinner from "../Utils/Spinner";
 
 function Catalogo() {
     const dispatch = useDispatch();
@@ -16,10 +17,15 @@ function Catalogo() {
     const companyId = user.companyID;
     
     const [searchQuery, setSearchQuery] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
+
   //console.log("PRDOUCTS GET ALL en view CATALOGO", products);
       useEffect(() => {
           dispatch(getAllProductsAction(companyId));
-          dispatch(getCompanyAction(companyId))
+          dispatch(getCompanyAction(companyId));
+          setTimeout(() => {
+            setIsLoading(false)
+          }, 3000);
       }, [dispatch, companyId]);
 
     return (
@@ -29,7 +35,7 @@ function Catalogo() {
                     <ButtonBack />
                 </div>
                 <HeaderCatalogo setSearchQuery={setSearchQuery} />
-                <CardsContainer searchQuery={searchQuery} />
+                {isLoading ? <Spinner/> : <CardsContainer searchQuery={searchQuery} />}
             </div>
         </DashboardPage>
     );
