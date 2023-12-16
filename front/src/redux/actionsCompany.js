@@ -1,6 +1,6 @@
 import url from "../config/config";
 import axios from "axios";
-import { COMPANY_REGISTER, GET_COMPANY } from "./types.js";
+import { COMPANY_REGISTER, GET_COMPANY } from "./types";
 import { sweetAlertsSuccessfully, sweetAlertsError } from "../components/Utils/alerts/sweetAlerts";
 
 export const companyRegisterAction = (input, userId) => {

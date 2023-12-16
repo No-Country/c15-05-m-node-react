@@ -8,11 +8,26 @@ import { headerTableData } from './components/data';
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentHour,getCurrentDate } from './utils/utils';
 import { useEUA } from './hooks/useEUA'
+import EUAInfiniteScroll from './components/EUAInfiniteScroll';
+import EUASearch from './components/EUASearch';
+import EUAButton from './components/EUAButton';
+import { getAllProductsAction } from "../../redux/actionsProducts"
+
 function EUA() {
     const [currentHour, setCurrentHour] = useState(getCurrentHour())
-    const [currentDate,setCurrentDate]= useState(getCurrentDate())
-    const { products } = useEUA()
-    const { user } = useSelector((state) => state.user);
+    const [currentDate,setCurrentDate] = useState(getCurrentDate())
+    const [totalToPayDivisa,setTotalToPayDivisa] = useState()
+
+    const dispatch = useDispatch();
+    const productsData = useSelector(state => state.products.products);
+    const { totalToPay,divisaValue,productsTable,localCurrency,setProducts,setProductsFilter } = useEUA()
+    const company = "65770eb94668468640ed2017"
+   
+    useEffect(() => {
+        dispatch(getAllProductsAction(company))
+          setProducts(productsData)
+          setProductsFilter(productsData) 
+      }, [dispatch])
 
     // ? Hora
     useEffect(()=>{
@@ -31,14 +46,23 @@ function EUA() {
         },1000)
         return () => clearInterval(interval);
     },[]);
+    
 
-    const localCurrency  = "VES"
+    useEffect(()=>{
+        const newValue = totalToPay / divisaValue
+        if(newValue > -1){
+            setTotalToPayDivisa(newValue.toFixed(2))
+        }else{
+            setTotalToPayDivisa(0)
+        }
+    },[totalToPay])
+
     const Divisa = "USD$"
 
     return (
         <div className='EUA__view__container'>
             <Header/>
-            <div className='EUA__sales__views'>
+            <section className='EUA__sales__views'>
 
                 <EUAHeader name={"ShadowSell"} img={"https://i.imgur.com/T21NHN5.png"}/>
             
@@ -54,24 +78,40 @@ function EUA() {
                         </div>
                     </dl>
                     <div className='EUA__total'>
-                        <CardList title={`Total en ${localCurrency}`} info={70.43} sale={true}/>
-                        <CardList title={`Total en ${Divisa}`} info={4} sale={true}/>
+                        <CardList title={`Total en ${localCurrency}`} info={totalToPay} sale={true}/>
+                        <CardList title={`Total en ${Divisa}`} info={totalToPayDivisa} sale={true}/>
                     </div>
 
                 </section>
 
                 <section className='EUA__sales'>
-                    <div className='EUA__table__Product'>
-                        <EUATable headerTableData={headerTableData} productsTable={"nada"} />
+                    <div className='EUA__product__container'>
+                        <div className='EUA__table__Product'>
+                            <EUATable headerTableData={headerTableData} />
+                        </div>
+                        <div className='EUA__items__Product'>
+                            <h2>
+                                Items:
+                            </h2>
+                            <span>
+                                {productsTable.length}
+                            </span>
+                        </div>
                     </div>
+                   
                     <div className='EUA__list__products__container'>
                         <div className='EUA__products__search'>
-                            1
+                            <EUASearch/>
                         </div>
+                        <div className='EUA__list__products--box'>
+                            <EUAInfiniteScroll/>
+                            <EUAButton/>
+                        </div>
+
                     </div>
                 </section>
 
-            </div>
+            </section>
         </div>
     );
 }

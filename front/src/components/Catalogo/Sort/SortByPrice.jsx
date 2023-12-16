@@ -14,9 +14,9 @@ const SortByPrice = () => {
 
 
     return (
-        <div>
+        <div className="text-md font-roboto text-gray-400">
         <select name="sortPrice" onChange={handlerSortByPrice} value={orderValue}>
-            <option value='' readOnly hidden>Precio</option>
+            <option value='' readOnly hidden >Precio</option>
             <option value="Asc" > - a + </option>
             <option value="Desc"> + a - </option>
         </select>

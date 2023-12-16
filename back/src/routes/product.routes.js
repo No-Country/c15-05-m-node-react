@@ -17,6 +17,7 @@ const routes = Router()
 //? Octener todos los productos de un usuario
 routes.get('/products/:id',getProducts)//authRequired,
 
+
 //? Octoner un producto
 routes.get('/product/:id/:companyId',getProduct)//authRequired,
 

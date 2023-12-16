@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {  userLoginAction } from "../../redux/actionsUser";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
+import Header from '../shared/Header/Header';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -40,7 +41,10 @@ const Login = () => {
   }, [user, userLogin, navigate]);
 
   return (
+    <>
+    <Header showDown={false}/>
     <div className="w-full h-screen pt-11 bg-slate-200 ">
+       
       <div className="flex place-content-around mt-28">
         <div className="">
           <div className="h-[300px] border border-black flex place-content-center rounded-xl overflow-hidden">
@@ -49,9 +53,9 @@ const Login = () => {
         </div>
 
         <div className="w-[500px]">
-          <h1 className="text-4xl text-center p-5">Acceso de Usuario</h1>
+          <h1 className="text-4xl text-center p-5 font-barlow-condensed">Acceso de Usuario</h1>
           <form
-            className="flex flex-col place-content-around gap-6 "
+            className="flex flex-col place-content-around gap-6 font-roboto"
             onSubmit={handleLogin}
           >
             <div className="flex flex-col">
@@ -88,7 +92,8 @@ const Login = () => {
         </div>
       </div>
     </div>
-  );
+  
+    </>);
 };
 
 export default Login;
