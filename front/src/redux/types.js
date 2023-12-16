@@ -7,6 +7,7 @@ export const USER_LOGOUT= "USER_LOGOUT";
 
 //Products
 export const CREATE_PRODUCT= "CREATE_PRODUCT";
+export const EDIT_PRODUCT= "CREATE_PRODUCT";
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
 export const GET_PRODUCT_DETAIL = "GET_PRODUCT_DETAIL";
 export const SORT_BY_PRICE = "SORT_BY_PRICE";

@@ -5,8 +5,10 @@ import {
   GET_PRODUCT_DETAIL,
   SORT_BY_PRICE,
   SORT_BY_STOCK,
+  EDIT_PRODUCT,
   FILTER_BY_CATEGORY,
 } from "./types";
+
 import url from "../config/config";
 import {
   sweetAlertsSuccessfully,
@@ -44,7 +46,7 @@ export const getAllProductsAction = (companyId) => {
         }
     }
   };
-};
+
 
 export const getProductDetailAction = (productId, companyId) => {
     return async(dispatch) => {
@@ -67,13 +69,6 @@ export const getProductDetailAction = (productId, companyId) => {
 
     }
   };
-};
-export const sortByPriceAction = (value) => {
-  return {
-    type: SORT_BY_PRICE,
-    payload: value,
-  };
-};
 
 export const sortByStockAction = (value) => {
   return {
@@ -81,6 +76,22 @@ export const sortByStockAction = (value) => {
     payload: value,
   };
 };
+export const editProductAction = (id, values) => {
+  return async (dispatch) => {
+    try {    
+      let res = await axios.put(`${url}/api/product/${id}`, values);
+      dispatch({ type: EDIT_PRODUCT, payload: res.data });
+      sweetAlertsSuccessfully("Producto Actualizado", res.data.message, "Ok");
+    } catch (error) {
+      console.log(error);
+      sweetAlertsError(
+        "Uh... intenta de nuevo",
+        "No pudimos editar el producto",
+        "Ok"
+      );
+    }
+  };
+}
 
 export const filterByCategoryAction = (value) => {
   //console.log('recibe el dispatch');

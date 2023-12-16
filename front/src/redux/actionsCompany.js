@@ -18,15 +18,15 @@ export const companyRegisterAction = (input, userId) => {
         }
     }
 }
-
-export const getCompanyAction = (companyId) => {
-    return async(dispatch) => {
+export const getCompanyAction = (companyID) => {
+    return async (dispatch) => {
         try {
-            const res = await axios.get(`${url}/api/company/${companyId}`);
-            dispatch({ type: GET_COMPANY, payload: res.data})
+            // console.log("COMPANY ID ACTIONS", companyID)
+            const company = await axios.get(`${url}/api/company/${companyID}` );
+            dispatch({ type: GET_COMPANY,  payload: company.data})
+            // console.log("COMPANY INFO ACTIONS", company.data)
         } catch (error) {
-            console.log(error.response);
-            console.log(error.message);
+            sweetAlertsError(error.response.data.message, "Intentar de nuevo", "OK");
         }
     }
 }

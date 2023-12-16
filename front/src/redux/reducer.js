@@ -9,10 +9,9 @@ import {
   SORT_BY_PRICE,
   SORT_BY_STOCK,
   GET_COMPANY,
+  EDIT_PRODUCT,
   FILTER_BY_CATEGORY,
-
 } from "./types";
-
 
 const initialState = {
   //DATOS DE LA COMPAÑIA
@@ -30,7 +29,7 @@ const initialState = {
   //   name: "virginia1",
   //   email: "virM@mail.com",
   //   UA: true,
-  //   EUA: false, 
+  //   EUA: false,
   //   companyID: "657ba8c3cb934a37b8911433"
   // },
   //TODOS LOS PRODUCTOS DE UNA COMPAÑIA
@@ -211,7 +210,7 @@ const initialState = {
   // ],
   //DETALLE DE UN PRODUCTO
   productDetail: {},
-    // productDetail: {
+  // productDetail: {
   //   "_id":"5f8a0a5b6e95510f8c6d1a616",
   //   "name": "ardilla",
   //   "price": 39.99,
@@ -226,7 +225,6 @@ const initialState = {
   //   "company": "5f8a0a5b6e95510f8c6d1a16"
   // },
 };
-console.log("INITIAL STATE REDUCER", initialState);
 export const reducerCompany = (state = initialState, action) => {
   switch (action.type) {
     case COMPANY_REGISTER:
@@ -237,15 +235,15 @@ export const reducerCompany = (state = initialState, action) => {
     case GET_COMPANY:
       return {
         ...state,
-        company: action.payload
-      }
+        company: action.payload,
+      };
     default:
       return { ...state };
   }
 };
 
 // export const reducerUsers = (state = {}, action) => {
-  export const reducerUsers = (state = initialState, action) => {
+export const reducerUsers = (state = initialState, action) => {
   switch (action.type) {
     case USER_REGISTER:
       return {
@@ -258,7 +256,7 @@ export const reducerCompany = (state = initialState, action) => {
         ...state,
         user: action.payload,
       };
-      case USER_LOGOUT:
+    case USER_LOGOUT:
       return {
         ...state,
         user: {},
@@ -271,71 +269,86 @@ export const reducerCompany = (state = initialState, action) => {
 
 export const reducerProducts = (state = initialState, action) => {
   switch (action.type) {
-//CREACION DE PRODUCTO
+    //CREACION DE PRODUCTO
     case CREATE_PRODUCT:
       return {
         ...state,
         products: [...state.products, action.payload],
-        allProducts: [...state.allProducts, action.payload]
+        allProducts: [...state.allProducts, action.payload],
       };
-//OBTENER TODOS LOS PRODUCTOS DE UNA COMPAÑIA
-      case GET_ALL_PRODUCTS:
-        return {
-          ...state, 
-          products: action.payload,
-          allProducts: action.payload
-        }
-//OBTENER DETALLE DE PRODUCTO
-        case GET_PRODUCT_DETAIL:
-          return {
-            ...state,
-            productDetail: action.payload
-          }
-//ORDEN POR PRECIO
-        case SORT_BY_PRICE:
-          console.log(typeof initialState.products); // objeto
-          console.log(typeof state.products); //string?
-  //por eso en esta funcion voy usar initialState
-          let sortArray = action.payload === 'Asc' ?
-          initialState.products.sort((a, b) => {
-             return a.price - b.price
-          }) :
-          initialState.products.sort((a, b) => {
-              return b.price - a.price
-          });
-          //console.log(sortArray);
-          return  {
-              ...initialState,
-              products: [...sortArray] //asigno la referencia de sortArray y no modifico el estado original
-          };
-//ORDEN POR STOCK
-        case SORT_BY_STOCK:
-          //IDEM CASE ANTERIOR CON TYPEOF
-          let sortStockArray = action.payload === 'Asc' ?
-            initialState.products.sort((a, b) => {
-            return a.quantity - b.quantity
-          }) :
-            initialState.products.sort((a, b) => {
-            return b.quantity - a.quantity
-          });
-          //console.log(sortStockArray);
-         return  {
-          ...initialState,
-          products: [...sortStockArray] 
-        };   
-//FILTRAR POR CATEGORIA:
-        case FILTER_BY_CATEGORY: 
-        //console.log('entro al reducer, con value: ', action.payload);
-        const allProducts = initialState.allProducts;
-        //console.log('PRODUCTOS: ', allProducts);
-        const filtered =  action.payload === 'all' ? allProducts : allProducts.filter(product => product.category.includes(action.payload))
-        //console.log('ARRAY FILTRADO:', filtered);
-        return {
-          ...state, 
-          products: filtered
-        }
+    //OBTENER TODOS LOS PRODUCTOS DE UNA COMPAÑIA
+    case GET_ALL_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload,
+        allProducts: action.payload,
+      };
+    //OBTENER DETALLE DE PRODUCTO
+    case GET_PRODUCT_DETAIL:
+      return {
+        ...state,
+        productDetail: action.payload,
+      };
+    //ORDEN POR PRECIO
+    case SORT_BY_PRICE:
+      console.log(typeof initialState.products); // objeto
+      console.log(typeof state.products); //string?
+      //por eso en esta funcion voy usar initialState
+      let sortArray =
+        action.payload === "Asc"
+          ? initialState.products.sort((a, b) => {
+              return a.price - b.price;
+            })
+          : initialState.products.sort((a, b) => {
+              return b.price - a.price;
+            });
+      //console.log(sortArray);
+      return {
+        ...initialState,
+        products: [...sortArray], //asigno la referencia de sortArray y no modifico el estado original
+      };
+    //ORDEN POR STOCK
+    case SORT_BY_STOCK:
+      //IDEM CASE ANTERIOR CON TYPEOF
+      let sortStockArray =
+        action.payload === "Asc"
+          ? initialState.products.sort((a, b) => {
+              return a.quantity - b.quantity;
+            })
+          : initialState.products.sort((a, b) => {
+              return b.quantity - a.quantity;
+            });
+      //console.log(sortStockArray);
+      return {
+        ...initialState,
+        products: [...sortStockArray],
+      };
+    //FILTRAR POR CATEGORIA:
+    case FILTER_BY_CATEGORY:
+      //console.log('entro al reducer, con value: ', action.payload);
+      const allProducts = initialState.allProducts;
+      //console.log('PRODUCTOS: ', allProducts);
+      const filtered =
+        action.payload === "all"
+          ? allProducts
+          : allProducts.filter((product) =>
+              product.category.includes(action.payload)
+            );
+      //console.log('ARRAY FILTRADO:', filtered);
+      return {
+        ...state,
+        products: filtered,
+      };
 
-
+    case EDIT_PRODUCT:
+      return {
+        ...state,
+        products: [
+          ...state,
+          action.payload.slice(0, action.payload),
+          action.payload.slice(action.payload + 1),
+        ],
+      };
     default:
       return { ...state };
   }
