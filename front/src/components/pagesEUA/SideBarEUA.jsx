@@ -2,17 +2,28 @@ import { Typography } from "@mui/material";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Link, useNavigate } from "react-router-dom";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AdminPanelSettingsRoundedIcon from '@mui/icons-material/AdminPanelSettingsRounded';
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import logo from "../../assets/logo.svg";
 import { userLogoutAction } from "../../redux/actionsUser";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
+import { getAllProductsAction } from "../../redux/actionsProducts"
+import { getInfoCompanyAction } from "../../redux/actionsCompany";
 
 const SideBarEUA = () => {
+  const user = useSelector(state => state.user.user)
   const [ collapsedBar, setCollapsedBar ] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+
+  useEffect(() => {
+    if(!user) return
+      dispatch(getAllProductsAction(user.companyID))
+      dispatch(getInfoCompanyAction(user.companyID))
+  }, [dispatch])
+
 
 const handleCollapsed = () => {
   if(collapsedBar === false) {setCollapsedBar(true)} 
@@ -36,13 +47,12 @@ window.location.reload(true);
           menuItemStyles={{
             button: {
               [`&.active`]: {
-                // backgroundColor: "#B2EBF2",
                 color: "#B2EBF2",
               },
             },
           }}
         >
-          <MenuItem icon={<AdminPanelSettingsRoundedIcon/>} component={<Link to="/ua/profile" />}   rootStyles={{ color: "grey" }}> <Typography
+          <MenuItem icon={<AdminPanelSettingsRoundedIcon/>} component={<Link to="/EUA" />}   rootStyles={{ color: "grey" }}> <Typography
               sx={{
                 color: "black",
                 fontSize: "1em",

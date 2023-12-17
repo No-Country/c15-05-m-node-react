@@ -1,8 +1,10 @@
-# <img width="40px" align="center" src="./front/public/logo.svg"><a href="https://ipunto.netlify.app/"> iPunto </a>- Web de Gestión de Inventario y Ventas <img width="40px" align="center" src="./front/public/logo.svg">
-<hr>
 
+# <p align="center"><img width="40px" src="https://i.imgur.com/3Q0OLpW.png" alt="Logo"><a href="https://ipunto.netlify.app/">iPunto</a><img width="40px" src="https://i.imgur.com/3Q0OLpW.png" alt="Otra imagen"></p>
+## <p align="center"> Web de Gestión de Inventario y Ventas </p>
 
-## Beneficios Clave
+<img width="100%"  src="https://i.imgur.com/mHXAFV1.png">
+
+## 🚀 Beneficios Clave
 
 - **Facilidad de Uso:** iPunto ofrece una interfaz intuitiva para proporcionar a los usuarios una experiencia fluida y sin complicaciones.
 
@@ -12,7 +14,7 @@
 
 - **Información Accesible:** Generamos informes detallados que te proporcionan la información necesaria para tomar decisiones estratégicas fundamentadas.
 
-## Alcance del Proyecto
+## 🎯 Alcance del Proyecto
 
 El proyecto iPunto abarca el diseño, desarrollo, implementación y prueba de una aplicación web integral. Nos enfocamos en proporcionar las siguientes funcionalidades principales:
 
@@ -28,13 +30,14 @@ El proyecto iPunto abarca el diseño, desarrollo, implementación y prueba de un
 
 6. **Acceso Remoto:** Accede a iPunto desde cualquier lugar a través de una URL segura, brindándote la libertad de gestionar tu negocio desde cualquier ubicación.
 
+
 ##
 
 > [!IMPORTANT]
-> Configuraciones Nesesarias
+> Configuraciones Necesarias
  
 
-## Configuración (Por expecificar):
+## 🛠️⚙ Configuración:
 ### ✔ Requisitos 📋
 
 _1 - Deberás crear un archivo .env en las carpetas de **Front** y **Back**_
@@ -43,9 +46,12 @@ _2 - Tendrás que crear tu propia base de datos en el sitio web de [Mongo](https
 
 _3 - Tendrás que crear tu propia cuenta para [Cloudinary](https://cloudinary.com/)_
 
-_4 - Instala las dependencias con **`npm install`** en las carpetas de Back y Front_
+_4 - Tendrás que crear una cuenta en [APILayer](https://apilayer.com/marketplace/exchangerates_data-api)_
 
-_5 - Ejecuta el servidor con **`npm run dev`** (desarrollo) o **`npm run start`** (producción)_
+_5 - Instala las dependencias con **`npm install`** en las carpetas de Back y Front_
+
+_6 - Ejecuta el servidor con **`npm run dev`** (desarrollo) o **`npm run start`** (producción)_
+
 
 
 
@@ -63,27 +69,56 @@ URL_FRONT_END = Ubicación del frontend para la configuración de CORS (por ejem
 CLOUD_NAME= Proporcionada por Cloudinary después de crear una cuenta.
 CLOUD_API_KEY= Proporcionadas por Cloudinary después de crear una cuenta.
 CLOUD_API_SECRET= Proporcionadas por Cloudinary después de crear una cuenta.
+EMAIL_OF_APK= Correo profecional 
+GOOGLE_KEY_APK= Clave de aplicacion proporcionada por google
 ```
 ##### _Front .env_
 ```
-VITE_APP_ID_URL_BACKEND
+VITE_URL_DEV= url donde esta alojado el backen (por ejemplo, http://localhost:300)
+VITE_API_KEY_CURRENCY= API KEY proporcionada por APILayer
+
 
 ```
+# Herramientas de deasarrollo ✔🛠️:
 
-# Desarrollo ⚙🖥:
+## <p align="center" >🖼️💻 Frontend 💻🖼️</p>
 
-## Gerente del proyecto (PM) ⚙🖥:
-| <img src="https://i.imgur.com/7c1XLaf.jpg" width=50> |
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=html,css,javascript,react,vite,tailwind,redux,materialui"/>
+  </a>
+</p>
+
+
+
+## <p align="center" >🧠💻 Backend 💻🧠</p>
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=javascript,nodejs,express,mongo,regex"/>
+  </a>
+</p>
+
+## <p align="center" >🛠️ Otras 🛠️</p>
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=figma,git,github,netlify,vscode"/>
+  </a>
+</p>
+
+<hr>
+
+# Equipo de desarrollo 💻👨‍💻👩‍💻:
+
+## Gerente del proyecto (PM) 🕵️‍♂️👩‍💻:
+| <img  src="https://i.imgur.com/7c1XLaf.jpg" width=50> |
 |:-:|
 | **Gloria Nabor** |
 | <a href="https://github.com/Gloria-Nabor"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/gloria-nabor"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
- [![](https://img.shields.io/badge/Trello-095ED8?style=for-the-badge&logo=Trello&logoColor=fff)](https://trello.com/b/BbJrA9Gq/no-country-s4-11) [![](https://img.shields.io/badge/Slack-%23ED8B00?style=for-the-badge&logo=Slack&logoColor=fff)](https://slack.com/intl/es-pe/)
-
-
 <hr>
 
-## Tester de Calidad (QA) ⚙🖥:
+## Tester de Calidad (QA) 🧪👨‍💻:
+
 
 | <img src="https://i.imgur.com/o4QhzO8.jpg" width=50> | <img src="https://i.imgur.com/RkgMMen.jpg" width=50> |
 |:-:|:-:|
@@ -92,43 +127,12 @@ VITE_APP_ID_URL_BACKEND
 
 <hr>
 
+## Programadores 🌐💻: 
+
+| <img src="https://i.imgur.com/OQQxgaN.jpg" width=50> | <img src="https://i.imgur.com/6O8iEtg.jpg" width=50> | <img src="https://i.imgur.com/Zchecq4.jpg" width=50> | <img src="https://i.imgur.com/YCOQckz.png" width=50> |
+|:-:|:-:|:-:|:-:|
+| **Virginia Montoya** | **Carla Aular** | **Franco Deanquin** | **Torres Richard** |
+| <a href="https://github.com/mvirm"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/virginiamontoya/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/CarlaJoha"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/carlajoha/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Francodeanquin"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/franco-deanquin"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/TorresRichardtorrot"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/richard-torres-n1/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
 
-
-
-
-
-## ✔ Backend
-
-### 🛠️ Desarrollado en:
-![NodeJS](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=Node.js&logoColor=white) 
-![Express.js](https://img.shields.io/badge/Express.js-%23404d59.svg?style=for-the-badge&logo=Express&logoColor=%2361DAFB) ![JavaScript](https://img.shields.io/badge/JavaScript-%23323330.svg?style=for-the-badge&logo=Javascript&logoColor=%23F7DF1E) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=MongoDB&logoColor=white) 
-![Mongoose](https://img.shields.io/badge/Mongoose-%2320232a.svg?style=for-the-badge&logo=Mongoose&logoColor=%%2361DAFB) ![JWT](https://img.shields.io/badge/JWT-blue.svg?style=for-the-badge&logo=JWT&logoColor=%blue) 
-
-### ✔ desarrolladores: 
-
-| <img src="https://i.imgur.com/6O8iEtg.jpg" width=50> | <img src="https://i.imgur.com/YCOQckz.png" width=50> |
-|:-:|:-:|
-| **Carla Aular** | **Torres Richard** | 
-|<a href="https://github.com/CarlaJoha"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/carlajoha/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/TorresRichardtorrot"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/richard-torres-n1/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
-
-
-<hr>
-
-
-## ✔ Frontend
-
-### 🛠️ Desarrollado en:
-![JavaScript](https://img.shields.io/badge/JavaScript-%23323330.svg?style=for-the-badge&logo=Javascript&logoColor=%23F7DF1E) 
-![React](https://img.shields.io/badge/React-149eca?style=for-the-badge&logo=react&logoColor=fff) 
-![Redux](https://img.shields.io/badge/Redux_Toolkit-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
-![MUI](https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=MUI&logoColor=fff) 
-![React Router](https://img.shields.io/badge/React_Router-000?style=for-the-badge&logo=reactrouter&logoColor=fff) 
-
-### ✔ desarrolladores: 
-
-| <img src="https://i.imgur.com/6O8iEtg.jpg" width=50> | <img src="https://i.imgur.com/Zchecq4.jpg" width=50> | <img src="https://i.imgur.com/OQQxgaN.jpg" width=50> |
-|:-:|:-:|:-:|
-|**Carla Aular** | **Franco Deanquin** | **Virginia Montoya** |
-| <a href="https://github.com/CarlaJoha"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/carlajoha/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Francodeanquin"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/franco-deanquin"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/mvirm"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/virginiamontoya/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 <hr>

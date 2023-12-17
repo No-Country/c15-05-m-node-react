@@ -17,3 +17,4 @@ export const FILTER_BY_CATEGORY = "FILTER_BY_CATEGORY";
 //Company
 export const COMPANY_REGISTER= "COMPANY_REGISTER";
 export const GET_COMPANY = "GET_COMPANY";
+
