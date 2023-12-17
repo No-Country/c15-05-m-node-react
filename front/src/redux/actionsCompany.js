@@ -1,6 +1,6 @@
 import url from "../config/config";
 import axios from "axios";
-import { COMPANY_REGISTER,GET_INFO_COMPANY } from "./types";
+import { COMPANY_REGISTER, GET_COMPANY } from "./types";
 import { sweetAlertsSuccessfully, sweetAlertsError } from "../components/Utils/alerts/sweetAlerts";
 
 export const companyRegisterAction = (input, userId) => {
@@ -18,14 +18,15 @@ export const companyRegisterAction = (input, userId) => {
         }
     }
 }
-
-export const getInfoCompanyAction = (id) => {
+export const getCompanyAction = (companyID) => {
     return async (dispatch) => {
         try {
-            const info = await axios.get(`${url}/api/company/${id}`);
-            dispatch({ type: GET_INFO_COMPANY,  payload:info.data})
+            // console.log("COMPANY ID ACTIONS", companyID)
+            const company = await axios.get(`${url}/api/company/${companyID}` );
+            dispatch({ type: GET_COMPANY,  payload: company.data})
+            // console.log("COMPANY INFO ACTIONS", company.data)
         } catch (error) {
-            console.log(error)
+            sweetAlertsError(error.response.data.message, "Intentar de nuevo", "OK");
         }
     }
 }

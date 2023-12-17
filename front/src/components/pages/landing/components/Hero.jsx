@@ -12,10 +12,10 @@ const Hero = () => {
       </h2>
       <div className="btns">
         <button>
-          <Link className="btn-registrate" to="/">Registrarse</Link>
+          <Link className="btn-registrate" to="/register-user">Registrarse</Link>
         </button>
         <button>
-        <Link className="btn-login" to="">Login</Link>
+        <Link className="btn-login" to="/login">Login</Link>
         </button>
       </div>
     </div>

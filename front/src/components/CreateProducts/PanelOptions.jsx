@@ -2,44 +2,55 @@ import { Box, Button } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import PropTypes from "prop-types";
 import monedas from "../../assets/Monedas.json";
+import CurrencyInput from "react-currency-input-field";
 
 const PanelOptions = ({
   nombre,
   description,
   imageProduct,
+  price,
   moneda,
+  currency,
   precio,
   category,
   handleClickPanelOptions,
   handleInputChange,
-  handleInputNumberChange,
+  handleInputPriceChange,
   handleInputCurrencyChange,
   input,
+  quantity,
+  handleInputQuantityChange,
+  cantidad,
 }) => {
-  console.log("PRICE", typeof precio);
+
   return (
     <Box
       sx={{
+        display:"flex",
         width: "25em",
         p: 2,
         backgroundColor: "white",
         borderRadius: "5px",
+        // border: "1px solid red",
       }}
     >
+      <Box sx={{ width: "100%"}}>
       <h2 className="title-panelOptions">Panel Opciones</h2>
       <div id="formOptions" className="panelOptionsForm-container">
         <h2 className="title-options">Ingresar opciones de producto:</h2>
-        <Box sx={{ display: "flex", flexDirection: "row", mt: 0.5 }}></Box>
+
+        {/* CATEGORIA */}
         <Box
           sx={{
             display: "flex",
             flexDirection: "row",
             mt: 0.5,
+            width: "100%",
             justifyContent: "space-between",
             alignItems: "center",
           }}
         >
-          <h3 className="option">Categoría:</h3>
+          <p className="option">Categoría:</p>
           <input
             id="input-options-category"
             type="text"
@@ -66,6 +77,7 @@ const PanelOptions = ({
             <SaveIcon />
           </Button>
         </Box>
+        {/* PRECIO Y MONEDA */}
         <Box
           sx={{
             display: "flex",
@@ -73,25 +85,54 @@ const PanelOptions = ({
             mt: 0.5,
             justifyContent: "space-between",
             alignItems: "center",
+            width: "100%",
           }}
         >
-          <h3 className="option">Precio:</h3>
-          <input
-            id="input-number"
-            type="text"
-            className="input-select"
-            onChange={handleInputNumberChange}
+          {/*MONEDA*/}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              mt: 0.5,
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <p className="option-moneda-label">Moneda:</p>
+            <select
+              id="input-options-currency"
+              className="input-select-currency"
+              onChange={handleInputCurrencyChange}
+              value={moneda}
+              name="currency"
+            >
+              {monedas.map((option) => (
+                <option
+                  className="option-select-currency"
+                  key={option.abreviacion}
+                  value={option.simbolo}
+                >
+                  {option.country}
+                  {":"} {option.abreviacion}
+                </option>
+              ))}
+            </select>
+          </Box>
+          {/*PRECIO*/}
+          <p className="option-precio-label">Precio:</p>
+          <CurrencyInput
             value={precio}
-            name="price"
-            step="0.1"
+            onValueChange={handleInputPriceChange}
+            className="input-precio-panelOptions"
           />
+
           <Button
             type="submit"
             variant="contained"
             elevation={0}
             onClick={handleClickPanelOptions}
             sx={{
-              marginLeft: ".5em",
+              marginLeft: ".9em",
               height: "2.8em",
               backgroundColor: "#00bcd4",
               borderRadius: "5px",
@@ -102,37 +143,45 @@ const PanelOptions = ({
             <SaveIcon />
           </Button>
         </Box>
+      </div>
+        {/* CANTIDAD*/}
         <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          mt: ".5em",
+          width: "100%",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <p className="option">Cantidad:</p>
+         <input
+          className="input-quantity"
+          type="number"
+          name="quantity"
+          value={cantidad}
+          onChange={handleInputQuantityChange}
+          placeholder="Cantidad de Productos"
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          elevation={0}
+          onClick={handleClickPanelOptions}
           sx={{
-            display: "flex",
-            flexDirection: "row",
-            mt: 0.5,
-            justifyContent: "space-between",
-            alignItems: "center",
+            marginLeft: ".6em",
+            height: "2.8em",
+            backgroundColor: "#00bcd4",
+            borderRadius: "5px",
+            justifyContent: "center",
+            ["&:hover"]: { backgroundColor: "#B2EBF2", color: "#00BCD4" },
           }}
         >
-          <h3 className="option">Moneda:</h3>
-          <select
-            id="input-options-currency"
-            className="input-select-currency"
-            onChange={handleInputCurrencyChange}
-            value={moneda}
-            name="currency"
-            defaultValue="Moneda"
-          >
-            {Object.keys(monedas).map((key) => (
-              <option key={key} value={monedas[key].abreviacion}>
-                {key}
-              </option>
-            ))}
-            {/* {Object.keys(monedas).map((key) => (
-              <option key={key} value={key}>
-                {monedas[key].simbolo} ({monedas[key].abreviacion})
-              </option>
-            ))} */}
-          </select>
-        </Box>
-      </div>
+          <SaveIcon />
+        </Button>
+      </Box>
+      {/*VISTA PREVIA*/}
       <Box
         sx={{
           display: "flex",
@@ -148,24 +197,29 @@ const PanelOptions = ({
           fontWeight: "500",
         }}
       >
+        
         <Box sx={{ height: "6em", alignSelf: "center" }}>
           <img src={imageProduct} width="120"></img>
         </Box>
         <h2 className="previewH2">
-          Nombre: <h3 className="previewH3">{nombre}</h3>
+          Nombre: <p className="previewH3">{nombre}</p>
         </h2>
         <h2 className="previewH2">
-          Descripción: <h3 className="previewH3">{description}</h3>
+          Descripción: <p className="previewH3">{description}</p>
         </h2>
         <h2 className="previewH2">
-          Moneda: <h3 className="previewH3">{moneda}</h3>
+          Cantidad: <p className="previewH3">{quantity}</p>
         </h2>
         <h2 className="previewH2">
-          Categoría: <h3 className="previewH3">{category.join(" ,")}</h3>
+          Categoría: <p className="previewH3">{category.join(", ")}</p>
         </h2>
         <h2 className="previewH2">
-          Precio: <h3 className="previewH3">{precio}</h3>
+          Precio:{" "}
+          <p className="previewH3">
+            {currency} {price}
+          </p>
         </h2>
+      </Box>
       </Box>
     </Box>
   );
@@ -173,15 +227,21 @@ const PanelOptions = ({
 PanelOptions.propTypes = {
   nombre: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  moneda: PropTypes.string.isRequired,
-  categoria: PropTypes.array.isRequired,
   imageProduct: PropTypes.string.isRequired,
-  category: PropTypes.array.isRequired,
+  price: PropTypes.number.isRequired,
+  moneda: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
   precio: PropTypes.number.isRequired,
+  cantidad: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired,
+  category: PropTypes.array.isRequired,
+  input: PropTypes.string.isRequired, //categoria
   handleClickPanelOptions: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
-  input: PropTypes.string.isRequired, //categoria
-  handleInputNumberChange: PropTypes.func.isRequired,
+  handleInputPriceChange: PropTypes.func.isRequired,
+  // onValueChange: PropTypes.func.isRequired,
   handleInputCurrencyChange: PropTypes.func.isRequired,
+  // nameInputPrice:PropTypes.string.isRequired,
+  handleInputQuantityChange: PropTypes.func.isRequired,
 };
 export default PanelOptions;

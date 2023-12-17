@@ -47,14 +47,14 @@ window.location.reload(true);
             },
           }}
         >
-          <MenuItem icon={<AdminPanelSettingsRoundedIcon/>} component={<Link to="/ua/profile" />}   rootStyles={{ color: "grey" }}> <Typography
+          <MenuItem icon={<AdminPanelSettingsRoundedIcon/>} component={<Link to="/ua/landing" />}   rootStyles={{ color: "grey" }}> <Typography
               sx={{
                 color: "grey",
                 fontSize: "1em",
                 ["&:hover"]: { color: "#00BCD4" },
               }}
             >
-              Mi Perfil
+              Home Admin
             </Typography> </MenuItem>
           <MenuItem icon={<AppsRoundedIcon/>} component={<Link to="/ua/product/catalogo" />} ><Typography
               sx={{
@@ -101,7 +101,7 @@ window.location.reload(true);
             >
                Control Empleados
             </Typography></MenuItem>
-          <MenuItem icon={<img src={logo} alt="logo" className="logo-sidebar" />} component={<Link to="/" />} rootStyles={{ justifyContent: "center", marginTop: "6em" }}><h3>iPunto</h3></MenuItem>
+          <MenuItem icon={<img src={logo} alt="logo" className="logo-sidebar" />} component={<Link to="/" />} rootStyles={{ justifyContent: "center", marginTop: "6em" }}><p className="iPunto">iPunto</p></MenuItem>
 
         </Menu>
         <Menu rootStyles={{ marginTop:"4em"}}>

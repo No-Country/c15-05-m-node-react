@@ -1,5 +1,5 @@
 import axios from "axios";
-import { USER_LOGOUT, USER_REGISTER, USER_LOGIN } from "./types";
+import { USER_LOGOUT, USER_REGISTER, USER_LOGIN } from "./types.js";
 
 import {
   sweetAlertsSuccessfully,
@@ -13,14 +13,16 @@ export const userRegisterAction = (values) => {
     try {
       let res = await axios.post(`${url}/api/register`, values);
       dispatch({ type: USER_REGISTER, payload: res.data });
+
       sweetAlertsSuccessfully(
         `Registro de ${values.name} exitoso!`,
         "Ahora registremos su empresa",
         "Ok"
       );
     } catch (error) {
-      console.log(error);
-      sweetAlertsError(error.response.data.message, "Intentar de nuevo", "OK");
+      console.log(error.response);
+      console.log(error.message);
+      sweetAlertsError(error.message, "Intentar de nuevo", "OK");
     }
   };
 };
@@ -31,14 +33,13 @@ export const userLoginAction = (values) => {
       let res = await axios.post(`${url}/api/login`, values);
       dispatch({ type: USER_LOGIN, payload: res.data });
       sweetAlertsSuccessfully(
-        `Bienvenido(a) ${res.data.name}!`,
-        "Nos alegra su regreso",
+      `Login exitoso`,
+      `Bienvenido ${res.data.name}`,
         "Ok"
-        )
-        
+      );
     } catch (error) {
       console.log(error);
-      sweetAlertsError(error, "Intentar de nuevo", "OK");
+      sweetAlertsError(error.response.data.message, "Intentar de nuevo", "OK");
     }
   };
 };
@@ -58,3 +59,4 @@ export const userLogoutAction = () => {
     }
   };
 };
+
