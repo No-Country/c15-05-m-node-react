@@ -97,10 +97,10 @@ VITE_API_KEY_CURRENCY= API KEY proporcionada por APILayer
   </a>
 </p>
 
-## <p align="center" >🏭 Otras 🏭</p>
+## <p align="center" >🛠️ Otras 🛠️</p>
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=javascript,nodejs,express,mongo,regex"/>
+    <img src="https://skillicons.dev/icons?i=figma,git,github,netlify,vscode"/>
   </a>
 </p>
 
