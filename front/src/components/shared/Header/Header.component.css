@@ -41,8 +41,12 @@
 .header-down-left h1 {
   font-size: 28.327px;
 }
-.header-down-none {
+.header-down-rigth-none{
   display: none;
+  /* display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 1em; */
 }
 
 .ipunto-icon {

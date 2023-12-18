@@ -11,219 +11,20 @@ import {
   GET_COMPANY,
   EDIT_PRODUCT,
   FILTER_BY_CATEGORY,
+  USER_REGISTER_STATUS,
 } from "./types";
 
 const initialState = {
-  //DATOS DE LA COMPAÑIA
+  userRegister: false,
+
   company: {},
-  // company: {
-  //   _id: "123456789a",
-  //   name: 'SweetYPets',
-  //   country: "Argentina",
-  //   image: "https://img.freepik.com/vector-premium/petshop-gato-perro_9645-763.jpg"
-  // },
-  //DATOS DEL USUARIO
+
   user: {},
-  // user: {
-  //   _id: "657ba87bcb934a37b8911431",
-  //   name: "virginia1",
-  //   email: "virM@mail.com",
-  //   UA: true,
-  //   EUA: false,
-  //   companyID: "657ba8c3cb934a37b8911433"
-  // },
-  //TODOS LOS PRODUCTOS DE UNA COMPAÑIA
-  products: [],
-  //  products : [
-  //   {
-  //     "_id":"5f8a0a5b6e95510f8c6d1a15",
-  //     "name": "zorro",
-  //     "price": 19.99,
-  //     "image": {
-  //       "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //       "public_id": "abcd1234"
-  //     },
-  //     "quantity": 30,
-  //     "description": "Este es el primer producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //     "category": ["Animales", "Bosque"],
-  //     "currency": "EUR",
-  //     "company": "5f8a0a5b6e95510f8c6d1a15"
-  //   },
-  //   {
-  //     "_id":"5f8a0a5b6e95510f8c6d1a616",
-  //     "name": "ardilla",
-  //     "price": 39.99,
-  //     "image": {
-  //       "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //       "public_id": "efgh5678"
-  //     },
-  //     "quantity": 20,
-  //     "description": "Este es el segundo producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //     "category": ["Animales", "Bosque"],
-  //     "currency": "USD",
-  //     "company": "5f8a0a5b6e95510f8c6d1a16"
-  //   },
-  //   {
-  //     "_id":"5f8a0a5b6e95510f8c6d1a17",
-  //     "name": "cocodrilo",
-  //     "price": 55.75,
-  //     "image": {
-  //       "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //       "public_id": "efgh5678"
-  //     },
-  //     "quantity": 20,
-  //     "description": "Este es el tercer producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //     "category": ["Animales", "Jungla"],
-  //     "currency": "USD",
-  //     "company": "5f8a0a5b6e95510f8c6d1a16"
-  //   },
-  //   {
-  //     "_id":"5f8a0a5b6e95510f8c6d1a18",
-  //     "name": "oveja",
-  //     "price": 17.98,
-  //     "image": {
-  //       "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //       "public_id": "efgh5678"
-  //     },
-  //     "quantity": 10,
-  //     "description": "Este es el cuarto producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //     "category": ["Animales", "Granja"],
-  //     "currency": "USD",
-  //     "company": "5f8a0a5b6e95510f8c6d1a16"
-  //   },
-  //   {
-  //     "_id":"5f8a0a5b6e95510f8c6d1a19",
-  //     "name": "heno",
-  //     "price": 9.99,
-  //     "image": {
-  //       "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //       "public_id": "efgh5678"
-  //     },
-  //     "quantity": 100,
-  //     "description": "Este es el quinto producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //     "category": ["Alimento", "Granja"],
-  //     "currency": "USD",
-  //     "company": "5f8a0a5b6e95510f8c6d1a16"
-  //   },
-  //   {
-  //     "_id":"5f8a0a5b6e95510f8c6d1a20",
-  //     "name": "Alimento para peces",
-  //     "price": 19.99,
-  //     "image": {
-  //       "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //       "public_id": "efgh5678"
-  //     },
-  //     "quantity": 27,
-  //     "description": "Este es el sexto producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //     "category": ["Alimento", "Acuario"],
-  //     "currency": "USD",
-  //     "company": "5f8a0a5b6e95510f8c6d1a16"
-  //   },
-  // ],
-  //BACKUP PRODUCTS **para filtros**
+
   allProducts: [],
-  // allProducts : [
-  //   {
-  //     "_id":"5f8a0a5b6e95510f8c6d1a15",
-  //     "name": "zorro",
-  //     "price": 19.99,
-  //     "image": {
-  //       "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //       "public_id": "abcd1234"
-  //     },
-  //     "quantity": 30,
-  //     "description": "Este es el primer producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //     "category": ["Animales", "Bosque"],
-  //     "currency": "EUR",
-  //     "company": "5f8a0a5b6e95510f8c6d1a15"
-  //   },
-  //   {
-  //     "_id":"5f8a0a5b6e95510f8c6d1a616",
-  //     "name": "ardilla",
-  //     "price": 39.99,
-  //     "image": {
-  //       "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //       "public_id": "efgh5678"
-  //     },
-  //     "quantity": 20,
-  //     "description": "Este es el segundo producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //     "category": ["Animales", "Bosque"],
-  //     "currency": "USD",
-  //     "company": "5f8a0a5b6e95510f8c6d1a16"
-  //   },
-  //   {
-  //     "_id":"5f8a0a5b6e95510f8c6d1a17",
-  //     "name": "cocodrilo",
-  //     "price": 55.75,
-  //     "image": {
-  //       "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //       "public_id": "efgh5678"
-  //     },
-  //     "quantity": 20,
-  //     "description": "Este es el tercer producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //     "category": ["Animales", "Jungla"],
-  //     "currency": "USD",
-  //     "company": "5f8a0a5b6e95510f8c6d1a16"
-  //   },
-  //   {
-  //     "_id":"5f8a0a5b6e95510f8c6d1a18",
-  //     "name": "oveja",
-  //     "price": 17.98,
-  //     "image": {
-  //       "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //       "public_id": "efgh5678"
-  //     },
-  //     "quantity": 10,
-  //     "description": "Este es el cuarto producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //     "category": ["Animales", "Granja"],
-  //     "currency": "USD",
-  //     "company": "5f8a0a5b6e95510f8c6d1a16"
-  //   },
-  //   {
-  //     "_id":"5f8a0a5b6e95510f8c6d1a19",
-  //     "name": "heno",
-  //     "price": 9.99,
-  //     "image": {
-  //       "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //       "public_id": "efgh5678"
-  //     },
-  //     "quantity": 100,
-  //     "description": "Este es el quinto producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //     "category": ["Alimento", "Granja"],
-  //     "currency": "USD",
-  //     "company": "5f8a0a5b6e95510f8c6d1a16"
-  //   },
-  //   {
-  //     "_id":"5f8a0a5b6e95510f8c6d1a20",
-  //     "name": "Alimento para peces",
-  //     "price": 19.99,
-  //     "image": {
-  //       "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //       "public_id": "efgh5678"
-  //     },
-  //     "quantity": 27,
-  //     "description": "Este es el sexto producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //     "category": ["Alimento", "Acuario"],
-  //     "currency": "USD",
-  //     "company": "5f8a0a5b6e95510f8c6d1a16"
-  //   },
-  // ],
-  //DETALLE DE UN PRODUCTO
+
   productDetail: {},
-  // productDetail: {
-  //   "_id":"5f8a0a5b6e95510f8c6d1a616",
-  //   "name": "ardilla",
-  //   "price": 39.99,
-  //   "image": {
-  //     "url": "https://petindustry.co/wp-content/uploads/2022/02/PETSHOP-TENDENCIAS-PETINDUSTRY1.jpeg",
-  //     "public_id": "efgh5678"
-  //   },
-  //   "quantity": 20,
-  //   "description": "Este es el segundo producto de ejemplo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Donec vel egestas dolor, nec dignissim metus. Donec augue elit, rhoncus ac sodales id, porttitor vitae est. Donec laoreet rutrum libero sed pharetra. Duis a arcu convallis, gravida purus eget, mollis diam.",
-  //   "category": ["Animales", "Bosque"],
-  //   "currency": "USD",
-  //   "company": "5f8a0a5b6e95510f8c6d1a16"
-  // },
+
 };
 export const reducerCompany = (state = initialState, action) => {
   switch (action.type) {
@@ -244,13 +45,19 @@ export const reducerCompany = (state = initialState, action) => {
 
 // export const reducerUsers = (state = {}, action) => {
 export const reducerUsers = (state = initialState, action) => {
+  { console.log("REDUCER X", action.payload)
+    console.log("REDUCER", state)}
   switch (action.type) {
-    case USER_REGISTER:
+    case USER_REGISTER_STATUS:
       return {
         ...state,
-        user: action.payload,
+        userRegister: action.payload,
       };
-
+      case USER_REGISTER:
+        return {
+          ...state,
+          user: action.payload,
+        };
     case USER_LOGIN:
       return {
         ...state,
@@ -294,6 +101,7 @@ export const reducerProducts = (state = initialState, action) => {
       console.log(typeof initialState.products); // objeto
       console.log(typeof state.products); //string?
       //por eso en esta funcion voy usar initialState
+      // eslint-disable-next-line no-case-declarations
       let sortArray =
         action.payload === "Asc"
           ? initialState.products.sort((a, b) => {
@@ -310,6 +118,7 @@ export const reducerProducts = (state = initialState, action) => {
     //ORDEN POR STOCK
     case SORT_BY_STOCK:
       //IDEM CASE ANTERIOR CON TYPEOF
+      // eslint-disable-next-line no-case-declarations
       let sortStockArray =
         action.payload === "Asc"
           ? initialState.products.sort((a, b) => {
@@ -326,8 +135,10 @@ export const reducerProducts = (state = initialState, action) => {
     //FILTRAR POR CATEGORIA:
     case FILTER_BY_CATEGORY:
       //console.log('entro al reducer, con value: ', action.payload);
+      // eslint-disable-next-line no-case-declarations
       const allProducts = initialState.allProducts;
       //console.log('PRODUCTOS: ', allProducts);
+      // eslint-disable-next-line no-case-declarations
       const filtered =
         action.payload === "all"
           ? allProducts
