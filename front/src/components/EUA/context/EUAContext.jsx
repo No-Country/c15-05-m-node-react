@@ -16,6 +16,7 @@ export default function EuaProvider({ children }){
     const [localCurrency ,setLocalCurrency ] = useState("VES")
     const [divisaValue, setDivisaValue] = useState(null)
     const [totalToPay,setTotalToPay] = useState('0')
+    const [companyID,setCompanyID] = useState("")
     const categories = categoryData
     
 
@@ -104,7 +105,7 @@ export default function EuaProvider({ children }){
         ]
         const data = {
             total:totalToPay,
-            company:company,
+            company:companyID,
             sold_Products
 
         }
@@ -130,7 +131,9 @@ export default function EuaProvider({ children }){
             localCurrency,
             divisaValue,
             generateSale,
-            setProducts
+            setProducts,
+            companyID,
+            setCompanyID,
             }}>
             { children }
         </EuaContext.Provider>

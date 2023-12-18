@@ -13,7 +13,7 @@ function EUAHeader({name,img}) {
                         <h4>{name}</h4>
                         <img src={img} alt="logo Empresa" />
                     </div>
-                    <Link className='EUA__link' to="#">
+                    <Link className='EUA__link' to="/eua/dashboard">
                         <RiLogoutBoxLine/> Salir
                     </Link>
                 </header>

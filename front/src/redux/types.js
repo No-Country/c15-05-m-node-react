@@ -1,8 +1,8 @@
 //Users
 export const USER_LOGIN= "USER_LOGIN";
 export const USER_REGISTER= "USER_REGISTER";
+export const USER_REGISTER_STATUS= "USER_REGISTER_STATUS";
 export const USER_LOGOUT= "USER_LOGOUT";
-
 
 
 //Products
@@ -17,3 +17,4 @@ export const FILTER_BY_CATEGORY = "FILTER_BY_CATEGORY";
 //Company
 export const COMPANY_REGISTER= "COMPANY_REGISTER";
 export const GET_COMPANY = "GET_COMPANY";
+

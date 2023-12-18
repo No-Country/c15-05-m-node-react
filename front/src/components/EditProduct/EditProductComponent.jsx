@@ -37,6 +37,7 @@ const EditProductComponent = () => {
     setIdEdit(event.target.value);
   };
   useEffect(() => {
+    if(products){
     const foundProduct = products.find((product) => product._id === idEdit);
     if (foundProduct) {
       setNombre(foundProduct.name);
@@ -59,7 +60,7 @@ const EditProductComponent = () => {
       setPrecio(0)
       setMoneda("")
       setCantidad(0)
-    }
+    }}
   }, [idEdit, products]);
   //Imagen
   const onChangeImage = (imageList) => {

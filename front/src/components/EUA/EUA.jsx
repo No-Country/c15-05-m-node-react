@@ -11,22 +11,24 @@ import { useEUA } from './hooks/useEUA'
 import EUAInfiniteScroll from './components/EUAInfiniteScroll';
 import EUASearch from './components/EUASearch';
 import EUAButton from './components/EUAButton';
-import { getAllProductsAction } from "../../redux/actionsProducts"
+
 
 function EUA() {
     const [currentHour, setCurrentHour] = useState(getCurrentHour())
     const [currentDate,setCurrentDate] = useState(getCurrentDate())
     const [totalToPayDivisa,setTotalToPayDivisa] = useState()
-
     const dispatch = useDispatch();
+    const user = useSelector(state => state.user.user)
+    const conpany = useSelector(state => state.company.company)
     const productsData = useSelector(state => state.products.products);
-    const { totalToPay,divisaValue,productsTable,localCurrency,setProducts,setProductsFilter } = useEUA()
-    const company = "65770eb94668468640ed2017"
-   
+    const { totalToPay,divisaValue,productsTable,localCurrency,setProducts,setProductsFilter,setCompanyID} = useEUA()
     useEffect(() => {
-        dispatch(getAllProductsAction(company))
           setProducts(productsData)
           setProductsFilter(productsData) 
+          if(!user){
+             return
+            }
+          setCompanyID(user.companyID[0])
       }, [dispatch])
 
     // ? Hora
@@ -64,7 +66,7 @@ function EUA() {
             <Header/>
             <section className='EUA__sales__views'>
 
-                <EUAHeader name={"ShadowSell"} img={"https://i.imgur.com/T21NHN5.png"}/>
+                <EUAHeader name={conpany.name} img={conpany.image.url}/>
             
                 <section className='EUA__info__and__total'>
                     <dl className='EUA__info'>
@@ -74,7 +76,7 @@ function EUA() {
                         </div>
                         <div className='EUA__sale__info'>
                             <CardList title={'Factura'} info={'0023'} sale={false}/>
-                            <CardList title={'Cajero'} info={'Pancho villa'} sale={false}/>
+                            <CardList title={'Cajero'} info={user.name} sale={false}/>
                         </div>
                     </dl>
                     <div className='EUA__total'>
