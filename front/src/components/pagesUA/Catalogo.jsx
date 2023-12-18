@@ -34,8 +34,11 @@ function Catalogo() {
                 <div className="mt-10 ml-10">
                     <ButtonBack />
                 </div>
-                <HeaderCatalogo setSearchQuery={setSearchQuery} />
-                {isLoading ? <Spinner/> : <CardsContainer searchQuery={searchQuery} />}
+                {isLoading ? <Spinner/> : 
+                <div>
+                    <HeaderCatalogo setSearchQuery={setSearchQuery} />
+                    <CardsContainer searchQuery={searchQuery} />
+                </div>}
             </div>
         </DashboardPage>
     );
