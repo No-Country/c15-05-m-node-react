@@ -13,19 +13,19 @@ import {
   FILTER_BY_CATEGORY,
   GET_SALES,
   CREATE_SALE
+
+  USER_REGISTER_STATUS,
+
 } from "./types";
 
 const initialState = {
-  //DATOS DE LA COMPAÑIA
+  userRegister: false,
+
   company: {},
-  //DATOS DEL USUARIO
   user: {},
-  
-  //TODOS LOS PRODUCTOS DE UNA COMPAÑIA
-  products: [],
-  
-  //DETALLE DE UN PRODUCTO
+  allProducts: [],
   productDetail: {},
+
 };
 export const reducerCompany = (state = initialState, action) => {
   switch (action.type) {
@@ -46,13 +46,19 @@ export const reducerCompany = (state = initialState, action) => {
 
 // export const reducerUsers = (state = {}, action) => {
 export const reducerUsers = (state = initialState, action) => {
+  { console.log("REDUCER X", action.payload)
+    console.log("REDUCER", state)}
   switch (action.type) {
-    case USER_REGISTER:
+    case USER_REGISTER_STATUS:
       return {
         ...state,
-        user: action.payload,
+        userRegister: action.payload,
       };
-
+      case USER_REGISTER:
+        return {
+          ...state,
+          user: action.payload,
+        };
     case USER_LOGIN:
       return {
         ...state,
@@ -96,6 +102,7 @@ export const reducerProducts = (state = initialState, action) => {
       console.log(typeof initialState.products); // objeto
       console.log(typeof state.products); //string?
       //por eso en esta funcion voy usar initialState
+      // eslint-disable-next-line no-case-declarations
       let sortArray =
         action.payload === "Asc"
           ? initialState.products.sort((a, b) => {
@@ -112,6 +119,7 @@ export const reducerProducts = (state = initialState, action) => {
     //ORDEN POR STOCK
     case SORT_BY_STOCK:
       //IDEM CASE ANTERIOR CON TYPEOF
+      // eslint-disable-next-line no-case-declarations
       let sortStockArray =
         action.payload === "Asc"
           ? initialState.products.sort((a, b) => {
@@ -128,8 +136,10 @@ export const reducerProducts = (state = initialState, action) => {
     //FILTRAR POR CATEGORIA:
     case FILTER_BY_CATEGORY:
       //console.log('entro al reducer, con value: ', action.payload);
+      // eslint-disable-next-line no-case-declarations
       const allProducts = initialState.allProducts;
       //console.log('PRODUCTOS: ', allProducts);
+      // eslint-disable-next-line no-case-declarations
       const filtered =
         action.payload === "all"
           ? allProducts

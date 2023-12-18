@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 //import { composeWithDevTools } from 'redux-devtools-extension' 
 //(NPM I 'redux-devtools-extension') IN ORDER TO USE THIS METHOD
 const reducer = combineReducers({
+    userRegister: reducerUsers,
     user: reducerUsers,
     products: reducerProducts,
     company: reducerCompany,

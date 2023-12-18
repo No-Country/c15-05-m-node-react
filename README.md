@@ -52,13 +52,6 @@ _5 - Instala las dependencias con **`npm install`** en las carpetas de Back y Fr
 
 _6 - Ejecuta el servidor con **`npm run dev`** (desarrollo) o **`npm run start`** (producción)_
 
-
-
-
-
-
-
-
 ##### _Back .env_
 
 ```
@@ -103,7 +96,16 @@ VITE_API_KEY_CURRENCY= API KEY proporcionada por APILayer
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=figma,git,github,netlify,vscode"/>
   </a>
+ 
+ [![](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)]() 
+ [![](https://img.shields.io/badge/Trello-095ED8?style=for-the-badge&logo=Trello&logoColor=fff)](https://trello.com/b/kp1Ihyy3/c15-05-m-node-react) 
+ [![](https://img.shields.io/badge/Slack-%23ED8B00?style=for-the-badge&logo=Slack&logoColor=fff)](https://app.slack.com/client/T02KS88FB0E/C0663LZ3G3Y)
+ [![](https://img.shields.io/badge/Jira-%230A0FFF?style=for-the-badge&logo=jira&logoColor=white)]()
+ [![](https://img.shields.io/badge/Google%20Drive-%234E8EE3?style=for-the-badge&logo=googledrive&logoColor=white)]()
+ [![](https://img.shields.io/badge/Gmail-%23D14836?style=for-the-badge&logo=gmail&logoColor=white)]()
+
 </p>
+
 
 <hr>
 
