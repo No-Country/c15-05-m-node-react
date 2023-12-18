@@ -16,13 +16,15 @@ import {
 
 const initialState = {
   userRegister: false,
-
+  //TRAE LOS DATOS DE LA COMPAÑIA
   company: {},
-
+  //TRAE LOS DATOS DEL USUARIO
   user: {},
-
+  //TRAE TODOS LOS PRODUCTOS DE UNA COMPAÑIA
+  products: [],
+  //COPIA DE PRODUCTS, UTILIZADA PARA LOS FILTROS
   allProducts: [],
-
+  //TRAE EL DETALLE DE UN PRODUCTO POR ID
   productDetail: {},
 
 };
