@@ -9,9 +9,9 @@ import logoFlecha from "../../../assets/Imagenes/logoFlecha.png"
 const HeaderCatalogo = ({ setSearchQuery }) => {
 
     const company = useSelector(state => state.company.company);
-    console.log("COMPANY", company);
+    //console.log("COMPANY", company);
     const nameCompany = company.name;
-    const logo = company.image ? company.image : logoFlecha
+    const logo = company.image.url ? company.image.url : logoFlecha
 
     return(
         <div className="w-100vw m-6 flex flex-col">
