@@ -18,3 +18,6 @@ export const FILTER_BY_CATEGORY = "FILTER_BY_CATEGORY";
 export const COMPANY_REGISTER= "COMPANY_REGISTER";
 export const GET_COMPANY = "GET_COMPANY";
 
+//Sales
+export const GET_SALES = "GET_SALES";
+export const CREATE_SALE = "CREATE_SALE"
