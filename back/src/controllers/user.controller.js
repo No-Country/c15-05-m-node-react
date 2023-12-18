@@ -7,50 +7,59 @@ import { token_secret } from "../config.js";
 
 
 // ? Registrar usuario
-export const register = async (req,res)=>{
-    const {name,email,password,companyID} = req.body
+export const register = async (req, res) => {
+    const { name, email, password, companyID } = req.body;
     try {
-        const emailLow = email.toLowerCase();
-        const userFound = await User.findOne({email:emailLow})
-        if (userFound) return res.status(400).json({ message: 'El Correo ya está en uso' });
-
-        const passwordaHash = await bcrypt.hash(password,10); 
-
-        var newUser;
-        if(companyID){
-            newUser = new User({
-                name,
-                email,
-                password:passwordaHash,
-                companyID,
-                EUA:true
-            })
-        }else{
-            newUser = new User({
-                name,
-                email,
-                password:passwordaHash,
-            })
-        }
-
-        const userSaved = await newUser.save();
-
-        const token = await createAccessToken({ id: userSaved._id });
-        res.cookie("token", token);
-
-        res.status(200).json({
-            id: userSaved._id,
-            name:userSaved.name,
-            email:userSaved.email,
-            createdAt: userSaved.createdAt,
-            updatedAt:userSaved.updatedAt
+      const emailLow = email.toLowerCase();
+      const userFound = await User.findOne({ email: emailLow });
+      if (userFound) {
+        return res.status(400).json({ success: false, message: 'El Correo ya está en uso' });
+      }
+  
+      const passwordaHash = await bcrypt.hash(password, 10);
+  
+      var newUser;
+      if (companyID) {
+        newUser = new User({
+          name,
+          email,
+          password: passwordaHash,
+          companyID,
+          EUA: true,
         });
-
+      } else {
+        newUser = new User({
+          name,
+          email,
+          password: passwordaHash,
+        });
+      }
+  
+      const userSaved = await newUser.save();
+  
+      const token = await createAccessToken({ id: userSaved._id });
+      res.cookie('token', token);
+  
+      res.status(200).json({
+        success: true,
+        message: 'Usuario registrado exitosamente',
+        user: {
+          id: userSaved._id,
+          name: userSaved.name,
+          email: userSaved.email,
+          createdAt: userSaved.createdAt,
+          updatedAt: userSaved.updatedAt,
+        },
+      });
     } catch (error) {
-        console.error(error)
-        res.status(500)
+      console.error(error);
+      res.status(500).json({
+        success: false,
+        message: 'Hubo un error al registrar el usuario. Por favor, inténtalo de nuevo.',
+      });
     }
-}
+  };
+  
 
 // ? iniciar seccion
 export const login = async (req,res)=>{
