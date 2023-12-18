@@ -12,15 +12,13 @@ import {
   EDIT_PRODUCT,
   FILTER_BY_CATEGORY,
   GET_SALES,
-  CREATE_SALE
-
+  CREATE_SALE,
   USER_REGISTER_STATUS,
 
 } from "./types";
 
 const initialState = {
   userRegister: false,
-
   company: {},
   user: {},
   allProducts: [],

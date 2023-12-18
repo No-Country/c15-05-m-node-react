@@ -9,7 +9,7 @@ import logo from "../../assets/logo.svg";
 import { userLogoutAction } from "../../redux/actionsUser";
 import { useDispatch,useSelector } from "react-redux";
 import { getAllProductsAction } from "../../redux/actionsProducts"
-import { getInfoCompanyAction } from "../../redux/actionsCompany";
+import { getCompanyAction } from "../../redux/actionsCompany";
 import { getSalesAction,getSalesCount } from "../../redux/actionSales"
 import {useEUA} from "../EUA/hooks/useEUA"
 
@@ -24,7 +24,7 @@ const SideBarEUA = () => {
   useEffect(() => {
     if(!user) return
       dispatch(getAllProductsAction(user.companyID))
-      dispatch(getInfoCompanyAction(user.companyID))
+      dispatch(getCompanyAction(user.companyID))
       dispatch(getSalesAction(user.companyID))
   }, [dispatch])
 
