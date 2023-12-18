@@ -11,18 +11,19 @@ import {
   GET_COMPANY,
   EDIT_PRODUCT,
   FILTER_BY_CATEGORY,
+  GET_SALES,
+  CREATE_SALE
+
   USER_REGISTER_STATUS,
+
 } from "./types";
 
 const initialState = {
   userRegister: false,
 
   company: {},
-
   user: {},
-
   allProducts: [],
-
   productDetail: {},
 
 };
@@ -164,3 +165,22 @@ export const reducerProducts = (state = initialState, action) => {
       return { ...state };
   }
 };
+
+export const reducerSales = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_SALES:
+      return {
+        ...state,
+        sales: action.payload,
+      }
+    case CREATE_SALE:
+      return {
+        ...state,
+        sales: action.payload
+      }  
+
+    default:
+      return { ...state }
+  }
+}
+

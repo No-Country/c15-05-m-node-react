@@ -1,11 +1,11 @@
 import { createContext, useState, useEffect } from 'react'
 import {categoryData } from '../components/data'
-import { convert } from '../utils/utils'
 import {
-    sweetAlertsSuccessfully,
     sweetAlertsError,
   } from "../../../components/Utils/alerts/sweetAlerts";
-
+  import { useDispatch,useSelector } from "react-redux";
+  import { createSaleAction } from "../../../redux/actionSales"
+  import {getSalesCount} from '../../../redux/actionSales'
 
 export const EuaContext = createContext()
 
@@ -13,10 +13,15 @@ export default function EuaProvider({ children }){
     const [productsTable, setProductsTable] = useState([])
     const [productsFilter,setProductsFilter] = useState([])
     const [products,setProducts]= useState([])
-    const [localCurrency ,setLocalCurrency ] = useState("VES")
+    const user = useSelector(state => state.user.user)
+    const [localCurrency ,setLocalCurrency ] = useState("")
+    const [divisa,setDivisa] = useState("USD")
     const [divisaValue, setDivisaValue] = useState(null)
     const [totalToPay,setTotalToPay] = useState('0')
     const [companyID,setCompanyID] = useState("")
+    
+    const dispatch = useDispatch();
+    const [bill,setBill] = useState(Number)
     const categories = categoryData
     
 
@@ -24,13 +29,7 @@ export default function EuaProvider({ children }){
         totalFunction()
     },[productsTable])
 
-    useEffect(()=>{
-    const getExchangeRate = async ()=>{
-        const newValue = await convert(localCurrency,"USD")
-        return setDivisaValue(newValue.result)
-        }
-        getExchangeRate()
-    },[])
+    
 
     const totalFunction = () => {
         let total = 0
@@ -85,29 +84,37 @@ export default function EuaProvider({ children }){
         setProductsTable([])
     }
 
-    const generateSale = ()=>{
-        if(totalToPay < 1)
-            return sweetAlertsError("Factura vacia","No puedes generar facturas vacias","OK")
-        const data  = generateDataSale()
-        console.log(data)
-        return sweetAlertsSuccessfully("Factura generada")
-    }
-
+    const generateSale = async () => {
+        try {
+          if (totalToPay < 1) {
+            sweetAlertsError("Factura vacía", "No puedes generar facturas vacías", "OK")
+            return
+          }
+           dispatch(createSaleAction(generateDataSale()))
+            setTimeout(async () => {
+              const billCount = await getSalesCount(user.companyID)
+              setBill(billCount)
+              setProductsTable([])
+            }, 1000)
+        } catch (error) {
+          console.error("Error en generateSale:", error)
+        }
+      }
+      
     const generateDataSale = () =>{
-        const sold_Products = [
+        const sold_Products = 
             productsTable.map(item =>{
+                let total = item.quantity * item.price
                 return {
                     product:item.id,
                     quantity:item.quantity,
-                    totalPriceProduct:(item.quantity * item.price).toFixed(2)
+                    totalPriceProduct:total
                 }
             })
-        ]
         const data = {
-            total:totalToPay,
+            total:parseFloat(totalToPay),
             company:companyID,
             sold_Products
-
         }
         return data
     }
@@ -134,6 +141,10 @@ export default function EuaProvider({ children }){
             setProducts,
             companyID,
             setCompanyID,
+            bill,
+            setBill,
+            setLocalCurrency,
+            setDivisaValue
             }}>
             { children }
         </EuaContext.Provider>

@@ -11,7 +11,7 @@ import { useEUA } from './hooks/useEUA'
 import EUAInfiniteScroll from './components/EUAInfiniteScroll';
 import EUASearch from './components/EUASearch';
 import EUAButton from './components/EUAButton';
-
+import { convert } from './utils/utils'
 
 function EUA() {
     const [currentHour, setCurrentHour] = useState(getCurrentHour())
@@ -19,12 +19,25 @@ function EUA() {
     const [totalToPayDivisa,setTotalToPayDivisa] = useState()
     const dispatch = useDispatch();
     const user = useSelector(state => state.user.user)
-    const conpany = useSelector(state => state.company.company)
+    const company = useSelector(state => state.company.company)
     const productsData = useSelector(state => state.products.products);
-    const { totalToPay,divisaValue,productsTable,localCurrency,setProducts,setProductsFilter,setCompanyID} = useEUA()
+    
+    const { 
+        bill,
+        totalToPay,
+        divisaValue,
+        productsTable,
+        localCurrency,
+        setProducts,
+        setProductsFilter,
+        setCompanyID,
+        setLocalCurrency,
+        setDivisaValue} = useEUA()
+
     useEffect(() => {
           setProducts(productsData)
-          setProductsFilter(productsData) 
+          setProductsFilter(productsData)
+          setLocalCurrency(company.modelCurrency.abbreviation) 
           if(!user){
              return
             }
@@ -48,6 +61,15 @@ function EUA() {
         },1000)
         return () => clearInterval(interval);
     },[]);
+
+    useEffect(()=>{
+        const getExchangeRate = async ()=>{
+            if(localCurrency === "") return
+            const newValue = await convert(localCurrency,"USD")
+            return setDivisaValue(newValue.result)
+            }
+            getExchangeRate()
+        },[localCurrency])
     
 
     useEffect(()=>{
@@ -66,7 +88,7 @@ function EUA() {
             <Header/>
             <section className='EUA__sales__views'>
 
-                <EUAHeader name={conpany.name} img={conpany.image.url}/>
+                <EUAHeader name={company.name} img={company.image.url}/>
             
                 <section className='EUA__info__and__total'>
                     <dl className='EUA__info'>
@@ -75,7 +97,7 @@ function EUA() {
                             <CardList title={'Hora'} info={currentHour} sale={false }/>  
                         </div>
                         <div className='EUA__sale__info'>
-                            <CardList title={'Factura'} info={'0023'} sale={false}/>
+                            <CardList title={`Factura N°`} info={bill} sale={false}/>
                             <CardList title={'Cajero'} info={user.name} sale={false}/>
                         </div>
                     </dl>
