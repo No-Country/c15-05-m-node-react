@@ -4,7 +4,7 @@ import { filterByCategoryAction } from "../../../redux/actionsProducts"
 
 const FilterByCategory = () => {
     const products = useSelector(state => state.products.products)
-    console.log("PRODUCTOS", products);
+    //console.log("PRODUCTOS", products);
     
     //genero el array que contenga todas las categorias, estandarizadas, sin repetir, ordenadas alfabticamente
     const concatCategories = products.length ? products.flatMap(product => product.category).flat() : [];

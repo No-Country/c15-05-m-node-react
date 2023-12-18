@@ -8,6 +8,7 @@ const SortByPrice = () => {
     const [orderValue, setOrderValue] = useState('');
 
     const handlerSortByPrice = (e) => {
+        console.log('despacha la action con value: ', e.target.value);
         dispatch(sortByPriceAction(e.target.value));
         setOrderValue('');
     }

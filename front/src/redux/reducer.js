@@ -110,38 +110,34 @@ export const reducerProducts = (state = initialState, action) => {
       };
     //ORDEN POR PRECIO
     case SORT_BY_PRICE:
-      console.log(typeof initialState.products); // objeto
-      console.log(typeof state.products); //string?
-      //por eso en esta funcion voy usar initialState
-      // eslint-disable-next-line no-case-declarations
+      //console.log("PRODUCTS A SORT: ", state.products);
+      //console.log("llega la action al reducer, con action payload: ", action.payload);
       let sortArray =
         action.payload === "Asc"
-          ? initialState.products.sort((a, b) => {
+          ? state.products.sort((a, b) => {
               return a.price - b.price;
             })
-          : initialState.products.sort((a, b) => {
+          : state.products.sort((a, b) => {
               return b.price - a.price;
             });
-      //console.log(sortArray);
+      console.log("SORT PRICE HECHO", sortArray);
       return {
-        ...initialState,
+        ...state,
         products: [...sortArray], //asigno la referencia de sortArray y no modifico el estado original
       };
     //ORDEN POR STOCK
     case SORT_BY_STOCK:
-      //IDEM CASE ANTERIOR CON TYPEOF
-      // eslint-disable-next-line no-case-declarations
       let sortStockArray =
         action.payload === "Asc"
-          ? initialState.products.sort((a, b) => {
+          ? state.products.sort((a, b) => {
               return a.quantity - b.quantity;
             })
-          : initialState.products.sort((a, b) => {
+          : state.products.sort((a, b) => {
               return b.quantity - a.quantity;
             });
       //console.log(sortStockArray);
       return {
-        ...initialState,
+        ...state,
         products: [...sortStockArray],
       };
     //FILTRAR POR CATEGORIA:

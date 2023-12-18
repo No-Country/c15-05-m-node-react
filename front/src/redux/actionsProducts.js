@@ -63,10 +63,12 @@ export const getProductDetailAction = (productId, companyId) => {
     }
 }
  export const sortByPriceAction = (value) => {
+  console.log("llega a la action con value: ", value);
+  console.log('envio la action al reducer');
+
     return {
         type: SORT_BY_PRICE,
         payload: value 
-
     }
   };
 
