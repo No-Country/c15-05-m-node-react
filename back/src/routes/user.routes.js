@@ -15,7 +15,7 @@ router.post('/login',validateSchema(userLoginSchema),login)
 router.post('/logout',logout)
 
 // ? cambiar contraseña
-router.post('/change/password',authRequired,validateSchema(changePassworSchema),updatePassword)
+router.post('/change/password',validateSchema(changePassworSchema),updatePassword)//authRequired,
 
 // ? Verificar el token de la cookies
 router.get('/verify',verityToken)

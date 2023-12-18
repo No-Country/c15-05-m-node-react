@@ -2,13 +2,15 @@ import imageLanding from "../../assets/LandingNew/Landing.jpeg";
 import { useState } from "react";
 import Header from "../shared/Header/Header";
 import { userRegisterAction } from "../../redux/actionsUser";
-import { useDispatch } from "react-redux";
 import { registerSchema } from "../../Schemas/registerSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
 const RegisterUser = () => {
+  const { userRegister } = useSelector((state) => state.userRegister);
+  // const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -17,7 +19,6 @@ const RegisterUser = () => {
   } = useForm({
     resolver: zodResolver(registerSchema),
   });
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [input, setInput] = useState({
     name: "",
@@ -36,37 +37,53 @@ const RegisterUser = () => {
     email: input.email,
     password: input.password,
   };
-  const onSubmit = () => {
-    dispatch(userRegisterAction(newUser));
-    reset();
-    setInput({
-      name: "",
-      email: "",
-      password: "",
-    });
-    navigate("/register-company");
+  const onSubmit = async () => {
+   dispatch(userRegisterAction(newUser));
+  //  console.log("USER REGISTER", userRegister);
+  //  console.log("USER REGISTER USER", user);
+   setTimeout(function () {
+   if (userRegister === false) {
+      // navigate("/register-user")
+      reset();
+      setInput({
+        name: "",
+        email: "",
+        password: "",
+      });
+     return;
+    }
+    if(userRegister === true) {
+      navigate("/register-company");
+      reset();
+      setInput({
+        name: "",
+        email: "",
+        password: "",
+      });
+    } 
+  }, 2000);
+
   };
-  
+
+
   return (
- <div  className="w-full h-screen">
-      <Header />
+    <div className="w-full h-screen">
+      <Header showDown={false} />
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 -z-10">
-       
-            <img
-              src={imageLanding}
-              alt="registro Empresa"
-              className="w-full mx-auto"
-            />
-      
+          <img
+            src={imageLanding}
+            alt="registro Empresa"
+            className="w-full mx-auto"
+          />
         </div>
         <div className="w-full md:w-1/2 p-20 overflow-y-auto fixed top-16 right-0 bottom-0 ">
-          <h1 className="mb-10 text-4xl text-center font-semibold">
+          <h1 className="mb-10 text-4xl text-center font-semibold font-barlow-condensed">
             Registro de Usuario
           </h1>
           <div className="md:w-[30em]">
             <form
-              className="flex flex-col place-content-around gap-6 mx-[1em]"
+              className="flex flex-col place-content-around gap-6 mx-[1em] font-roboto"
               onChange={handleInputChange}
               onSubmit={handleSubmit(onSubmit)}
             >
@@ -130,7 +147,7 @@ const RegisterUser = () => {
           </div>
         </div>
       </div>
-      </div>
+    </div>
   );
 };
 

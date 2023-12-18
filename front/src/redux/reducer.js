@@ -6,24 +6,27 @@ import {
   COMPANY_REGISTER,
   USER_LOGIN,
   USER_LOGOUT,
-  SORT_BY_NAME,
   SORT_BY_PRICE,
-  SORT_BY_STOCK
+  SORT_BY_STOCK,
+  GET_COMPANY,
+  EDIT_PRODUCT,
+  FILTER_BY_CATEGORY,
+  GET_SALES,
+  CREATE_SALE
+
+  USER_REGISTER_STATUS,
 
 } from "./types";
 
-
 const initialState = {
-  //DATOS DE LA COMPAÑIA
-  company: {},
-  //DATOS DEL USUARIO
-  user: {},
-  //TODOS LOS PRODUCTOS DE UNA COMPAÑIA
-  products: [],
-  //DETALLE DE UN PRODUCTO
-  productDetail: {},
-};
+  userRegister: false,
 
+  company: {},
+  user: {},
+  allProducts: [],
+  productDetail: {},
+
+};
 export const reducerCompany = (state = initialState, action) => {
   switch (action.type) {
     case COMPANY_REGISTER:
@@ -31,26 +34,37 @@ export const reducerCompany = (state = initialState, action) => {
         ...state,
         company: action.payload,
       };
-
+    case GET_COMPANY:
+      return {
+        ...state,
+        company: action.payload,
+      };
     default:
       return { ...state };
   }
 };
 
-export const reducerUsers = (state = {}, action) => {
+// export const reducerUsers = (state = {}, action) => {
+export const reducerUsers = (state = initialState, action) => {
+  { console.log("REDUCER X", action.payload)
+    console.log("REDUCER", state)}
   switch (action.type) {
-    case USER_REGISTER:
+    case USER_REGISTER_STATUS:
       return {
         ...state,
-        user: action.payload,
+        userRegister: action.payload,
       };
-
+      case USER_REGISTER:
+        return {
+          ...state,
+          user: action.payload,
+        };
     case USER_LOGIN:
       return {
         ...state,
         user: action.payload,
       };
-      case USER_LOGOUT:
+    case USER_LOGOUT:
       return {
         ...state,
         user: {},
@@ -63,69 +77,110 @@ export const reducerUsers = (state = {}, action) => {
 
 export const reducerProducts = (state = initialState, action) => {
   switch (action.type) {
-//CREACION DE PRODUCTO
+    //CREACION DE PRODUCTO
     case CREATE_PRODUCT:
       return {
         ...state,
         products: [...state.products, action.payload],
+        allProducts: [...state.allProducts, action.payload],
       };
-//OBTENER TODOS LOS PRODUCTOS DE UNA COMPAÑIA
-      case GET_ALL_PRODUCTS:
-        return {
-          ...state, 
-          products: action.payload
-        }
-//OBTENER DETALLE DE PRODUCTO
-        case GET_PRODUCT_DETAIL:
-          return {
-            ...state,
-            productDetail: action.payload
-          }
-//ORDEN POR PRECIO
-        case SORT_BY_PRICE:
-          let sortArray = action.payload === 'Asc' ?
-          state.products.sort((a, b) => {
-             return a.price - b.price
-          }) :
-          state.products.sort((a, b) => {
-              return b.price - a.price
-          });
-          return  {
-              ...state,
-              products: [...sortArray] //asigno la referencia de sortArray y no modifico el estado original
-          };
-//ORDEN POR NOMBRE
-        case SORT_BY_NAME:
-          let sortNameArray = action.payload === 'Asc' ?
-          state.products.sort((a, b) => {
-              if(a.name > b.name) {return 1}
-              if(b.name > a.name) {return -1}
-              return 0
-          }) :
-          state.products.sort((a, b) => {
-              if(b.name > a.name) {return 1}
-              if(a.name > b.name) {return -1}
-              return 0
-          })
-          return {
-              ...state, 
-              products: [...sortNameArray]
-          }
-//ORDEN POR STOCK
-        case SORT_BY_STOCK:
-          let sortStockArray = action.payload === 'Asc' ?
-            state.products.sort((a, b) => {
-            return a.quantity - b.quantity
-          }) :
-            state.products.sort((a, b) => {
-            return b.quantity - a.quantity
-          });
-         return  {
-          ...state,
-          products: [...sortStockArray] 
-  };          
+    //OBTENER TODOS LOS PRODUCTOS DE UNA COMPAÑIA
+    case GET_ALL_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload,
+        allProducts: action.payload,
+      };
+    //OBTENER DETALLE DE PRODUCTO
+    case GET_PRODUCT_DETAIL:
+      return {
+        ...state,
+        productDetail: action.payload,
+      };
+    //ORDEN POR PRECIO
+    case SORT_BY_PRICE:
+      console.log(typeof initialState.products); // objeto
+      console.log(typeof state.products); //string?
+      //por eso en esta funcion voy usar initialState
+      // eslint-disable-next-line no-case-declarations
+      let sortArray =
+        action.payload === "Asc"
+          ? initialState.products.sort((a, b) => {
+              return a.price - b.price;
+            })
+          : initialState.products.sort((a, b) => {
+              return b.price - a.price;
+            });
+      //console.log(sortArray);
+      return {
+        ...initialState,
+        products: [...sortArray], //asigno la referencia de sortArray y no modifico el estado original
+      };
+    //ORDEN POR STOCK
+    case SORT_BY_STOCK:
+      //IDEM CASE ANTERIOR CON TYPEOF
+      // eslint-disable-next-line no-case-declarations
+      let sortStockArray =
+        action.payload === "Asc"
+          ? initialState.products.sort((a, b) => {
+              return a.quantity - b.quantity;
+            })
+          : initialState.products.sort((a, b) => {
+              return b.quantity - a.quantity;
+            });
+      //console.log(sortStockArray);
+      return {
+        ...initialState,
+        products: [...sortStockArray],
+      };
+    //FILTRAR POR CATEGORIA:
+    case FILTER_BY_CATEGORY:
+      //console.log('entro al reducer, con value: ', action.payload);
+      // eslint-disable-next-line no-case-declarations
+      const allProducts = initialState.allProducts;
+      //console.log('PRODUCTOS: ', allProducts);
+      // eslint-disable-next-line no-case-declarations
+      const filtered =
+        action.payload === "all"
+          ? allProducts
+          : allProducts.filter((product) =>
+              product.category.includes(action.payload)
+            );
+      //console.log('ARRAY FILTRADO:', filtered);
+      return {
+        ...state,
+        products: filtered,
+      };
 
+    case EDIT_PRODUCT:
+      return {
+        ...state,
+        products: [
+          ...state,
+          action.payload.slice(0, action.payload),
+          action.payload.slice(action.payload + 1),
+        ],
+      };
     default:
       return { ...state };
   }
 };
+
+export const reducerSales = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_SALES:
+      return {
+        ...state,
+        sales: action.payload,
+      }
+    case CREATE_SALE:
+      return {
+        ...state,
+        sales: action.payload
+      }  
+
+    default:
+      return { ...state }
+  }
+}
+
