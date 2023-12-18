@@ -1,3 +1,4 @@
+
 # <p align="center"><img width="40px" src="https://i.imgur.com/3Q0OLpW.png" alt="Logo"><a href="https://ipunto.netlify.app/">iPunto</a><img width="40px" src="https://i.imgur.com/3Q0OLpW.png" alt="Otra imagen"></p>
 ## <p align="center"> Web de Gestión de Inventario y Ventas </p>
 
@@ -118,6 +119,7 @@ VITE_API_KEY_CURRENCY= API KEY proporcionada por APILayer
 
 ## Tester de Calidad (QA) 🧪👨‍💻:
 
+
 | <img src="https://i.imgur.com/o4QhzO8.jpg" width=50> | <img src="https://i.imgur.com/RkgMMen.jpg" width=50> |
 |:-:|:-:|
 | **Arelys Acevedo** | **Pinamba Tortolero** |
@@ -131,5 +133,6 @@ VITE_API_KEY_CURRENCY= API KEY proporcionada por APILayer
 |:-:|:-:|:-:|:-:|
 | **Virginia Montoya** | **Carla Aular** | **Franco Deanquin** | **Torres Richard** |
 | <a href="https://github.com/mvirm"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/virginiamontoya/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/CarlaJoha"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/carlajoha/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Francodeanquin"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/franco-deanquin"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/TorresRichardtorrot"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/richard-torres-n1/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+
 
 <hr>

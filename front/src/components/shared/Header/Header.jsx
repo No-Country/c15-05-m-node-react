@@ -7,21 +7,20 @@ import Logo from "../../../assets/logo.png";
 
 const Header = ({ showDown = true }) => {
   //false: elimina "registrarse" e "inciar sesion"(Para rutas registro y login)
-  const headerDownClass = showDown ? "header-down" : "header-down-none";
+  const headerDownRigthClass = showDown ? "header-down-rigth" : "header-down-rigth-none";
 
   return (
     <header className="header">
       <div className="header-up"></div>
-      {showDown && (
-        <div className={headerDownClass}>
+              <div className="header-down">
           <Link to="/" >
           <div className="header-down-left">
-            <img className="ipunto-icon" src={Logo} alt="logo de  iPunto" />
-            <h1>iPunto</h1>
+            <img className="ipunto-icon" src={Logo} alt="logo de iPunto" />
+            <p className="iPunto">iPunto</p>
           </div>
           </Link>
           
-          <div className="header-down-rigth">
+          <div className={headerDownRigthClass}>
             
             <Link to="/ua/landing" >UA</Link>
             <Link to="/register-user" >Registrarse</Link>
@@ -31,7 +30,7 @@ const Header = ({ showDown = true }) => {
             <FaUserCircle className="icono-usuario" />
           </div>
         </div>
-      )}
+      
     </header>
   );
 };

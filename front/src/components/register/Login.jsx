@@ -1,11 +1,10 @@
 // import React, { useState } from "react";
 import logo from '../../assets/Imagenes/imgEmpresa.jpg'
 import { useDispatch, useSelector } from "react-redux";
+import {  userLoginAction } from "../../redux/actionsUser";
 import { useEffect, useState } from "react";
-// import {  userLoginAction } from "../../redux/actionLogin";
-import {  userLoginAction } from "../../redux/actionsUser"; //Recomiendo usar esta action, está en la carpeta correcta y la respuesta es la que necesitamos para manejear la data
-
 import { useNavigate } from "react-router-dom"
+import Header from '../shared/Header/Header';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,7 +15,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-
+// console.log("USER STATE LOGIN", user);
   const handleInputChange = (event) => {
     setLoginData({
       ...loginData,
@@ -39,11 +38,13 @@ const Login = () => {
     if (userLogin) {
       navigate(userLogin.UA === true ? "/ua/landing" : null || userLogin.EUA === true ? "/eua/dashboard" : null);
     }
-    console.log("USER", user);
   }, [user, userLogin, navigate]);
 
   return (
+    <>
+    <Header showDown={false}/>
     <div className="w-full h-screen pt-11 bg-slate-200 ">
+       
       <div className="flex place-content-around mt-28">
         <div className="">
           <div className="h-[300px] border border-black flex place-content-center rounded-xl overflow-hidden">
@@ -52,9 +53,9 @@ const Login = () => {
         </div>
 
         <div className="w-[500px]">
-          <h1 className="text-4xl text-center p-5">Acceso de Usuario</h1>
+          <h1 className="text-4xl text-center p-5 font-barlow-condensed">Acceso de Usuario</h1>
           <form
-            className="flex flex-col place-content-around gap-6 "
+            className="flex flex-col place-content-around gap-6 font-roboto"
             onSubmit={handleLogin}
           >
             <div className="flex flex-col">
@@ -91,7 +92,8 @@ const Login = () => {
         </div>
       </div>
     </div>
-  );
+  
+    </>);
 };
 
 export default Login;

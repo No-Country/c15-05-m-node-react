@@ -18,6 +18,7 @@ import ControlEmpleados from "../components/pagesUA/ControlEmpleados.jsx";
 import ProfileUA from "../components/pagesUA/ProfileUA.jsx";
 import DashboardEUA from "../components/pagesEUA/DashboardEUA.jsx";
 import EuaProvider from "../components/EUA/context/EUAContext.jsx";
+import NotFound from "../components/NotFound/NotFound";
 
 const router = () => {
   // const [user] = useLocalStorage("user");
@@ -25,10 +26,7 @@ const router = () => {
     <>
     <EuaProvider>
       <Routes>
-      {/*  OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
-      
-      {/* OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
-
+       
         <Route path="/" element={<Landing />} />
         <Route path="/register-company" element={<RegisterCompany />} />
         <Route path="/register-user" element={<RegisterUser />} />
@@ -66,6 +64,7 @@ const router = () => {
           <Route path="/Dashboard" element={<DashboardGlobal />} />
         </Route> */}
 
+
           {/* <Route element={<ProtectedRoute/>}> */}
             <Route exact path="/ua/product/catalogo" element={<Catalogo />} />
             <Route exact path="/ua/product/create" element={<CreateProducts />} />
@@ -78,7 +77,9 @@ const router = () => {
             <Route exact path="/ua/product/detail/:detailId" element={<DetailsProduct />}/>
             <Route exact path="/ua/product/analitics" element={<Analitics />} />
             <Route path="/EUA" element={<EUA/>}/>
+             <Route path="*" element={<NotFound />} />
           {/* </Route> */}
+
       </Routes>
       </EuaProvider>
     </>
