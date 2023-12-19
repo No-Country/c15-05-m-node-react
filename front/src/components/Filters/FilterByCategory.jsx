@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux"
-import { filterByCategoryAction } from "../../../redux/actionsProducts"
+import { filterByCategoryAction } from "../../redux/actionsProducts"
 
 const FilterByCategory = () => {
     const products = useSelector(state => state.products.products)

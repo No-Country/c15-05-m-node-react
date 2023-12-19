@@ -7,6 +7,7 @@ import {
   SORT_BY_STOCK,
   EDIT_PRODUCT,
   FILTER_BY_CATEGORY,
+  SORT_BY_NAME,
 } from "./types";
 
 import url from "../config/config";
@@ -78,6 +79,14 @@ export const sortByStockAction = (value) => {
     payload: value,
   };
 };
+
+export const sortByNameAction = (value) => {
+  return {
+    type: SORT_BY_NAME,
+    payload: value,
+  };
+};
+
 export const editProductAction = (id, values) => {
   return async (dispatch) => {
     try {    
@@ -104,3 +113,4 @@ export const filterByCategoryAction = (value) => {
     payload: value
   }
 }
+

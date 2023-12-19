@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { sortByPriceAction } from "../../../redux/actionsProducts";
+import { sortByPriceAction } from "../../redux/actionsProducts";
 
 const SortByPrice = () => {
     const dispatch = useDispatch();

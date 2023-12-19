@@ -10,6 +10,7 @@ import {
   USER_LOGOUT,
   SORT_BY_PRICE,
   SORT_BY_STOCK,
+  SORT_BY_NAME,
   GET_COMPANY,
   EDIT_PRODUCT,
   FILTER_BY_CATEGORY,
@@ -139,6 +140,24 @@ export const reducerProducts = (state = initialState, action) => {
       return {
         ...state,
         products: [...sortStockArray],
+      };
+    //ORDEN POR NOMBRE
+    case SORT_BY_NAME:
+      let sortNameArray = 
+        action.payload === 'Asc' ?
+        state.products.sort((a, b) =>  {
+          if(a.name > b.name) {return 1}
+          if(b.name > a.name) {return -1}
+          return 0
+        }) :
+        state.products.sort((a, b) => {
+          if(b.name > a.name) {return 1}
+          if(a.name > b.name) {return -1}
+          return 0
+        });
+      return {
+        ...state,
+        products: [...sortNameArray]
       };
     //FILTRAR POR CATEGORIA:
     case FILTER_BY_CATEGORY:
