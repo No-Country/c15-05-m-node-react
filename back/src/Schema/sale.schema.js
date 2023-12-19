@@ -19,5 +19,7 @@ export const saleSchema = z.object({
     company: z.string({
         required_error:"Se requiere la compañia que genero esta venta"
     }),
-    sold_Products: z.array(productSchema),
+    sold_Products: z.array(productSchema,{
+        required_error:"Se esperaba un array"
+    }),
   });

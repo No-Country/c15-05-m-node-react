@@ -6,10 +6,10 @@ import { registerSchema } from "../../Schemas/registerSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";//, useSelector
 import { sweetAlertsError } from "../Utils/alerts/sweetAlerts";
 const RegisterUser = () => {
-  const { userRegister } = useSelector((state) => state.userRegister);
+  // const { userRegister } = useSelector((state) => state.userRegister);
   // const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const {
@@ -38,14 +38,11 @@ const RegisterUser = () => {
     email: input.email,
     password: input.password,
   };
-const valueRegister = () => {
-  dispatch(userRegisterAction(newUser));
-};
+
   const onSubmit = async () => {
     try {
-   await valueRegister()
-   console.log(userRegister)
-         if (userRegister) {
+   const response = await dispatch(userRegisterAction(newUser));
+          if (response.success) {
         navigate("/register-company");
         reset();
         setInput({

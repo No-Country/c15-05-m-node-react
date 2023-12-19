@@ -26,15 +26,7 @@ const router = () => {
     <>
     {/* <EuaProvider> */}
       <Routes>
-       {/* ! OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
-        {/* <Route path="/Ipunto/EUA" element={<EUA/>}/> */}
-        {/* ! OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
-
-      {/*  OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
-      {/* <Route path="/EUA" element={<EUA/>}/> */}
-      {/* OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
-
-
+       
         <Route path="/" element={<Landing />} />
         <Route path="/register-company" element={<RegisterCompany />} />
         <Route path="/register-user" element={<RegisterUser />} />
@@ -71,17 +63,23 @@ const router = () => {
         <Route element={<ProtectedRoute canActivate={user} />}>
           <Route path="/Dashboard" element={<DashboardGlobal />} />
         </Route> */}
-        <Route exact path="/ua/product/catalogo" element={<Catalogo />} />
-        <Route exact path="/ua/product/create" element={<CreateProducts />} />
-        <Route exact path="/ua/product/edit" element={<EditProducts />} />
-        <Route exact path="/ua/product/inventory" element={<Inventory />} />
-        <Route exact path="/ua/landing" element={<LandingUA />} />
-        <Route exact path="/ua/control-eua" element={<ControlEmpleados />} />
-        <Route exact path="/ua/profile" element={<ProfileUA />} />
-        <Route exact path="/eua/dashboard" element={<DashboardEUA />} />
-        <Route exact path="/ua/product/detail/:detailId" element={<DetailsProduct />}/>
-        <Route exact path="/ua/product/analitics" element={<Analitics />} />
-        <Route path="*" element={<NotFound />} />
+
+
+          {/* <Route element={<ProtectedRoute/>}> */}
+            <Route exact path="/ua/product/catalogo" element={<Catalogo />} />
+            <Route exact path="/ua/product/create" element={<CreateProducts />} />
+            <Route exact path="/ua/product/edit" element={<EditProducts />} />
+            <Route exact path="/ua/product/inventory" element={<Inventory />} />
+            <Route exact path="/ua/landing" element={<LandingUA />} />
+            <Route exact path="/ua/control-eua" element={<ControlEmpleados />} />
+            <Route exact path="/ua/profile" element={<ProfileUA />} />
+            <Route exact path="/eua/dashboard" element={<DashboardEUA />} />
+            <Route exact path="/ua/product/detail/:detailId" element={<DetailsProduct />}/>
+            <Route exact path="/ua/product/analitics" element={<Analitics />} />
+            {/* <Route path="/EUA" element={<EUA/>}/> */}
+             <Route path="*" element={<NotFound />} />
+          {/* </Route> */}
+
       </Routes>
       {/* </EuaProvider> */}
     </>

@@ -24,7 +24,7 @@ export const userRegisterAction = (values) => {
         "Ahora registremos su empresa",
         "Ok"
       );
-     
+     return res.data
     } catch (error) {
       
       dispatch({
