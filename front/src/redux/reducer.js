@@ -25,11 +25,11 @@ const initialState = {
   company: {},
   //TRAE LOS DATOS DEL USUARIO
   user: {
-    id: "6580b1c950ad6093befe8ba1",
-    name: "virginiaM",
-    email: "vir1234M@mail.com",
-    companyID : "6580b24750ad6093befe8ba3",
-    EUA: true,
+    // id: "6580b1c950ad6093befe8ba1",
+    // name: "virginiaM",
+    // email: "vir1234M@mail.com",
+    // companyID : "6580b24750ad6093befe8ba3",
+    // EUA: true,
   },
   //TRAE TODOS LOS PRODUCTOS DE UNA COMPAÑIA
   products: [],
