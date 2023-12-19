@@ -1,13 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { sortByPriceAction } from "../../../redux/actionsProducts";
+import { sortByPriceAction } from "../../redux/actionsProducts";
 
 const SortByPrice = () => {
     const dispatch = useDispatch();
     const [orderValue, setOrderValue] = useState('');
 
     const handlerSortByPrice = (e) => {
+        console.log('despacha la action con value: ', e.target.value);
         dispatch(sortByPriceAction(e.target.value));
         setOrderValue('');
     }

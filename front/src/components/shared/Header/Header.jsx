@@ -29,6 +29,7 @@ const Header = ({ showDown = true }) => {
             <Link to="/login" >Iniciar Sesión</Link>
             {/* <Link to="/EUA" >EUA</Link> */}
 
+
             <FaUserCircle className="icono-usuario" />
           </div>
         </div>
@@ -39,33 +40,4 @@ const Header = ({ showDown = true }) => {
 
 export default Header;
 
-//Codigo viejo//
 
-// import {React} from "react";
-// import "./Header.component.css";
-// import { FaCircle } from "react-icons/fa";
-// import { FaUserCircle } from "react-icons/fa";
-
-// const Header = () => {
-//   return (
-//    <header className="header">
-//     <div className="header-up">
-
-//     </div>
-//      <div className="header-down">
-//         <div className="header-down-left">
-//         <FaCircle className="ipunto-icon"/>
-//           <h1>iPunto</h1>
-//         </div>
-
-//         <div className="header-down-rigth">
-//           <a href="">registrarse</a>
-//           <a href="">iniciar sesion</a>
-//           <FaUserCircle className=""/>
-//         </div>
-//     </div>
-//    </header>
-//   );
-// };
-
-// export default Header;

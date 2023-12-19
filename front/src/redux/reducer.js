@@ -1,3 +1,5 @@
+//id usuario: "6580b1c950ad6093befe8ba1"
+//id company: "6580b24750ad6093befe8ba3"
 import {
   CREATE_PRODUCT,
   GET_ALL_PRODUCTS,
@@ -8,21 +10,33 @@ import {
   USER_LOGOUT,
   SORT_BY_PRICE,
   SORT_BY_STOCK,
+  SORT_BY_NAME,
   GET_COMPANY,
   EDIT_PRODUCT,
   FILTER_BY_CATEGORY,
+  GET_SALES,
+  CREATE_SALE,
   USER_REGISTER_STATUS,
 } from "./types";
 
 const initialState = {
   userRegister: "",
 
+
   company: {},
-
-  user: {},
-
+  //TRAE LOS DATOS DEL USUARIO
+  user: {
+    // id: "6580b1c950ad6093befe8ba1",
+    // name: "virginiaM",
+    // email: "vir1234M@mail.com",
+    // companyID : "6580b24750ad6093befe8ba3",
+    // EUA: true,
+  },
+  //TRAE TODOS LOS PRODUCTOS DE UNA COMPAÑIA
+  products: [],
+  //COPIA DE PRODUCTS, UTILIZADA PARA LOS FILTROS
   allProducts: [],
-
+  //TRAE EL DETALLE DE UN PRODUCTO POR ID
   productDetail: {},
 
   products: []
@@ -91,58 +105,72 @@ export const reducerProducts = (state = initialState, action) => {
       };
     //OBTENER DETALLE DE PRODUCTO
     case GET_PRODUCT_DETAIL:
+      //console.log("llego al reducer, con payload: ", action.payload);
       return {
         ...state,
         productDetail: action.payload,
       };
     //ORDEN POR PRECIO
     case SORT_BY_PRICE:
-      console.log(typeof initialState.products); // objeto
-      console.log(typeof state.products); //string?
-      //por eso en esta funcion voy usar initialState
-      // eslint-disable-next-line no-case-declarations
+      //console.log("PRODUCTS A SORT: ", state.products);
+      //console.log("llega la action al reducer, con action payload: ", action.payload);
       let sortArray =
         action.payload === "Asc"
-          ? initialState.products.sort((a, b) => {
+          ? state.products.sort((a, b) => {
               return a.price - b.price;
             })
-          : initialState.products.sort((a, b) => {
+          : state.products.sort((a, b) => {
               return b.price - a.price;
             });
-      //console.log(sortArray);
+      //console.log("SORT PRICE HECHO", sortArray);
       return {
-        ...initialState,
+        ...state,
         products: [...sortArray], //asigno la referencia de sortArray y no modifico el estado original
       };
     //ORDEN POR STOCK
     case SORT_BY_STOCK:
-      //IDEM CASE ANTERIOR CON TYPEOF
-      // eslint-disable-next-line no-case-declarations
       let sortStockArray =
         action.payload === "Asc"
-          ? initialState.products.sort((a, b) => {
+          ? state.products.sort((a, b) => {
               return a.quantity - b.quantity;
             })
-          : initialState.products.sort((a, b) => {
+          : state.products.sort((a, b) => {
               return b.quantity - a.quantity;
             });
       //console.log(sortStockArray);
       return {
-        ...initialState,
+        ...state,
         products: [...sortStockArray],
+      };
+    //ORDEN POR NOMBRE
+    case SORT_BY_NAME:
+      let sortNameArray = 
+        action.payload === 'Asc' ?
+        state.products.sort((a, b) =>  {
+          if(a.name > b.name) {return 1}
+          if(b.name > a.name) {return -1}
+          return 0
+        }) :
+        state.products.sort((a, b) => {
+          if(b.name > a.name) {return 1}
+          if(a.name > b.name) {return -1}
+          return 0
+        });
+      return {
+        ...state,
+        products: [...sortNameArray]
       };
     //FILTRAR POR CATEGORIA:
     case FILTER_BY_CATEGORY:
       //console.log('entro al reducer, con value: ', action.payload);
-      // eslint-disable-next-line no-case-declarations
-      const allProducts = initialState.allProducts;
-      //console.log('PRODUCTOS: ', allProducts);
-      // eslint-disable-next-line no-case-declarations
+      const allProducts = state.allProducts;
+     // console.log('PRODUCTOS FILTER: ', allProducts);
       const filtered =
         action.payload === "all"
           ? allProducts
           : allProducts.filter((product) =>
-              product.category.includes(action.payload)
+              product.category.some(category => 
+                category.toLowerCase().includes(action.payload.toLowerCase()))
             );
       //console.log('ARRAY FILTRADO:', filtered);
       return {
@@ -163,3 +191,22 @@ export const reducerProducts = (state = initialState, action) => {
       return { ...state };
   }
 };
+
+export const reducerSales = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_SALES:
+      return {
+        ...state,
+        sales: action.payload,
+      }
+    case CREATE_SALE:
+      return {
+        ...state,
+        sales: action.payload
+      }  
+
+    default:
+      return { ...state }
+  }
+}
+
