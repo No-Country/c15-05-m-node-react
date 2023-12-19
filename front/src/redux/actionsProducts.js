@@ -54,10 +54,14 @@ export const getAllProductsAction = (companyId) => {
   };
 
 
-export const getProductDetailAction = (productId, companyId) => {
+export const getProductDetailAction = (detailId, companyId) => {
+ //console.log("recibe el dispatch");
+ //console.log("product id action :", detailId);
+ //console.log("company id action: ", companyId);
     return async(dispatch) => {
         try {
-            const bddData = await axios.get(`${url}/api/product/${productId}/${companyId}`);
+            const bddData = await axios.get(`${url}/api/product/${detailId}/${companyId}`);
+            //console.log("getAxios: ", bddData);
             const product = bddData.data;
             dispatch({
                 type: GET_PRODUCT_DETAIL,

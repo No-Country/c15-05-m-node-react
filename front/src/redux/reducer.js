@@ -105,6 +105,7 @@ export const reducerProducts = (state = initialState, action) => {
       };
     //OBTENER DETALLE DE PRODUCTO
     case GET_PRODUCT_DETAIL:
+      //console.log("llego al reducer, con payload: ", action.payload);
       return {
         ...state,
         productDetail: action.payload,

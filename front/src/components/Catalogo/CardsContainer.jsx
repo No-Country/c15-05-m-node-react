@@ -3,8 +3,6 @@ import Card from "./Card";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-// import arrayFormatted from "../../Utils/catalogo/arrayFormatted"
-// import sortArray from "../../Utils/catalogo/sortArray"
 
 const CardsContainer = ({ searchQuery }) => {
 
@@ -68,13 +66,13 @@ setCompañia(company)
       ) : (
         productsFormatted.map((p) => (
           <Card
-            id={p.id}
+            id={p._id}
             image={p.image}
             name={p.name}
             category={p.category}
             price={p.price}
             currency={p.currency}
-            key={p.id}
+            key={p._id}
           />
         ))
       )}

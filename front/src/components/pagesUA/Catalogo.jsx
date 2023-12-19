@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import DashboardPage from "../dashboard/global/DashboardPage";
 import ButtonBack from "../Utils/Buttons/ButtonBack";
-import HeaderCatalogo from "../Catalogo/header/HeaderCatalogo";
-import CardsContainer from "../Catalogo/cardsContainer/CardsContainer";
+import HeaderCatalogo from "../Catalogo/HeaderCatalogo";
+import CardsContainer from "../Catalogo/CardsContainer";
 import {useSelector, useDispatch} from "react-redux";
 import { getAllProductsAction } from "../../redux/actionsProducts";
 import { getCompanyAction } from "../../redux/actionsCompany";
@@ -13,7 +13,7 @@ function Catalogo() {
     const { user } = useSelector(state => state.user);
     //const user = useSelector(state => state.user.user)
      //console.log("USER ", user);
-    //  const { products} = useSelector(state => state.products);
+    //const { products} = useSelector(state => state.products.products);
     const companyId = user.companyID;
     
     const [searchQuery, setSearchQuery] = useState("");
