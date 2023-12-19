@@ -1,8 +1,9 @@
 import React from "react";
-import FilterByCategory from "../Catalogo/filters/FilterByCategory";
-import SortByPrice from "../Catalogo/Sort/SortByPrice";
-import SortByStock from "../Catalogo/Sort/SortByStock";
-import SearchBar from "../Catalogo/SearchBar/SearchBar";
+import FilterByCategory from "../Filters/FilterByCategory";
+import SortByPrice from "../Sorts/SortByPrice";
+import SortByStock from "../Sorts/SortByStock";
+//import SortByName from "../Sorts/SortByName";
+import SearchBar from "../Search/SearchBar";
 
  const InventarioHeader = ( {setSearchQuery} ) => {
     return(

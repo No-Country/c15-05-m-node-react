@@ -1,6 +1,6 @@
 // import React from "react";
 import Card from "./Card";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 // import arrayFormatted from "../../Utils/catalogo/arrayFormatted"
@@ -27,13 +27,6 @@ const CardsContainer = ({ searchQuery }) => {
     }
   }) : [];
   //console.log("FORMATED" + productsFormatted);
- 
-  // const sortProducts = productsFormatted.length ? productsFormatted.sort((a, b) => {
-  //   if(a.name > b.name) {return 1}
-  //   if(b.name > a.name) {return -1}
-  //   return 0 
-  // }) : [];
-  //console.log("SORTPRODUCTS" + sortProducts);
 
   const { company } = useSelector(state => state.company);
   const [ compañia, setCompañia ] = useState();

@@ -44,6 +44,11 @@ export const getAllProductsAction = (companyId) => {
             })
         } catch (error) {
             console.log(error.message)
+            sweetAlertsError(
+              "Uh... intenta de nuevo",
+              "No podemos mostrar tus productos",
+              "Ok"
+            );
         }
     }
   };
@@ -60,13 +65,17 @@ export const getProductDetailAction = (productId, companyId) => {
             })
         } catch (error) {
             console.log(error.message);
+            sweetAlertsError(
+              "Uh... intenta de nuevo",
+              "No podemos mostrar tu producto",
+              "Ok"
+            );
         }
     }
 }
  export const sortByPriceAction = (value) => {
-  console.log("llega a la action con value: ", value);
-  console.log('envio la action al reducer');
-
+  //console.log("llega a la action con value: ", value);
+  //console.log('envio la action al reducer');
     return {
         type: SORT_BY_PRICE,
         payload: value 

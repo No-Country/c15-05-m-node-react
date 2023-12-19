@@ -121,7 +121,7 @@ export const reducerProducts = (state = initialState, action) => {
           : state.products.sort((a, b) => {
               return b.price - a.price;
             });
-      console.log("SORT PRICE HECHO", sortArray);
+      //console.log("SORT PRICE HECHO", sortArray);
       return {
         ...state,
         products: [...sortArray], //asigno la referencia de sortArray y no modifico el estado original

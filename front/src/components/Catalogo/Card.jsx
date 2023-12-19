@@ -6,7 +6,7 @@ const Card = (props) => {
     return (
         <Link to={`/ua/product/detail/${props._id}`}>
     <div className="w-64 h-auto m-4 bg-white rounded-xl flex flex-col justify-center items-center">
-        <img className="w-4/5 h-auto pt-6 pb-2" src={props.image.url} alt={`imagen de ${props.name}`}/> 
+        <img className="w-52 max-h-36 pt-6 pb-2" src={props.image.url} alt={`imagen de ${props.name}`}/> 
         <div className="w-full text-left ml-14">
             <h1 className="text-lg font-semibold font-barlow-condensed" >{props.name}</h1>
         </div>
