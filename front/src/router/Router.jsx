@@ -12,7 +12,6 @@ import DetailsProduct from "../components/pagesUA/DetailsProduct";
 import Login from "../components/register/Login";
 import RegisterUser from "../components/register/RegisterUser";
 import ProtectedRoute from "../components/Utils/ProtectedRoute.jsx";
-// import { useLocalStorage } from "react-use";
 import RegisterCompany from "../components/register/RegisterCompany.jsx";
 import ControlEmpleados from "../components/pagesUA/ControlEmpleados.jsx";
 import ProfileUA from "../components/pagesUA/ProfileUA.jsx";
@@ -31,38 +30,7 @@ const router = () => {
         <Route path="/register-company" element={<RegisterCompany />} />
         <Route path="/register-user" element={<RegisterUser />} />
         <Route path="/login" element={<Login />} />
-        {/* 
-          <Route element={<ProtectedRoute canActivate={user} />}>
-
-
-        <Route element={<ProtectedRoute canActivate={user} />}>
-
-          <Route path="/ua/landing" element={<LandingUA />} />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route path="/ua/product/create" element={<CreateProducts />} />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route path="/ua/product/edit" element={<EditProducts />} />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route path="/ua/product/inventory" element={<Inventory />} />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route path="/ua/product/catalogo" element={<Catalogo />} />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route
-            path="/ua/product/detail/:detailId"
-            element={<DetailsProduct />}
-          />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route path="/ua/product/analitics" element={<Analitics />} />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route path="/Dashboard" element={<DashboardGlobal />} />
-        </Route> */}
+            <Route path="*" element={<NotFound />} />
 
 
           {/* <Route element={<ProtectedRoute/>}> */}
@@ -76,8 +44,7 @@ const router = () => {
             <Route exact path="/eua/dashboard" element={<DashboardEUA />} />
             <Route exact path="/ua/product/detail/:detailId" element={<DetailsProduct />}/>
             <Route exact path="/ua/product/analitics" element={<Analitics />} />
-            <Route path="/EUA" element={<EUA/>}/>
-             <Route path="*" element={<NotFound />} />
+            <Route path="/EUA" element={<EUA/>}/> 
           {/* </Route> */}
 
       </Routes>

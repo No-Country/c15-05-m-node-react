@@ -44,8 +44,8 @@ export const reducerCompany = (state = initialState, action) => {
 
 // export const reducerUsers = (state = {}, action) => {
 export const reducerUsers = (state = initialState, action) => {
-  { console.log("REDUCER X", action.payload)
-    console.log("REDUCER", state)}
+  // { console.log("REDUCER X", action.payload)
+  //   console.log("REDUCER", state)}
   switch (action.type) {
     case USER_REGISTER_STATUS:
       return {

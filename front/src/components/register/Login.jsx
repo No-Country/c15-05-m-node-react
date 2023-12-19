@@ -23,22 +23,26 @@ const Login = () => {
     });
   };
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
 
-    dispatch(userLoginAction(loginData));
+     const res = await dispatch(userLoginAction(loginData))
+     if(res){
+      if(!res.data.EUA && !res.data.UA){
+        return navigate("/register-company")
+      }else if(res.data.UA){
+        return navigate("/ua/landing")
+      }else if (res.data.EUA){
+        return navigate("/eua/dashboard")
+      }
+     }
     setLoginData({
       email: "",
       password: "",
     });
   };
 
-  useEffect(() => {
-    setUserLogin(user)
-    if (userLogin) {
-      navigate(userLogin.UA === true ? "/ua/landing" : null || userLogin.EUA === true ? "/eua/dashboard" : null);
-    }
-  }, [user, userLogin, navigate]);
+
 
   return (
     <>

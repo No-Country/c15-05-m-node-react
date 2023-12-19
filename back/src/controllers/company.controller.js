@@ -6,7 +6,7 @@ import {uploadImage} from "../utils/cloudinary.js"
 
 // ? Registro empresa
 export const registerCompany = async (req, res) => {
-    const { name, sector, country, image } = req.body;
+    const { name, sector, modelCurrency, image } = req.body;
     const { id } = req.params;
     try {
         if(!id) return res.status(404).json({ message: "Usuario no encontrado" });
@@ -14,7 +14,7 @@ export const registerCompany = async (req, res) => {
         const newCompany = new Company({
             name,
             sector,
-            country,
+            modelCurrency,
             user: id,
             image: {
                 url: imageClodinary.url,

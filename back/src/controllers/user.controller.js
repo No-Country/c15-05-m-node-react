@@ -26,7 +26,10 @@ export const register = async (req, res) => {
           password: passwordaHash,
           companyID,
           EUA: true,
-        });
+        })
+        await newUser.save();
+        return res.status(201).json({message:"Usuario Creado Exitosamente"})
+        
       } else {
         newUser = new User({
           name,
@@ -132,6 +135,7 @@ export const updatePassword = async (req,res)=>{
 export const verityToken = async (req, res) => {
     try {
       const { token } = req.cookies;
+      console.log(token)
       if (!token) return res.status(401).json(["No autorizado"]);
 
       jwt.verify(token, token_secret, async (err, user) => {
