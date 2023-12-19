@@ -7,7 +7,7 @@ import Inventory from "../components/pagesUA/Inventory";
 import LandingUA from "../components/pagesUA/LandingUA";
 import Catalogo from "../components/pagesUA/Catalogo";
 import Analitics from "../components/pagesUA/Analiticas";
-import EUA from "../components/EUA/EUA.jsx";
+// import EUA from "../components/EUA/EUA.jsx";
 import DetailsProduct from "../components/pagesUA/DetailsProduct";
 import Login from "../components/register/Login";
 import RegisterUser from "../components/register/RegisterUser";
@@ -17,21 +17,21 @@ import RegisterCompany from "../components/register/RegisterCompany.jsx";
 import ControlEmpleados from "../components/pagesUA/ControlEmpleados.jsx";
 import ProfileUA from "../components/pagesUA/ProfileUA.jsx";
 import DashboardEUA from "../components/pagesEUA/DashboardEUA.jsx";
-import EuaProvider from "../components/EUA/context/EUAContext.jsx";
+// import EuaProvider from "../components/EUA/context/EUAContext.jsx";
 import NotFound from "../components/NotFound/NotFound";
 
 const router = () => {
   // const [user] = useLocalStorage("user");
   return (
     <>
-    <EuaProvider>
+    {/* <EuaProvider> */}
       <Routes>
        {/* ! OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
-        <Route path="/Ipunto/EUA" element={<EUA/>}/>
+        {/* <Route path="/Ipunto/EUA" element={<EUA/>}/> */}
         {/* ! OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
 
       {/*  OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
-      <Route path="/EUA" element={<EUA/>}/>
+      {/* <Route path="/EUA" element={<EUA/>}/> */}
       {/* OJO 👁‍🗨Esta aqui solo para el desarrollo  */}
 
 
@@ -83,7 +83,7 @@ const router = () => {
         <Route exact path="/ua/product/analitics" element={<Analitics />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      </EuaProvider>
+      {/* </EuaProvider> */}
     </>
 
   );

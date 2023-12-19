@@ -21,6 +21,7 @@ const PanelOptions = ({
   quantity,
   handleInputQuantityChange,
   cantidad,
+  handleDeleteInput
 }) => {
 
   return (
@@ -121,9 +122,11 @@ const PanelOptions = ({
           {/*PRECIO*/}
           <p className="option-precio-label">Precio:</p>
           <CurrencyInput
+          id={precio}
             value={precio}
             onValueChange={handleInputPriceChange}
             className="input-precio-panelOptions"
+            onFocus={handleDeleteInput}
           />
 
           <Button
@@ -243,5 +246,6 @@ PanelOptions.propTypes = {
   handleInputCurrencyChange: PropTypes.func.isRequired,
   // nameInputPrice:PropTypes.string.isRequired,
   handleInputQuantityChange: PropTypes.func.isRequired,
+  handleDeleteInput: PropTypes.func.isRequired,
 };
 export default PanelOptions;

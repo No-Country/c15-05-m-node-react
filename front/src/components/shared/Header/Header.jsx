@@ -22,10 +22,12 @@ const Header = ({ showDown = true }) => {
           
           <div className={headerDownRigthClass}>
             
-            <Link to="/ua/landing" >UA</Link>
+            {/* <Link to="/ua/landing" >UA</Link> */}
+            <Link to="/">Home</Link>
             <Link to="/register-user" >Registrarse</Link>
+            <Link to="/register-company" >Registrar Compañía</Link>
             <Link to="/login" >Iniciar Sesión</Link>
-            <Link to="/EUA" >EUA</Link>
+            {/* <Link to="/EUA" >EUA</Link> */}
 
             <FaUserCircle className="icono-usuario" />
           </div>

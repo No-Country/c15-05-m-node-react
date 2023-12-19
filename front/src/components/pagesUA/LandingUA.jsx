@@ -12,7 +12,7 @@ const LandingUA = () => {
   const { company } = useSelector((state) => state.company);
   const dispatch = useDispatch();
   // const { products } = useSelector((state) => state.products);
-  console.log("ID", company._id);
+  // console.log("ID", company._id);
   useEffect(() => {
     if (user) {
       dispatch(getCompanyAction(user.companyID));

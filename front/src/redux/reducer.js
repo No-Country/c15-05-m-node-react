@@ -15,7 +15,7 @@ import {
 } from "./types";
 
 const initialState = {
-  userRegister: false,
+  userRegister: "",
 
   company: {},
 
@@ -24,6 +24,8 @@ const initialState = {
   allProducts: [],
 
   productDetail: {},
+
+  products: []
 
 };
 export const reducerCompany = (state = initialState, action) => {
@@ -43,10 +45,7 @@ export const reducerCompany = (state = initialState, action) => {
   }
 };
 
-// export const reducerUsers = (state = {}, action) => {
 export const reducerUsers = (state = initialState, action) => {
-  { console.log("REDUCER X", action.payload)
-    console.log("REDUCER", state)}
   switch (action.type) {
     case USER_REGISTER_STATUS:
       return {

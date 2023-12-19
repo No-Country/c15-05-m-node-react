@@ -1,119 +1,119 @@
-import './style.css'
-import { useState,useEffect} from 'react'
-import Header from '../shared/Header/Header';
-import EUAHeader from './components/EUAheader';
-import CardList from './components/datalist';
-import EUATable from './components/EUATable';
-import { headerTableData } from './components/data';
-import { useDispatch, useSelector } from "react-redux";
-import { getCurrentHour,getCurrentDate } from './utils/utils';
-import { useEUA } from './hooks/useEUA'
-import EUAInfiniteScroll from './components/EUAInfiniteScroll';
-import EUASearch from './components/EUASearch';
-import EUAButton from './components/EUAButton';
-import { getAllProductsAction } from "../../redux/actionsProducts"
+// import './style.css'
+// import { useState,useEffect} from 'react'
+// import Header from '../shared/Header/Header';
+// import EUAHeader from './components/EUAheader';
+// import CardList from './components/datalist';
+// import EUATable from './components/EUATable';
+// import { headerTableData } from './components/data';
+// import { useDispatch, useSelector } from "react-redux";
+// import { getCurrentHour,getCurrentDate } from './utils/utils';
+// // import { useEUA } from './hooks/useEUA'
+// import EUAInfiniteScroll from './components/EUAInfiniteScroll';
+// import EUASearch from './components/EUASearch';
+// import EUAButton from './components/EUAButton';
+// import { getAllProductsAction } from "../../redux/actionsProducts"
 
-function EUA() {
-    const [currentHour, setCurrentHour] = useState(getCurrentHour())
-    const [currentDate,setCurrentDate] = useState(getCurrentDate())
-    const [totalToPayDivisa,setTotalToPayDivisa] = useState()
+// function EUA() {
+//     const [currentHour, setCurrentHour] = useState(getCurrentHour())
+//     const [currentDate,setCurrentDate] = useState(getCurrentDate())
+//     const [totalToPayDivisa,setTotalToPayDivisa] = useState()
 
-    const dispatch = useDispatch();
-    const productsData = useSelector(state => state.products.products);
-    const { totalToPay,divisaValue,productsTable,localCurrency,setProducts,setProductsFilter } = useEUA()
-    const company = "65770eb94668468640ed2017"
+//     const dispatch = useDispatch();
+//     const productsData = useSelector(state => state.products.products);
+//     // const { totalToPay,divisaValue,productsTable,localCurrency,setProducts,setProductsFilter } = useEUA()
+//     const company = "65770eb94668468640ed2017"
    
-    useEffect(() => {
-        dispatch(getAllProductsAction(company))
-          setProducts(productsData)
-          setProductsFilter(productsData) 
-      }, [dispatch])
+//     useEffect(() => {
+//         dispatch(getAllProductsAction(company))
+//           setProducts(productsData)
+//           setProductsFilter(productsData) 
+//       }, [dispatch])
 
-    // ? Hora
-    useEffect(()=>{
-        const interval = setInterval(()=>{
-            const time = getCurrentHour()
-            setCurrentHour(time)
-        },1000)
-        return () => clearInterval(interval);
-    }, []);
+//     // ? Hora
+//     useEffect(()=>{
+//         const interval = setInterval(()=>{
+//             const time = getCurrentHour()
+//             setCurrentHour(time)
+//         },1000)
+//         return () => clearInterval(interval);
+//     }, []);
 
-    // ? Fecha
-    useEffect(()=>{
-        const interval = setInterval(()=>{
-            const time = getCurrentDate()
-            setCurrentDate(time)
-        },1000)
-        return () => clearInterval(interval);
-    },[]);
+//     // ? Fecha
+//     useEffect(()=>{
+//         const interval = setInterval(()=>{
+//             const time = getCurrentDate()
+//             setCurrentDate(time)
+//         },1000)
+//         return () => clearInterval(interval);
+//     },[]);
     
 
-    useEffect(()=>{
-        const newValue = totalToPay / divisaValue
-        if(newValue > -1){
-            setTotalToPayDivisa(newValue.toFixed(2))
-        }else{
-            setTotalToPayDivisa(0)
-        }
-    },[totalToPay])
+//     useEffect(()=>{
+//         const newValue = totalToPay / divisaValue
+//         if(newValue > -1){
+//             setTotalToPayDivisa(newValue.toFixed(2))
+//         }else{
+//             setTotalToPayDivisa(0)
+//         }
+//     },[totalToPay])
 
-    const Divisa = "USD$"
+//     const Divisa = "USD$"
 
-    return (
-        <div className='EUA__view__container'>
-            <Header/>
-            <section className='EUA__sales__views'>
+//     return (
+//         <div className='EUA__view__container'>
+//             <Header/>
+//             <section className='EUA__sales__views'>
 
-                <EUAHeader name={"ShadowSell"} img={"https://i.imgur.com/T21NHN5.png"}/>
+//                 <EUAHeader name={"ShadowSell"} img={"https://i.imgur.com/T21NHN5.png"}/>
             
-                <section className='EUA__info__and__total'>
-                    <dl className='EUA__info'>
-                        <div className='EUA__fecha'>
-                            <CardList title={'Fecha'} info={currentDate} sale={false }/>
-                            <CardList title={'Hora'} info={currentHour} sale={false }/>  
-                        </div>
-                        <div className='EUA__sale__info'>
-                            <CardList title={'Factura'} info={'0023'} sale={false}/>
-                            <CardList title={'Cajero'} info={'Pancho villa'} sale={false}/>
-                        </div>
-                    </dl>
-                    <div className='EUA__total'>
-                        <CardList title={`Total en ${localCurrency}`} info={totalToPay} sale={true}/>
-                        <CardList title={`Total en ${Divisa}`} info={totalToPayDivisa} sale={true}/>
-                    </div>
+//                 <section className='EUA__info__and__total'>
+//                     <dl className='EUA__info'>
+//                         <div className='EUA__fecha'>
+//                             <CardList title={'Fecha'} info={currentDate} sale={false }/>
+//                             <CardList title={'Hora'} info={currentHour} sale={false }/>  
+//                         </div>
+//                         <div className='EUA__sale__info'>
+//                             <CardList title={'Factura'} info={'0023'} sale={false}/>
+//                             <CardList title={'Cajero'} info={'Pancho villa'} sale={false}/>
+//                         </div>
+//                     </dl>
+//                     <div className='EUA__total'>
+//                         <CardList title={`Total en ${localCurrency}`} info={totalToPay} sale={true}/>
+//                         <CardList title={`Total en ${Divisa}`} info={totalToPayDivisa} sale={true}/>
+//                     </div>
 
-                </section>
+//                 </section>
 
-                <section className='EUA__sales'>
-                    <div className='EUA__product__container'>
-                        <div className='EUA__table__Product'>
-                            <EUATable headerTableData={headerTableData} />
-                        </div>
-                        <div className='EUA__items__Product'>
-                            <h2>
-                                Items:
-                            </h2>
-                            <span>
-                                {productsTable.length}
-                            </span>
-                        </div>
-                    </div>
+//                 <section className='EUA__sales'>
+//                     <div className='EUA__product__container'>
+//                         <div className='EUA__table__Product'>
+//                             <EUATable headerTableData={headerTableData} />
+//                         </div>
+//                         <div className='EUA__items__Product'>
+//                             <h2>
+//                                 Items:
+//                             </h2>
+//                             <span>
+//                                 {productsTable.length}
+//                             </span>
+//                         </div>
+//                     </div>
                    
-                    <div className='EUA__list__products__container'>
-                        <div className='EUA__products__search'>
-                            <EUASearch/>
-                        </div>
-                        <div className='EUA__list__products--box'>
-                            <EUAInfiniteScroll/>
-                            <EUAButton/>
-                        </div>
+//                     <div className='EUA__list__products__container'>
+//                         <div className='EUA__products__search'>
+//                             <EUASearch/>
+//                         </div>
+//                         <div className='EUA__list__products--box'>
+//                             <EUAInfiniteScroll/>
+//                             <EUAButton/>
+//                         </div>
 
-                    </div>
-                </section>
+//                     </div>
+//                 </section>
 
-            </section>
-        </div>
-    );
-}
+//             </section>
+//         </div>
+//     );
+// }
 
-export default EUA;
+// export default EUA;
