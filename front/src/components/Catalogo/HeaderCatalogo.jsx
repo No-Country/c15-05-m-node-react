@@ -12,8 +12,8 @@ const HeaderCatalogo = ({ setSearchQuery }) => {
 
     const company = useSelector(state => state.company.company);
     //console.log("COMPANY", company);
-    const nameCompany = company.name;
-    const logo = company.image.url ? company.image.url : logoFlecha
+    const nameCompany = company ? company.name : null;
+    const logo = company ? company.image.url : logoFlecha
 
     return(
         <div className="w-100vw m-6 flex flex-col">

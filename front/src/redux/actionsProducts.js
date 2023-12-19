@@ -43,7 +43,7 @@ export const getAllProductsAction = (companyId) => {
                 payload: allProducts
             })
         } catch (error) {
-            console.log(error.message)
+            //console.log(error.message)
             sweetAlertsError(
               "Uh... intenta de nuevo",
               "No podemos mostrar tus productos",
