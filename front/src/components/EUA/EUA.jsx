@@ -43,7 +43,7 @@ function EUA() {
             }
           setCompanyID(user.companyID[0])
       }, [dispatch])
-
+  
     // ? Hora
     useEffect(()=>{
         const interval = setInterval(()=>{
@@ -70,8 +70,8 @@ function EUA() {
             }
             getExchangeRate()
         },[localCurrency])
-    
-
+  
+  
     useEffect(()=>{
         const newValue = totalToPay / divisaValue
         if(newValue > -1){
@@ -108,36 +108,36 @@ function EUA() {
 
                 </section>
 
-                <section className='EUA__sales'>
-                    <div className='EUA__product__container'>
-                        <div className='EUA__table__Product'>
+                 <section className='EUA__sales'>
+                     <div className='EUA__product__container'>
+                         <div className='EUA__table__Product'>
                             <EUATable headerTableData={headerTableData} />
-                        </div>
+                         </div>
                         <div className='EUA__items__Product'>
-                            <h2>
-                                Items:
-                            </h2>
-                            <span>
-                                {productsTable.length}
-                            </span>
-                        </div>
-                    </div>
+                             <h2>
+                                 Items:
+                             </h2>``
+                             <span>
+                                 {productsTable.length}
+                             </span>
+                         </div>
+                     </div>
                    
-                    <div className='EUA__list__products__container'>
-                        <div className='EUA__products__search'>
-                            <EUASearch/>
-                        </div>
-                        <div className='EUA__list__products--box'>
-                            <EUAInfiniteScroll/>
-                            <EUAButton/>
-                        </div>
+                     <div className='EUA__list__products__container'>
+                         <div className='EUA__products__search'>
+                             <EUASearch/>
+                         </div>
+                         <div className='EUA__list__products--box'>
+                             <EUAInfiniteScroll/>
+                             <EUAButton/>
+                         </div>
 
-                    </div>
+                     </div>
                 </section>
 
-            </section>
-        </div>
-    );
+           </section>
+         </div>
+     );
 }
 
-export default EUA;
+ export default EUA;

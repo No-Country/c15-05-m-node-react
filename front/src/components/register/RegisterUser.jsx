@@ -5,8 +5,9 @@ import { userRegisterAction } from "../../redux/actionsUser";
 import { registerSchema } from "../../Schemas/registerSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { sweetAlertsError } from "../Utils/alerts/sweetAlerts";
 const RegisterUser = () => {
   const { userRegister } = useSelector((state) => state.userRegister);
   // const { user } = useSelector((state) => state.user);
@@ -37,35 +38,45 @@ const RegisterUser = () => {
     email: input.email,
     password: input.password,
   };
+const valueRegister = () => {
+  dispatch(userRegisterAction(newUser));
+};
   const onSubmit = async () => {
-   dispatch(userRegisterAction(newUser));
-  //  console.log("USER REGISTER", userRegister);
-  //  console.log("USER REGISTER USER", user);
-   setTimeout(function () {
-   if (userRegister === false) {
-      // navigate("/register-user")
+    try {
+   await valueRegister()
+   console.log(userRegister)
+         if (userRegister) {
+        navigate("/register-company");
+        reset();
+        setInput({
+          name: "",
+          email: "",
+          password: "",
+        });
+      } else {
+        navigate("/register-user");
+        reset();
+        setInput({
+          name: "",
+          email: "",
+          password: "",
+        });
+      }
+    } catch (error) {
+      console.error(error);
       reset();
       setInput({
         name: "",
         email: "",
         password: "",
       });
-     return;
+      sweetAlertsError(
+        error.response.data.message,
+        "Por favor, corrija el error",
+        "OK"
+      );
     }
-    if(userRegister === true) {
-      navigate("/register-company");
-      reset();
-      setInput({
-        name: "",
-        email: "",
-        password: "",
-      });
-    } 
-  }, 2000);
-
   };
-
-
   return (
     <div className="w-full h-screen">
       <Header showDown={false} />
@@ -135,6 +146,7 @@ const RegisterUser = () => {
                   <p className="text-red-600">{errors.password.message}</p>
                 )}
               </div>
+              <Link to="/register-company">Acceso a Registro de Compañía</Link>
               <div className="w-full flex place-content-center text-center mt-10 ">
                 <button
                   type="submit"
