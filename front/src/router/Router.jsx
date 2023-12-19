@@ -7,64 +7,28 @@ import Inventory from "../components/pagesUA/Inventory";
 import LandingUA from "../components/pagesUA/LandingUA";
 import Catalogo from "../components/pagesUA/Catalogo";
 import Analitics from "../components/pagesUA/Analiticas";
-// import EUA from "../components/EUA/EUA.jsx";
+import EUA from "../components/EUA/EUA.jsx";
 import DetailsProduct from "../components/pagesUA/DetailsProduct";
 import Login from "../components/register/Login";
 import RegisterUser from "../components/register/RegisterUser";
-// import ProtectedRoute from "../components/Utils/ProtectedRoute.jsx";
-// import { useLocalStorage } from "react-use";
+import ProtectedRoute from "../components/Utils/ProtectedRoute.jsx";
 import RegisterCompany from "../components/register/RegisterCompany.jsx";
 import ControlEmpleados from "../components/pagesUA/ControlEmpleados.jsx";
 import ProfileUA from "../components/pagesUA/ProfileUA.jsx";
 import DashboardEUA from "../components/pagesEUA/DashboardEUA.jsx";
-// import EuaProvider from "../components/EUA/context/EUAContext.jsx";
+import EuaProvider from "../components/EUA/context/EUAContext.jsx";
 import NotFound from "../components/NotFound/NotFound";
 
 const router = () => {
-  // const [user] = useLocalStorage("user");
   return (
     <>
-    {/* <EuaProvider> */}
+     <EuaProvider> 
       <Routes>
-       
         <Route path="/" element={<Landing />} />
         <Route path="/register-company" element={<RegisterCompany />} />
         <Route path="/register-user" element={<RegisterUser />} />
         <Route path="/login" element={<Login />} />
-        {/* 
-          <Route element={<ProtectedRoute canActivate={user} />}>
-
-
-        <Route element={<ProtectedRoute canActivate={user} />}>
-
-          <Route path="/ua/landing" element={<LandingUA />} />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route path="/ua/product/create" element={<CreateProducts />} />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route path="/ua/product/edit" element={<EditProducts />} />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route path="/ua/product/inventory" element={<Inventory />} />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route path="/ua/product/catalogo" element={<Catalogo />} />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route
-            path="/ua/product/detail/:detailId"
-            element={<DetailsProduct />}
-          />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route path="/ua/product/analitics" element={<Analitics />} />
-        </Route>
-        <Route element={<ProtectedRoute canActivate={user} />}>
-          <Route path="/Dashboard" element={<DashboardGlobal />} />
-        </Route> */}
-
-
+      
           {/* <Route element={<ProtectedRoute/>}> */}
             <Route exact path="/ua/product/catalogo" element={<Catalogo />} />
             <Route exact path="/ua/product/create" element={<CreateProducts />} />
@@ -81,7 +45,7 @@ const router = () => {
           {/* </Route> */}
 
       </Routes>
-      {/* </EuaProvider> */}
+      </EuaProvider> 
     </>
 
   );

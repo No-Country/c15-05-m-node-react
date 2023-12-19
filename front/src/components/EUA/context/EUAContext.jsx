@@ -7,7 +7,7 @@ import {
   import { createSaleAction } from "../../../redux/actionSales"
   import {getSalesCount} from '../../../redux/actionSales'
 
-// export const EuaContext = createContext()
+export const EuaContext = createContext()
 
 export default function EuaProvider({ children }){
     const [productsTable, setProductsTable] = useState([])
@@ -25,64 +25,64 @@ export default function EuaProvider({ children }){
     const categories = categoryData
     
 
-    // useEffect(()=>{
-    //     totalFunction()
-    // },[productsTable])
+    useEffect(()=>{
+        totalFunction()
+    },[productsTable])
 
     
 
-    // const totalFunction = () => {
-    //     let total = 0
+    const totalFunction = () => {
+        let total = 0
       
-    //     if (productsTable.length > 0) {
-    //         productsTable.forEach(item => {
-    //         total += item.price * item.quantity
-    //       });
-    //       setTotalToPay(total.toFixed(2))
-    //     }else{
-    //         return setTotalToPay(total)
-    //     }
-    // }
+        if (productsTable.length > 0) {
+            productsTable.forEach(item => {
+            total += item.price * item.quantity
+          });
+          setTotalToPay(total.toFixed(2))
+        }else{
+            return setTotalToPay(total)
+        }
+    }
 
-    // const upadteQuantity = (id, operation) => {
-    //     setProductsTable((prevProducts) => {
-    //       return prevProducts.map((product) => {
-    //         if (product.id === id) {
-    //           const newQuantity = operation === "plus" ? product.quantity + 1 : Math.max(product.quantity - 1, 1)
-    //           return { ...product, quantity: newQuantity }
-    //         }
-    //         return product
-    //       })
-    //     })
-    // }
+    const upadteQuantity = (id, operation) => {
+        setProductsTable((prevProducts) => {
+          return prevProducts.map((product) => {
+            if (product.id === id) {
+              const newQuantity = operation === "plus" ? product.quantity + 1 : Math.max(product.quantity - 1, 1)
+              return { ...product, quantity: newQuantity }
+            }
+            return product
+          })
+        })
+    }
       
-    // const addToTable = (data) => {
-    //     const { id } = data
-    //     const productInTableIndex = productsTable.findIndex(item => item.id === id)
+    const addToTable = (data) => {
+        const { id } = data
+        const productInTableIndex = productsTable.findIndex(item => item.id === id)
 
-    //     if (productInTableIndex >= 0) {
-    //         const newproductsTable = structuredClone(productsTable)
-    //         newproductsTable[productInTableIndex].quantity += 1
-    //         return setProductsTable(newproductsTable)
-    //       }
+        if (productInTableIndex >= 0) {
+            const newproductsTable = structuredClone(productsTable)
+            newproductsTable[productInTableIndex].quantity += 1
+            return setProductsTable(newproductsTable)
+          }
 
-    //     const newTable = [
-    //         ...productsTable,
-    //         {
-    //             ...data
-    //         }
-    //     ] 
-    //     return setProductsTable(newTable)
-    // }
+        const newTable = [
+            ...productsTable,
+            {
+                ...data
+            }
+        ] 
+        return setProductsTable(newTable)
+    }
 
-    // const removeToTable = (id)=>{
-    //     const newTable = productsTable.filter(item => item.id !== id)
-    //     return setProductsTable(newTable)
-    // }
+    const removeToTable = (id)=>{
+        const newTable = productsTable.filter(item => item.id !== id)
+        return setProductsTable(newTable)
+    }
 
-    // const clearTable = ()=>{
-    //     setProductsTable([])
-    // }
+    const clearTable = ()=>{
+        setProductsTable([])
+    }
 
     const generateSale = async () => {
         try {
@@ -118,9 +118,6 @@ export default function EuaProvider({ children }){
         }
         return data
     }
-
-   
-    
 
     return(
         <EuaContext.Provider value={{

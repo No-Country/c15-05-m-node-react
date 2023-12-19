@@ -43,15 +43,15 @@ function EUA() {
             }
           setCompanyID(user.companyID[0])
       }, [dispatch])
-
-//     // ? Hora
-//     useEffect(()=>{
-//         const interval = setInterval(()=>{
-//             const time = getCurrentHour()
-//             setCurrentHour(time)
-//         },1000)
-//         return () => clearInterval(interval);
-//     }, []);
+  
+    // ? Hora
+    useEffect(()=>{
+        const interval = setInterval(()=>{
+            const time = getCurrentHour()
+            setCurrentHour(time)
+        },1000)
+        return () => clearInterval(interval);
+    }, []);
 
     // ? Fecha
     useEffect(()=>{
@@ -70,23 +70,23 @@ function EUA() {
             }
             getExchangeRate()
         },[localCurrency])
-    
+  
+  
+    useEffect(()=>{
+        const newValue = totalToPay / divisaValue
+        if(newValue > -1){
+            setTotalToPayDivisa(newValue.toFixed(2))
+        }else{
+            setTotalToPayDivisa(0)
+        }
+    },[totalToPay])
 
-//     useEffect(()=>{
-//         const newValue = totalToPay / divisaValue
-//         if(newValue > -1){
-//             setTotalToPayDivisa(newValue.toFixed(2))
-//         }else{
-//             setTotalToPayDivisa(0)
-//         }
-//     },[totalToPay])
+    const Divisa = "USD$"
 
-//     const Divisa = "USD$"
-
-//     return (
-//         <div className='EUA__view__container'>
-//             <Header/>
-//             <section className='EUA__sales__views'>
+    return (
+        <div className='EUA__view__container'>
+            <Header/>
+            <section className='EUA__sales__views'>
 
                 <EUAHeader name={company.name} img={company.image.url}/>
             
@@ -106,38 +106,38 @@ function EUA() {
                         <CardList title={`Total en ${Divisa}`} info={totalToPayDivisa} sale={true}/>
                     </div>
 
-//                 </section>
+                </section>
 
-//                 <section className='EUA__sales'>
-//                     <div className='EUA__product__container'>
-//                         <div className='EUA__table__Product'>
-//                             <EUATable headerTableData={headerTableData} />
-//                         </div>
-//                         <div className='EUA__items__Product'>
-//                             <h2>
-//                                 Items:
-//                             </h2>
-//                             <span>
-//                                 {productsTable.length}
-//                             </span>
-//                         </div>
-//                     </div>
+                 <section className='EUA__sales'>
+                     <div className='EUA__product__container'>
+                         <div className='EUA__table__Product'>
+                            <EUATable headerTableData={headerTableData} />
+                         </div>
+                        <div className='EUA__items__Product'>
+                             <h2>
+                                 Items:
+                             </h2>``
+                             <span>
+                                 {productsTable.length}
+                             </span>
+                         </div>
+                     </div>
                    
-//                     <div className='EUA__list__products__container'>
-//                         <div className='EUA__products__search'>
-//                             <EUASearch/>
-//                         </div>
-//                         <div className='EUA__list__products--box'>
-//                             <EUAInfiniteScroll/>
-//                             <EUAButton/>
-//                         </div>
+                     <div className='EUA__list__products__container'>
+                         <div className='EUA__products__search'>
+                             <EUASearch/>
+                         </div>
+                         <div className='EUA__list__products--box'>
+                             <EUAInfiniteScroll/>
+                             <EUAButton/>
+                         </div>
 
-//                     </div>
-//                 </section>
+                     </div>
+                </section>
 
-//             </section>
-//         </div>
-//     );
-// }
+           </section>
+         </div>
+     );
+}
 
-// export default EUA;
+ export default EUA;
