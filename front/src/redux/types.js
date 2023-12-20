@@ -14,6 +14,7 @@ export const SORT_BY_PRICE = "SORT_BY_PRICE";
 export const SORT_BY_STOCK = "SORT_BY_STOCK";
 export const SORT_BY_NAME = "SORT_BY_NAME";
 export const FILTER_BY_CATEGORY = "FILTER_BY_CATEGORY";
+export const DELETE_PRODUCT = "DELETE_PRODUCT";
 
 //Company
 export const COMPANY_REGISTER= "COMPANY_REGISTER";

@@ -6,6 +6,7 @@ import DashboardPage from "../dashboard/global/DashboardPage";
 import InventarioHeader from "../Inventario/InventarioHeader";
 import InventarioList from "../Inventario/InventarioList";
 import Spinner from "../Utils/Spinner";
+import ButtonBack from "../Utils/Buttons/ButtonBack";
 
 
 const Inventory = () => {
@@ -28,8 +29,14 @@ const Inventory = () => {
 
     return (
     <DashboardPage>
-        <InventarioHeader setSearchQuery={setSearchQuery}/>
-        {isLoading ? <Spinner/> : <InventarioList searchQuery={searchQuery}/>}
+      <div className="mt-10 ml-10">
+        <ButtonBack />
+      </div>
+      {isLoading ? <Spinner/> :
+      <div>
+        <InventarioHeader setSearchQuery={setSearchQuery} />
+        <InventarioList searchQuery={searchQuery} />
+      </div>}
     </DashboardPage> );
 }
  

@@ -8,6 +8,7 @@ import {
   EDIT_PRODUCT,
   FILTER_BY_CATEGORY,
   SORT_BY_NAME,
+  DELETE_PRODUCT,
 } from "./types";
 
 import url from "../config/config";
@@ -127,3 +128,22 @@ export const filterByCategoryAction = (value) => {
   }
 }
 
+export const deleteProductAction = (productId) => {
+  console.log("ID producto recibido: ", productId);
+  return async (dispatch) => {
+    try {
+      let res = await axios.delete(`${url}/api/product/${productId}`);
+      dispatch({ type: DELETE_PRODUCT, payload: res.data });
+      console.log("RESPUESTA ACTION DELETE OK", res.data);
+
+      //sweetAlertsSuccessfully("Felicidades", del.data.message, "Ok");
+    } catch (error) {
+      console.log("ERROR", error);
+      // sweetAlertsError(
+      //   "Uh... intenta de nuevo",
+      //   "No pudimos eliminar el producto",
+      //   "Ok"
+      // );
+    }
+  };
+};
