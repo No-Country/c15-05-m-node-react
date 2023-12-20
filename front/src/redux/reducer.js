@@ -20,8 +20,9 @@ import {
 } from "./types";
 
 const initialState = {
-  userRegister: false,
-  //TRAE LOS DATOS DE LA COMPAÑIA
+  userRegister: "",
+
+
   company: {},
   //TRAE LOS DATOS DEL USUARIO
   user: {
@@ -37,6 +38,8 @@ const initialState = {
   allProducts: [],
   //TRAE EL DETALLE DE UN PRODUCTO POR ID
   productDetail: {},
+
+  products: []
 
 };
 export const reducerCompany = (state = initialState, action) => {
@@ -56,10 +59,7 @@ export const reducerCompany = (state = initialState, action) => {
   }
 };
 
-// export const reducerUsers = (state = {}, action) => {
 export const reducerUsers = (state = initialState, action) => {
-  // { console.log("REDUCER X", action.payload)
-    // console.log("REDUCER", state)}
   switch (action.type) {
     case USER_REGISTER_STATUS:
       return {
