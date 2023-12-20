@@ -64,3 +64,14 @@ export const updateCompany = async (req,res)=>{
     }
 }
 
+export const getEmployes = async (req,res)=>{
+    const {id} = req.params
+    try {
+        const employes = await User.find({companyID:id})
+        res.status(200).json(employes)
+
+    } catch (error) {
+        console.log(error)
+        res.send().status(500)
+    }
+}
