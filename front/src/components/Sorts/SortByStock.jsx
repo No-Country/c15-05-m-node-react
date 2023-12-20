@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { sortByStockAction } from "../../../redux/actionsProducts";
+import { sortByStockAction } from "../../redux/actionsProducts";
 
 const SortByStock = () => {
     const dispatch = useDispatch();

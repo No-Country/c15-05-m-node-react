@@ -51,7 +51,9 @@ const CreateProductsComponent = () => {
     if (!isNaN(parsedValue)) {
       setSelectValue(name);
       setPrecio(parsedValue);
-    }
+    } else {
+    setPrecio(0);
+  }
   };
   //Moneda
   const handleInputCurrencyChange = (event) => {
@@ -66,6 +68,11 @@ const CreateProductsComponent = () => {
       setCantidad(parsedValue);
     }
   };
+  const handleDeleteInput = (event) => {
+    if (event.target.value === "0") {
+      event.target.value = null;
+    }
+  }
   const handleClickPanelOptions = (event) => {
     event.preventDefault();
     switch (selectValue) {
@@ -143,6 +150,7 @@ const CreateProductsComponent = () => {
           cantidad={cantidad}
           quantity={product.quantity}
           handleInputQuantityChange={handleInputQuantityChange}
+          handleDeleteInput={handleDeleteInput}
         >
           <CurrencyInput
             name="price"

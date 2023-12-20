@@ -13,11 +13,10 @@ import {
 import url from "../config/config";
 
 export const userRegisterAction = (values) => {
-  const getStatus = () => ({ type: USER_REGISTER_STATUS, payload: true });
+  const getStatus = () => ({ type: USER_REGISTER_STATUS, payload: "true" });
   return async (dispatch) => {
     try {
       let res = await axios.post(`${url}/api/register`, values);
-      console.log("ACTION SUCCESS", res.data.success);
       dispatch({ type: USER_REGISTER, payload: res.data.user });
       dispatch(getStatus());
       sweetAlertsSuccessfully(
@@ -25,13 +24,15 @@ export const userRegisterAction = (values) => {
         "Ahora registremos su empresa",
         "Ok"
       );
+     
     } catch (error) {
+      
       dispatch({
         type: USER_REGISTER_STATUS,
         payload: error.response.data.success,
       });
-      console.log("ERROR SUCCESS", error.response.data);
-      sweetAlertsError(error.response.data.message, "Intentar de nuevo", "OK");
+      console.log("RESPONSE.DATA.ERROR", error.response.data);
+      sweetAlertsError(error.response.data.message, "El correo ya está en uso", "OK");
     }
   };
 };

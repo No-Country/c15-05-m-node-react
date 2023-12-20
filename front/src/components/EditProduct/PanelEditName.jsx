@@ -110,7 +110,7 @@ const PanelEditName = ({
             id="imgProduct"
             key={idEdit}
             name="imageProduct"
-            value={!imageProduct ? imageDefault : imageProduct}
+            value={imageProduct ? imageProduct : imageDefault}
             onChange={onChangeImage}
             maxNumber={maxNumber}
             dataURLKey="data_url"
@@ -158,7 +158,7 @@ const PanelEditName = ({
 PanelEditName.propTypes = {
   nombre: PropTypes.string.isRequired,
   descripcion: PropTypes.string.isRequired,
-  imageProduct: PropTypes.string.isRequired,
+  imageProduct: PropTypes.string,
   handleInputEditChange: PropTypes.func.isRequired,
   handleInputNameChange: PropTypes.func.isRequired,
   handleInputDescriptionChange: PropTypes.func.isRequired,

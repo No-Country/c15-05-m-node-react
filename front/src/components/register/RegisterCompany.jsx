@@ -56,7 +56,7 @@ const RegisterCompany = () => {
   const { user } = useSelector((state) => state.user);
 
   const userId = user.id;
-console.log("REGISTER COMPANY USER", user)
+// console.log("REGISTER COMPANY USER", user)
   const submitHandler = (e) => {
     e.preventDefault();
     if (userId) {
