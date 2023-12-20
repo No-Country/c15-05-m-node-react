@@ -27,6 +27,7 @@ import ButtonReset from "../Utils/Buttons/ButtonReset";
                 <h1>Estado</h1>
                 <FilterByCategory/>
                 <SortByName/>
+                <h1>Imagen</h1>
                 <h1>Moneda</h1>
                 <SortByPrice/>
                 <SortByStock/>

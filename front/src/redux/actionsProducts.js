@@ -133,17 +133,15 @@ export const deleteProductAction = (productId) => {
   return async (dispatch) => {
     try {
       let res = await axios.delete(`${url}/api/product/${productId}`);
-      dispatch({ type: DELETE_PRODUCT, payload: res.data });
-      console.log("RESPUESTA ACTION DELETE OK", res.data);
-
-      //sweetAlertsSuccessfully("Felicidades", del.data.message, "Ok");
+      dispatch({ type: DELETE_PRODUCT, payload: productId });
+      sweetAlertsSuccessfully("Felicidades", res.data.message, "Ok");
     } catch (error) {
-      console.log("ERROR", error);
-      // sweetAlertsError(
-      //   "Uh... intenta de nuevo",
-      //   "No pudimos eliminar el producto",
-      //   "Ok"
-      // );
+      //console.log("ERROR", error);
+      sweetAlertsError(
+        "Uh... intenta de nuevo",
+        "No pudimos eliminar el producto",
+        "Ok"
+      );
     }
   };
 };

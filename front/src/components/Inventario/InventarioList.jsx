@@ -6,6 +6,7 @@ import InventarioCard from "./InventarioCard";
 import ButtonEdit from "../Utils/Buttons/ButtonEdit";
 import ButtonDelete from "../Utils/Buttons/ButtonDelete";
 import ButtonViewSales from "../Utils/Buttons/ButtonViewSales";
+import ConditionalState from "../Utils/ConditionalState";
 
 const InventarioList = ({searchQuery}) => {
     const {products} = useSelector(state => state.products)
@@ -54,19 +55,21 @@ const InventarioList = ({searchQuery}) => {
         )
       ) : (<ul>
           {productsFormatted.map((p, index) => (
-            <li>
-                <InventarioCard 
-                    id={p._id}
-                    name={p.name}
-                    category={p.category}
-                    price={p.price}
-                    currency={p.currency}
-                    stock={p.quantity}
-                    key={index}                
+            <li className="flex flex-row border-2 border-black">
+              <ConditionalState stock={p.quantity} />
+              <InventarioCard
+                id={p._id}
+                name={p.name}
+                image={p.image}
+                category={p.category}
+                price={p.price}
+                currency={p.currency}
+                stock={p.quantity}
+                key={index}                
                 />
-                <ButtonEdit />
-                <ButtonDelete id={p._id} />
-                <ButtonViewSales id={p._id}/>
+              <ButtonEdit />
+              <ButtonDelete id={p._id} />
+              <ButtonViewSales id={p._id}/>
             </li>
           ))}
           </ul>)}
