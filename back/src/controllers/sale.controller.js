@@ -1,5 +1,6 @@
 import Sale from "../models/sale.model.js"
 import Company from "../models/company.model.js"
+import Product from "../models/product.model.js"
 
 
 // ? Generar una venta 
@@ -8,6 +9,16 @@ export const createSale = async (req,res)=>{
     try {
             const company = await Company.findById(req.body.company)
             if (!company) return res.status(404).json({message:"La compañia no existe"})
+
+            await Promise.all(sale.sold_Products.map(async (item) => {
+                console.log(item.product)
+                 await Product.findByIdAndUpdate(
+                  item.product,
+                  { $inc: {quantity: -item.quantity } }, 
+                  { new: true }
+                )}))
+                    
+
             const newSale = new Sale(sale);
             await newSale.save(sale)
             res.status(201).json({message:"Venta registrada"})

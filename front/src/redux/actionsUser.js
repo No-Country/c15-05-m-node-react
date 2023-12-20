@@ -47,6 +47,7 @@ export const userLoginAction = (values) => {
         `Bienvenido ${res.data.name}`,
         "Ok"
       );
+      return res
     } catch (error) {
       console.log(error);
       sweetAlertsError(error.response.data.message, "Intentar de nuevo", "OK");
@@ -66,3 +67,23 @@ export const userLogoutAction = () => {
     }
   };
 };
+
+
+export const verifyToken = async ()=> {
+  try {
+    let res = await axios.get(`${url}/api/verify`)
+    return res
+  } catch (error) {
+    console.log(error)
+    sweetAlertsError(error.response.data.message, "Intentar de nuevo", "OK")
+  }
+}
+
+export const registerEUA = async (data)=>{
+  try {
+    let res = await axios.post(`${url}/api/register`, data);
+    return res
+  } catch (error) {
+   sweetAlertsError("Error",error.response.data.message,"Ok")
+  }
+}
