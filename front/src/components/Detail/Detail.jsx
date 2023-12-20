@@ -7,7 +7,7 @@ const Detail = () => {
     const productDetail = useSelector(state => state.products.productDetail);
     //console.log("DETALLE: ", productDetail);
     const company = useSelector(state => state.company.company);
-    console.log("COMPAÑIA: ", company);
+    //console.log("COMPAÑIA: ", company);
     const logo = company.image.url ? company.image.url : logoFlecha
 
     

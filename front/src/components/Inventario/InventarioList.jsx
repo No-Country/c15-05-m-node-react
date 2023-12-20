@@ -69,7 +69,7 @@ const InventarioList = ({searchQuery}) => {
                 />
               <ButtonEdit />
               <ButtonDelete id={p._id} />
-              <ButtonViewSales id={p._id}/>
+              <ButtonViewSales id={p._id} name={p.name}/>
             </li>
           ))}
           </ul>)}

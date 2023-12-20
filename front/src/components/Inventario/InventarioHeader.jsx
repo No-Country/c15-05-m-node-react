@@ -22,16 +22,16 @@ import ButtonReset from "../Utils/Buttons/ButtonReset";
             </div>
                 <SearchBar setSearchQuery={setSearchQuery}/>
                 <ButtonReset />
-            <div className="grid grid-cols-11">
+            <div className="flex flex-row w-full">
             {/* este div contiene los titulos del listado */}
                 <h1>Estado</h1>
-                <FilterByCategory/>
-                <SortByName/>
+                <FilterByCategory />
+                <SortByName />
                 <h1/>
                 <h1>Moneda</h1>
-                <SortByPrice/>
-                <SortByStock/>
-                <h1 className="col-span-3">Acciones</h1>
+                <SortByPrice />
+                <SortByStock />
+                <h1>Acciones</h1>
             </div>
         </div>
     )
