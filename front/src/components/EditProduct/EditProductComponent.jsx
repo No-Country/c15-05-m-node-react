@@ -8,28 +8,28 @@ import PanelEditName from "./PanelEditName";
 import PanelEditOptions from "./PanelEditOptions";
 import imageDefault from "../../assets/Imagenes/logoFlecha.png";
 
-// import { useParams } from "react-router-dom";
-
 const EditProductComponent = () => {
   const { user } = useSelector((state) => state.user);
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
+  const [idEdit, setIdEdit] = useState("");
   const [input, setInput] = useState("");
   const [selectValue, setSelectValue] = useState("");
+  const array = [];
 
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [imageProduct, setImageProduct] = useState("");
   const [imageOBJ, setImageOBJ] = useState({});
+  const [categoryDel, setCategoryDel] = useState("");
   const [categoria, setCategoria] = useState([]);
+  const [category, setCategory] = useState([]);
   const [precio, setPrecio] = useState(0);
   const [price, setPrice] = useState(0);
   const [moneda, setMoneda] = useState("");
   const [cantidad, setCantidad] = useState(0);
   const [quantity, setQuantity] = useState(0);
-  const [idEdit, setIdEdit] = useState(""); //id
-  const array = [];
 
   //ProductEdit
   const handleInputEditChange = (event) => {
@@ -37,46 +37,51 @@ const EditProductComponent = () => {
     setIdEdit(event.target.value);
   };
   useEffect(() => {
-    if(products){
-    const foundProduct = products.find((product) => product._id === idEdit);
-    if (foundProduct) {
-      setNombre(foundProduct.name);
-      setDescripcion(foundProduct.description)
-      setImageProduct(foundProduct.image.url)
-      setImageOBJ(foundProduct.image)
-      setCategoria(foundProduct.category)
-      setInput(foundProduct.category.join(","))
-      setPrice(foundProduct.price)
-      setPrecio(foundProduct.price)
-      setMoneda(foundProduct.currency)
-      setCantidad(foundProduct.quantity)
-      setQuantity(foundProduct.quantity)
-    } else {
-      setNombre("");
-      setDescripcion("")
-      setImageProduct("")
-      setImageOBJ({})
-      setCategoria([])
-      setPrecio(0)
-      setMoneda("")
-      setCantidad(0)
-    }}
+    if (products) {
+      const foundProduct = products.find((product) => product._id === idEdit);
+      if (foundProduct) {
+        setNombre(foundProduct.name);
+        setDescripcion(foundProduct.description);
+        setImageProduct(foundProduct.image.url);
+        setImageOBJ(foundProduct.image);
+        setCategoria(foundProduct.category);
+        setCategory(foundProduct.category); //preview
+        setPrice(foundProduct.price);
+        setPrecio(foundProduct.price);
+        setMoneda(foundProduct.currency);
+        setCantidad(foundProduct.quantity);
+        setQuantity(foundProduct.quantity);
+      } else {
+        setNombre("");
+        setDescripcion("");
+        setImageProduct("");
+        setImageOBJ({});
+        setCategoria([]);
+        setPrecio(0);
+        setMoneda("");
+        setCantidad(0);
+      }
+    }
   }, [idEdit, products]);
   //Imagen
   const onChangeImage = (imageList) => {
     const imageUrl = imageList.shift();
-    if(!imageProduct){
-      setImageProduct(imageDefault) 
+    if (!imageProduct) {
+      setImageProduct(imageDefault);
     }
     setImageProduct(imageUrl.data_url);
-    // console.log("IMAGELIST", imageUrl);
-    // console.log("IMAGEPRODUCT COMPONENT", typeof imageUrl);
-    
   };
   //Categoría
   const handleInputChange = (event) => {
     setSelectValue(event.target.name);
     setInput(event.target.value);
+  };
+  const handleCategoryDelChange = (event) => {
+    setSelectValue(event.target.name);
+    setCategoryDel(event.target.value);
+    console.log("CATEGORY DELHnadle", categoryDel);
+    console.log("CATEGORIA", categoria);
+    console.log("VALUE", event.target.value);
   };
   //Nombre
   const handleInputNameChange = (event) => {
@@ -95,6 +100,8 @@ const EditProductComponent = () => {
     if (!isNaN(parsedValue)) {
       setSelectValue(name);
       setPrecio(parsedValue);
+    } else {
+      setPrecio(0);
     }
   };
   //Moneda
@@ -108,20 +115,26 @@ const EditProductComponent = () => {
     const parsedValue = parseFloat(event.target.value);
     if (!isNaN(parsedValue)) {
       setCantidad(parsedValue);
+    } else {
+      setPrecio(0);
     }
   };
   const handleClickPanelOptions = (event) => {
     event.preventDefault();
     switch (selectValue) {
-      // case "edit":
-      //   if (productEdit) {
-      //     setNombre(productEdit.nombre)
-      //   }
-      //   break;
       case "category":
         array.push(input);
-        setCategoria([...categoria, array[0]]);
+        setCategoria([...categoria, array[0]]); //array[0]
+        setCategory([...categoria, array[0]]);
         setInput("");
+        break;
+      case "category-del":
+        {
+          categoria[parseInt(categoryDel)];
+          categoria.splice(parseInt(selectValue), 1);
+          setCategoria([...categoria]);
+          setCategory(categoria);
+        }
         break;
       case "price":
         setPrice(precio);
@@ -144,13 +157,13 @@ const EditProductComponent = () => {
     name: nombre,
     description: descripcion,
     image: imageOBJ.url !== imageProduct ? imageProduct : imageOBJ.url,
-    category: categoria,
+    category: category,
     price: price,
     currency: moneda,
     quantity: quantity,
     company: user ? user.companyID[0] : null,
   };
-// console.log("EDITPRODUCT", editProduct);
+  // console.log("EDITPRODUCT", editProduct);
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(editProductAction(idEdit, editProduct));
@@ -161,7 +174,7 @@ const EditProductComponent = () => {
     setCategoria([]);
     setPrice(0);
     setQuantity(0);
-    setIdEdit("")
+    setIdEdit("");
   };
   return (
     <form onSubmit={handleSubmit} className="form-createComponent" action="">
@@ -184,7 +197,7 @@ const EditProductComponent = () => {
         moneda={moneda}
         currency={editProduct.currency}
         precio={precio}
-        category={editProduct.category}
+        category={category}
         input={input}
         handleClickPanelOptions={handleClickPanelOptions}
         handleInputChange={handleInputChange}
@@ -194,6 +207,8 @@ const EditProductComponent = () => {
         quantity={editProduct.quantity}
         handleInputQuantityChange={handleInputQuantityChange}
         idEdit={idEdit}
+        handleCategoryDelChange={handleCategoryDelChange}
+        categoryDel={editProduct.category}
       >
         <CurrencyInput
           name="price"

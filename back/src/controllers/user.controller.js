@@ -13,7 +13,11 @@ export const register = async (req, res) => {
       const emailLow = email.toLowerCase();
       const userFound = await User.findOne({ email: emailLow });
       if (userFound) {
-        return res.status(400).json({ success: false, message: 'El Correo ya está en uso' });
+        // return res.status(400).json({ success: false, message: 'El Correo ya está en uso' });
+        const errorObject = { success: false, message: 'El Correo ya está en uso' };
+        const errorString = JSON.stringify(errorObject);
+        throw new Error(errorString);
+        res.redirect("/register-user");
       }
   
       const passwordaHash = await bcrypt.hash(password, 10);
@@ -58,7 +62,7 @@ export const register = async (req, res) => {
       console.error(error);
       res.status(500).json({
         success: false,
-        message: 'Hubo un error al registrar el usuario. Por favor, inténtalo de nuevo.',
+        message: 'Hubo un error al registrar el usuario. Verifique el correo electrónico.',
       });
     }
   };

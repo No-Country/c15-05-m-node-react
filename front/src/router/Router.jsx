@@ -20,19 +20,16 @@ import EuaProvider from "../components/EUA/context/EUAContext.jsx";
 import NotFound from "../components/NotFound/NotFound";
 
 const router = () => {
-  // const [user] = useLocalStorage("user");
   return (
     <>
-    <EuaProvider>
+     <EuaProvider> 
       <Routes>
-       
+
         <Route path="/" element={<Landing />} />
         <Route path="/register-company" element={<RegisterCompany />} />
         <Route path="/register-user" element={<RegisterUser />} />
         <Route path="/login" element={<Login />} />
-            <Route path="*" element={<NotFound />} />
-
-
+        <Route path="*" element={<NotFound />} />
           {/* <Route element={<ProtectedRoute/>}> */}
             <Route exact path="/ua/product/catalogo" element={<Catalogo />} />
             <Route exact path="/ua/product/create" element={<CreateProducts />} />
@@ -48,7 +45,7 @@ const router = () => {
           {/* </Route> */}
 
       </Routes>
-      </EuaProvider>
+      </EuaProvider> 
     </>
 
   );

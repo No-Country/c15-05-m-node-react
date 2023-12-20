@@ -8,7 +8,7 @@ import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import logo from "../../assets/logo.svg";
 import { userLogoutAction } from "../../redux/actionsUser";
 import { useDispatch,useSelector } from "react-redux";
-import { getAllProductsAction } from "../../redux/actionsProducts"
+import { getAllProductsAction } from "../../redux/actionsProducts";
 import { getCompanyAction } from "../../redux/actionsCompany";
 import { getSalesAction,getSalesCount } from "../../redux/actionSales"
 import {useEUA} from "../EUA/hooks/useEUA"
