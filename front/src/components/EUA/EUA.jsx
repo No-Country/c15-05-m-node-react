@@ -116,7 +116,7 @@ function EUA() {
                         <div className='EUA__items__Product'>
                              <h2>
                                  Items:
-                             </h2>``
+                             </h2>
                              <span>
                                  {productsTable.length}
                              </span>

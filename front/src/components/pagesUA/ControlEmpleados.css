@@ -35,7 +35,8 @@
 
 .employes__form{
     display: flex;
-    width: 400px;
+    width: 90%;
+    max-width: 700px;
     flex-direction: column;
     gap: 30px;
     background-color: rgb(255, 255, 255);
