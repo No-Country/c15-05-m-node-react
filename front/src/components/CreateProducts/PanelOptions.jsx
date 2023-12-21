@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import PropTypes from "prop-types";
 import monedas from "../../assets/Monedas.json";
@@ -23,29 +23,26 @@ const PanelOptions = ({
   cantidad,
   handleDeleteInput
 }) => {
-
-  return (
-    <Box
-      sx={{
+/*     sx={{
         display:"flex",
         width: "25em",
         p: 2,
         backgroundColor: "white",
         borderRadius: "5px",
         // border: "1px solid red",
-      }}
-    >
-      <Box sx={{ width: "100%"}}>
-      <h2 className="title-panelOptions">Panel Opciones</h2>
+      }}*/
+  return (
+    <Box > 
+      <Box sx={{ display: "flex", flexDirection: "column"}}>
+      <Typography className="title-panelOptions">Panel Opciones</Typography>
       <div id="formOptions" className="panelOptionsForm-container">
-        <h2 className="title-options">Ingresar opciones de producto:</h2>
+        <Typography className="title-options">Ingresar opciones de producto:</Typography>
 
         {/* CATEGORIA */}
         <Box
           sx={{
             display: "flex",
             flexDirection: "row",
-            mt: 0.5,
             width: "100%",
             justifyContent: "space-between",
             alignItems: "center",
@@ -78,25 +75,15 @@ const PanelOptions = ({
             <SaveIcon />
           </Button>
         </Box>
-        {/* PRECIO Y MONEDA */}
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            mt: 0.5,
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
-          {/*MONEDA*/}
-          <Box
+         {/*MONEDA*/}
+         <Box
             sx={{
               display: "flex",
               flexDirection: "row",
-              mt: 0.5,
+              mt: "5px",
               justifyContent: "space-between",
               alignItems: "center",
+              width: "100%",
             }}
           >
             <p className="option-moneda-label">Moneda:</p>
@@ -119,6 +106,16 @@ const PanelOptions = ({
               ))}
             </select>
           </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+         
           {/*PRECIO*/}
           <p className="option-precio-label">Precio:</p>
           <CurrencyInput
@@ -152,10 +149,10 @@ const PanelOptions = ({
         sx={{
           display: "flex",
           flexDirection: "row",
-          mt: ".5em",
           width: "100%",
           justifyContent: "space-between",
           alignItems: "center",
+          mt: "5px"
         }}
       >
         <p className="option">Cantidad:</p>
@@ -193,8 +190,8 @@ const PanelOptions = ({
           borderRadius: "8px",
           p: 1,
           mt: 2,
-          mr: 4,
-          ml: 4,
+          mr: 1,
+          ml: 1,
           mb: 1,
           fontFamily: "Barlow Condensed",
           fontWeight: "500",
@@ -214,7 +211,7 @@ const PanelOptions = ({
           Cantidad: <p className="previewH3">{quantity}</p>
         </h2>
         <h2 className="previewH2">
-          Categoría: <p className="previewH3">{category.join(", ")}</p>
+          Categoría: <p className="previewH3">{category}</p>{/* .join(", ") */}
         </h2>
         <h2 className="previewH2">
           Precio:{" "}
