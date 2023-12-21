@@ -2,7 +2,6 @@ import axios from "axios";
 import { sweetAlertsSuccessfully, sweetAlertsError } from "../components/Utils/alerts/sweetAlerts";
 import { GET_SALES,CREATE_SALE } from "./types";
 import url from "../config/config";
-import { useEUA } from "../components/EUA/hooks/useEUA";
 
 
 
