@@ -37,6 +37,7 @@ export const InventarioList = ({searchQuery}) => {
       key: index
     }
   }) : [];
+
   
   const {company} = useSelector(state => state.company);
   const nameCompany = company ? company.name : null;
@@ -84,9 +85,10 @@ export const InventarioList = ({searchQuery}) => {
               </TableCell>
             </TableRow>
           </TableHead>
-          &nbsp;
+          {/* &nbsp; */}
           <TableBody>
             {productsFormatted.map((prod, index) => (
+    
               <TableRow key={index} className={index % 2 === 0 ? 'bg-gray-200' : 'bg-white'}>
                 <TableCell align="center" className="w-auto"><ConditionalState stock={prod.quantity}/></TableCell>
                 <TableCell align="right" className="w-auto">
@@ -105,8 +107,8 @@ export const InventarioList = ({searchQuery}) => {
                 <TableCell align="center" className="w-auto">{prod.quantity}</TableCell>
                 <TableCell align="center" className="w-auto">
                   <ButtonEdit/>
-                  <ButtonDelete id={prod.id}/>
-                  <ButtonViewSales id={prod.id} name={prod.name}/>
+                  <ButtonDelete id={prod._id}/>
+                  <ButtonViewSales id={prod._id} name={prod.name}/>
                 </TableCell>
               </TableRow>
             ))}

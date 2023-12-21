@@ -18,7 +18,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  console.log("USER STATE LOGIN", user);
+  // console.log("USER STATE LOGIN", user);
   const handleInputChange = (event) => {
     setLoginData({
       ...loginData,
@@ -56,7 +56,7 @@ const Login = () => {
           : null
       );
     }
-    console.log("USER", user);
+    // console.log("USER", user);
   }, [user, userLogin, navigate]);
 
   return (

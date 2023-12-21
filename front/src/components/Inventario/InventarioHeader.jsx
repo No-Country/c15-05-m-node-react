@@ -4,11 +4,12 @@ import SearchBar from "../Search/SearchBar";
 import logoFlecha from "../../assets/Imagenes/logoFlecha.png"
 import ButtonReset from "../Utils/Buttons/ButtonReset";
 
-const InventarioHeader = ( props, {setSearchQuery} ) => {
+const InventarioHeader = ({setSearchQuery} ) => {
     const company = useSelector(state => state.company.company);
     //console.log("COMPANY", company);
     const nameCompany = company ? company.name : null;
     const logo = company ? company.image.url : logoFlecha;
+    
 
     return(
         <div className="w-full m-6 flex flex-col">

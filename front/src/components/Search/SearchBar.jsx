@@ -4,7 +4,6 @@ const SearchBar = ({ setSearchQuery }) => {
     const handleInputChange = (e) => {
         setSearchQuery(e.target.value);
     };
-
     return (
         <input
             type="text"
