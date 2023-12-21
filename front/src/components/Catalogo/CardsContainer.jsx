@@ -1,10 +1,8 @@
 // import React from "react";
-import Card from "../card/Card";
-import { useDispatch, useSelector } from "react-redux";
+import Card from "./Card";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-// import arrayFormatted from "../../Utils/catalogo/arrayFormatted"
-// import sortArray from "../../Utils/catalogo/sortArray"
 
 const CardsContainer = ({ searchQuery }) => {
 
@@ -27,13 +25,6 @@ const CardsContainer = ({ searchQuery }) => {
     }
   }) : [];
   //console.log("FORMATED" + productsFormatted);
- 
-  const sortProducts = productsFormatted.length ? productsFormatted.sort((a, b) => {
-    if(a.name > b.name) {return 1}
-    if(b.name > a.name) {return -1}
-    return 0 
-  }) : [];
-  //console.log("SORTPRODUCTS" + sortProducts);
 
   const { company } = useSelector(state => state.company);
   const [ compañia, setCompañia ] = useState();
@@ -48,8 +39,8 @@ setCompañia(company)
 
 
   return (
-    <div className="flex flex-wrap mx-10">
-      {!sortProducts.length ? (
+    <div className="flex flex-wrap mx-10 justify-center">
+      {!productsFormatted.length ? (
         searchQuery !== "" && searchQuery !== products.name ? (
           <div className="w-100vw bg-white rounded-2xl text-center py-40 px-96 mx-10 font-roboto text-gray-500">
             <h2 className="text-xl font-semibold">Uhh...</h2>
@@ -73,15 +64,15 @@ setCompañia(company)
           </div>
         )
       ) : (
-        sortProducts.map((p) => (
+        productsFormatted.map((p) => (
           <Card
-            id={p.id}
+            id={p._id}
             image={p.image}
             name={p.name}
             category={p.category}
             price={p.price}
             currency={p.currency}
-            key={p.id}
+            key={p._id}
           />
         ))
       )}

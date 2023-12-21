@@ -8,7 +8,6 @@ import validationRC from "../Utils/validaciones/validacionRC";
 import { companyRegisterAction } from "../../redux/actionsCompany";
 import ImageUploading from "react-images-uploading";
 import imageDefault from "../../assets/Imagenes/logoFlecha.png";
-//import { Box } from "@mui/material";
 import AddPhotoAlternateOutlinedIcon from "@mui/icons-material/AddPhotoAlternateOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
@@ -57,7 +56,7 @@ const RegisterCompany = () => {
   const { user } = useSelector((state) => state.user);
 
   const userId = user.id;
-console.log("REGISTER COMPANY USER", user)
+// console.log("REGISTER COMPANY USER", user)
   const submitHandler = (e) => {
     e.preventDefault();
     if (userId) {

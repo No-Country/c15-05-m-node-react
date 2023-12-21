@@ -1,40 +1,49 @@
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
-import { useState, useEffect } from "react";
-import { verifyTokenRequet } from "./verify";
+import { verifyToken } from "../../redux/actionsUser";
 
 const ProtectedRoute = () => {
   const navigate = useNavigate();
 
-  // CheckLogin
-  async function checkLogin() {
+  //? CheckLogin
+  
+  const checkLogin = async () => {
     const cookies = Cookies.get();
+    
     if (!cookies || !cookies.token) {
       navigate("/login");
-      return false
+      return false;
     }
 
     try {
-      const res = await verifyTokenRequet(cookies.token);
+      const res = await verifyToken();
 
       if (!res.data) {
-        navigate("/login")
-        return false
+        navigate("/login");
+        return false;
       }
 
-      return true
+      return true; 
     } catch (error) {
-      console.log(error)
+      console.error(error)
       navigate("/login")
       return false
     }
   }
 
   useEffect(() => {
-    checkLogin()
-  },[navigate])
+    const isAuthenticated = async () => {
+      const result = await checkLogin()
+      if (!result) {
+        navigate("/login")
+      }
+    }
+
+    isAuthenticated()
+  }, [navigate])
 
   return <Outlet />
-};
+}
 
-export default ProtectedRoute
+export default ProtectedRoute;

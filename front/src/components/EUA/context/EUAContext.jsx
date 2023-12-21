@@ -119,9 +119,6 @@ export default function EuaProvider({ children }){
         return data
     }
 
-   
-    
-
     return(
         <EuaContext.Provider value={{
             products,

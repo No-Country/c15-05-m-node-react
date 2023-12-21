@@ -1,5 +1,5 @@
 // import React, { useState } from "react";
-import logo from '../../assets/Imagenes/imgEmpresa.jpg'
+import logo from '../../assets/Imagenes/logo.png'
 import { useDispatch, useSelector } from "react-redux";
 import {  userLoginAction } from "../../redux/actionsUser";
 import { useEffect, useState } from "react";
@@ -23,22 +23,26 @@ const Login = () => {
     });
   };
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
 
-    dispatch(userLoginAction(loginData));
+     const res = await dispatch(userLoginAction(loginData))
+     if(res){
+      if(!res.data.EUA && !res.data.UA){
+        return navigate("/register-company")
+      }else if(res.data.UA){
+        return navigate("/ua/landing")
+      }else if (res.data.EUA){
+        return navigate("/eua/dashboard")
+      }
+     }
     setLoginData({
       email: "",
       password: "",
     });
   };
 
-  useEffect(() => {
-    setUserLogin(user)
-    if (userLogin) {
-      navigate(userLogin.UA === true ? "/ua/landing" : null || userLogin.EUA === true ? "/eua/dashboard" : null);
-    }
-  }, [user, userLogin, navigate]);
+
 
   return (
     <>
@@ -47,13 +51,13 @@ const Login = () => {
        
       <div className="flex place-content-around mt-28">
         <div className="">
-          <div className="h-[300px] border border-black flex place-content-center rounded-xl overflow-hidden">
-            <img src={logo} alt="Logo Empresa" className="border rounded-lg " />
+          <div className="h-[300px] border  flex place-content-center rounded-xl  shadow shadow-gray-500 overflow-hidden">
+            <img src={logo} alt="Logo Empresa" className="rounded-xl" />
           </div>
         </div>
 
         <div className="w-[500px]">
-          <h1 className="text-4xl text-center p-5 font-barlow-condensed">Acceso de Usuario</h1>
+          <h1 className="text-4xl text-center p-5 font-barlow-condensed font-semibold">Acceso de Usuario</h1>
           <form
             className="flex flex-col place-content-around gap-6 font-roboto"
             onSubmit={handleLogin}

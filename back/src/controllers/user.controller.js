@@ -13,7 +13,11 @@ export const register = async (req, res) => {
       const emailLow = email.toLowerCase();
       const userFound = await User.findOne({ email: emailLow });
       if (userFound) {
-        return res.status(400).json({ success: false, message: 'El Correo ya está en uso' });
+        // return res.status(400).json({ success: false, message: 'El Correo ya está en uso' });
+        const errorObject = { success: false, message: 'El Correo ya está en uso' };
+        const errorString = JSON.stringify(errorObject);
+        throw new Error(errorString);
+        res.redirect("/register-user");
       }
   
       const passwordaHash = await bcrypt.hash(password, 10);
@@ -26,7 +30,10 @@ export const register = async (req, res) => {
           password: passwordaHash,
           companyID,
           EUA: true,
-        });
+        })
+        await newUser.save();
+        return res.status(201).json({message:"Usuario Creado Exitosamente"})
+        
       } else {
         newUser = new User({
           name,
@@ -55,7 +62,7 @@ export const register = async (req, res) => {
       console.error(error);
       res.status(500).json({
         success: false,
-        message: 'Hubo un error al registrar el usuario. Por favor, inténtalo de nuevo.',
+        message: 'Hubo un error al registrar el usuario. Verifique el correo electrónico.',
       });
     }
   };
@@ -132,6 +139,7 @@ export const updatePassword = async (req,res)=>{
 export const verityToken = async (req, res) => {
     try {
       const { token } = req.cookies;
+      console.log(token)
       if (!token) return res.status(401).json(["No autorizado"]);
 
       jwt.verify(token, token_secret, async (err, user) => {
