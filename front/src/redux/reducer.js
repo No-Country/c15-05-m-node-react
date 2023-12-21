@@ -23,7 +23,6 @@ import {
 const initialState = {
   userRegister: "",
 
-
   company: {},
   //TRAE LOS DATOS DEL USUARIO
   user: {},
@@ -33,9 +32,6 @@ const initialState = {
   allProducts: [],
   //TRAE EL DETALLE DE UN PRODUCTO POR ID
   productDetail: {},
-
-  products: []
-
 };
 export const reducerCompany = (state = initialState, action) => {
   switch (action.type) {
@@ -109,6 +105,7 @@ export const reducerProducts = (state = initialState, action) => {
     case SORT_BY_PRICE:
       //console.log("PRODUCTS A SORT: ", state.products);
       //console.log("llega la action al reducer, con action payload: ", action.payload);
+      // eslint-disable-next-line no-case-declarations
       let sortArray =
         action.payload === "Asc"
           ? state.products.sort((a, b) => {
@@ -124,6 +121,7 @@ export const reducerProducts = (state = initialState, action) => {
       };
     //ORDEN POR STOCK
     case SORT_BY_STOCK:
+      // eslint-disable-next-line no-case-declarations
       let sortStockArray =
         action.payload === "Asc"
           ? state.products.sort((a, b) => {
@@ -139,6 +137,7 @@ export const reducerProducts = (state = initialState, action) => {
       };
     //ORDEN POR NOMBRE
     case SORT_BY_NAME:
+      // eslint-disable-next-line no-case-declarations
       let sortNameArray = 
         action.payload === 'Asc' ?
         state.products.sort((a, b) =>  {
@@ -158,8 +157,10 @@ export const reducerProducts = (state = initialState, action) => {
     //FILTRAR POR CATEGORIA:
     case FILTER_BY_CATEGORY:
       //console.log('entro al reducer, con value: ', action.payload);
+      // eslint-disable-next-line no-case-declarations
       const allProducts = state.allProducts;
      // console.log('PRODUCTOS FILTER: ', allProducts);
+      // eslint-disable-next-line no-case-declarations
       const filtered =
         action.payload === "all"
           ? allProducts
