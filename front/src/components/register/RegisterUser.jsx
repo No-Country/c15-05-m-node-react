@@ -78,8 +78,7 @@ const valueRegister = () => {
     }
   };
   return (
-    <div className="w-full h-screen">
-      <Header showDown={false} />
+   
     <div className="w-full h-screen">
       <Header showDown={false} />
       <div className="flex flex-col md:flex-row">
@@ -97,7 +96,7 @@ const valueRegister = () => {
           </h1>
           <div className="md:w-[30em]">
             <form
-              className="flex flex-col place-content-around gap-6 mx-[1em] font-roboto"
+              className="flex flex-col place-content-around gap-6 mx-[1em]"
               onChange={handleInputChange}
               onSubmit={handleSubmit(onSubmit)}
             >
@@ -149,7 +148,6 @@ const valueRegister = () => {
                   <p className="text-red-600">{errors.password.message}</p>
                 )}
               </div>
-              <Link to="/register-company">Acceso a Registro de Compañía</Link>
               <div className="w-full flex place-content-center text-center mt-10 ">
                 <button
                   type="submit"
@@ -162,7 +160,6 @@ const valueRegister = () => {
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

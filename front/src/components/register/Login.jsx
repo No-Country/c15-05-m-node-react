@@ -3,7 +3,7 @@ import logo from "../../assets/Imagenes/imgEmpresa.jpg";
 import imageLanding from "../../assets/LandingNew/Landing.jpeg";
 
 import { useDispatch, useSelector } from "react-redux";
-import { userLoginAction } from "../../redux/actionLogin";
+import { userLoginAction } from "../../redux/actionsUser";
 import { useEffect, useState } from "react";
 // import {  userLoginAction } from "../../redux/actionsUser";//Recomiendo usar esta action, está en la carpeta correcta y la respuesta es la que necesitamos para manejear la data
 import { useNavigate } from "react-router-dom";
@@ -60,7 +60,7 @@ const Login = () => {
   }, [user, userLogin, navigate]);
 
   return (
-    <div className="w-full h-screen">
+    <div className="h-screen overflow-hidden">
       <Header showDown={false} />
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 -z-10">
