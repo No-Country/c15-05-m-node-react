@@ -15,12 +15,12 @@ const ButtonReset = () => {
     
     
     return (
-        <Button variant="text"  startIcon={<RotateLeftOutlinedIcon />} onClick={handlerReset}            
+        <Button variant="text"  startIcon={<RotateLeftOutlinedIcon fontSize="large"/>} onClick={handlerReset}            
             sx={{
                 transition: 'transform 0.2s ease-in-out', 
                 '&:hover': {transform: 'scale(1.1)'},
             }}
-        />
+        > reset </Button>
     )
 }
 

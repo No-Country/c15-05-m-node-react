@@ -13,7 +13,7 @@ const ButtonViewSales = (props) => {
     }
 
     return (
-        <Button variant="text"  startIcon={<QueryStatsIcon className= "text-gray-400"/>} onClick={handlerSales}            
+        <Button variant="text"  startIcon={<QueryStatsIcon className= "text-gray-700"/>} onClick={handlerSales}            
             sx={{
                 transition: 'transform 0.2s ease-in-out', 
                 '&:hover': {
