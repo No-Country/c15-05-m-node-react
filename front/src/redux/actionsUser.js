@@ -24,14 +24,13 @@ export const userRegisterAction = (values) => {
         "Ahora registremos su empresa",
         "Ok"
       );
-     
+     return res.data
     } catch (error) {
       
       dispatch({
         type: USER_REGISTER_STATUS,
         payload: error.response.data.success,
       });
-      console.log("RESPONSE.DATA.ERROR", error.response.data);
       sweetAlertsError(error.response.data.message, "El correo ya está en uso", "OK");
     }
   };
@@ -59,7 +58,6 @@ export const userLogoutAction = () => {
     try {
       let res = await axios.post(`${url}/api/logout`);
       dispatch({ type: USER_LOGOUT, payload: res });
-      console.log("RESPUESTA AXIOS", res);
       sweetAlertsSuccessfully(`Hasta pronto!`, "Recuerde volver");
     } catch (error) {
       console.log(error);

@@ -80,7 +80,7 @@ const RegisterCompany = () => {
   };
 
   return (
-    <div className="w-full h-screen pt-0 bg-slate-200">
+    <div className="h-screen overflow-hidden">
       <Header />
       <div className="ml-20 mt-10">
         <ButtonBack />

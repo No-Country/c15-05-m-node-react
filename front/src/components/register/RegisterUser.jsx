@@ -6,10 +6,10 @@ import { registerSchema } from "../../Schemas/registerSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";//, useSelector
 import { sweetAlertsError } from "../Utils/alerts/sweetAlerts";
 const RegisterUser = () => {
-  const { userRegister } = useSelector((state) => state.userRegister);
+  // const { userRegister } = useSelector((state) => state.userRegister);
   // const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const {
@@ -38,14 +38,11 @@ const RegisterUser = () => {
     email: input.email,
     password: input.password,
   };
-const valueRegister = () => {
-  dispatch(userRegisterAction(newUser));
-};
+
   const onSubmit = async () => {
     try {
-   await valueRegister()
-   console.log(userRegister)
-         if (userRegister) {
+   const response = await dispatch(userRegisterAction(newUser));
+          if (response.success) {
         navigate("/register-company");
         reset();
         setInput({
@@ -78,23 +75,25 @@ const valueRegister = () => {
     }
   };
   return (
+   
     <div className="w-full h-screen">
       <Header showDown={false} />
       <div className="flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2 -z-10">
-          <img
-            src={imageLanding}
-            alt="registro Empresa"
-            className="w-full mx-auto"
-          />
-        </div>
-        <div className="w-full md:w-1/2 p-20 overflow-y-auto fixed top-16 right-0 bottom-0 ">
-          <h1 className="mb-10 text-4xl text-center font-semibold font-barlow-condensed">
+      <div className="w-full md:w-1/2 -z-10">
+    <img
+      src={imageLanding}
+      alt="Imagen de fondo empresa"
+      className="w-full h-screen object-cover"
+    />
+  </div>
+        <div className="w-full md:w-1/2 px-20
+        pb-60 overflow-y-auto fixed top-16 right-0 bottom-0 flex flex-col items-center justify-center">
+          <h1 className="mb-10 text-4xl text-center font-semibold text-white md:text-black">
             Registro de Usuario
           </h1>
           <div className="md:w-[30em]">
             <form
-              className="flex flex-col place-content-around gap-6 mx-[1em] font-roboto"
+              className="flex flex-col place-content-around gap-6 mx-[1em]"
               onChange={handleInputChange}
               onSubmit={handleSubmit(onSubmit)}
             >
@@ -146,7 +145,6 @@ const valueRegister = () => {
                   <p className="text-red-600">{errors.password.message}</p>
                 )}
               </div>
-              <Link to="/register-company">Acceso a Registro de Compañía</Link>
               <div className="w-full flex place-content-center text-center mt-10 ">
                 <button
                   type="submit"
