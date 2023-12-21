@@ -5,10 +5,10 @@ import "./Hero.component.css"
 const Hero = () => {
   return (
     <div className="hero">
-      <h1 className="hero-h1">Gestiona tu inventario y ventas 120% más rápido con Ipunto</h1>
+      <h1 className="hero-h1">Gestiona tu inventario y ventas un 120% más rápido con iPunto</h1>
       <h2 className="hero-h2">
-        Está comprobado que los negocios que utilizan estos tipos de servicio
-        aumentan hasta un 120% el rendimiento de sus ventas.
+        Está comprobado que los negocios que utilzan los servicios de iPunto
+        aumentan hasta un 120% el rendimiento de su empresa.
       </h2>
       <div className="btns">
         <button>

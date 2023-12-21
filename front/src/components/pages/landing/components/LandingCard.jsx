@@ -13,12 +13,12 @@ const LandingCard = () => {
     },
     {
       title: "INVENTARIO",
-      text: "Puedes monitorear el movimiento de tus productos, incluyendo la entrada y salida de los mismos. y estar al día cuando los niveles de tu inventario son bajos..",
+      text: "Puedes monitorear el movimiento de tus productos, incluyendo la entrada y salida de los mismos, y estar al día cuando los niveles de tu inventario son bajos.",
       imageSrc: Frame2,
     },
     {
-      title: "ADAPTABILIDAD",
-      text: "Integración con otros sistemas, como sistemas de punto de venta, para proporcionar una solución completa de gestión de inventario.",
+      title: "VENTAS",
+      text: "Todo en un solo lugar, una solución integral de gestión de inventario y ventas.",
       imageSrc: Frame3, // Reemplaza con la URL de tu imagen
     },
   ];
