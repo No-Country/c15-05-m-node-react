@@ -27,10 +27,9 @@ const LandingCard = () => {
     <div className="landingcard-container">
         <h2>¿Que ofrece <span>iPunto</span>?</h2>
     <div className="landingcard">
-      {" "}
-      {cardsData.map((card, index) => (
+          {cardsData.map((card, index) => (
         <div key={index} className="landingcard-card">
-          <img src={card.imageSrc} alt={`Imagen de ${card.title}`} />
+         
           <h3>{card.title}</h3>
           <p>{card.text}</p>
         </div>

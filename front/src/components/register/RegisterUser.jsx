@@ -75,23 +75,25 @@ const RegisterUser = () => {
     }
   };
   return (
+   
     <div className="w-full h-screen">
       <Header showDown={false} />
       <div className="flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2 -z-10">
-          <img
-            src={imageLanding}
-            alt="registro Empresa"
-            className="w-full mx-auto"
-          />
-        </div>
-        <div className="w-full md:w-1/2 p-20 overflow-y-auto fixed top-16 right-0 bottom-0 ">
-          <h1 className="mb-10 text-4xl text-center font-semibold font-barlow-condensed">
+      <div className="w-full md:w-1/2 -z-10">
+    <img
+      src={imageLanding}
+      alt="Imagen de fondo empresa"
+      className="w-full h-screen object-cover"
+    />
+  </div>
+        <div className="w-full md:w-1/2 px-20
+        pb-60 overflow-y-auto fixed top-16 right-0 bottom-0 flex flex-col items-center justify-center">
+          <h1 className="mb-10 text-4xl text-center font-semibold text-white md:text-black">
             Registro de Usuario
           </h1>
           <div className="md:w-[30em]">
             <form
-              className="flex flex-col place-content-around gap-6 mx-[1em] font-roboto"
+              className="flex flex-col place-content-around gap-6 mx-[1em]"
               onChange={handleInputChange}
               onSubmit={handleSubmit(onSubmit)}
             >
@@ -143,7 +145,6 @@ const RegisterUser = () => {
                   <p className="text-red-600">{errors.password.message}</p>
                 )}
               </div>
-              <Link to="/register-company">Acceso a Registro de Compañía</Link>
               <div className="w-full flex place-content-center text-center mt-10 ">
                 <button
                   type="submit"
