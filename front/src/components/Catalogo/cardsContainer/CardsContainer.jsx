@@ -13,7 +13,7 @@ const CardsContainer = ({ searchQuery }) => {
 // const products = useSelector(state => state.products)
 // const company = useSelector(state => state.company);
 const nameCompany = company.name;
-cnsole.log("company", company)
+console.log("company", company)
 useEffect(() =>{
 setCompañia(company)
 },[company])
@@ -23,17 +23,17 @@ setCompañia(company)
   );
 
   return (
-    <div className="flex flex-wrap mx-10">
+    <div className="flex flex-wrap" style={{minWidth: "70vw"}} >
       {!filteredProducts.length ? (
         searchQuery !== products.name ? (
-          <div className="w-100vw bg-white rounded-2xl text-center py-40 px-96 mx-10">
+          <div className="w-4/5 bg-white rounded-2xl text-center py-40 px-96 mx-auto">
             <h2 className="text-xl font-semibold">Uhh...</h2>
             <h3 className="text-sm">
               No hay productos con ese nombre
             </h3>
           </div>
         ) : (
-          <div className="w-100vw bg-white rounded-2xl text-center py-40 px-96 mx-10">
+          <div className="w-4/5 bg-white rounded-2xl text-center py-40 px-96 mx-auto">
             <h2 className="text-xl font-semibold">Uhh...</h2>
             <h3 className="text-sm">
               Aún no hay productos cargados para tu empresa

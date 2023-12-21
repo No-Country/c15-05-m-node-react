@@ -45,3 +45,26 @@
   max-height: 50%;
   position: absolute;
 }
+
+
+@media (max-width: 768px) {
+  .landingcard-container {
+    height: fit-content;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+     }
+ 
+  .landingcard {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 3vh;
+      width: 90vw;
+      margin: auto;
+     }
+        .landingcard-card {
+          height: fit-content;
+         width: fit-content;
+      }
+}
+
