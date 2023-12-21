@@ -5,7 +5,9 @@ import { getCompanyAction } from "../../redux/actionsCompany";
 import DashboardPage from "../dashboard/global/DashboardPage";
 import InventarioHeader from "../Inventario/InventarioHeader";
 import InventarioList from "../Inventario/InventarioList";
+//import InventarioTable from "../Inventario/InventarioTable";
 import Spinner from "../Utils/Spinner";
+import ButtonBack from "../Utils/Buttons/ButtonBack";
 
 
 const Inventory = () => {
@@ -28,8 +30,20 @@ const Inventory = () => {
 
     return (
     <DashboardPage>
-        <InventarioHeader setSearchQuery={setSearchQuery}/>
-        {isLoading ? <Spinner/> : <InventarioList searchQuery={searchQuery}/>}
+      <div className="flex flex-col">
+      <div className="mt-10 ml-10">
+        <ButtonBack />
+      </div>
+      {isLoading ? <Spinner/> :
+      <div className="flex flex-col justify-center">
+        <InventarioHeader setSearchQuery={setSearchQuery} />
+      <div className="bg-white rounded-2xl w-auto mx-20"> 
+        <InventarioList searchQuery={searchQuery} />
+        {/* <InventarioTable searchQuery={searchQuery}/> */}
+      </div>
+      </div>}
+
+      </div>
     </DashboardPage> );
 }
  

@@ -97,13 +97,13 @@ function EUA() {
                             <CardList title={'Hora'} info={currentHour} sale={false }/>  
                         </div>
                         <div className='EUA__sale__info'>
-                            <CardList title={`Factura N°`} info={bill} sale={false}/>
-                            <CardList title={'Cajero'} info={user.name} sale={false}/>
+                            <CardList title={`Venta N°`} info={bill} sale={false }/>
+                            <CardList title={'Cajero'} info={user.name} sale={false }/>
                         </div>
                     </dl>
                     <div className='EUA__total'>
-                        <CardList title={`Total en ${localCurrency}`} info={totalToPay} sale={true}/>
-                        <CardList title={`Total en ${Divisa}`} info={totalToPayDivisa} sale={true}/>
+                        <CardList title={`Total en ${localCurrency}`} info={totalToPay } sale={true}/>
+                        <CardList title={`Total en ${Divisa}`} info={totalToPayDivisa } sale={true}/>
                     </div>
 
                 </section>
@@ -116,7 +116,7 @@ function EUA() {
                         <div className='EUA__items__Product'>
                              <h2>
                                  Items:
-                             </h2>``
+                             </h2>
                              <span>
                                  {productsTable.length}
                              </span>

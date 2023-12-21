@@ -17,6 +17,7 @@ import {
   GET_SALES,
   CREATE_SALE,
   USER_REGISTER_STATUS,
+  DELETE_PRODUCT,
 } from "./types";
 
 const initialState = {
@@ -24,13 +25,7 @@ const initialState = {
 
   company: {},
   //TRAE LOS DATOS DEL USUARIO
-  user: {
-    // id: "6580b1c950ad6093befe8ba1",
-    // name: "virginiaM",
-    // email: "vir1234M@mail.com",
-    // companyID : "6580b24750ad6093befe8ba3",
-    // EUA: true,
-  },
+  user: {},
   //TRAE TODOS LOS PRODUCTOS DE UNA COMPAÑIA
   products: [],
   //COPIA DE PRODUCTS, UTILIZADA PARA LOS FILTROS
@@ -187,7 +182,20 @@ export const reducerProducts = (state = initialState, action) => {
           action.payload.slice(0, action.payload),
           action.payload.slice(action.payload + 1),
         ],
+        allProducts : [
+          ...state,
+          action.payload.slice(0, action.payload),
+          action.payload.slice(action.payload + 1), 
+        ]
       };
+
+      case DELETE_PRODUCT:
+        const deleteFiltered = state.products.filter(product => product.id !== action.payload);
+        return {
+          ...state,
+          products: deleteFiltered,
+          allProducts: deleteFiltered
+        }
     default:
       return { ...state };
   }
