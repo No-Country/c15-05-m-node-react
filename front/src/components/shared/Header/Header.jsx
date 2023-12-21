@@ -29,7 +29,6 @@ const Header = ({ showDown = true }) => {
             <Link to="/login" >Iniciar Sesión</Link>
             {/* <Link to="/EUA" >EUA</Link> */}
 
-
             <FaUserCircle className="icono-usuario" />
           </div>
         </div>

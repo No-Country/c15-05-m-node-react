@@ -97,28 +97,38 @@ export const deleteProduct = async (req, res) => {
 };
 
 // ? Actualizar un producto
-const updateData = (currentProduct, newData) => {
+const updateData = async (currentProduct, newData) => {
   const data = { ...newData };
   if (currentProduct.name !== newData.name) {
     data.name = newData.name;
+  }else { data.name = currentProduct.name;
   }
   if (currentProduct.description !== newData.description) {
     data.description = newData.description;
+  }else { data.description = currentProduct.description;
   }
   if (currentProduct.image.url !== newData.image) {
-    data.image = newData.image;
+    const imgCloudinaryDB = currentProduct.image.url;
+    await deleteImageCloudinary(imgCloudinaryDB);
+    const uploadImageCloudinary = await uploadImage(newData.image);
+    data.image = uploadImageCloudinary;
+  } else { data.image = currentProduct.image;
   }
   if (currentProduct.category !== newData.category) {
     data.category = newData.category;
+  }else { data.category = currentProduct.category;
   }
   if (currentProduct.price !== newData.price) {
     data.price = newData.price;
+  }else { data.price = currentProduct.price;
   }
   if (currentProduct.currency !== newData.currency) {
     data.currency = newData.currency;
+  }else { data.currency = currentProduct.currency;
   }
   if (currentProduct.quantity !== newData.quantity) {
     data.quantity = newData.quantity;
+  }else { data.quantity = currentProduct.quantity;
   }
   return data;
 };
@@ -137,7 +147,7 @@ export const editProduct = async (req, res) => {
   const currentProduct = await Product.findById(id);
   if (!currentProduct)
     return res.status(400).json("Product not found in Data Base");
-  const data = updateData(currentProduct, {
+  const data = await updateData(currentProduct, {
     name,
     description,
     image,
@@ -147,13 +157,7 @@ export const editProduct = async (req, res) => {
     quantity,
     company,
   });
-  const imgCloudinaryDB = currentProduct.image.url;
   try {
-    if (currentProduct.image.url !== image) {
-      await deleteImageCloudinary(imgCloudinaryDB);
-      const uploadImageCloudinary = await uploadImage(image);
-      data.image = uploadImageCloudinary;
-    }
     const uploadProduct = await Product.findByIdAndUpdate(id, data, {
       new: true,
     });
