@@ -1,7 +1,7 @@
 // import React from 'react'
 import { Route, Routes } from "react-router-dom";
 import Landing from "../components/pages/landing/Landing.jsx";
-import CreateProducts from "../components/pagesUA/CreateProducts.jsx";
+
 import EditProducts from "../components/pagesUA/EditProducts.jsx";
 import Inventory from "../components/pagesUA/Inventory";
 import LandingUA from "../components/pagesUA/LandingUA";
@@ -11,13 +11,14 @@ import EUA from "../components/EUA/EUA.jsx";
 import DetailsProduct from "../components/pagesUA/DetailsProduct";
 import Login from "../components/register/Login";
 import RegisterUser from "../components/register/RegisterUser";
-import ProtectedRoute from "../components/Utils/ProtectedRoute.jsx";
+// import ProtectedRoute from "../components/Utils/ProtectedRoute.jsx";
 import RegisterCompany from "../components/register/RegisterCompany.jsx";
 import ControlEmpleados from "../components/pagesUA/ControlEmpleados.jsx";
 import ProfileUA from "../components/pagesUA/ProfileUA.jsx";
 import DashboardEUA from "../components/pagesEUA/DashboardEUA.jsx";
 import EuaProvider from "../components/EUA/context/EUAContext.jsx";
 import NotFound from "../components/NotFound/NotFound";
+import CreateProductsView from "../components/pagesUA/CreateProducts.jsx";
 
 const router = () => {
   return (
@@ -31,7 +32,6 @@ const router = () => {
       
           {/* <Route element={<ProtectedRoute/>}> */}
             <Route exact path="/ua/product/catalogo" element={<Catalogo />} />
-            <Route exact path="/ua/product/create" element={<CreateProducts />} />
             <Route exact path="/ua/product/edit" element={<EditProducts />} />
             <Route exact path="/ua/product/inventory" element={<Inventory />} />
             <Route exact path="/ua/landing" element={<LandingUA />} />
@@ -40,7 +40,10 @@ const router = () => {
             <Route exact path="/eua/dashboard" element={<DashboardEUA />} />
             <Route exact path="/ua/product/detail/:detailId" element={<DetailsProduct />}/>
             <Route exact path="/ua/product/analitics" element={<Analitics />} />
-            {/* <Route path="/EUA" element={<EUA/>}/> */}
+
+            <Route exact path="/ua/product/create" element={<CreateProductsView />} />
+       
+            <Route path="/EUA" element={<EUA/>}/>
              <Route path="*" element={<NotFound />} />
           {/* </Route> */}
 

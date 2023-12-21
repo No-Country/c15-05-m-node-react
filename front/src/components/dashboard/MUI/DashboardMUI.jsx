@@ -10,14 +10,18 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 // import Link from '@mui/material/Link';
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import { mainListItems, secondaryListItems } from "../dashboard/MUI/ListaItems";
-import Logo from "../../assets/logo.png";
+import { mainListItems, secondaryListItems } from "./ListaItems";
+import Logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
-import CreateProductsComponent from "../CreateProducts/CreateProductsComponent";
+import PanelCrearProducto from "../../CreateProducts/PanelCrearProducto";
+import PanelOptions from "../../CreateProducts/PanelOptions";
 
 const drawerWidth = 240;
 
@@ -67,7 +71,7 @@ const Drawer = styled(MuiDrawer, {
 
 const defaultTheme = createTheme();
 
-export default function CreateProductsView() {
+export default function Dashboard() {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -84,7 +88,7 @@ export default function CreateProductsView() {
         >
           <Toolbar
             sx={{
-              pr: "24px", 
+              pr: "24px", // keep right padding when drawer closed
             }}
           >
             <IconButton
@@ -154,11 +158,12 @@ export default function CreateProductsView() {
           }}
         >
           <Toolbar />
-          <CreateProductsComponent/>
-          {/* <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          {/* Container de Componente */}
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
           Header
-    
+          {/*CREAR PRODUCTO */}
+              {/*Panel Crear Producto */}
               <Grid item xs={12} md={8} lg={6}>
                 <Paper
                   sx={{
@@ -171,7 +176,7 @@ export default function CreateProductsView() {
                   <PanelCrearProducto />
                 </Paper>
               </Grid>
-         
+                {/*Panel Options */}
               <Grid item xs={12} md={4} lg={5}>
                 <Paper
                   sx={{
@@ -184,17 +189,16 @@ export default function CreateProductsView() {
                   <PanelOptions />
                 </Paper>
               </Grid>
-       
+              {/* Recent Orders */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-           
+                  {/* <Orders /> */}
                 </Paper>
               </Grid>
             </Grid>
-          </Container> */}
+          </Container>
         </Box>
       </Box>
     </ThemeProvider>
   );
 }
-
