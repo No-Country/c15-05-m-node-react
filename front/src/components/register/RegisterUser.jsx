@@ -2,13 +2,16 @@ import imageLanding from "../../assets/LandingNew/Landing.jpeg";
 import { useState } from "react";
 import Header from "../shared/Header/Header";
 import { userRegisterAction } from "../../redux/actionsUser";
-import { useDispatch } from "react-redux";
 import { registerSchema } from "../../Schemas/registerSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { sweetAlertsError } from "../Utils/alerts/sweetAlerts";
 const RegisterUser = () => {
+  const { userRegister } = useSelector((state) => state.userRegister);
+  // const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -17,7 +20,6 @@ const RegisterUser = () => {
   } = useForm({
     resolver: zodResolver(registerSchema),
   });
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [input, setInput] = useState({
     name: "",
@@ -36,18 +38,48 @@ const RegisterUser = () => {
     email: input.email,
     password: input.password,
   };
-  const onSubmit = () => {
-    dispatch(userRegisterAction(newUser));
-    reset();
-    setInput({
-      name: "",
-      email: "",
-      password: "",
-    });
-    navigate("/register-company");
+const valueRegister = () => {
+  dispatch(userRegisterAction(newUser));
+};
+  const onSubmit = async () => {
+    try {
+   await valueRegister()
+   console.log(userRegister)
+         if (userRegister) {
+        navigate("/register-company");
+        reset();
+        setInput({
+          name: "",
+          email: "",
+          password: "",
+        });
+      } else {
+        navigate("/register-user");
+        reset();
+        setInput({
+          name: "",
+          email: "",
+          password: "",
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      reset();
+      setInput({
+        name: "",
+        email: "",
+        password: "",
+      });
+      sweetAlertsError(
+        error.response.data.message,
+        "Por favor, corrija el error",
+        "OK"
+      );
+    }
   };
-
   return (
+    <div className="w-full h-screen">
+      <Header showDown={false} />
     <div className="w-full h-screen">
       <Header showDown={false} />
       <div className="flex flex-col md:flex-row">
@@ -65,7 +97,7 @@ const RegisterUser = () => {
           </h1>
           <div className="md:w-[30em]">
             <form
-              className="flex flex-col place-content-around gap-6 mx-[1em]"
+              className="flex flex-col place-content-around gap-6 mx-[1em] font-roboto"
               onChange={handleInputChange}
               onSubmit={handleSubmit(onSubmit)}
             >
@@ -117,6 +149,7 @@ const RegisterUser = () => {
                   <p className="text-red-600">{errors.password.message}</p>
                 )}
               </div>
+              <Link to="/register-company">Acceso a Registro de Compañía</Link>
               <div className="w-full flex place-content-center text-center mt-10 ">
                 <button
                   type="submit"
@@ -129,6 +162,7 @@ const RegisterUser = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -23,10 +23,12 @@ const PanelCrearProducto = ({
   return (
     <Box
       sx={{
-        width: "40em",
+        width: "35em",
         p: 2,
         backgroundColor: "white",
-        borderradius: "5px",
+        borderRadius: "5px",
+        justifyContent: "center",
+        // border: "1px solid orange",
       }}
     >
       <div id="formCreateProduct" className="panelCreate-container">

@@ -21,17 +21,21 @@ const PanelOptions = ({
   quantity,
   handleInputQuantityChange,
   cantidad,
+  handleDeleteInput
 }) => {
 
   return (
     <Box
       sx={{
+        display:"flex",
         width: "25em",
         p: 2,
         backgroundColor: "white",
         borderRadius: "5px",
+        // border: "1px solid red",
       }}
     >
+      <Box sx={{ width: "100%"}}>
       <h2 className="title-panelOptions">Panel Opciones</h2>
       <div id="formOptions" className="panelOptionsForm-container">
         <h2 className="title-options">Ingresar opciones de producto:</h2>
@@ -118,9 +122,11 @@ const PanelOptions = ({
           {/*PRECIO*/}
           <p className="option-precio-label">Precio:</p>
           <CurrencyInput
+          id={precio}
             value={precio}
             onValueChange={handleInputPriceChange}
             className="input-precio-panelOptions"
+            onFocus={handleDeleteInput}
           />
 
           <Button
@@ -129,7 +135,7 @@ const PanelOptions = ({
             elevation={0}
             onClick={handleClickPanelOptions}
             sx={{
-              marginLeft: ".5em",
+              marginLeft: ".9em",
               height: "2.8em",
               backgroundColor: "#00bcd4",
               borderRadius: "5px",
@@ -146,7 +152,7 @@ const PanelOptions = ({
         sx={{
           display: "flex",
           flexDirection: "row",
-          mt: 0.5,
+          mt: ".5em",
           width: "100%",
           justifyContent: "space-between",
           alignItems: "center",
@@ -167,7 +173,7 @@ const PanelOptions = ({
           elevation={0}
           onClick={handleClickPanelOptions}
           sx={{
-            marginLeft: ".5em",
+            marginLeft: ".6em",
             height: "2.8em",
             backgroundColor: "#00bcd4",
             borderRadius: "5px",
@@ -217,6 +223,7 @@ const PanelOptions = ({
           </p>
         </h2>
       </Box>
+      </Box>
     </Box>
   );
 };
@@ -239,5 +246,6 @@ PanelOptions.propTypes = {
   handleInputCurrencyChange: PropTypes.func.isRequired,
   // nameInputPrice:PropTypes.string.isRequired,
   handleInputQuantityChange: PropTypes.func.isRequired,
+  handleDeleteInput: PropTypes.func.isRequired,
 };
 export default PanelOptions;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { sortByStockAction } from "../../../redux/actionsProducts";
+import { sortByStockAction } from "../../redux/actionsProducts";
 
 const SortByStock = () => {
     const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const SortByStock = () => {
     }
 
     return (
-        <div>
+        <div className="text-md font-roboto text-gray-400">
             <select name="sortStock" onChange={handlerSortByStock} value={orderValue}>
                 <option value='' readOnly hidden>Stock</option>
                 <option value="Asc"> - a +</option>

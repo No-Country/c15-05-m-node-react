@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import PanelCrearProducto from "./PanelCrearProducto";
 import PanelOptions from "./PanelOptions";
 import { useState } from "react";
@@ -51,7 +51,9 @@ const CreateProductsComponent = () => {
     if (!isNaN(parsedValue)) {
       setSelectValue(name);
       setPrecio(parsedValue);
-    }
+    } else {
+    setPrecio(0);
+  }
   };
   //Moneda
   const handleInputCurrencyChange = (event) => {
@@ -66,6 +68,11 @@ const CreateProductsComponent = () => {
       setCantidad(parsedValue);
     }
   };
+  const handleDeleteInput = (event) => {
+    if (event.target.value === "0") {
+      event.target.value = null;
+    }
+  }
   const handleClickPanelOptions = (event) => {
     event.preventDefault();
     switch (selectValue) {
@@ -99,7 +106,7 @@ const CreateProductsComponent = () => {
     price: price,
     currency: moneda,
     quantity: quantity,
-    company: user.companyID[0],
+    company: user ? user.companyID[0] : null,
   };
   // console.log("PRODUCT", product);
   // console.log("PRODUCT TYPEOF", productTypeOff);
@@ -112,18 +119,10 @@ const CreateProductsComponent = () => {
     setCategoria([]);
     setPrice(0);
     setQuantity(0);
-    // alert("PRODUCTO CREADO");
   };
   return (
     <form onSubmit={handleSubmit} className="form-createComponent" action="">
-      <Box
-        sx={{
-          display: "flex",
-          gap: "1em",
-          flexDirection: "row",
-          flexWrap: "warp",
-        }}
-      >
+    
         <PanelCrearProducto
           nombre={nombre}
           descripcion={descripcion}
@@ -133,6 +132,7 @@ const CreateProductsComponent = () => {
           handleInputDescriptionChange={handleInputDescriptionChange}
           onChangeImage={onChangeImage}
         />
+
         <PanelOptions
           nombre={product.name}
           description={product.description}
@@ -150,6 +150,7 @@ const CreateProductsComponent = () => {
           cantidad={cantidad}
           quantity={product.quantity}
           handleInputQuantityChange={handleInputQuantityChange}
+          handleDeleteInput={handleDeleteInput}
         >
           <CurrencyInput
             name="price"
@@ -159,13 +160,12 @@ const CreateProductsComponent = () => {
             allowNegativeValue={false}
             decimalSeparator=","
             value={precio}
-            defaultValue={0}
+            defaultValue={null}
             inputMode="numeric"
             pattern="[0-9]*"
             onValueChange={handleInputPriceChange}
           ></CurrencyInput>
         </PanelOptions>
-      </Box>
 
       <Button
         type="submit"

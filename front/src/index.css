@@ -18,10 +18,11 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif, 'Barlow Condensed', sans-serif,;
+  /* overflow-x: hidden; */
 }
 
 body {
-  background-color: #e8edee;
+  background-color: #eaecec;
 }
 a {
   text-decoration: none;
