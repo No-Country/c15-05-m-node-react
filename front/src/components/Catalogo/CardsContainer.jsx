@@ -41,7 +41,7 @@ setCompañia(company)
 
 
   return (
-    <div className="flex flex-wrap mx-10">
+    <div className="flex flex-wrap mx-10 justify-center">
       {!productsFormatted.length ? (
         searchQuery !== "" && searchQuery !== products.name ? (
           <div className="w-100vw bg-white rounded-2xl text-center py-40 px-96 mx-10 font-roboto text-gray-500">

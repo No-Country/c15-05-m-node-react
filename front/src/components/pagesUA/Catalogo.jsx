@@ -13,7 +13,6 @@ function Catalogo() {
     const dispatch = useDispatch();
     const { user } = useSelector(state => state.user);
     //const user = useSelector(state => state.user.user)
-     //console.log("USER ", user);
     //const { products} = useSelector(state => state.products.products);
     const companyId = user.companyID;
     
@@ -33,7 +32,7 @@ function Catalogo() {
 
     return (
         <DashboardPage>
-            <div>
+            <div className="w-full">
                 <div className="mt-10 ml-10">
                     <ButtonBack />
                 </div>

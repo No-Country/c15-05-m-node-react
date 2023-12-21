@@ -7,7 +7,6 @@ const Detail = () => {
     const productDetail = useSelector(state => state.products.productDetail);
     //console.log("DETALLE: ", productDetail);
     const company = useSelector(state => state.company.company);
-    //console.log("COMPAÑIA: ", company);
     const logo = company.image.url ? company.image.url : logoFlecha
 
     
@@ -23,7 +22,7 @@ const Detail = () => {
                     <div className="col-span-3 my-7">
                         <h1 className="text-3xl text-gray-500 font-barlow-condensed font-semibold">Detalles de {productDetail.name}</h1>
                         <div className="flex flex-row justify-evenly text-lg font-roboto pt-2">
-                            {productDetail.category.length && productDetail.category.map((c, index)=> <h3 key={index}>{c}</h3>)}
+                            {productDetail.category.length && productDetail.category.map((c,index)=> <h3 key={index} >{c}</h3>)}
                         </div>
                     </div>
 

@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import "./Header.component.css";
 import { MdMenu } from "react-icons/md";
 import Logo from "../../../assets/logo.png";
+import { FaUserCircle } from "react-icons/fa"; // Asegúrate de importar FaUserCircle si no lo has hecho ya
 
 const Header = ({ showDown = true }) => {
-  //false: elimina "registrarse" e "inciar sesion"(Para rutas registro y login)
+  // false: elimina "registrarse" e "inciar sesion"(Para rutas registro y login)
   const headerDownRigthClass = showDown
     ? "header-down-rigth"
     : "header-down-rigth-none";
@@ -23,7 +24,8 @@ const Header = ({ showDown = true }) => {
           <div className="header-down-left">
             <img className="ipunto-icon" src={Logo} alt="logo de  iPunto" />
             <h1>iPunto</h1>
-         
+          </div>
+        </Link>
         <div className={headerDownRigthClass}>
           <Link className="none" to="/register-user">
             Registrarse
@@ -32,7 +34,7 @@ const Header = ({ showDown = true }) => {
             Iniciar Sesión
           </Link>
         </div>
-        <div className={showDown === false && "none"}>
+        <div className={showDown === false ? "none" : ""}>
           <MdMenu onClick={toggleMenu} className="menu-mobile-icon" />
 
           <div className={isActive ? "navbar-mobile" : "mobile"}>
@@ -40,7 +42,6 @@ const Header = ({ showDown = true }) => {
             <Link to="/login">Iniciar Sesión</Link>
 
             <FaUserCircle className="icono-usuario" />
-
           </div>
         </div>
       </div>

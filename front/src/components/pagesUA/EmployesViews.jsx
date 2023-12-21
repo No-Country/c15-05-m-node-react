@@ -1,7 +1,6 @@
 import { FaUserSlash } from "react-icons/fa"
 
 function EmployesViews({employes}) {
-    
 
     return (
         <section className="employes__view">
@@ -9,7 +8,7 @@ function EmployesViews({employes}) {
                 employes.length > 0 ? 
                 ( 
                     employes.map((employee) => (
-                        <article key={employee.id} className="employes__card">
+                        <article key={employee._id} className="employes__card">
                           <img src="https://i.imgur.com/L2D9Elb.png" alt={employee.name} />
                           <h4>{employee.name}</h4>
                           <p>{employee.email}</p>

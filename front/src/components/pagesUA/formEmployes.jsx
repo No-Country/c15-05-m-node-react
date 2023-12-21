@@ -45,9 +45,15 @@ function FormEmployes({getEmployes}) {
     }
    }
   }
-  const handlerViews = ()=>{
-    setViews(!views)
-    views ? passwordRef.current.type = "text" : passwordRef.current.type = "password"
+  const handlerViews = (value)=>{
+   
+    if(value){
+      passwordRef.current.type = "text"
+     
+    }else{
+      passwordRef.current.type = "password"
+    }
+    
   }
     return (
         <section className="employes__form__container">
@@ -83,10 +89,13 @@ function FormEmployes({getEmployes}) {
                     name="password"  
                     placeholder="********"/>
                     <button type="button" 
-                    onClick={handlerViews}> 
-                    {views ? <IoMdEye /> : <IoIosEyeOff />}
+                    onClick={()=>{
+                      setViews(!views)
+                      handlerViews(!views)
+                      }}> 
+                    {views ?  <IoMdEye /> :  <IoIosEyeOff /> }
                     </button>
-                    <label >Contraseña</label>
+                    <label> Contraseña </label>
                 </div>
                 <button className="employes__form--bnt" type="submit">Crear Usuario</button>
             </form>

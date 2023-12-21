@@ -11,7 +11,7 @@ import { useEUA } from './hooks/useEUA'
 import EUAInfiniteScroll from './components/EUAInfiniteScroll';
 import EUASearch from './components/EUASearch';
 import EUAButton from './components/EUAButton';
-//import { convert } from './utils/utils'
+import { convert } from './utils/utils'
 
 function EUA() {
     const [currentHour, setCurrentHour] = useState(getCurrentHour())
@@ -116,7 +116,7 @@ function EUA() {
                         <div className='EUA__items__Product'>
                              <h2>
                                  Items:
-                             </h2>``
+                             </h2>
                              <span>
                                  {productsTable.length}
                              </span>
