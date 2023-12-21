@@ -11,7 +11,7 @@ import { useEUA } from './hooks/useEUA'
 import EUAInfiniteScroll from './components/EUAInfiniteScroll';
 import EUASearch from './components/EUASearch';
 import EUAButton from './components/EUAButton';
-//import { convert } from './utils/utils'
+import { convert } from './utils/utils'
 
 function EUA() {
     const [currentHour, setCurrentHour] = useState(getCurrentHour())
