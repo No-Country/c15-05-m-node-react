@@ -24,7 +24,6 @@ const router = () => {
     <>
      <EuaProvider> 
       <Routes>
-
         <Route path="/" element={<Landing />} />
         <Route path="/register-company" element={<RegisterCompany />} />
         <Route path="/register-user" element={<RegisterUser />} />
@@ -41,7 +40,10 @@ const router = () => {
             <Route exact path="/eua/dashboard" element={<DashboardEUA />} />
             <Route exact path="/ua/product/detail/:detailId" element={<DetailsProduct />}/>
             <Route exact path="/ua/product/analitics" element={<Analitics />} />
+            {/* <Route path="/EUA" element={<EUA/>}/> */}
+             <Route path="*" element={<NotFound />} /
             <Route path="/EUA" element={<EUA/>}/> 
+
           {/* </Route> */}
 
       </Routes>

@@ -79,9 +79,6 @@ const EditProductComponent = () => {
   const handleCategoryDelChange = (event) => {
     setSelectValue(event.target.name);
     setCategoryDel(event.target.value);
-    console.log("CATEGORY DELHnadle", categoryDel);
-    console.log("CATEGORIA", categoria);
-    console.log("VALUE", event.target.value);
   };
   //Nombre
   const handleInputNameChange = (event) => {
@@ -134,6 +131,7 @@ const EditProductComponent = () => {
           categoria.splice(parseInt(selectValue), 1);
           setCategoria([...categoria]);
           setCategory(categoria);
+          setCategoryDel("")
         }
         break;
       case "price":
@@ -152,18 +150,16 @@ const EditProductComponent = () => {
         break;
     }
   };
-
   const editProduct = {
     name: nombre,
     description: descripcion,
-    image: imageOBJ.url !== imageProduct ? imageProduct : imageOBJ.url,
+    image: imageProduct !== imageOBJ.url ? imageProduct : imageOBJ.url,
     category: category,
     price: price,
     currency: moneda,
     quantity: quantity,
     company: user ? user.companyID[0] : null,
   };
-  // console.log("EDITPRODUCT", editProduct);
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(editProductAction(idEdit, editProduct));
@@ -172,6 +168,8 @@ const EditProductComponent = () => {
     setImageProduct(imageDefault);
     setImageOBJ({});
     setCategoria([]);
+    setCategory([]);
+    setCategoryDel("");
     setPrice(0);
     setQuantity(0);
     setIdEdit("");

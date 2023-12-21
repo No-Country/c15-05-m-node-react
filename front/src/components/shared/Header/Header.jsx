@@ -23,9 +23,7 @@ const Header = ({ showDown = true }) => {
           <div className="header-down-left">
             <img className="ipunto-icon" src={Logo} alt="logo de  iPunto" />
             <h1>iPunto</h1>
-          </div>
-        </Link>
-
+         
         <div className={headerDownRigthClass}>
           <Link className="none" to="/register-user">
             Registrarse
@@ -40,6 +38,9 @@ const Header = ({ showDown = true }) => {
           <div className={isActive ? "navbar-mobile" : "mobile"}>
             <Link to="/register-user">Registrarse</Link>
             <Link to="/login">Iniciar Sesión</Link>
+
+            <FaUserCircle className="icono-usuario" />
+
           </div>
         </div>
       </div>
