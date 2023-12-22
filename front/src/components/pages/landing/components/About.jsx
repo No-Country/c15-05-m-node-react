@@ -1,4 +1,3 @@
-// import React from 'react'
 import "./About.component.css"
 
 const About = () => {

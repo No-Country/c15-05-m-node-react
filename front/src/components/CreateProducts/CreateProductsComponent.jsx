@@ -5,6 +5,9 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createProductAction } from "../../redux/actionsProducts";
 import CurrencyInput from "react-currency-input-field";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 
 const CreateProductsComponent = () => {
   const { user } = useSelector((state) => state.user);
@@ -52,8 +55,8 @@ const CreateProductsComponent = () => {
       setSelectValue(name);
       setPrecio(parsedValue);
     } else {
-    setPrecio(0);
-  }
+      setPrecio(0);
+    }
   };
   //Moneda
   const handleInputCurrencyChange = (event) => {
@@ -72,7 +75,7 @@ const CreateProductsComponent = () => {
     if (event.target.value === "0") {
       event.target.value = null;
     }
-  }
+  };
   const handleClickPanelOptions = (event) => {
     event.preventDefault();
     switch (selectValue) {
@@ -108,8 +111,7 @@ const CreateProductsComponent = () => {
     quantity: quantity,
     company: user ? user.companyID[0] : null,
   };
-  // console.log("PRODUCT", product);
-  // console.log("PRODUCT TYPEOF", productTypeOff);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createProductAction(product));
@@ -121,6 +123,117 @@ const CreateProductsComponent = () => {
     setQuantity(0);
   };
   return (
+    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      <Grid container spacing={3}>
+        Header
+        {/*CREAR PRODUCTO */}
+        <form
+          onSubmit={handleSubmit}
+          className="form-createComponent"
+          action=""
+        >
+          <Grid item xs={12} md={8} lg={6}>
+            <Paper
+              sx={{
+                p: 2,
+                display: "flex",
+                flexDirection: "column",
+                minHeight: "30em",
+              }}
+            >
+              <PanelCrearProducto
+                nombre={nombre}
+                descripcion={descripcion}
+                imageProduct={imageProduct}
+                handleInputChange={handleInputChange}
+                handleInputNameChange={handleInputNameChange}
+                handleInputDescriptionChange={handleInputDescriptionChange}
+                onChangeImage={onChangeImage}
+              />
+            </Paper>
+          </Grid>
+          {/*Panel Options */}
+          <Grid item xs={12} md={4} lg={5}>
+            <Paper
+              sx={{
+                p: 2,
+                display: "flex",
+                flexDirection: "column",
+                minHeight: "30em",
+              }}
+            >
+              <PanelOptions
+                nombre={product.name}
+                description={product.description}
+                imageProduct={imageProduct}
+                price={product.price}
+                moneda={moneda}
+                currency={product.currency}
+                precio={precio}
+                category={product.category}
+                input={input}
+                handleClickPanelOptions={handleClickPanelOptions}
+                handleInputChange={handleInputChange}
+                handleInputPriceChange={handleInputPriceChange}
+                handleInputCurrencyChange={handleInputCurrencyChange}
+                cantidad={cantidad}
+                quantity={product.quantity}
+                handleInputQuantityChange={handleInputQuantityChange}
+                handleDeleteInput={handleDeleteInput}
+                // categoryPreview={categoryPreview}
+              >
+                <CurrencyInput
+                  name="price"
+                  prefix={product.currency}
+                  decimalsLimit={2}
+                  decimalScale={2}
+                  allowNegativeValue={false}
+                  decimalSeparator=","
+                  value={precio}
+                  defaultValue={null}
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  onValueChange={handleInputPriceChange}
+                ></CurrencyInput>
+              </PanelOptions>
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper
+              sx={{
+                p: 1,
+                display: "flex",
+                justifyContent: "center",
+                maxWidth: "30em",
+              }}
+            >
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                elevation={0}
+                sx={{
+                  maxWidth: "40em",
+                  height: "3em",
+                  backgroundColor: "#00bcd4",
+                  borderRadius: "5px",
+                  justifyContent: "center",
+                  ["&:hover"]: { backgroundColor: "#B2EBF2", color: "#00BCD4" },
+                  boxShadow: " 0px 4.46881px 4.46881px 0px rgba(0, 0, 0, 0.25)",
+                }}
+              >
+                CREAR PRODUCTO
+              </Button>
+            </Paper>
+          </Grid>
+        </form>
+      </Grid>
+    </Container>
+  );
+};
+
+export default CreateProductsComponent;
+/*
     <form onSubmit={handleSubmit} className="form-createComponent" action="">
     
         <PanelCrearProducto
@@ -187,7 +300,5 @@ const CreateProductsComponent = () => {
         CREAR PRODUCTO
       </Button>
     </form>
-  );
-};
 
-export default CreateProductsComponent;
+*/

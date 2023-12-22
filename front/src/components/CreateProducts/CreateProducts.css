@@ -1,5 +1,5 @@
 .form-createComponent {
-  width: 100%;
+  width: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -90,14 +90,14 @@
 }
 .select-panelOption,
 .input-select {
-  width: 14em;
+  width: 80%;
   border: 1px solid grey;
   border-radius: 5px;
   height: 2.5em;
   padding-left: 0.5em;
 }
 .input-select-currency {
-  width: 8em;
+  width: 80%;
   border: 1px solid grey;
   border-radius: 5px;
   height: 2.5em;
@@ -122,9 +122,10 @@
   font-weight: 800;
 }
 .input-precio-panelOptions {
-  width: 4.5em;
-  margin-left: 0;
-  height: 2em;
+  width: 100%;
+  margin-left: .5em;
+  margin-top: 5px;
+  height: 2.5em;
   padding: .2em;
   border: 1px solid grey;
   border-radius: 5px;
@@ -134,13 +135,13 @@
   margin-left: .5em;
 }
 .option-moneda-label{
-  margin-right: .3em;
+  margin-right: .2em;
 }
 .option-select-currency{
   height: 2.5em;
 }
 .input-quantity{
-  width: 16em;
+  width: 80%;
   border: 1px solid grey;
   border-radius: 5px;
   height: 2.5em;
