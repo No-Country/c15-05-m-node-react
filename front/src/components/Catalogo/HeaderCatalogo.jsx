@@ -21,7 +21,7 @@ const HeaderCatalogo = ({ setSearchQuery }) => {
                 <h1 className="text-4xl text-center font-barlow-condensed text-gray-700 font-semibold">{nameCompany}</h1>
                 <img className="w-14 h- rounded-full" src={logo} alt="logo" />
             </div>
-            <div className="py-4  px-8 border-2 border-gray-200 shadow shadow-gray-500 flex flex-row justify-between bg-white">
+            <div className="py-4  px-8 border-2 border-gray-200 shadow shadow-gray-500 flex flex-row  flex-wrap justify-between bg-white">
                 <SearchBar setSearchQuery={setSearchQuery} />
                 <FilterByCategory />
                 <SortByName />
