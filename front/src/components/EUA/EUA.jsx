@@ -19,6 +19,10 @@ function EUA() {
     const [totalToPayDivisa,setTotalToPayDivisa] = useState()
     const dispatch = useDispatch();
     const user = useSelector(state => state.user.user)
+//****************LOCAL STOREAGE ********************* */
+    const userLocal = JSON.parse(localStorage.getItem('user'));
+    const companyId = userLocal ? userLocal.companyID[0] : user.companyID;
+ //*************************************************** */   
     const company = useSelector(state => state.company.company)
     const productsData = useSelector(state => state.products.products);
     
@@ -38,10 +42,14 @@ function EUA() {
           setProducts(productsData)
           setProductsFilter(productsData)
           setLocalCurrency(company.modelCurrency.abbreviation) 
-          if(!user){
+          //if(!user){
+    //*****LOCAL STORAGE******** */
+          if(!user || !userLocal){
              return
             }
-          setCompanyID(user.companyID[0])
+          //setCompanyID(user.companyID[0])
+    //********LOCAL STORAGE******* */
+          setCompanyID(companyId)
       }, [dispatch])
   
     // ? Hora

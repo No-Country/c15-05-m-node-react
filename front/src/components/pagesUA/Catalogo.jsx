@@ -11,24 +11,26 @@ import Spinner from "../Utils/Spinner";
 
 function Catalogo() {
     const dispatch = useDispatch();
+
     const { user } = useSelector(state => state.user);
-    //const user = useSelector(state => state.user.user)
-    //const { products} = useSelector(state => state.products.products);
-    const companyId = user.companyID;
+    const userLocal = JSON.parse(localStorage.getItem('user'));
+
+    const companyId = userLocal ? userLocal.companyID[0] : user.companyID;
     
     const [searchQuery, setSearchQuery] = useState("");
     const [isLoading, setIsLoading] = useState(true);
-
-  //console.log("PRDOUCTS GET ALL en view CATALOGO", products);
-      useEffect(() => {
-        if(user) {
+    
+    useEffect(() => {
+        const localUser = JSON.parse(localStorage.getItem('user'));
+        const dataUser = localUser ? localUser : user;
+        if(dataUser) {
             dispatch(getAllProductsAction(companyId));
             dispatch(getCompanyAction(companyId));
             setTimeout(() => {
               setIsLoading(false)
-            }, 3000);
+            }, 2000);
         }
-        }, [dispatch, companyId, user]); 
+        }, [dispatch, companyId, user, isLoading]); 
 
     return (
         <DashboardPage>

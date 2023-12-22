@@ -9,15 +9,20 @@ import { useEffect } from "react";
 
 const LandingUA = () => {
   const { user } = useSelector((state) => state.user);
+  const userLocal = JSON.parse(localStorage.getItem('user'));
+
+  const companyId = userLocal ? userLocal.companyID[0] : user.companyID;
   const { company } = useSelector((state) => state.company);
   const dispatch = useDispatch();
   // const { products } = useSelector((state) => state.products);
   // console.log("ID", company._id);
   useEffect(() => {
-    if (user) {
-      dispatch(getCompanyAction(user.companyID));
+    const localUser = JSON.parse(localStorage.getItem('user'));
+    const dataUser = localUser ? localUser : user;
+    if (dataUser) {
+      dispatch(getCompanyAction(companyId));
     }
-  }, [user, dispatch]);
+  }, [user, companyId, dispatch]);
 
   return (
     <>
@@ -37,7 +42,7 @@ const LandingUA = () => {
         >
           <div>
             <h1 className="company-name-landingUA">{company.name}</h1>
-            <p>ID: {company._id}</p>
+            <p className="text-sm">ID: {company._id}</p>
           </div>
           <div className="image-company-landingUA">
             <img src={company.image.url} className="landingUA-img-company" />

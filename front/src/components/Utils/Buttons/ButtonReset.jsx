@@ -7,7 +7,10 @@ import RotateLeftOutlinedIcon from '@mui/icons-material/RotateLeftOutlined';
 const ButtonReset = () => {
     const dispatch = useDispatch();
     const {user} = useSelector(state => state.user);
-    const companyId = user.companyID;
+    const userLocal = JSON.parse(localStorage.getItem('user'));
+    const companyId = userLocal ? userLocal.companyID[0] : user.companyID;
+
+    
 
     const handlerReset = () => {
         dispatch(getAllProductsAction(companyId))
