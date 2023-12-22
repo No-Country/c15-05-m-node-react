@@ -25,12 +25,37 @@ const Login = () => {
       [event.target.name]: event.target.value,
     });
   };
+  
+  // useEffect(() => {
+  //   setUserLogin(user)
+  //   //levanto los datos del usario cuando se monta/actualiza el compnente
+  //   const savedUser = JSON.parse(localStorage.getItem("user"));
+  //   if (savedUser) {
+  //     navigate(savedUser.UA ? "/ua/landing" : (savedUser.EUA ? "/eua/dashboard" : null));
+  //   }
+  // }, [user, userLogin, navigate]);
 
+  // const handleLogin = async(e) => {
+  //   e.prevent.default;
+  //   const res = await dispatch(userLoginAction(loginData));
+  //   if (res && (res.data.EUA || res.data.UA)) {
+  //     // Guardar los datos del usuario en localStorage si el login es exitoso
+  //     localStorage.setItem("user", JSON.stringify(res.data));
+  //     navigate(res.data.UA ? "/ua/landing" : "/eua/dashboard");
+  //   } else {
+  //     setLoginData({
+  //     email: "",
+  //     password: "",
+  //     });
+  //     navigate("/register-company")
+  //   }
+  // } 
+  
   const handleLogin = async (event) => {
     event.preventDefault();
-
-     const res = await dispatch(userLoginAction(loginData))
-     if(res){
+    const res = await dispatch(userLoginAction(loginData))
+    if(res){
+      localStorage.setItem("user",  JSON.stringify(res.data))
       if(!res.data.EUA && !res.data.UA){
         return navigate("/register-company")
       }else if(res.data.UA){
@@ -45,8 +70,10 @@ const Login = () => {
     });
   };
 
+
   useEffect(() => {
-    setUserLogin(user);
+    const localUser = JSON.parse(localStorage.getItem('user'));
+    localUser ? setUserLogin(localUser) : setUserLogin(user);
     if (userLogin) {
       navigate(
         userLogin.UA === true

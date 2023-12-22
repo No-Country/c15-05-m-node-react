@@ -13,19 +13,24 @@ import ButtonBack from "../Utils/Buttons/ButtonBack";
 const Inventory = () => {
     const dispatch = useDispatch();
     const { user } = useSelector(state => state.user);
-    //const user = useSelector(state => state.user.user)
-    const companyId = user.companyID;
+    const userLocal = JSON.parse(localStorage.getItem('user'));
+
+    const companyId = userLocal ? userLocal.companyID[0] : user.companyID;
     
     const [searchQuery, setSearchQuery] = useState("");
     const [isLoading, setIsLoading] = useState(true)
 
-      useEffect(() => {
-          dispatch(getAllProductsAction(companyId));
-          dispatch(getCompanyAction(companyId));
-          setTimeout(() => {
-            setIsLoading(false)
-          }, 3000);
-      }, [dispatch, companyId, isLoading]);
+    useEffect(() => {
+      const localUser = JSON.parse(localStorage.getItem('user'));
+      const dataUser = localUser ? localUser : user;
+      if(dataUser) {
+        dispatch(getAllProductsAction(companyId));
+        dispatch(getCompanyAction(companyId));
+        setTimeout(() => {
+          setIsLoading(false)
+        }, 2000);
+      }
+    }, [dispatch, companyId, user, isLoading]);
 
 
     return (

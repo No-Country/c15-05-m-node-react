@@ -26,10 +26,12 @@ const handleCollapsed = () => {
 
 const handleLogout = async (event) => {
   event.preventDefault();
-dispatch(userLogoutAction())
-navigate("/");
-window.location.reload(true);
-}
+  dispatch(userLogoutAction())
+  //quito los datos del usuario de localStorage
+  localStorage.removeItem("user");
+  navigate("/");
+  //window.location.reload(true);
+  }
   return (
     // <Box>
       <Sidebar rootStyles={{ minHeight: "100vh", fontSize: ".9em", boxShadow:" 0px 4.46881px 4.46881px 0px rgba(0, 0, 0, 0.25)"}} collapsed={collapsedBar}>
