@@ -17,7 +17,6 @@ export const register = async (req, res) => {
         const errorObject = { success: false, message: 'El Correo ya está en uso' };
         const errorString = JSON.stringify(errorObject);
         throw new Error(errorString);
-        res.redirect("/register-user");
       }
   
       const passwordaHash = await bcrypt.hash(password, 10);
@@ -163,3 +162,22 @@ export const verityToken = async (req, res) => {
     }
 };
   
+
+// ? Eliminar usuario
+// ! En futuras versiones hacer validaciones robustas 
+export const deleteUser = async (req,res)=>{
+  const {id} = req.params
+  try {
+    const userFound  = await User.findByIdAndDelete(id)
+    if(!userFound) return res.status(404).json({message:"Usuario no Encontrado"})
+
+    res.status(204).json({
+      name:userFound.name,
+      email:userFound.email
+    })
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({message:"Error interno"})
+  }
+
+}

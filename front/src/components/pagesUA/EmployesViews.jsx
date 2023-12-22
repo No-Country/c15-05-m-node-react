@@ -1,6 +1,15 @@
-import { FaUserSlash } from "react-icons/fa"
+import { FaUserSlash,FaTrash } from "react-icons/fa"
+import { deleteUser } from "../../redux/actionsUser"
 
-function EmployesViews({employes}) {
+
+function EmployesViews({employes,getEmployes }) {
+
+    const handleDeleteEmployer = async (id)=>{
+        
+       const res = await deleteUser(id)
+       console.log(res)
+       await getEmployes() 
+    }
 
     return (
         <section className="employes__view">
@@ -8,7 +17,14 @@ function EmployesViews({employes}) {
                 employes.length > 0 ? 
                 ( 
                     employes.map((employee) => (
-                        <article key={employee._id} className="employes__card">
+                        <article key={employee._id} className="employes__card" >               
+                        <button 
+                            onClick={()=>{
+                                handleDeleteEmployer(employee._id)
+                            }} 
+                            className="delete__employes">
+                            <FaTrash/>
+                        </button>    
                           <img src="https://i.imgur.com/L2D9Elb.png" alt={employee.name} />
                           <h4>{employee.name}</h4>
                           <p>{employee.email}</p>

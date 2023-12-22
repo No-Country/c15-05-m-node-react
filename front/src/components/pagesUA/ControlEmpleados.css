@@ -8,6 +8,7 @@
     position: relative;
     display: flex;
     width: 95%;
+    min-height: 185px;
     padding: 5px;
     margin: 0 auto;
     background-color: rgb(255, 255, 255);
@@ -90,6 +91,7 @@
 }
 
 .employes__card{
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -97,6 +99,7 @@
   padding: 10px;
   color: #8a8a8a;
   font-weight: 500;
+  border: 1px solid rgba(131, 131, 131, 0.123);
 } 
 .employes__card img{
     width: 100px;
@@ -128,10 +131,27 @@
     font-size: 2rem;
     gap: 10px;
     margin-bottom: 20px;
+    text-align: center;
 }
 .employes__form__company--img img {
     width: 110px;
     height: 110px;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.delete__employes{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.4rem;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 0px 4.46881px 4.46881px 0px rgba(0, 0, 0, 0.25); 
+    color: rgb(255, 0, 0);
+    transition: all .3s ease;
+}
+.delete__employes:hover{
+    color: rgb(202, 0, 0);
+    transform: scale(1.1);
 }

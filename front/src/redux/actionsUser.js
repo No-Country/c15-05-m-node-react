@@ -85,3 +85,13 @@ export const registerEUA = async (data)=>{
    sweetAlertsError("Error",error.response.data.message,"Ok")
   }
 }
+
+export const deleteUser = async (id) =>{
+  try {
+    const res = await axios.delete(`${url}/api/user/${id}`)
+    sweetAlertsSuccessfully("Usuario eliminado",`${res.data} Eliminado`);
+    return res
+  } catch (error) {
+    sweetAlertsError("Error",error.response.data.message,"Ok")
+  }
+}
