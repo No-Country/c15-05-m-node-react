@@ -1,4 +1,3 @@
-import DashboardPage from "../dashboard/global/DashboardPage";
 import { useEffect } from "react";
 import { sweetAlertsMessage } from "../Utils/alerts/sweetAlerts";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +13,7 @@ const ProfileUA = () => {
     }, [])
 
     return ( 
-     <DashboardPage></DashboardPage> 
+<h1>PERFIL UA</h1>
     );
 }
  

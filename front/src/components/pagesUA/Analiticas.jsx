@@ -1,4 +1,3 @@
-import DashboardPage from "../dashboard/global/DashboardPage";
 import { useEffect } from "react";
 import {sweetAlertsMessage } from "../Utils/alerts/sweetAlerts";
 import { useNavigate } from "react-router-dom";
@@ -14,9 +13,7 @@ const Analitics = () => {
     }, 2000);
   }, [])
   return (
-    <DashboardPage>
-
-    </DashboardPage>
+  <h1>ANALITICAS</h1>
   )
 
 }
