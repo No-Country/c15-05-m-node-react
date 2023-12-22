@@ -29,7 +29,7 @@ function EUACard({name,image,price,category,currency,quantity,id}) {
             <ul>
                 <li className={quantity < 1? "text--red":""}>{name}</li>
                 <li>{price} <strong>{currency}</strong></li>
-                <li>{category[0]}, {category[1]}</li>
+                <li>{category}</li>
             </ul>  
         </article>
     );

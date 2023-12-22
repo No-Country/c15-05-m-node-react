@@ -14,14 +14,15 @@ const ControlEmpleados = () => {
 
     const getEmployes = async () => {
         const data = await  getEmployesAction(user.companyID)
-        setEmployes(data)
+        const newEployes = data.filter(employes => employes._id !== user.id )
+        setEmployes(newEployes)
     }
 
   
   return (
     <DashboardPage>
       <section className="employes__container">
-        <EmployesViews employes={employes}/>
+        <EmployesViews employes={employes} getEmployes={getEmployes }/>
         <FormEmployes getEmployes={getEmployes }/>
       </section>
     </DashboardPage>
