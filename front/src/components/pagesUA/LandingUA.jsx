@@ -26,28 +26,29 @@ const LandingUA = () => {
       </div>
       <Header showDown={false} />
       {company.image ? (
-        <Box sx={{ backgroundColor: "white", opacity: ".7"}}>
-        <Box
-          sx={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
-            mt: 2,
-          }}
-        >
-          <div>
-            <h1 className="company-name-landingUA">{company.name}</h1>
-            <p>ID: {company._id}</p>
-          </div>
-          <div className="image-company-landingUA">
-            <img src={company.image.url} className="landingUA-img-company" />
-          </div>
-        </Box>
+        <Box sx={{ backgroundColor: "white", opacity: ".7" }}>
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+              mt: 2,
+            }}
+          >
+            <div>
+              <h1 className="company-name-landingUA">{company.name}</h1>
+              <p>ID: {company._id}</p>
+            </div>
+            <div className="image-company-landingUA">
+              <img src={company.image.url} className="landingUA-img-company" />
+            </div>
+          </Box>
         </Box>
       ) : null}
 
       <Box
+        className="container-box"
         sx={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
@@ -57,6 +58,18 @@ const LandingUA = () => {
           padding: "2em",
           margin: ".5em 6em",
           position: "relative",
+          "@media screen and (max-width: 1080px)": {
+            gridTemplateColumns: "repeat(2, 1fr)",
+            margin: ".5em 2em",
+            gap: "2em",
+          },
+          "@media screen and (max-width: 650px)": {
+            gridTemplateColumns: "1fr",
+            margin: "5% auto",
+            padding: "0 20%",
+            textAlign: "center",
+            width: "80%",
+          },
         }}
       >
         <Link to="/">
