@@ -9,20 +9,15 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import { mainListItems, secondaryListItems } from "../dashboard/MUI/ListaItems";
 import Logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
-
 import { useEffect, useState } from "react";
-// import DashboardPage from "../dashboard/global/DashboardPage";
 import ButtonBack from "../Utils/Buttons/ButtonBack";
 import HeaderCatalogo from "../Catalogo/HeaderCatalogo";
 import CardsContainer from "../Catalogo/CardsContainer";
