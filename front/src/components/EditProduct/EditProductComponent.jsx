@@ -235,6 +235,7 @@ const EditProductComponent = () => {
                 idEdit={idEdit}
                 handleCategoryDelChange={handleCategoryDelChange}
                 categoryDel={editProduct.category}
+                categoria={categoria}
               >
                 <CurrencyInput
                   name="price"

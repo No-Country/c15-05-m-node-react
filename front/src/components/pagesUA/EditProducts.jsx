@@ -120,6 +120,7 @@ const EditProductsView = () => {
                     className="ipunto-icon"
                     src={Logo}
                     alt="logo de iPunto"
+                    width="45"
                   />
                   <p className="iPunto">iPunto</p>
                 </div>

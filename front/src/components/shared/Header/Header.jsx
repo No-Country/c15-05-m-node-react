@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Header.component.css";
 import { MdMenu } from "react-icons/md";
 import Logo from "../../../assets/logo.png";
-import { FaUserCircle } from "react-icons/fa"; // Asegúrate de importar FaUserCircle si no lo has hecho ya
+// import { FaUserCircle } from "react-icons/fa"; // Asegúrate de importar FaUserCircle si no lo has hecho ya
 
 const Header = ({ showDown = true }) => {
   // false: elimina "registrarse" e "inciar sesion"(Para rutas registro y login)
@@ -41,7 +41,7 @@ const Header = ({ showDown = true }) => {
             <Link to="/register-user">Registrarse</Link>
             <Link to="/login">Iniciar Sesión</Link>
 
-            <FaUserCircle className="icono-usuario" />
+            {/* <FaUserCircle className="icono-usuario" /> */}
           </div>
         </div>
       </div>
