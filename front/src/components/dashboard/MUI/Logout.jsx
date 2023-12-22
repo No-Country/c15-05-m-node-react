@@ -9,6 +9,7 @@ const Logout = () => {
     const navigate = useNavigate();
     const handleLogout = async (event) => {
         event.preventDefault();
+        localStorage.removeItem('user')
         dispatch(userLogoutAction());
         navigate("/");
         window.location.reload(true);
