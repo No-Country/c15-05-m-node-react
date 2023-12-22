@@ -24,7 +24,8 @@ const PanelEditOptions = ({
   handleCategoryDelChange,
   cantidad,
   idEdit,
-  categoryDel,
+  // categoryDel,
+  categoria
 }) => {
   return (
  
@@ -54,7 +55,7 @@ const PanelEditOptions = ({
               className="input-select-category-del"
               placeholder="Nuevo valor"
               onChange={handleCategoryDelChange}
-              value={category.indexOf(categoryDel)}
+              value={category.indexOf(categoria)}
               name="category-del"
               multiple={false}
             >
@@ -292,6 +293,7 @@ PanelEditOptions.propTypes = {
   handleInputQuantityChange: PropTypes.func.isRequired,
   idEdit: PropTypes.string.isRequired,
   handleCategoryDelChange: PropTypes.func.isRequired,
-  categoryDel: PropTypes.string.isRequired,
+  // categoryDel: PropTypes.string.isRequired,
+  categoria: PropTypes.array.isRequired,
 };
 export default PanelEditOptions;

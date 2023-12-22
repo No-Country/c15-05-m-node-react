@@ -12,7 +12,7 @@ const HeaderCatalogo = ({ setSearchQuery }) => {
     const nameCompany = 'Pet Shop'
 
     return(
-        <div className="mb-6 mt-6 flex flex-col">
+        <div className="mb-6 mt-1 flex flex-col">
             <h1 className="text-3xl text-center font-semibold">{nameCompany}</h1>
             <div className="p-4 border-2 border-gray-200 shadow shadow-gray-500 flex flex-row justify-between bg-white">
                 <SearchBar setSearchQuery={setSearchQuery}  className="w-1/5"/>
