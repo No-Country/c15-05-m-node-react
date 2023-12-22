@@ -35,11 +35,12 @@ const PanelEditName = ({
           name="edit"
         >
         <option  key="default">Seleccione</option>
-          {products ? products.map((option) => (
+          {products ? products.map((option,index) => (
     
             <option
+            
               className="option-select-edit"
-              key={option._id}
+              key={index}
               value={option._id}
               // onClick={handleClickPanelOptions}
             >

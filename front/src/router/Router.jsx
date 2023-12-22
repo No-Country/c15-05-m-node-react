@@ -1,8 +1,6 @@
 // import React from 'react'
 import { Route, Routes } from "react-router-dom";
 import Landing from "../components/pages/landing/Landing.jsx";
-
-
 import Inventory from "../components/pagesUA/Inventory";
 import LandingUA from "../components/pagesUA/LandingUA";
 import Catalogo from "../components/pagesUA/Catalogo";
@@ -30,7 +28,8 @@ const router = () => {
         <Route path="/register-company" element={<RegisterCompany />} />
         <Route path="/register-user" element={<RegisterUser />} />
         <Route path="/login" element={<Login />} />
-      
+        <Route path="*" element={<NotFound />} />
+
           {/* <Route element={<ProtectedRoute/>}> */}
             <Route exact path="/ua/product/catalogo" element={<Catalogo />} />
             <Route exact path="/ua/product/edit" element={<EditProductsView />} />
@@ -41,11 +40,8 @@ const router = () => {
             <Route exact path="/eua/dashboard" element={<DashboardEUA />} />
             <Route exact path="/ua/product/detail/:detailId" element={<DetailsProduct />}/>
             <Route exact path="/ua/product/analitics" element={<Analitics />} />
-
             <Route exact path="/ua/product/create" element={<CreateProductsView />} />
-       
             <Route path="/EUA" element={<EUA/>}/>
-             <Route path="*" element={<NotFound />} />
           {/* </Route> */}
 
       </Routes>

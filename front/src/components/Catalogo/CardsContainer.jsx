@@ -10,11 +10,13 @@ const CardsContainer = ({ searchQuery }) => {
   //const products = useSelector(state => state.company.products)
   //console.log("PRODUCTS" + products);
 
-  const filteredProducts = products.length ? products.filter((p) =>
+  const noStockFiltered = products.length ? products.filter(product => product.quantity !== 0) : []
+
+  const filteredProducts = noStockFiltered.length ? noStockFiltered.filter((p) =>
     p.name.toLowerCase().includes(searchQuery.toLowerCase())
   ) : [];
 //console.log("FILTERED" + filteredProducts);
-
+  
   const productsFormatted = filteredProducts.length ? filteredProducts.map((product, index) => {
     const name = product.name;
     const nameFormatted= name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
@@ -31,7 +33,7 @@ const CardsContainer = ({ searchQuery }) => {
 
 // const products = useSelector(state => state.products)
 // const company = useSelector(state => state.company);
-const nameCompany = company.name;
+const nameCompany = company ? company.name : null;
 //console.log("company", company)
 useEffect(() =>{
 setCompañia(company)
@@ -39,7 +41,7 @@ setCompañia(company)
 
 
   return (
-    <div className="flex flex-wrap mx-10">
+    <div className="flex flex-wrap mx-10 justify-center">
       {!productsFormatted.length ? (
         searchQuery !== "" && searchQuery !== products.name ? (
           <div className="w-100vw bg-white rounded-2xl text-center py-40 px-96 mx-10 font-roboto text-gray-500">

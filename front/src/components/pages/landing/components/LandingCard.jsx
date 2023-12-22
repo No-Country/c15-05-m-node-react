@@ -13,12 +13,12 @@ const LandingCard = () => {
     },
     {
       title: "INVENTARIO",
-      text: "Puedes monitorear el movimiento de tus productos, incluyendo la entrada y salida de los mismos. y estar al día cuando los niveles de tu inventario son bajos..",
+      text: "Puedes monitorear el movimiento de tus productos, incluyendo la entrada y salida de los mismos, y estar al día cuando los niveles de tu inventario son bajos.",
       imageSrc: Frame2,
     },
     {
-      title: "ADAPTABILIDAD",
-      text: "Integración con otros sistemas, como sistemas de punto de venta, para proporcionar una solución completa de gestión de inventario.",
+      title: "VENTAS",
+      text: "Todo en un solo lugar, una solución integral de gestión de inventario y ventas.",
       imageSrc: Frame3, // Reemplaza con la URL de tu imagen
     },
   ];
@@ -27,10 +27,9 @@ const LandingCard = () => {
     <div className="landingcard-container">
         <h2>¿Que ofrece <span>iPunto</span>?</h2>
     <div className="landingcard">
-      {" "}
-      {cardsData.map((card, index) => (
+          {cardsData.map((card, index) => (
         <div key={index} className="landingcard-card">
-          <img src={card.imageSrc} alt={`Imagen de ${card.title}`} />
+         
           <h3>{card.title}</h3>
           <p>{card.text}</p>
         </div>

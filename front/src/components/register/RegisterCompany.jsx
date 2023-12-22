@@ -8,7 +8,6 @@ import validationRC from "../Utils/validaciones/validacionRC";
 import { companyRegisterAction } from "../../redux/actionsCompany";
 import ImageUploading from "react-images-uploading";
 import imageDefault from "../../assets/Imagenes/logoFlecha.png";
-//import { Box } from "@mui/material";
 import AddPhotoAlternateOutlinedIcon from "@mui/icons-material/AddPhotoAlternateOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
@@ -81,7 +80,7 @@ const RegisterCompany = () => {
   };
 
   return (
-    <div className="w-full h-screen pt-0 bg-slate-200">
+    <div className="h-screen overflow-hidden">
       <Header />
       <div className="ml-20 mt-10">
         <ButtonBack />

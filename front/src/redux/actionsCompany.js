@@ -30,3 +30,12 @@ export const getCompanyAction = (companyID) => {
         }
     }
 }
+
+export const getEmployesAction = async (id)=>{
+    try {
+        const data = await axios.get(`${url}/api/company/employes/${id}`)
+        return data.data
+    } catch (error) {
+        console.log(error)
+    }
+}
