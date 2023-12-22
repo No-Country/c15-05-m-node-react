@@ -1,5 +1,5 @@
 import "./EditProducts.css";
-import { Button } from "@mui/material";
+import { Button, Container, Grid, Paper } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editProductAction } from "../../redux/actionsProducts";
@@ -7,6 +7,7 @@ import CurrencyInput from "react-currency-input-field";
 import PanelEditName from "./PanelEditName";
 import PanelEditOptions from "./PanelEditOptions";
 import imageDefault from "../../assets/Imagenes/logoFlecha.png";
+import CompanyInfo from "../dashboard/MUI/CompanyInfo"
 
 const EditProductComponent = () => {
   const { user } = useSelector((state) => state.user);
@@ -131,7 +132,7 @@ const EditProductComponent = () => {
           categoria.splice(parseInt(selectValue), 1);
           setCategoria([...categoria]);
           setCategory(categoria);
-          setCategoryDel("")
+          setCategoryDel("");
         }
         break;
       case "price":
@@ -175,74 +176,114 @@ const EditProductComponent = () => {
     setIdEdit("");
   };
   return (
-    <form onSubmit={handleSubmit} className="form-createComponent" action="">
-      <PanelEditName
-        nombre={nombre}
-        descripcion={descripcion}
-        imageProduct={imageProduct}
-        handleInputEditChange={handleInputEditChange}
-        handleInputNameChange={handleInputNameChange}
-        handleInputDescriptionChange={handleInputDescriptionChange}
-        onChangeImage={onChangeImage}
-        idEdit={idEdit}
-      />
-
-      <PanelEditOptions
-        nombre={editProduct.name}
-        descripcion={descripcion}
-        imageProduct={imageProduct}
-        price={editProduct.price}
-        moneda={moneda}
-        currency={editProduct.currency}
-        precio={precio}
-        category={category}
-        input={input}
-        handleClickPanelOptions={handleClickPanelOptions}
-        handleInputChange={handleInputChange}
-        handleInputPriceChange={handleInputPriceChange}
-        handleInputCurrencyChange={handleInputCurrencyChange}
-        cantidad={cantidad}
-        quantity={editProduct.quantity}
-        handleInputQuantityChange={handleInputQuantityChange}
-        idEdit={idEdit}
-        handleCategoryDelChange={handleCategoryDelChange}
-        categoryDel={editProduct.category}
-      >
-        <CurrencyInput
-          name="price"
-          prefix={editProduct.currency}
-          decimalsLimit={2}
-          decimalScale={2}
-          allowNegativeValue={false}
-          decimalSeparator=","
-          value={precio}
-          defaultValue={0}
-          inputMode="numeric"
-          pattern="[0-9]*"
-          onValueChange={handleInputPriceChange}
-        ></CurrencyInput>
-      </PanelEditOptions>
-
-      <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        elevation={0}
-        sx={{
-          width: "40em",
-          height: "3em",
-          left: 0,
-          backgroundColor: "#00bcd4",
-          borderRadius: "5px",
-          justifyContent: "center",
-          mt: "1.5em",
-          ["&:hover"]: { backgroundColor: "#B2EBF2", color: "#00BCD4" },
-          boxShadow: " 0px 4.46881px 4.46881px 0px rgba(0, 0, 0, 0.25)",
-        }}
-      >
-        EDITAR PRODUCTO
-      </Button>
-    </form>
+    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      <CompanyInfo/>
+      <Grid container spacing={3}>
+        <form
+          onSubmit={handleSubmit}
+          className="form-createComponent"
+          action=""
+        >
+          <Grid item xs={12} md={8} lg={6}>
+            <Paper
+              sx={{
+                p: 2,
+                display: "flex",
+                flexDirection: "column",
+                minHeight: "30em",
+              }}
+            >
+              <PanelEditName
+                nombre={nombre}
+                descripcion={descripcion}
+                imageProduct={imageProduct}
+                handleInputEditChange={handleInputEditChange}
+                handleInputNameChange={handleInputNameChange}
+                handleInputDescriptionChange={handleInputDescriptionChange}
+                onChangeImage={onChangeImage}
+                idEdit={idEdit}
+              />
+            </Paper>
+          </Grid>
+          {/*Panel Options */}
+          <Grid item xs={12} md={4} lg={5}>
+            <Paper
+              sx={{
+                p: 2,
+                display: "flex",
+                flexDirection: "column",
+                minHeight: "30em",
+              }}
+            >
+              <PanelEditOptions
+                nombre={editProduct.name}
+                descripcion={descripcion}
+                imageProduct={imageProduct}
+                price={editProduct.price}
+                moneda={moneda}
+                currency={editProduct.currency}
+                precio={precio}
+                category={category}
+                input={input}
+                handleClickPanelOptions={handleClickPanelOptions}
+                handleInputChange={handleInputChange}
+                handleInputPriceChange={handleInputPriceChange}
+                handleInputCurrencyChange={handleInputCurrencyChange}
+                cantidad={cantidad}
+                quantity={editProduct.quantity}
+                handleInputQuantityChange={handleInputQuantityChange}
+                idEdit={idEdit}
+                handleCategoryDelChange={handleCategoryDelChange}
+                categoryDel={editProduct.category}
+              >
+                <CurrencyInput
+                  name="price"
+                  prefix={editProduct.currency}
+                  decimalsLimit={2}
+                  decimalScale={2}
+                  allowNegativeValue={false}
+                  decimalSeparator=","
+                  value={precio}
+                  defaultValue={0}
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  onValueChange={handleInputPriceChange}
+                ></CurrencyInput>
+              </PanelEditOptions>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} >
+            <Paper
+              sx={{
+                p: 1,
+                display: "flex",
+                justifyContent: "center",
+                maxWidth: "60em",
+                alignSelf: "center",
+              }}
+            >
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                elevation={0}
+                sx={{
+                  width: "60em",
+                  height: "3em",
+                  backgroundColor: "#00bcd4",
+                  borderRadius: "5px",
+                  justifyContent: "center",
+                  ["&:hover"]: { backgroundColor: "#B2EBF2", color: "#00BCD4" },
+                  boxShadow: " 0px 4.46881px 4.46881px 0px rgba(0, 0, 0, 0.25)",
+                }}
+              >
+                EDITAR PRODUCTO
+              </Button>
+            </Paper>
+          </Grid>
+        </form>
+      </Grid>
+    </Container>
   );
 };
 

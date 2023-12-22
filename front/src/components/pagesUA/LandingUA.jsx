@@ -26,9 +26,8 @@ const LandingUA = () => {
 
   return (
     <>
-      <div className="landingUA-imageContainer">
-        <img src={gestionInventario} className="landingUA-img" />
-      </div>
+      <div  style={{ backgroundImage: `url(${gestionInventario})`, backgroundSize: "cover", opacity: ".7" }}>
+   
       <Header showDown={false} />
       {company.image ? (
         <Box sx={{ backgroundColor: "white", opacity: ".7"}}>
@@ -249,6 +248,7 @@ const LandingUA = () => {
           </MenuItem>
         </Link>
       </Box>
+      </div>
     </>
   );
 };
