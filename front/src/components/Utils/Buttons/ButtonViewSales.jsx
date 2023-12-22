@@ -1,12 +1,12 @@
 //import React from "react";
 import Button from '@mui/material/Button';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
-import { sweetAlertsError } from '../alerts/sweetAlerts';
+import { sweetAlertsError,sweetAlertsMessage } from '../alerts/sweetAlerts';
 
 const ButtonViewSales = (props) => {
 
     const handlerSales = () => {
-        sweetAlertsError('Página en desarrollo', `No podemos mostrar el análisis de ventas de ${props.name}`, "OK");
+        sweetAlertsMessage('Página en desarrollo', `No podemos mostrar el análisis de ventas de ${props.name}`);
     }
 
     return (

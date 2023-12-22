@@ -1,6 +1,6 @@
 import DashboardPage from "../dashboard/global/DashboardPage";
 import { useEffect } from "react";
-import { sweetAlertsError } from "../Utils/alerts/sweetAlerts";
+import {sweetAlertsMessage } from "../Utils/alerts/sweetAlerts";
 import { useNavigate } from "react-router-dom";
 
 const Analitics = () => {
@@ -8,7 +8,7 @@ const Analitics = () => {
   const navigate = useNavigate();
 
   useEffect(()=> {
-    sweetAlertsError('Página en desarrollo', 'Pronto podremos mostrar aquí el análisis de sus ventas', "OK");
+    sweetAlertsMessage('Página en desarrollo', 'Pronto podremos mostrar aquí el análisis de sus ventas',"OK");
     setTimeout(() => {
       navigate(-1);
     }, 2000);

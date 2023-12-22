@@ -32,11 +32,11 @@ export const sweetAlertsWarning = (title, text) => {
     cancelButtonText: "CANCEL"
   });
 };
-export const sweetAlertsMessage = ( title, text ) => {
+export const sweetAlertsMessage = ( title, text,textButton ) => {
   Swal.fire({
     icon: "info",
     title: title,
     text: text,
-    showConfirmButton: false,
+    showConfirmButton: textButton,
   });
 };
