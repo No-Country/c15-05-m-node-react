@@ -1,5 +1,6 @@
 // import React, { useState } from "react";
-import logo from "../../assets/Imagenes/imgEmpresa.jpg";
+// import logo from "../../assets/Imagenes/imgEmpresa.jpg";
+
 import imageLanding from "../../assets/LandingNew/Landing.jpeg";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -119,4 +120,6 @@ const Login = () => {
   );
 };
 
+
 export default Login;
+

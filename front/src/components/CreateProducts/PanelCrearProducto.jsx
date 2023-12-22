@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import AddPhotoAlternateOutlinedIcon from "@mui/icons-material/AddPhotoAlternateOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import ImageUploading from "react-images-uploading";
-// import { Box } from "@mui/material";
 import imageDefault from "../../assets/Imagenes/logoFlecha.png";
 
 const PanelCrearProducto = ({
@@ -18,17 +17,7 @@ const PanelCrearProducto = ({
   const maxNumber = 69;
 
   return (
-    // <Box
-    //   sx={{
-    //     width: "35em",
-    //     p: 2,
-    //     backgroundColor: "white",
-    //     borderRadius: "5px",
-    //     justifyContent: "center",
-
-    //   }}
-    // >
-      <div id="formCreateProduct" className="panelCreate-container">
+       <div id="formCreateProduct" className="panelCreate-container">
         <h2 className="title-createproduct">CREAR PRODUCTO</h2>
         <label
           id="inputlabel-name"
@@ -113,8 +102,7 @@ const PanelCrearProducto = ({
           </ImageUploading>
         </div>
       </div>
-    // </Box>
-  );
+   );
 };
 PanelCrearProducto.propTypes = {
   nombre: PropTypes.string.isRequired,
