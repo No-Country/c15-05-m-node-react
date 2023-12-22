@@ -28,12 +28,15 @@ const SidebarMenu = () => {
     }
   };
 
-  const handleLogout = async (event) => {
-    event.preventDefault();
-    dispatch(userLogoutAction());
-    navigate("/");
-    window.location.reload(true);
-  };
+
+const handleLogout = async (event) => {
+  event.preventDefault();
+  dispatch(userLogoutAction())
+  //quito los datos del usuario de localStorage
+  localStorage.removeItem("user");
+  navigate("/");
+  //window.location.reload(true);
+  }
   return (
     // <Box>
     <Sidebar

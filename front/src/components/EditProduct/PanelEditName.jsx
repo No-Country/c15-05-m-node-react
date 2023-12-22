@@ -3,16 +3,9 @@ import "./EditProducts.css";
 import PropTypes from "prop-types";
 import AddPhotoAlternateOutlinedIcon from "@mui/icons-material/AddPhotoAlternateOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-// import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
-// import imageDefault from "../../assets/logo.svg"
 import ImageUploading from "react-images-uploading";
-import { Box } from "@mui/material";
 import imageDefault from "../../assets/Imagenes/logoFlecha.png";
-// import { useDispatch, useSelector } from "react-redux";
 import { useSelector } from "react-redux";
-// import { useEffect, useState } from "react";
-// import { getAllProductsAction } from "../../redux/actionsProducts";
 
 const PanelEditName = ({
   nombre,
@@ -30,16 +23,7 @@ const PanelEditName = ({
   const maxNumber = 69;
 
   return (
-    <Box
-      sx={{
-        width: "35em",
-        p: 2,
-        backgroundColor: "white",
-        borderradius: "5px",
-        justifyContent: "center",
-        // border: "1px solid orange",
-      }}
-    >
+   
       <div id="formCreateProduct" className="panelCreate-container">
         <h2 className="title-createproduct">EDITAR PRODUCTO</h2>
         <p className="input-select-edit-label">Seleccione el producto:</p>
@@ -153,7 +137,6 @@ const PanelEditName = ({
           </ImageUploading>
         </div>
       </div>
-    </Box>
   );
 };
 PanelEditName.propTypes = {

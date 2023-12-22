@@ -10,7 +10,10 @@ import { getCompanyAction } from "../../redux/actionsCompany";
 const DetailsProduct = () => {
     const dispatch = useDispatch();
     const user= useSelector(state => state.user.user);
-    const companyId = user.companyID;
+    const userLocal = JSON.parse(localStorage.getItem('user'));
+
+    const companyId = userLocal ? userLocal.companyID[0] : user.companyID;
+    //const companyId = user.companyID;
     //console.log(" COMPAÑIA: ", companyId);
     const {detailId} = useParams();
     //console.log("ID PRODUCTO: ", detailId);
@@ -20,11 +23,15 @@ const DetailsProduct = () => {
         //console.log("despacha la action");
         //console.log("id producto: ", detailId);
         //console.log("id compañia: ", companyId);
+        const localUser = JSON.parse(localStorage.getItem('user'));
+      const dataUser = localUser ? localUser : user;
+      if(dataUser) {
         dispatch(getProductDetailAction(detailId, companyId));
         dispatch(getCompanyAction(companyId))
         setTimeout(() => {
             setIsLoading(false)
-          }, 3000);
+          }, 2000);
+      }
     }, [dispatch, detailId, companyId])
 
 

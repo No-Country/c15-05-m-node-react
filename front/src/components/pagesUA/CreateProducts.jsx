@@ -1,3 +1,6 @@
+// import Badge from "@mui/material/Badge";
+// import NotificationsIcon from "@mui/icons-material/Notifications";
+// import Link from '@mui/material/Link';
 import * as React from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -9,11 +12,8 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
-// import Link from '@mui/material/Link';
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import { mainListItems, secondaryListItems } from "../dashboard/MUI/ListaItems";
 import Logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
@@ -112,16 +112,11 @@ export default function CreateProductsView() {
                     className="ipunto-icon"
                     src={Logo}
                     alt="logo de iPunto"
-                  />
+                    width="45"                  />
                   <p className="iPunto">iPunto</p>
                 </div>
               </Link>
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -154,44 +149,8 @@ export default function CreateProductsView() {
           }}
         >
           <Toolbar />
+          
           <CreateProductsComponent/>
-          {/* <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-          Header
-    
-              <Grid item xs={12} md={8} lg={6}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    height: "30em",
-                  }}
-                >
-                  <PanelCrearProducto />
-                </Paper>
-              </Grid>
-         
-              <Grid item xs={12} md={4} lg={5}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    height: "30em",
-                  }}
-                >
-                  <PanelOptions />
-                </Paper>
-              </Grid>
-       
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-           
-                </Paper>
-              </Grid>
-            </Grid>
-          </Container> */}
         </Box>
       </Box>
     </ThemeProvider>

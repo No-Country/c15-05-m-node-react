@@ -9,21 +9,25 @@ import { useEffect } from "react";
 
 const LandingUA = () => {
   const { user } = useSelector((state) => state.user);
+  const userLocal = JSON.parse(localStorage.getItem('user'));
+
+  const companyId = userLocal ? userLocal.companyID[0] : user.companyID;
   const { company } = useSelector((state) => state.company);
   const dispatch = useDispatch();
   // const { products } = useSelector((state) => state.products);
   // console.log("ID", company._id);
   useEffect(() => {
-    if (user) {
-      dispatch(getCompanyAction(user.companyID));
+    const localUser = JSON.parse(localStorage.getItem('user'));
+    const dataUser = localUser ? localUser : user;
+    if (dataUser) {
+      dispatch(getCompanyAction(companyId));
     }
-  }, [user, dispatch]);
+  }, [user, companyId, dispatch]);
 
   return (
     <>
-      <div className="landingUA-imageContainer">
-        <img src={gestionInventario} className="landingUA-img" />
-      </div>
+      <div  style={{ backgroundImage: `url(${gestionInventario})`, backgroundSize: "cover", opacity: ".7" }}>
+   
       <Header showDown={false} />
       {company.image ? (
         <Box sx={{ backgroundColor: "white", opacity: ".7" }}>
@@ -44,6 +48,7 @@ const LandingUA = () => {
               <img src={company.image.url} className="landingUA-img-company" />
             </div>
           </Box>
+
         </Box>
       ) : null}
 
@@ -257,6 +262,7 @@ const LandingUA = () => {
           </MenuItem>
         </Link>
       </Box>
+      </div>
     </>
   );
 };
