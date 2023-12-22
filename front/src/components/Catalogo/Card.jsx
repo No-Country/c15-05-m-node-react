@@ -6,7 +6,7 @@ const Card = (props) => {
     return (
         <Link to={`/ua/product/detail/${props.id}`}>
             {/* {console.log(" ID PROPS: ", props.id)} */}
-    <div className="w-100% h-auto m-4 bg-white rounded-xl flex flex-col justify-center items-center border-2 border-gray-200 shadow shadow-gray-500 flex">
+    <div className="w-100% h-auto m-4 bg-white rounded-xl flex flex-col justify-center items-center border-2 border-gray-200 shadow shadow-gray-500">
         <img className="w-52 max-h-36 m-4 rounded-xl shadow shadow-gray-400" src={props.image.url} alt={`imagen de ${props.name}`}/> 
         <div className="w-full text-left ml-14">
             <h1 className="text-lg font-semibold font-barlow-condensed" >{props.name}</h1>
