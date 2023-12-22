@@ -161,10 +161,7 @@ export default function Dashboard() {
           {/* Container de Componente */}
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-          Header
-          {/*CREAR PRODUCTO */}
-              {/*Panel Crear Producto */}
-              <Grid item xs={12} md={8} lg={6}>
+             <Grid item xs={12} md={8} lg={6}>
                 <Paper
                   sx={{
                     p: 2,
@@ -176,7 +173,6 @@ export default function Dashboard() {
                   <PanelCrearProducto />
                 </Paper>
               </Grid>
-                {/*Panel Options */}
               <Grid item xs={12} md={4} lg={5}>
                 <Paper
                   sx={{
@@ -189,10 +185,10 @@ export default function Dashboard() {
                   <PanelOptions />
                 </Paper>
               </Grid>
-              {/* Recent Orders */}
+     
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-                  {/* <Orders /> */}
+    
                 </Paper>
               </Grid>
             </Grid>
