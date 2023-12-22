@@ -98,7 +98,8 @@ const Login = () => {
             className="w-full h-screen object-cover"
           />
         </div>
-        <div className="w-full md:w-1/2 px-20 overflow-y-auto fixed top-16 right-0 bottom-0  flex flex-col items-center justify-center pb-60 ">
+        <div className="w-full md:w-1/2 px-20
+        pb-60 overflow-y-auto fixed top-16 right-0 bottom-0 flex flex-col items-center justify-center ">
           <h1 className="mb-10 text-4xl text-center  font-semibold text-white md:text-black">
             Acceso de usuario
           </h1>

@@ -76,7 +76,7 @@ const RegisterUser = () => {
   };
   return (
    
-    <div className="w-full h-screen">
+    <div className="h-screen overflow-hidden">
       <Header showDown={false} />
       <div className="flex flex-col md:flex-row">
       <div className="w-full md:w-1/2 -z-10">
@@ -87,7 +87,8 @@ const RegisterUser = () => {
     />
   </div>
         <div className="w-full md:w-1/2 px-20
-        pb-60 overflow-y-auto fixed top-16 right-0 bottom-0 flex flex-col items-center justify-center">
+        py-20
+        pb-60 overflow-hidden fixed top-16 right-0 bottom-0 flex flex-col items-center justify-center">
           <h1 className="mb-10 text-4xl text-center font-semibold text-white md:text-black">
             Registro de Usuario
           </h1>

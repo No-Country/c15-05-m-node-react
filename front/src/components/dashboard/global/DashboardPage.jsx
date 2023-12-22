@@ -7,7 +7,7 @@ const DashboardPage = ({children}) => {
   return (
     <Box>
       <Header/>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", margin: "0 15%" }}>
       <SidebarMenu/>
       {children}
       </Box>
