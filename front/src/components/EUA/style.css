@@ -285,6 +285,9 @@ border-radius: 5px;
     color: #8a8a8a;
     width: 20%;
 }
+.select__category__eua{
+    display: none;
+}
 /* !========================= Lista de productos ====================== */
 
 .EUA__list__products--box{

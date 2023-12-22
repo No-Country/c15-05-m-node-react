@@ -48,7 +48,7 @@ function EUASearch() {
                 <input type="text" name="Search" onChange={handleChangeSearch} placeholder='Nombre ...' />
             </form>
 
-        <select onChange={handleChangeCategory} name="Category" >
+        <select onChange={handleChangeCategory} className="select__category__eua" name="Category" >
             <option value="">Categorias</option>
             {
                 categories.map((item,index)=>(
@@ -58,7 +58,7 @@ function EUASearch() {
         </select>
 
         <select name="BuscarStock" onChange={handleChangeStock}>
-            <option value={false} >Seleccionar...</option>
+            <option value={false} >Cantidad de Stock</option>
             <option value={true} >Stock 0</option>
             
         </select>
