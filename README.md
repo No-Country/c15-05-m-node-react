@@ -1,7 +1,7 @@
 # <p align="center"><img width="40px" src="https://i.imgur.com/3Q0OLpW.png" alt="Logo"><a href="https://ipunto.onrender.com/">iPunto</a><img width="40px" src="https://i.imgur.com/3Q0OLpW.png" alt="Otra imagen"></p>
 ## <p align="center"> Web de Gestión de Inventario y Ventas </p>
 
-![Imagen](https://i.imgur.com/mHXAFV1.png)
+![Imagen](https://i.imgur.com/td9SRU7.png)
 
 ## 🚀 Beneficios Clave 
 
