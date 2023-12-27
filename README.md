@@ -1,7 +1,7 @@
 # <p align="center"><img width="40px" src="https://i.imgur.com/3Q0OLpW.png" alt="Logo"><a href="https://ipunto.onrender.com/">iPunto</a><img width="40px" src="https://i.imgur.com/3Q0OLpW.png" alt="Otra imagen"></p>
 ## <p align="center"> Web de Gestión de Inventario y Ventas </p>
 
-![Imagen](https://i.imgur.com/mHXAFV1.png)
+![Imagen](https://i.imgur.com/pB6eXZg.png)
 
 ## 🚀 Beneficios Clave 
 
@@ -27,15 +27,11 @@ El proyecto iPunto abarca la planificación, el diseño, desarrollo, implementac
 
 ## 💫 Despliegue
 
-**[iPunto](https://ipunto.onrender.com/)** 
-
-## ▶️ Video Demo 
-
-**[Ver video](https://youtu.be/sUDWXduWUtU)** 
+- **[iPunto](https://ipunto.onrender.com/)** 
 
 ## 🎨 Diseño
 
-**[Figma Design](https://www.figma.com/file/THJ7AlmNhwuhffJYFQIvLM/Propuesta-Dise%C3%B1o?type=design&node-id=0-1&mode=design&t=NH1i2iLkqOtnWcIv-0)** 
+- **[Figma Design](https://www.figma.com/file/THJ7AlmNhwuhffJYFQIvLM/Propuesta-Dise%C3%B1o?type=design&node-id=0-1&mode=design&t=NH1i2iLkqOtnWcIv-0)** 
 
 ## 🚀 Lanzamiento
 
@@ -44,6 +40,12 @@ El proyecto iPunto abarca la planificación, el diseño, desarrollo, implementac
 ## 📈Futuras versiones
 - El proyecto sentó las bases para el crecimiento y desarrollo continuo de iPunto. 
 Al ser una solución escalable, se tiene previsto incorporar funcionalidades de informes y estadísticas que faciliten la toma de decisiones estratégicas.
+
+## ▶️ Video Demo 
+- **[Ver video](https://youtu.be/sUDWXduWUtU)** 
+
+![iPunto](https://github.com/No-Country/c15-05-m-node-react/assets/114413852/385c11a8-036a-436f-9d6b-82400284996c)
+
 
 <hr>
 
